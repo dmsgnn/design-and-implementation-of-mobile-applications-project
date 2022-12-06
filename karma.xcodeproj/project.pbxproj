@@ -8,13 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		1BD8C247293E5D6100F1B32A /* karmaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD8C246293E5D6100F1B32A /* karmaApp.swift */; };
-		1BD8C249293E5D6100F1B32A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD8C248293E5D6100F1B32A /* ContentView.swift */; };
 		1BD8C24B293E5D6200F1B32A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BD8C24A293E5D6200F1B32A /* Assets.xcassets */; };
 		1BD8C24E293E5D6200F1B32A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BD8C24D293E5D6200F1B32A /* Preview Assets.xcassets */; };
 		1BD8C258293E5D6300F1B32A /* karmaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD8C257293E5D6300F1B32A /* karmaTests.swift */; };
 		1BD8C262293E5D6300F1B32A /* karmaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD8C261293E5D6300F1B32A /* karmaUITests.swift */; };
 		1BD8C264293E5D6300F1B32A /* karmaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD8C263293E5D6300F1B32A /* karmaUITestsLaunchTests.swift */; };
 		E35215FA293F399F0074B787 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35215F9293F399F0074B787 /* RegistrationView.swift */; };
+		E35215FC293F3D4F0074B787 /* CustomInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35215FB293F3D4F0074B787 /* CustomInputField.swift */; };
+		E35215FE293F3EBD0074B787 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35215FD293F3EBD0074B787 /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +38,6 @@
 /* Begin PBXFileReference section */
 		1BD8C243293E5D6100F1B32A /* karma.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = karma.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BD8C246293E5D6100F1B32A /* karmaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = karmaApp.swift; sourceTree = "<group>"; };
-		1BD8C248293E5D6100F1B32A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1BD8C24A293E5D6200F1B32A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1BD8C24D293E5D6200F1B32A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1BD8C253293E5D6300F1B32A /* karmaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = karmaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -46,6 +46,8 @@
 		1BD8C261293E5D6300F1B32A /* karmaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = karmaUITests.swift; sourceTree = "<group>"; };
 		1BD8C263293E5D6300F1B32A /* karmaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = karmaUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E35215F9293F399F0074B787 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
+		E35215FB293F3D4F0074B787 /* CustomInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputField.swift; sourceTree = "<group>"; };
+		E35215FD293F3EBD0074B787 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,8 +166,9 @@
 		1BD8C274293E5DE300F1B32A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				1BD8C248293E5D6100F1B32A /* ContentView.swift */,
+				E35215FD293F3EBD0074B787 /* ContentView.swift */,
 				E35215F9293F399F0074B787 /* RegistrationView.swift */,
+				E35215FB293F3D4F0074B787 /* CustomInputField.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -301,8 +304,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E35215FA293F399F0074B787 /* RegistrationView.swift in Sources */,
-				1BD8C249293E5D6100F1B32A /* ContentView.swift in Sources */,
 				1BD8C247293E5D6100F1B32A /* karmaApp.swift in Sources */,
+				E35215FE293F3EBD0074B787 /* ContentView.swift in Sources */,
+				E35215FC293F3D4F0074B787 /* CustomInputField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
