@@ -14,6 +14,7 @@
 		1BD8C258293E5D6300F1B32A /* karmaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD8C257293E5D6300F1B32A /* karmaTests.swift */; };
 		1BD8C262293E5D6300F1B32A /* karmaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD8C261293E5D6300F1B32A /* karmaUITests.swift */; };
 		1BD8C264293E5D6300F1B32A /* karmaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD8C263293E5D6300F1B32A /* karmaUITestsLaunchTests.swift */; };
+		E35215FA293F399F0074B787 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35215F9293F399F0074B787 /* RegistrationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		1BD8C25D293E5D6300F1B32A /* karmaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = karmaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BD8C261293E5D6300F1B32A /* karmaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = karmaUITests.swift; sourceTree = "<group>"; };
 		1BD8C263293E5D6300F1B32A /* karmaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = karmaUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E35215F9293F399F0074B787 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				1BD8C248293E5D6100F1B32A /* ContentView.swift */,
+				E35215F9293F399F0074B787 /* RegistrationView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E35215FA293F399F0074B787 /* RegistrationView.swift in Sources */,
 				1BD8C249293E5D6100F1B32A /* ContentView.swift in Sources */,
 				1BD8C247293E5D6100F1B32A /* karmaApp.swift in Sources */,
 			);
