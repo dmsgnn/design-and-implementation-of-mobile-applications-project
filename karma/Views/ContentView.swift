@@ -14,6 +14,8 @@ struct ContentView: View {
     var body: some View {
         Group {
             if viewModel.userSession == nil {
+                
+                //TODO: Remember to change to LoginView()
                 RegistrationView()
             } else {
                 //MainPageView()
@@ -22,6 +24,12 @@ struct ContentView: View {
                         .imageScale(.large)
                         .foregroundColor(.accentColor)
                     Text("Hello, world!")
+                    
+                    Button {
+                        viewModel.signOut()
+                    } label: {
+                        Text("Sign Out")
+                    }
                 }
                 .padding()
             }
