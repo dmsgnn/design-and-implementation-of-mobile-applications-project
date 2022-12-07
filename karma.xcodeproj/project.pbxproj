@@ -21,6 +21,7 @@
 		E3521605293F51B30074B787 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = E3521604293F51B30074B787 /* FirebaseFirestore */; };
 		E3521607293F51B30074B787 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E3521606293F51B30074B787 /* FirebaseFirestoreSwift */; };
 		E3521609293F51B30074B787 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = E3521608293F51B30074B787 /* FirebaseStorage */; };
+		E378A41F2940E29A001CE2E2 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E378A41E2940E29A001CE2E2 /* AuthViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		E35215FB293F3D4F0074B787 /* CustomInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputField.swift; sourceTree = "<group>"; };
 		E35215FD293F3EBD0074B787 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E35215FF293F4F900074B787 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		E378A41E2940E29A001CE2E2 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,8 +110,8 @@
 		1BD8C245293E5D6100F1B32A /* karma */ = {
 			isa = PBXGroup;
 			children = (
+				E378A41D2940E271001CE2E2 /* ViewModels */,
 				1BD8C274293E5DE300F1B32A /* Views */,
-				1BD8C273293E5DD900F1B32A /* ViewModels */,
 				1BD8C272293E5DCB00F1B32A /* Models */,
 				1BD8C271293E5DB800F1B32A /* Services */,
 				1BD8C270293E5DA400F1B32A /* Repositories */,
@@ -167,13 +169,6 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		1BD8C273293E5DD900F1B32A /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
 		1BD8C274293E5DE300F1B32A /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +177,14 @@
 				E35215FB293F3D4F0074B787 /* CustomInputField.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		E378A41D2940E271001CE2E2 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				E378A41E2940E29A001CE2E2 /* AuthViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -324,6 +327,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E378A41F2940E29A001CE2E2 /* AuthViewModel.swift in Sources */,
 				E35215FA293F399F0074B787 /* RegistrationView.swift in Sources */,
 				1BD8C247293E5D6100F1B32A /* karmaApp.swift in Sources */,
 				E35215FE293F3EBD0074B787 /* ContentView.swift in Sources */,

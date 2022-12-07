@@ -11,6 +11,8 @@ import Firebase
 @main
 struct karmaApp: App {
     
+    @StateObject var viewModel = AuthViewModel()
+    
     init() {
         FirebaseApp.configure()
     }
@@ -18,8 +20,10 @@ struct karmaApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                RegistrationView()
+                ContentView()
+                
             }
+            .environmentObject(viewModel)
         }
     }
 }

@@ -15,6 +15,8 @@ struct RegistrationView: View {
     @State private var password = ""
     @Environment(\.dismiss) private var dismiss
     
+    @EnvironmentObject var viewModel: AuthViewModel
+    
     var body: some View {
         ZStack {
             Color(UIColor(red: 249/255, green: 249/255, blue: 249/255, alpha: 1))
@@ -58,7 +60,10 @@ struct RegistrationView: View {
                 Spacer()
                 
                 Button {
-                    dismiss()
+                    viewModel.register(withEmail: email,
+                                       password: password,
+                                       fullname: fullname,
+                                       username: username)
                 } label: {
                     Text("Sign Up")
                         .font(.headline)
@@ -77,7 +82,7 @@ struct RegistrationView: View {
                         .font(.footnote)
                 
                     Button {
-                        print("Go to SignIn View")
+                        dismiss()
                     } label: {
                         Text("Sign In")
                             .font(.footnote)
