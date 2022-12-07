@@ -19,16 +19,22 @@ struct RegistrationView: View {
     
     var body: some View {
         ZStack {
-            Color(UIColor(red: 249/255, green: 249/255, blue: 249/255, alpha: 1))
+            Color.theme.background
             
             VStack {
                 
                 Spacer()
                 
-                Text("Karma")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                    .foregroundColor(Color(UIColor(red: 51/255, green: 47/255, blue: 47/255, alpha: 1)))
+                HStack {
+                    Image("kLogo-40")
+                        .offset(x: 10, y: -7)
+                  
+                    Text("arma")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                    .foregroundColor(Color.theme.dark)
+                }
+                .offset(x: -5)
                 
                 Spacer()
                 
@@ -36,7 +42,7 @@ struct RegistrationView: View {
                     Text("Sign Up")
                         .font(.largeTitle)
                         .fontWeight(.bold)
-                        .foregroundColor(Color(UIColor(red: 51/255, green: 47/255, blue: 47/255, alpha: 1)))
+                        .foregroundColor(Color.theme.dark)
                         .padding(.horizontal)
                     
                     Spacer()
@@ -68,9 +74,8 @@ struct RegistrationView: View {
                     Text("Sign Up")
                         .font(.headline)
                         .foregroundColor(.white)
-                        .frame(width: 310, height: 50)
-                        .background(
-                            Color(UIColor(red: 51/255, green: 47/255, blue: 47/255, alpha: 1)))
+                        .frame(width: UIScreen.main.bounds.size.width*0.8, height: 50)
+                        .background(Color.theme.dark)
                         .clipShape(RoundedRectangle(cornerRadius: 15))
                 }
                 

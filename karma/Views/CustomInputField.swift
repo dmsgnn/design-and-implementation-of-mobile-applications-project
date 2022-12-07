@@ -24,7 +24,7 @@ struct CustomInputField: View {
                         .padding()
                 }
             }
-            .frame(width: 310, height: 50)
+            .frame(width: UIScreen.main.bounds.size.width*0.8, height: 50)
             .background(.white)
             .containerShape(RoundedRectangle(cornerRadius: 15))
 
