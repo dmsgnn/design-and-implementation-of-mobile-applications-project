@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B658DBC293F428C00DF06DB /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B658DBB293F428C00DF06DB /* LoginView.swift */; };
+		1B658DBE293F439B00DF06DB /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B658DBD293F439B00DF06DB /* LoginViewModel.swift */; };
 		1BD8C247293E5D6100F1B32A /* karmaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD8C246293E5D6100F1B32A /* karmaApp.swift */; };
 		1BD8C24B293E5D6200F1B32A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BD8C24A293E5D6200F1B32A /* Assets.xcassets */; };
 		1BD8C24E293E5D6200F1B32A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BD8C24D293E5D6200F1B32A /* Preview Assets.xcassets */; };
@@ -43,6 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1B658DBB293F428C00DF06DB /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		1B658DBD293F439B00DF06DB /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		1BD8C243293E5D6100F1B32A /* karma.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = karma.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BD8C246293E5D6100F1B32A /* karmaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = karmaApp.swift; sourceTree = "<group>"; };
 		1BD8C24A293E5D6200F1B32A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -185,7 +189,9 @@
 		E378A41D2940E271001CE2E2 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				E378A41E2940E29A001CE2E2 /* AuthViewModel.swift */,
+ 
+				1B658DBD293F439B00DF06DB /* LoginViewModel.swift */,
+      
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -193,7 +199,10 @@
 		E378A42029411341001CE2E2 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				E378A4212941135A001CE2E2 /* Color.swift */,
+
+				1BD8C248293E5D6100F1B32A /* ContentView.swift */,
+				1B658DBB293F428C00DF06DB /* LoginView.swift */,
+
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -338,8 +347,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E378A41F2940E29A001CE2E2 /* AuthViewModel.swift in Sources */,
-				E35215FA293F399F0074B787 /* RegistrationView.swift in Sources */,
+
+				1BD8C249293E5D6100F1B32A /* ContentView.swift in Sources */,
+				1B658DBC293F428C00DF06DB /* LoginView.swift in Sources */,
+				1B658DBE293F439B00DF06DB /* LoginViewModel.swift in Sources */,
 				1BD8C247293E5D6100F1B32A /* karmaApp.swift in Sources */,
 				E378A4222941135A001CE2E2 /* Color.swift in Sources */,
 				E35215FE293F3EBD0074B787 /* ContentView.swift in Sources */,
