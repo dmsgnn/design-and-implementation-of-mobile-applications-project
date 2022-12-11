@@ -80,15 +80,13 @@ struct RegistrationView: View {
                 }
                 
                 Spacer()
-                
-                HStack {
-                    
-                    Text("Already have an account ?")
-                        .font(.footnote)
-                
-                    Button {
-                        dismiss()
-                    } label: {
+            
+                Button {
+                    dismiss()
+                } label: {
+                    HStack {
+                        Text("Already have an account ?")
+                            .font(.footnote)
                         Text("Sign In")
                             .font(.footnote)
                             .fontWeight(.semibold)
@@ -96,6 +94,7 @@ struct RegistrationView: View {
                 }
                 .padding()
                 .foregroundColor(.black)
+                
             }
         }
         .ignoresSafeArea()

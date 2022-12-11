@@ -52,23 +52,38 @@ struct LoginView: View {
                         .foregroundColor(.white)
                         .background(.black)
                         .cornerRadius(16)
-
-                        
-                    Spacer()
-                        .frame(height: UIScreen.main.bounds.height * 0.1)
-                    Button("Don't have an account? SignUp", action: vm.logPressed)
-                        .tint(.black)
+                    
                     
                     Spacer()
                         .frame(height: UIScreen.main.bounds.height * 0.1)
-                }
-                .alert("Access denied!", isPresented: $vm.invalid) {
-                    Button("Dismiss", action: vm.logPressed)
+                    
+                   
+                    NavigationLink {
+                            RegistrationView()
+                    } label: {
+                        HStack {
+                            Text("Don't have an account ?")
+                                .font(.footnote)
+                            Text("Sign Up")
+                                .font(.footnote)
+                                .fontWeight(.semibold)
+                        }
+                        .foregroundColor(.black)
+                    }
+                    
+                    Spacer()
+                        .frame(height: UIScreen.main.bounds.height * 0.1)
+                    /*}
+                     .alert("Access denied!", isPresented: $vm.invalid) {
+                     Button("Dismiss", action: vm.logPressed)
+                     }
+                     
+                     }
+                     .transition(.offset(x: 0, y: 850))*/
                 }
                 .frame(width: UIScreen.main.bounds.width * 0.8)
                 .padding()
             }
-            .transition(.offset(x: 0, y: 850))
         }
     }
 }
