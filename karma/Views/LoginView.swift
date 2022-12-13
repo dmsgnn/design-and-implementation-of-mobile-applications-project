@@ -35,7 +35,7 @@ struct LoginView: View {
                     
                     
                     // Textfields for email and password
-                    TextField("Email", text: $vm.username)
+                    TextField("Email", text: $vm.email)
                         .textFieldStyle(.roundedBorder)
                         .textInputAutocapitalization(.never)
                     SecureField("Password", text: $vm.password)
