@@ -19,7 +19,7 @@ struct RegistrationView: View {
     
     var body: some View {
         ZStack {
-            Color.theme.background
+            Color.theme.custombackg
             
             VStack {
                 
