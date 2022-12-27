@@ -7,69 +7,26 @@
 
 import SwiftUI
 
-enum Tabs: Int {
-    case home = 0
-    case bookmarks = 1
-    case search = 2
-    case profile = 3
-}
-
 struct TabBarView: View {
     
-    @Binding var selectedTab: Tabs
-    
     var body: some View {
-        HStack(alignment: .center) {
-            
-            Button {
-                selectedTab = .home
-            } label: {
-                TabBarButton(imageName: "house", isActive: selectedTab == .home)
+        HStack(spacing: 50) {
+            ForEach(TabBarViewModel.allCases, id: \.rawValue) { option in
+                Image(systemName: option.imageName)
+                    .foregroundColor(Color(.systemGray))
+                
                 
             }
-
-            Button {
-                selectedTab = .bookmarks
-            } label: {
-                TabBarButton(imageName: "bookmark", isActive: selectedTab == .bookmarks)
-                
-            }
-            
-            Button {
-                //switch to add collection
-            } label: {
-                GeometryReader { geo in
-                    VStack(alignment: .center, spacing: 4) {
-                        Image(systemName: "plus.circle.fill")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 32, height: 32)
-                    }
-                    .frame(width: geo.size.width, height: geo.size.height)
-                }
-            }
-            
-            Button {
-                selectedTab = .search
-            } label: {
-                TabBarButton(imageName: "magnifyingglass.circle", isActive: selectedTab == .search)
-            }
-            
-            Button {
-                selectedTab = .profile
-            } label: {
-                
-                TabBarButton(imageName: "person", isActive: selectedTab == .profile)
-            }
-
         }
+        .frame(width: UIScreen.main.bounds.size.width, height: 84)
         .background(Color.theme.custombackg)
-        .frame(height: 84)
     }
+    
+    
 }
-
+    
 struct TabBarView_Previews: PreviewProvider {
     static var previews: some View {
-        TabBarView(selectedTab: .constant(.bookmarks))
+        TabBarView()
     }
 }

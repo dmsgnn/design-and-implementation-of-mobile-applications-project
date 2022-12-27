@@ -14,7 +14,6 @@ struct RegistrationView: View {
     @State private var email = ""
     @State private var password = ""
     @Environment(\.dismiss) private var dismiss
-    
     @EnvironmentObject var viewModel: AuthViewModel
     
     var body: some View {

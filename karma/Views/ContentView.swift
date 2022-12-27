@@ -1,38 +1,28 @@
-//
-//  ContentView.swift
-//  karma
-//
-//  Created by Giovanni Demasi on 05/12/22.
-//
+    //
+    //  ContentView.swift
+    //  karma
+    //
+    //  Created by Giovanni Demasi on 05/12/22.
+    //
 
-import SwiftUI
+    import SwiftUI
 
 struct ContentView: View {
     
     @EnvironmentObject var viewModel: AuthViewModel
     
+    //@State var selectedTab: Tabs = .search
+    
     var body: some View {
-        Group {
+        Group{
             if viewModel.userSession == nil {
                 LoginView()
-            } else {
+            } else if let user = viewModel.currentUser {
                 //MainPageView()
-                VStack {
-                    Image(systemName: "globe")
-                        .imageScale(.large)
-                        .foregroundColor(.accentColor)
-                    Text("Hello, world!")
-                    
-                    Button {
-                        viewModel.signOut()
-                    } label: {
-                        Text("Sign Out")
-                    }
-                }
-                .padding()
+                ProfileView(user: user)
             }
+            
         }
-        
     }
 }
 
