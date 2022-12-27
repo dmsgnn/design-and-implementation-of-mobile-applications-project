@@ -11,7 +11,7 @@ struct CollectionView: View {
     var body: some View {
         VStack {
             RoundedRectangle(cornerRadius: 15)
-                .frame(width: 300, height: 200)
+                .frame(width: 260, height: 160)
                 .foregroundColor(Color(.lightGray))
             
             Text("Collection Title")
@@ -37,6 +37,9 @@ struct CollectionView: View {
             }
             .padding(.top, 4)
         }
+        .frame(width: 300, height: 320)
+        .background(Color.white)
+        .clipShape(RoundedRectangle(cornerRadius: 10))
     }
 }
 

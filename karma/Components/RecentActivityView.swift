@@ -21,9 +21,9 @@ struct RecentActivityView: View {
                     .padding(.bottom, 2)
                 
                 Text("23 mar - Money sent")
-                    .font(.callout)
-                    .fontWeight(.regular)
-                    .foregroundColor(Color(.darkGray))
+                    .font(.subheadline)
+                    .fontWeight(.semibold)
+                    .foregroundColor(Color(.systemGray))
             }
             .padding(.vertical)
             
@@ -31,8 +31,9 @@ struct RecentActivityView: View {
                 .font(.title2)
                 .fontWeight(.semibold)
                 .padding(.trailing)
-                .offset(y: -15)
+                //.offset(y: -14)
         }
+        .background(Color(.white))
         .clipShape(RoundedRectangle(cornerRadius: 15))
     }
 }

@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ProfileView: View {
+    
+    @State var selectedTab: Tabs = .profile
+    
     var body: some View {
         ZStack {
             Color.theme.custombackg
@@ -22,10 +25,13 @@ struct ProfileView: View {
                 CollView
                 
                 RecentActivitiesView
-                
-                
-                
             }
+            
+            VStack {
+                Spacer()
+                TabBarView(selectedTab: $selectedTab)
+            }
+                
         }
         .ignoresSafeArea()
     }
@@ -73,29 +79,28 @@ extension ProfileView {
         HStack {
             VStack {
                 Text("23")
-                    .font(.title2).bold()
                 Text("Donazioni")
-                    .font(.title2)
+                    .fontWeight(.regular)
             }
             
             Spacer()
             
             VStack {
                 Text("5")
-                    .font(.title2).bold()
                 Text("Raccolte")
-                    .font(.title2)
+                    .fontWeight(.regular)
             }
             
             Spacer()
             
             VStack {
                 Text("+ 10 €")
-                    .font(.title2).bold()
                 Text("Bilancio")
-                    .font(.title2)
+                    .fontWeight(.regular)
             }
         }
+        .font(.title2)
+        .fontWeight(.bold)
         .padding(.horizontal, 20)
         
     }
@@ -113,7 +118,8 @@ extension ProfileView {
                     print("add a collection")
                 } label: {
                     Text("+ Add New")
-                        .foregroundColor(Color(.systemGray))
+                        .fontWeight(.semibold)
+                        .foregroundColor(Color(.systemBlue))
                 }
             }
             .padding(.horizontal, 20)
@@ -122,9 +128,10 @@ extension ProfileView {
                 HStack {
                     ForEach(0 ... 5, id: \.self){ _ in
                         CollectionView()
-                            .padding(.horizontal)
-                            .padding(.bottom)
+                            .padding(.horizontal, 10)
+                        
                     }
+                    
                 }
             }
         }
@@ -135,10 +142,15 @@ extension ProfileView {
             Text("Attività recenti")
                 .font(.title2)
                 .fontWeight(.semibold)
-            VStack {
-                ForEach(0 ... 20, id: \.self) { _ in
-                    RecentActivityView()
+            
+            ScrollView(.vertical, showsIndicators: false) {
+                VStack {
+                    ForEach(0 ... 20, id: \.self) { _ in
+                        RecentActivityView()
+                    }
+                    
                 }
+            
             }
         }
     }
