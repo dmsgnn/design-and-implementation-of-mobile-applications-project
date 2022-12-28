@@ -9,7 +9,10 @@ import SwiftUI
 
 struct ProfileView: View {
     @EnvironmentObject var authViewModel: AuthViewModel
+    
     //@State var selectedTab: Tabs = .profile
+    @State private var showNewCollectionView = false
+    
     private let user: User
     
     init(user: User) {
@@ -17,30 +20,25 @@ struct ProfileView: View {
     }
     
     var body: some View {
-            ZStack {
-                Color.theme.custombackg
+        
+        ScrollView(.vertical, showsIndicators: false) {
+            VStack {
+
+                headerView
                 
-                ScrollView{
-                    headerView
+                statsView
+                
+                Divider()
                     
-                    statsView
+                CollView
                     
-                    Divider()
-                    
-                    CollView
-                    
-                    RecentActivitiesView
+                RecentActivitiesView
+                
                 }
-                
-                VStack {
-                    Spacer()
-                    //TabBarView(selectedTab: $selectedTab)
-                }
-                
             }
-            .ignoresSafeArea()
-        }
+            .background(Color.theme.custombackg)
     }
+}
 
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
@@ -74,10 +72,10 @@ extension ProfileView {
             .padding(.vertical, 24)
             
             Button {
-                authViewModel.signOut()
-            } label: {
-                Text("Sign Out")
-            }
+             authViewModel.signOut()
+             } label: {
+             Text("Sign Out")
+             }
             
             Circle()
                 .frame(width: 100, height: 100)
@@ -130,7 +128,7 @@ extension ProfileView {
                 Spacer()
                 
                 Button {
-                    print("add a collection")
+                    showNewCollectionView.toggle()
                 } label: {
                     Text("+ Add New")
                         .fontWeight(.semibold)
@@ -138,6 +136,9 @@ extension ProfileView {
                 }
             }
             .padding(.horizontal, 20)
+            .fullScreenCover(isPresented: $showNewCollectionView) {
+                NewCollectionView()
+            }
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
@@ -165,8 +166,11 @@ extension ProfileView {
                     }
                     
                 }
-            
+                
             }
         }
     }
+    
 }
+
+

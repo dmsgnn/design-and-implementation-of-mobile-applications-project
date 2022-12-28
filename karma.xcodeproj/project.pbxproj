@@ -24,6 +24,7 @@
 		E3354771295B05A3003444E0 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3354770295B05A3003444E0 /* UserService.swift */; };
 		E3354773295B07FB003444E0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3354772295B07FB003444E0 /* User.swift */; };
 		E3354775295B5116003444E0 /* TabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3354774295B5116003444E0 /* TabBarViewModel.swift */; };
+		E3354777295C4088003444E0 /* NewCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3354776295C4088003444E0 /* NewCollectionView.swift */; };
 		E35215FA293F399F0074B787 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35215F9293F399F0074B787 /* RegistrationView.swift */; };
 		E35215FC293F3D4F0074B787 /* CustomInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35215FB293F3D4F0074B787 /* CustomInputField.swift */; };
 		E3521600293F4F910074B787 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E35215FF293F4F900074B787 /* GoogleService-Info.plist */; };
@@ -73,6 +74,7 @@
 		E3354770295B05A3003444E0 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserService.swift; path = karma/Components/UserService.swift; sourceTree = SOURCE_ROOT; };
 		E3354772295B07FB003444E0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = karma/Components/User.swift; sourceTree = SOURCE_ROOT; };
 		E3354774295B5116003444E0 /* TabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewModel.swift; sourceTree = "<group>"; };
+		E3354776295C4088003444E0 /* NewCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCollectionView.swift; sourceTree = "<group>"; };
 		E35215F9293F399F0074B787 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		E35215FB293F3D4F0074B787 /* CustomInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputField.swift; sourceTree = "<group>"; };
 		E35215FF293F4F900074B787 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -202,6 +204,7 @@
 				E35215F9293F399F0074B787 /* RegistrationView.swift */,
 				1B6B3145294520A000779BBE /* ContentView.swift */,
 				E335475F2958668B003444E0 /* ProfileView.swift */,
+				E3354776295C4088003444E0 /* NewCollectionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -382,6 +385,7 @@
 				E335476D295AE06C003444E0 /* TabBarView.swift in Sources */,
 				E335476F295AF7FF003444E0 /* TabBarButton.swift in Sources */,
 				E378A41F2940E29A001CE2E2 /* AuthViewModel.swift in Sources */,
+				E3354777295C4088003444E0 /* NewCollectionView.swift in Sources */,
 				E33547602958668B003444E0 /* ProfileView.swift in Sources */,
 				E35215FA293F399F0074B787 /* RegistrationView.swift in Sources */,
 				E3354775295B5116003444E0 /* TabBarViewModel.swift in Sources */,
