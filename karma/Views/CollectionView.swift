@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct CollectionView: View {
+    
+    let collection: Collection
+    
     var body: some View {
         VStack(alignment: .center, spacing: 24) {
             HStack(spacing: 16) {
@@ -18,10 +21,10 @@ struct CollectionView: View {
                     .shadow(radius: 5, x: 0, y: 5)
                 
                 VStack(alignment: .leading, spacing: 6) {
-                    Text("Title Collection")
+                    Text("\(collection.title)")
                         .font(.title2)
                         .fontWeight(.semibold)
-                    Text("raccolta fondi per...")
+                    Text("\(collection.caption)")
                         .font(.headline)
                         .fontWeight(.semibold)
                         .foregroundColor(Color(.systemGray2))
@@ -36,7 +39,7 @@ struct CollectionView: View {
                 Spacer()
                 HStack(spacing: 2){
                     Image(systemName: "eurosign")
-                    Text("230")
+                    Text("\(collection.currentAmount)")
                 }
                 .font(.title3)
                 .foregroundColor(Color(.darkGray))
@@ -52,8 +55,8 @@ struct CollectionView: View {
     }
 }
 
-struct CollectionView_Previews: PreviewProvider {
+/*struct CollectionView_Previews: PreviewProvider {
     static var previews: some View {
         CollectionView()
     }
-}
+}*/

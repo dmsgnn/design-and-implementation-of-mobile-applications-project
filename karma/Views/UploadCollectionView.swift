@@ -7,12 +7,21 @@
 
 import SwiftUI
 
-struct NewCollectionView: View {
+struct UploadCollectionView: View {
     @State private var title = ""
     @State private var description = ""
-    @State private var amount = ""
+    @State private var amount = 0.00
+    private let numberFormatter: NumberFormatter
     
     @Environment(\.presentationMode) var presentationMode
+    
+    @ObservedObject var viewModel = UploadCollectionViewModel()
+    
+    init() {
+        numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .currency
+        numberFormatter.maximumFractionDigits = 2
+    }
     
     var body: some View {
         VStack {
@@ -26,7 +35,7 @@ struct NewCollectionView: View {
                 Spacer()
                 
                 Button {
-                    print("publishing..")
+                    viewModel.uploadCollection(withTitle: title, withCaption: description, withAmount: Float(amount))
                 } label: {
                     Text("Publish")
                         .bold()
@@ -82,19 +91,25 @@ struct NewCollectionView: View {
                 Text("Set your amount...")
                     .font(.title2)
                     .fontWeight(.semibold)
-                TextField("0.00 €", text: $amount)
+                TextField("€ 0.00 ", value: $amount, formatter: numberFormatter)
                     .keyboardType(.decimalPad)
                     
             }
             
             Spacer()
         }
+        .onReceive(viewModel.$didUploadCollection) { success in
+            if success {
+                print("\(amount)")
+                presentationMode.wrappedValue.dismiss()
+            }
+        }
         
     }
 }
 
-struct NewCollectionView_Previews: PreviewProvider {
+struct UploadCollectionView_Previews: PreviewProvider {
     static var previews: some View {
-        NewCollectionView()
+        UploadCollectionView()
     }
 }

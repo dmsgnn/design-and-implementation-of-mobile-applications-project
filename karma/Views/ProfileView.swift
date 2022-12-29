@@ -9,14 +9,12 @@ import SwiftUI
 
 struct ProfileView: View {
     @EnvironmentObject var authViewModel: AuthViewModel
-    
+    @ObservedObject var viewModel: ProfileViewModel
     //@State var selectedTab: Tabs = .profile
     @State private var showNewCollectionView = false
     
-    private let user: User
-    
     init(user: User) {
-        self.user = user
+        self.viewModel = ProfileViewModel(user: user)
     }
     
     var body: some View {
@@ -81,7 +79,7 @@ extension ProfileView {
                 .frame(width: 100, height: 100)
                 .padding(.bottom, 18)
             
-            Text("\(user.username)")
+            Text("\(viewModel.user.username)")
                 .font(.title).bold()
         }
         .padding(.bottom,24)
@@ -137,13 +135,13 @@ extension ProfileView {
             }
             .padding(.horizontal, 20)
             .fullScreenCover(isPresented: $showNewCollectionView) {
-                NewCollectionView()
+                UploadCollectionView()
             }
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
-                    ForEach(0 ... 5, id: \.self){ _ in
-                        CollectionView()
+                    ForEach(viewModel.collections){ collection in
+                        CollectionView(collection: collection)
                             .padding(.horizontal, 10)
                         
                     }
