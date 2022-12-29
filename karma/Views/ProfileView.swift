@@ -19,22 +19,29 @@ struct ProfileView: View {
     
     var body: some View {
         
-        ScrollView(.vertical, showsIndicators: false) {
-            VStack {
+        ZStack {
+            ScrollView(.vertical, showsIndicators: false) {
+                VStack {
 
-                headerView
-                
-                statsView
-                
-                Divider()
+                    headerView
                     
-                CollView
+                    statsView
                     
-                RecentActivitiesView
-                
+                    Divider()
+                        
+                    CollView
+                        
+                    RecentActivitiesView
+                    
+                    }
                 }
-            }
-            .background(Color.theme.custombackg)
+                .background(Color.theme.custombackg)
+            
+            /*VStack {
+                Spacer()
+                TabBarView()
+            }*/
+        }
     }
 }
 
@@ -51,24 +58,6 @@ struct ProfileView_Previews: PreviewProvider {
 extension ProfileView {
     var headerView: some View {
         VStack {
-            HStack {
-                Button {
-                    print("go back")
-                } label: {
-                    Image(systemName: "arrow.left")
-                }
-                
-                Spacer()
-                
-                Button{
-                    print("settings")
-                } label: {
-                    Image(systemName: "ellipsis")
-                }
-            }
-            .padding(.horizontal, 20)
-            .padding(.vertical, 24)
-            
             Button {
              authViewModel.signOut()
              } label: {
@@ -97,7 +86,7 @@ extension ProfileView {
             Spacer()
             
             VStack {
-                Text("5")
+                Text("\(viewModel.collections.count)")
                 Text("Raccolte")
                     .fontWeight(.regular)
             }
