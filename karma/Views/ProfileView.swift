@@ -9,10 +9,9 @@ import SwiftUI
 
 struct ProfileView: View {
     @EnvironmentObject var authViewModel: AuthViewModel
+   
     @ObservedObject var viewModel: ProfileViewModel
-    @State private var showImagePicker = false
-    @State private var selectedImage: UIImage?
-    @State private var image: Image?
+    
     @State private var showNewCollectionView = false
     
     init(user: User) {
@@ -22,46 +21,45 @@ struct ProfileView: View {
     var body: some View {
         
         
-        ScrollView(.vertical, showsIndicators: false) {
-            VStack {
-                
+        ZStack {
+            Color.theme.custombackg
+            ScrollView(.vertical, showsIndicators: false) {
+
                 VStack {
-                    Button {
-                        authViewModel.signOut()
-                    } label: {
-                        Text("Sign Out")
-                    }
                     
-                    Button {
-                        showImagePicker.toggle()
-                    } label: {
+                    VStack {
+                        Button {
+                            authViewModel.signOut()
+                        } label: {
+                            Text("Sign Out")
+                        }
+                        
                         Circle()
                             .frame(width: 100, height: 100)
                             .padding(.bottom, 18)
+                    
+                        Text("\(viewModel.user.username)")
+                            .font(.title).bold()
                     }
-                    .sheet(isPresented: $showImagePicker) {
-                        ImagePicker(selectedImage: $selectedImage)
-                    }
-                    Text("\(viewModel.user.username)")
-                        .font(.title).bold()
+                    .padding(.bottom,24)
+                    .padding(.top, 20)
+                    
+                    
+                    statsView
+                    
+                    Divider()
+                    
+                    CollView
+                    
+                    RecentActivitiesView
+                    
                 }
-                .padding(.bottom,24)
-                .padding(.top, 20)
-                
-                
-                statsView
-                
-                Divider()
-                
-                CollView
-                
-                RecentActivitiesView
-                
             }
         }
-        .background(Color.theme.custombackg)
-        
+        .ignoresSafeArea()
+    
     }
+    
 }
 
 

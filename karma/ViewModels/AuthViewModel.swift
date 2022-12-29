@@ -14,6 +14,7 @@ class AuthViewModel: ObservableObject {
     @Published var userSession: FirebaseAuth.User?
     private let service = UserService()
     @Published var currentUser: User?
+    private var tempUserSession: FirebaseAuth.User?
     
     init() {
         self.userSession = Auth.auth().currentUser
@@ -34,11 +35,11 @@ class AuthViewModel: ObservableObject {
             }
             
             guard let user = result?.user else { return }
+            self.tempUserSession = user
+            
             self.userSession = user
             self.fetchUser()
             
-            print("DEBUG: register user successfully")
-            print("DEBUG: User is \(String(describing: self.userSession))")
             
             //dictionary for backend infos
             let data = ["email": email,
@@ -68,6 +69,18 @@ class AuthViewModel: ObservableObject {
         
         service.fetchUser(withUid: uid) { user in
             self.currentUser = user
+        }
+    }
+    
+    func uploadImage(_ image: UIImage) {
+        guard let uid = tempUserSession?.uid else { return }
+        
+        ImageUploader.uploadImage(image: image) { profileImageUrl in
+            Firestore.firestore().collection("users")
+                .document(uid)
+                .updateData(["profileImageUrl": profileImageUrl]) { _ in
+                    self.userSession = self.tempUserSession
+                }
         }
     }
 }
