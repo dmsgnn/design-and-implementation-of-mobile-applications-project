@@ -10,7 +10,9 @@ import SwiftUI
 struct ProfileView: View {
     @EnvironmentObject var authViewModel: AuthViewModel
     @ObservedObject var viewModel: ProfileViewModel
-    //@State var selectedTab: Tabs = .profile
+    @State private var showImagePicker = false
+    @State private var selectedImage: UIImage?
+    @State private var image: Image?
     @State private var showNewCollectionView = false
     
     init(user: User) {
@@ -19,31 +21,49 @@ struct ProfileView: View {
     
     var body: some View {
         
-        ZStack {
-            ScrollView(.vertical, showsIndicators: false) {
+        
+        ScrollView(.vertical, showsIndicators: false) {
+            VStack {
+                
                 VStack {
-
-                    headerView
-                    
-                    statsView
-                    
-                    Divider()
-                        
-                    CollView
-                        
-                    RecentActivitiesView
-                    
+                    Button {
+                        authViewModel.signOut()
+                    } label: {
+                        Text("Sign Out")
                     }
+                    
+                    Button {
+                        showImagePicker.toggle()
+                    } label: {
+                        Circle()
+                            .frame(width: 100, height: 100)
+                            .padding(.bottom, 18)
+                    }
+                    .sheet(isPresented: $showImagePicker) {
+                        ImagePicker(selectedImage: $selectedImage)
+                    }
+                    Text("\(viewModel.user.username)")
+                        .font(.title).bold()
                 }
-                .background(Color.theme.custombackg)
-            
-            /*VStack {
-                Spacer()
-                TabBarView()
-            }*/
+                .padding(.bottom,24)
+                .padding(.top, 20)
+                
+                
+                statsView
+                
+                Divider()
+                
+                CollView
+                
+                RecentActivitiesView
+                
+            }
         }
+        .background(Color.theme.custombackg)
+        
     }
 }
+
 
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
@@ -56,24 +76,7 @@ struct ProfileView_Previews: PreviewProvider {
 }
 
 extension ProfileView {
-    var headerView: some View {
-        VStack {
-            Button {
-             authViewModel.signOut()
-             } label: {
-             Text("Sign Out")
-             }
-            
-            Circle()
-                .frame(width: 100, height: 100)
-                .padding(.bottom, 18)
-            
-            Text("\(viewModel.user.username)")
-                .font(.title).bold()
-        }
-        .padding(.bottom,24)
-        .padding(.top, 20)
-    }
+    
     
     var statsView: some View {
         HStack {
