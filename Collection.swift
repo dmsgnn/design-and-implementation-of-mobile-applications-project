@@ -14,10 +14,12 @@ struct Collection: Identifiable, Decodable {
     let caption: String
     let amount: Float
     var currentAmount: Float
+    var favourites: Int
     var participants: Int
     let timestamp: Timestamp
     let uid: String
     
     var user: User?
+    var didLike: Bool? = false
 }
 

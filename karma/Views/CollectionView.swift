@@ -8,10 +8,15 @@
 import SwiftUI
 
 struct CollectionView: View {
+    @ObservedObject var viewModel: CollectionViewModel
     
-    let collection: Collection
+    init(collection: Collection) {
+        self.viewModel = CollectionViewModel(collection: collection)
+    }
+
     
     var body: some View {
+    
         VStack(alignment: .center, spacing: 24) {
             HStack(spacing: 16) {
                 Image(systemName: "photo")
@@ -21,14 +26,22 @@ struct CollectionView: View {
                     .shadow(radius: 5, x: 0, y: 5)
                 
                 VStack(alignment: .leading, spacing: 6) {
-                    Text("\(collection.title)")
+                    Text(viewModel.collection.title)
                         .font(.title2)
                         .fontWeight(.semibold)
-                    Text("\(collection.caption)")
+                    Text(viewModel.collection.caption)
                         .font(.headline)
                         .fontWeight(.semibold)
                         .foregroundColor(Color(.systemGray2))
                 }
+                
+                Button {
+                    viewModel.addToFavourite()
+                } label: {
+                    Image(systemName: viewModel.collection.didLike ?? false ? "bookmark.fill" : "bookmark")
+                    
+                }
+                .offset(x:-2, y: -35)
             }
             
             HStack() {
@@ -39,7 +52,7 @@ struct CollectionView: View {
                 Spacer()
                 HStack(spacing: 2){
                     Image(systemName: "eurosign")
-                    Text("\(collection.currentAmount)")
+                    Text("\(viewModel.collection.currentAmount)")
                 }
                 .font(.title3)
                 .foregroundColor(Color(.darkGray))

@@ -17,6 +17,7 @@ struct CollectionService {
                      "caption": caption,
                      "amount": amount,
                      "currentAmount": 0,
+                     "favourites": 0,
                      "participants": 0,
                      "timestamp": Timestamp(date: Date())] as [String : Any]
         
@@ -50,6 +51,19 @@ struct CollectionService {
                 guard let documents = snapshot?.documents else { return }
                 let collections = documents.compactMap({try? $0.data(as: Collection.self) })
                 completion(collections.sorted(by: { $0.timestamp.dateValue() > $1.timestamp.dateValue() }))
+            }
+    }
+    
+    func addToFavourite(_ collection: Collection, completion: @escaping() -> Void) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        guard let collId = collection.id else { return }
+        let userFavRef = Firestore.firestore().collection("users").document(uid).collection("user-favs")
+        
+        Firestore.firestore().collection("collections").document(collId)
+            .updateData(["favourites": collection.favourites + 1]) { _ in
+                userFavRef.document(collId).setData([:]) { _ in
+                    completion()
+                }
             }
     }
 }

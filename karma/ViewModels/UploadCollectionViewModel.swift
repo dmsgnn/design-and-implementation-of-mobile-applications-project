@@ -8,6 +8,7 @@
 import Foundation
 
 class UploadCollectionViewModel: ObservableObject {
+    
     @Published var didUploadCollection = false
     let service = CollectionService()
     

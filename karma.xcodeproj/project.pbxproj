@@ -41,6 +41,7 @@
 		E3521607293F51B30074B787 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E3521606293F51B30074B787 /* FirebaseFirestoreSwift */; };
 		E3521609293F51B30074B787 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = E3521608293F51B30074B787 /* FirebaseStorage */; };
 		E36EFC50295ED26B00301ED4 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = E36EFC4F295ED26B00301ED4 /* Kingfisher */; };
+		E36EFC52295EE12100301ED4 /* CollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36EFC51295EE12100301ED4 /* CollectionViewModel.swift */; };
 		E378A41F2940E29A001CE2E2 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E378A41E2940E29A001CE2E2 /* AuthViewModel.swift */; };
 		E378A4222941135A001CE2E2 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = E378A4212941135A001CE2E2 /* Color.swift */; };
 /* End PBXBuildFile section */
@@ -95,6 +96,7 @@
 		E35215F9293F399F0074B787 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		E35215FB293F3D4F0074B787 /* CustomInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputField.swift; sourceTree = "<group>"; };
 		E35215FF293F4F900074B787 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		E36EFC51295EE12100301ED4 /* CollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewModel.swift; sourceTree = "<group>"; };
 		E378A41E2940E29A001CE2E2 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		E378A4212941135A001CE2E2 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -261,6 +263,7 @@
 				E3354774295B5116003444E0 /* TabBarViewModel.swift */,
 				E334CDBC295D93FE0082FC17 /* UploadCollectionViewModel.swift */,
 				E334CDBE295D94190082FC17 /* ProfileViewModel.swift */,
+				E36EFC51295EE12100301ED4 /* CollectionViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -417,6 +420,7 @@
 			files = (
 				E3354771295B05A3003444E0 /* UserService.swift in Sources */,
 				E335476529586BDD003444E0 /* RecentActivityView.swift in Sources */,
+				E36EFC52295EE12100301ED4 /* CollectionViewModel.swift in Sources */,
 				E33547672959AB64003444E0 /* CollectionView.swift in Sources */,
 				E335476D295AE06C003444E0 /* TabBarView.swift in Sources */,
 				E335476F295AF7FF003444E0 /* TabBarButton.swift in Sources */,
