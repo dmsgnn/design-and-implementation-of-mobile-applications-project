@@ -36,6 +36,7 @@ struct UploadCollectionView: View {
                 
                 Button {
                     viewModel.uploadCollection(withTitle: title, withCaption: description, withAmount: Float(amount))
+                
                 } label: {
                     Text("Publish")
                         .bold()
@@ -45,6 +46,7 @@ struct UploadCollectionView: View {
                         .foregroundColor(.white)
                         .clipShape(Capsule())
                 }
+            
             }
             .padding()
             

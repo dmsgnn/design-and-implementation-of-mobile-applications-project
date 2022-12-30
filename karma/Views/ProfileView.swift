@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct ProfileView: View {
     @EnvironmentObject var authViewModel: AuthViewModel
@@ -27,8 +28,10 @@ struct ProfileView: View {
 
                 VStack {
                     VStack {
-                        
-                        Circle()
+                        KFImage(URL(string: viewModel.user.profileImageUrl))
+                            .resizable()
+                            .scaledToFill()
+                            .clipShape(Circle())
                             .frame(width: 100, height: 100)
                             .padding(.bottom, 18)
                     
@@ -56,6 +59,9 @@ struct ProfileView: View {
                 }
             }
         }
+        .refreshable {
+            viewModel.fetchUserCollections()
+        }
         .ignoresSafeArea()
     
     }
@@ -69,6 +75,7 @@ struct ProfileView_Previews: PreviewProvider {
             id: NSUUID().uuidString,
             username: "tombucaioni",
             fullname: "Tommaso Bucaioni",
+            profileImageUrl: "",
             email: "tbucaioni@virgilio.it"))
     }
 }
