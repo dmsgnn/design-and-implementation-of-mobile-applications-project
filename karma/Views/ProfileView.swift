@@ -92,12 +92,14 @@ struct ProfileView: View {
                     }
                 }
             }
+            .navigationTitle(Text("ciao"))
             .refreshable {
                 viewModel.fetchUserCollections()
             }
             .ignoresSafeArea()
             
         }
+       
         
     }
     

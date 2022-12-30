@@ -12,8 +12,8 @@ struct Collection: Identifiable, Decodable {
     @DocumentID var id: String?
     let title: String
     let caption: String
-    let amount: Float
-    var currentAmount: Float
+    let amount: Double
+    var currentAmount: Double
     var favourites: Int
     var participants: Int
     let timestamp: Timestamp

@@ -23,7 +23,6 @@
 		E33547602958668B003444E0 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E335475F2958668B003444E0 /* ProfileView.swift */; };
 		E335476529586BDD003444E0 /* RecentActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E335476429586BDD003444E0 /* RecentActivityView.swift */; };
 		E33547672959AB64003444E0 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33547662959AB64003444E0 /* CollectionView.swift */; };
-		E335476D295AE06C003444E0 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E335476C295AE06C003444E0 /* MainTabView.swift */; };
 		E335476F295AF7FF003444E0 /* TabBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E335476E295AF7FF003444E0 /* TabBarButton.swift */; };
 		E3354771295B05A3003444E0 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3354770295B05A3003444E0 /* UserService.swift */; };
 		E3354773295B07FB003444E0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3354772295B07FB003444E0 /* User.swift */; };
@@ -44,6 +43,7 @@
 		E36EFC52295EE12100301ED4 /* CollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36EFC51295EE12100301ED4 /* CollectionViewModel.swift */; };
 		E378A41F2940E29A001CE2E2 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E378A41E2940E29A001CE2E2 /* AuthViewModel.swift */; };
 		E378A4222941135A001CE2E2 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = E378A4212941135A001CE2E2 /* Color.swift */; };
+		E3A8D0C6295F95B200C029C1 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A8D0C5295F95B200C029C1 /* Double.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,7 +83,6 @@
 		E335475F2958668B003444E0 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		E335476429586BDD003444E0 /* RecentActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentActivityView.swift; sourceTree = "<group>"; };
 		E33547662959AB64003444E0 /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CollectionView.swift; path = ../Views/CollectionView.swift; sourceTree = "<group>"; };
-		E335476C295AE06C003444E0 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		E335476E295AF7FF003444E0 /* TabBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarButton.swift; sourceTree = "<group>"; };
 		E3354770295B05A3003444E0 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserService.swift; path = karma/Components/UserService.swift; sourceTree = SOURCE_ROOT; };
 		E3354772295B07FB003444E0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = karma/Components/User.swift; sourceTree = SOURCE_ROOT; };
@@ -99,6 +98,7 @@
 		E36EFC51295EE12100301ED4 /* CollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewModel.swift; sourceTree = "<group>"; };
 		E378A41E2940E29A001CE2E2 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		E378A4212941135A001CE2E2 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		E3A8D0C5295F95B200C029C1 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,7 +224,6 @@
 		1BD8C274293E5DE300F1B32A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				E335476C295AE06C003444E0 /* MainTabView.swift */,
 				1B658DBB293F428C00DF06DB /* LoginView.swift */,
 				E35215F9293F399F0074B787 /* RegistrationView.swift */,
 				1B6B3145294520A000779BBE /* ContentView.swift */,
@@ -272,6 +271,7 @@
 			isa = PBXGroup;
 			children = (
 				E378A4212941135A001CE2E2 /* Color.swift */,
+				E3A8D0C5295F95B200C029C1 /* Double.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -422,7 +422,7 @@
 				E335476529586BDD003444E0 /* RecentActivityView.swift in Sources */,
 				E36EFC52295EE12100301ED4 /* CollectionViewModel.swift in Sources */,
 				E33547672959AB64003444E0 /* CollectionView.swift in Sources */,
-				E335476D295AE06C003444E0 /* MainTabView.swift in Sources */,
+				E3A8D0C6295F95B200C029C1 /* Double.swift in Sources */,
 				E335476F295AF7FF003444E0 /* TabBarButton.swift in Sources */,
 				E339158E295DEF3D00945EFA /* ImageUploader.swift in Sources */,
 				E378A41F2940E29A001CE2E2 /* AuthViewModel.swift in Sources */,

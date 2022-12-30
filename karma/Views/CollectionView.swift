@@ -51,12 +51,11 @@ struct CollectionView: View {
                     Text("5 participants")
                 }
                 Spacer()
-                HStack(spacing: 2){
-                    Image(systemName: "eurosign")
-                    Text("\(viewModel.collection.currentAmount)")
-                }
-                .font(.title3)
-                .foregroundColor(Color(.darkGray))
+            
+                Text(viewModel.collection.currentAmount.toCurrency())
+                    .font(.title3)
+                    .foregroundColor(Color(.darkGray))
+            
             }
             .foregroundColor(Color(.systemGray))
             .font(.subheadline)
