@@ -66,5 +66,31 @@ struct CollectionService {
                 }
             }
     }
+    
+    func checkIfUserlikedCollection(_ collection: Collection, completion: @escaping(Bool) -> Void) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        guard let collId = collection.id else { return }
+        
+        Firestore.firestore().collection("users").document(uid).collection("user-favs").document(collId).getDocument { snapshot, _ in
+            guard let snapshot = snapshot else { return }
+            completion(snapshot.exists)
+        }
+    }
+    
+    func removeFromFavourite(_ collection: Collection, completion: @escaping() -> Void) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        guard let collId = collection.id else { return }
+        guard collection.favourites > 0 else { return }
+        
+        let userFavRef = Firestore.firestore().collection("users").document(uid).collection("user-favs")
+        
+        Firestore.firestore().collection("collections").document(collId)
+            .updateData(["favourites": collection.favourites - 1]) { _ in
+                userFavRef.document(collId).delete() { _ in
+                    completion()
+            }
+        }
+        
+    }
 }
 

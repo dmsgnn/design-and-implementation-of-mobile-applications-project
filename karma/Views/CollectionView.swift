@@ -36,9 +36,10 @@ struct CollectionView: View {
                 }
                 
                 Button {
-                    viewModel.addToFavourite()
+                    viewModel.collection.didLike ?? false ? viewModel.removeFromFavourite() : viewModel.addToFavourite()
                 } label: {
                     Image(systemName: viewModel.collection.didLike ?? false ? "bookmark.fill" : "bookmark")
+                        .foregroundColor(viewModel.collection.didLike ?? false ? .red : Color(.systemBlue))
                     
                 }
                 .offset(x:-2, y: -35)

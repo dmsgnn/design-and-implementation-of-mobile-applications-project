@@ -21,49 +21,84 @@ struct ProfileView: View {
     
     var body: some View {
         
-        
-        ZStack {
-            Color.theme.custombackg
-            ScrollView(.vertical, showsIndicators: false) {
-
-                VStack {
+        NavigationView {
+            ZStack {
+                Color.theme.custombackg
+                ScrollView(.vertical, showsIndicators: false) {
                     VStack {
-                        KFImage(URL(string: viewModel.user.profileImageUrl))
-                            .resizable()
-                            .scaledToFill()
-                            .clipShape(Circle())
-                            .frame(width: 100, height: 100)
-                            .padding(.bottom, 18)
-                    
-                        Button {
-                            authViewModel.signOut()
-                        } label: {
-                            Text("Sign Out")
+                        VStack {
+                            KFImage(URL(string: viewModel.user.profileImageUrl))
+                                .resizable()
+                                .scaledToFill()
+                                .clipShape(Circle())
+                                .frame(width: 100, height: 100)
+                                .padding(.bottom, 18)
+                            
+                            Button {
+                                authViewModel.signOut()
+                            } label: {
+                                Text("Sign Out")
+                            }
+                            
+                            Text("\(viewModel.user.username)")
+                                .font(.title).bold()
+                        }
+                        .padding(.bottom,24)
+                        .padding(.top, 20)
+                        .toolbar {
+                            ToolbarItem(placement: .navigationBarTrailing) {
+                                Menu {
+                                    Button {
+                                        print("editing")
+                                    } label: {
+                                        HStack {
+                                            Text("Edit Profile")
+                                            Spacer()
+                                            Image(systemName: "pencil")
+                                        }
+                                    }
+                                    
+                                    Button {
+                                        print("changing photo")
+                                    } label: {
+                                        Text("Change profile photo")
+                                        Spacer()
+                                        Image(systemName: "photo")
+                                    }
+                                    
+                                    Button {
+                                        print("reading privacy")
+                                    } label: {
+                                        Text("Privacy Policy")
+                                        Spacer()
+                                        Image(systemName: "doc.text")
+                                    }
+
+                                } label: {
+                                    Image(systemName: "ellipsis")
+                                }
+                            }
                         }
                         
-                        Text("\(viewModel.user.username)")
-                            .font(.title).bold()
+                        
+                        statsView
+                        
+                        Divider()
+                        
+                        CollView
+                        
+                        RecentActivitiesView
+                        
                     }
-                    .padding(.bottom,24)
-                    .padding(.top, 20)
-                    
-                    
-                    statsView
-                    
-                    Divider()
-                    
-                    CollView
-                    
-                    RecentActivitiesView
-                    
                 }
             }
+            .refreshable {
+                viewModel.fetchUserCollections()
+            }
+            .ignoresSafeArea()
+            
         }
-        .refreshable {
-            viewModel.fetchUserCollections()
-        }
-        .ignoresSafeArea()
-    
+        
     }
     
 }
