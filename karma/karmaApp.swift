@@ -20,11 +20,11 @@ struct karmaApp: App {
     
     var body: some Scene {
         WindowGroup {
-            //NavigationView {
-                ImageUploaderView() //Replace it with dashboardView
+            NavigationView {
+                ContentView() //Replace it with dashboardView
                 
             }
-            //.environmentObject(viewModel)
+            .environmentObject(viewModel)
         }
-    //}
+    }
 }

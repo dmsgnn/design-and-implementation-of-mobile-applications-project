@@ -11,77 +11,60 @@ import FirebaseFirestore
 
 struct ImageUploaderView: View {
     
-    @State var isPickerShowing = false
-    @State var selectedImage: UIImage?
-
+    @State private var showImagePicker = false
+    @State private var selectedImage: UIImage?
+    @State private var profileImage: Image?
+    @EnvironmentObject var viewModel: AuthViewModel
+    
     var body: some View {
+        
         VStack {
-            if selectedImage != nil {
-                Image(uiImage: selectedImage!)
-                    .resizable()
-                    .frame(width: 100, height: 100)
-            }
             Button {
-                isPickerShowing = true
-                //show the image picker
+                showImagePicker.toggle()
             } label: {
-                Text("select a photo")
+                if let profileImage = profileImage {
+                    profileImage
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 180, height: 180)
+                        .clipShape(Circle())
+                } else {
+                    VStack {
+                        Image(systemName: "plus.circle")
+                            .resizable()
+                            .renderingMode(.template)
+                            .scaledToFill()
+                            .frame(width: 100, height: 100)
+                            .padding(.bottom)
+                        Text("select a photo")
+                    }
+                }
+            }
+            .sheet(isPresented: $showImagePicker, onDismiss: loadImage) {
+                ImagePicker(selectedImage: $selectedImage)
             }
             
-            if selectedImage != nil {
+            if let selectedImage = selectedImage {
                 Button {
-                    uploadPhoto()
+                    viewModel.uploadImage(selectedImage)
                 } label: {
-                    Text("Upload photo")
+                    Text("Continue")
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .frame(width: UIScreen.main.bounds.size.width*0.8, height: 50)
+                        .background(Color.theme.dark)
+                        .clipShape(RoundedRectangle(cornerRadius: 15))
                 }
             }
         }
-        .sheet(isPresented: $isPickerShowing, onDismiss: nil) {
-            //image picker
-            ImagePicker(selectedImage: $selectedImage, isPickerShowing: $isPickerShowing)
-        }
-        
     }
     
-    func uploadPhoto() {
+    func loadImage() {
+        guard let selectedImage = selectedImage else { return }
+        profileImage = Image(uiImage: selectedImage)
         
-        //Make sure that the selectede image property isn't nil
-        guard selectedImage != nil else {
-            return
-        }
-        //create storage reference
-        let storageRef = Storage.storage().reference()
-        
-        //Turn our image into data
-        let imageData = selectedImage?.jpegData(compressionQuality: 0.5)
-        
-        //check we were able to convert its to data
-        guard imageData != nil else {
-            return
-        }
-        
-        //specify the file path and name
-        
-        let path = "images/\(UUID().uuidString).jpg"
-        let fileRef = storageRef.child("images/\(UUID().uuidString).jpg")
-        
-        //Upload that data
-        let uploadTask = fileRef.putData(imageData!, metadata: nil) {
-            metadata, error in
-            
-            if error == nil && metadata != nil {
-                
-                //Save a reference to the file in Firestore DB
-                let db = Firestore.firestore()
-                db.collection("images").document().setData(["url":path])
-            }
-        }
-    
     }
-    
-   
-    
-    
+
 }
 
 struct ImageUploaderView_Previews: PreviewProvider {

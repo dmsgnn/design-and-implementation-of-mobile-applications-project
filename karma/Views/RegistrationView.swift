@@ -21,7 +21,9 @@ struct RegistrationView: View {
             Color.theme.custombackg
             
             VStack {
-                
+                NavigationLink(destination: ImageUploaderView(),
+                               isActive: $viewModel.didAuthenticateUser,
+                               label: { })
                 Spacer()
                 
                 HStack {

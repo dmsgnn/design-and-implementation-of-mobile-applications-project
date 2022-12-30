@@ -26,18 +26,18 @@ struct ProfileView: View {
             ScrollView(.vertical, showsIndicators: false) {
 
                 VStack {
-                    
                     VStack {
+                        
+                        Circle()
+                            .frame(width: 100, height: 100)
+                            .padding(.bottom, 18)
+                    
                         Button {
                             authViewModel.signOut()
                         } label: {
                             Text("Sign Out")
                         }
                         
-                        Circle()
-                            .frame(width: 100, height: 100)
-                            .padding(.bottom, 18)
-                    
                         Text("\(viewModel.user.username)")
                             .font(.title).bold()
                     }

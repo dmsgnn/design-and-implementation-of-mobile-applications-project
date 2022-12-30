@@ -12,6 +12,7 @@ class AuthViewModel: ObservableObject {
     
     //to store the user session
     @Published var userSession: FirebaseAuth.User?
+    @Published var didAuthenticateUser = false
     private let service = UserService()
     @Published var currentUser: User?
     private var tempUserSession: FirebaseAuth.User?
@@ -36,8 +37,6 @@ class AuthViewModel: ObservableObject {
             
             guard let user = result?.user else { return }
             self.tempUserSession = user
-            
-            self.userSession = user
             self.fetchUser()
             
             
@@ -50,7 +49,7 @@ class AuthViewModel: ObservableObject {
             Firestore.firestore().collection("users")
                 .document(user.uid)
                 .setData(data) { _ in
-                    print("DEBUG: Did upload user data..")
+                    self.didAuthenticateUser = true
                 }
         }
     
