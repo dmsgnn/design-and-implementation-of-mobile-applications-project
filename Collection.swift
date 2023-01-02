@@ -7,7 +7,7 @@
 
 import FirebaseFirestoreSwift
 import Firebase
-import UIKit
+
 
 struct Collection: Identifiable, Decodable {
     @DocumentID var id: String?
@@ -17,9 +17,10 @@ struct Collection: Identifiable, Decodable {
     var currentAmount: Double
     var favourites: Int
     var participants: Int
-    let collectionImageUrl: String
+    let collectionImageUrl: String?
     let timestamp: Timestamp
     let uid: String
+    
     
     var user: User?
     var didLike: Bool? = false

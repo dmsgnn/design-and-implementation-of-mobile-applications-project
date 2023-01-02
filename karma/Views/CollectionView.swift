@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct CollectionView: View {
     @ObservedObject var viewModel: CollectionViewModel
@@ -19,11 +20,15 @@ struct CollectionView: View {
     
         VStack(alignment: .center, spacing: 24) {
             HStack(spacing: 16) {
-                Image(systemName: "photo")
+//                Image(systemName: "photo")
+                KFImage(URL(string: viewModel.collection.collectionImageUrl ?? ""))
                     .resizable()
-                    .scaledToFit()
-                    .frame(width: 80, height: 60)
-                    .shadow(radius: 5, x: 0, y: 5)
+                    .scaledToFill()
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                    .frame(width: 80, height: 50)
+                    .padding(.bottom, 18)
+                   
+                    
                 
                 VStack(alignment: .leading, spacing: 6) {
                     Text(viewModel.collection.title)
@@ -55,6 +60,8 @@ struct CollectionView: View {
                 Text(viewModel.collection.currentAmount.toCurrency())
                     .font(.title3)
                     .foregroundColor(Color(.darkGray))
+                
+                
             
             }
             .foregroundColor(Color(.systemGray))

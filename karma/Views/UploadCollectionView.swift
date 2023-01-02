@@ -20,6 +20,7 @@ struct UploadCollectionView: View {
     @Environment(\.presentationMode) var presentationMode
     
     @ObservedObject var viewModel = UploadCollectionViewModel()
+    @EnvironmentObject var collectionVM: CollectionViewModel
     
     
     init() {
@@ -40,7 +41,7 @@ struct UploadCollectionView: View {
                 Spacer()
                 
                 Button {
-                    viewModel.uploadCollection(withTitle: title, withCaption: description, withAmount: Float(amount), withImage: selectedImage! )
+                    viewModel.uploadCollection(withTitle: title, withCaption: description, withAmount: Float(amount), withImage: selectedImage!)
                     
                 } label: {
                     Text("Publish")

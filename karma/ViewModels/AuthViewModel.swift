@@ -80,6 +80,7 @@ class AuthViewModel: ObservableObject {
                 .updateData(["profileImageUrl": profileImageUrl]) { _ in
                     self.userSession = self.tempUserSession
                     self.fetchUser()
+                    print(profileImageUrl)
                 }
         }
     }

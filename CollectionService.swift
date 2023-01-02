@@ -17,9 +17,9 @@ struct CollectionService {
         let data  = ["uid": uid,
                      "title": title,
                      "caption": caption,
+                     "collectionImageUrl": image,
                      "amount": amount,
                      "currentAmount": 0,
-                     "imageUrl": image,
                      "favourites": 0,
                      "participants": 0,
                      "timestamp": Timestamp(date: Date())] as [String : Any]
