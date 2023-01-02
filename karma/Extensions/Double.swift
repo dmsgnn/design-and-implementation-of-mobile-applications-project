@@ -21,4 +21,16 @@ extension Double {
     func toCurrency() -> String{
         return currencyFormatter.string(for: self) ?? ""
     }
+    
+    private var roundedFormatter: NumberFormatter {
+        let rounded = NumberFormatter()
+        rounded.numberStyle = .decimal
+        rounded.minimumFractionDigits = 2
+        rounded.maximumFractionDigits = 2
+        return rounded
+    }
+    
+    func toRound() -> String {
+        return roundedFormatter.string(for: self) ?? ""
+    }
 }
