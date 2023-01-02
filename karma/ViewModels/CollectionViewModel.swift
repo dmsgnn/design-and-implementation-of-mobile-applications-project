@@ -6,8 +6,11 @@
 //
 
 import Foundation
+import Firebase
+import SwiftUI
 
 class CollectionViewModel: ObservableObject {
+    
     private let service = CollectionService()
     @Published var collection: Collection
     

@@ -6,10 +6,12 @@
 //
 
 import Firebase
+import SwiftUI
+
 
 struct CollectionService {
     
-    func uploadCollection(title: String, caption: String, amount: Float, completion: @escaping(Bool) -> Void) {
+    func uploadCollection(title: String, caption: String, amount: Float, image: String, completion: @escaping(Bool) -> Void) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         
         let data  = ["uid": uid,
@@ -17,6 +19,7 @@ struct CollectionService {
                      "caption": caption,
                      "amount": amount,
                      "currentAmount": 0,
+                     "imageUrl": image,
                      "favourites": 0,
                      "participants": 0,
                      "timestamp": Timestamp(date: Date())] as [String : Any]
@@ -31,6 +34,8 @@ struct CollectionService {
                 completion(true)
             }
     }
+    
+    
     
     //fetching collections for DashboardView
     func fetchCollections(completion: @escaping([Collection]) -> Void) {

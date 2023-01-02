@@ -48,7 +48,7 @@ struct CollectionView: View {
             HStack() {
                 HStack(spacing: 2) {
                     Image(systemName: "person")
-                    Text("5 participants")
+                    Text("\(viewModel.collection.participants)")
                 }
                 Spacer()
             

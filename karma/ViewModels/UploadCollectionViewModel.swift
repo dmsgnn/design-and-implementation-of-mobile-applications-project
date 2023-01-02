@@ -6,22 +6,28 @@
 //
 
 import Foundation
+import SwiftUI
+import Firebase
 
 class UploadCollectionViewModel: ObservableObject {
     
     @Published var didUploadCollection = false
     let service = CollectionService()
+    private var collectionID: String?
     
-    func uploadCollection(withTitle title: String, withCaption caption: String, withAmount amount: Float) {
-        service.uploadCollection(title: title, caption: caption, amount: amount) {
-            success in
-            if success {
-                self.didUploadCollection = true
-                //dismiss screen somehow
-            } else {
-                // show error message to user
+    func uploadCollection(withTitle title: String, withCaption caption: String, withAmount amount: Float, withImage image: UIImage) {
+        ImageUploader.uploadCollectionImage(image: image) { profileImageUrl in
+            self.service.uploadCollection(title: title, caption: caption, amount: amount, image: profileImageUrl) {
+                success in
+                if success {
+                    self.didUploadCollection = true
+                    //dismiss screen somehow
+                } else {
+                    // show error message to user
+                }
             }
         }
     }
+   
 }
 

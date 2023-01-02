@@ -13,9 +13,14 @@ struct UploadCollectionView: View {
     @State private var amount = 0.00
     private let numberFormatter: NumberFormatter
     
+    @State private var showImagePicker = false
+    @State private var selectedImage: UIImage?
+    @State private var profileImage: Image?
+    
     @Environment(\.presentationMode) var presentationMode
     
     @ObservedObject var viewModel = UploadCollectionViewModel()
+    
     
     init() {
         numberFormatter = NumberFormatter()
@@ -35,8 +40,8 @@ struct UploadCollectionView: View {
                 Spacer()
                 
                 Button {
-                    viewModel.uploadCollection(withTitle: title, withCaption: description, withAmount: Float(amount))
-                
+                    viewModel.uploadCollection(withTitle: title, withCaption: description, withAmount: Float(amount), withImage: selectedImage! )
+                    
                 } label: {
                     Text("Publish")
                         .bold()
@@ -46,16 +51,41 @@ struct UploadCollectionView: View {
                         .foregroundColor(.white)
                         .clipShape(Capsule())
                 }
-            
+                
             }
             .padding()
             
             VStack {
-                Image(systemName: "plus.circle")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 100, height: 100)
-                .foregroundColor(Color(.systemGray))
+                Button {
+                    showImagePicker.toggle()
+                } label: {
+                    if let profileImage = profileImage {
+                        profileImage
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 180, height: 180)
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                    } else {
+                        VStack{
+                            Image(systemName: "plus.circle")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 100, height: 100)
+                                .foregroundColor(Color(.systemGray))
+                            
+                            Text("Add photo")
+                                .font(.title2)
+                                .fontWeight(.semibold)
+                                .foregroundColor(Color(.systemGray))
+                        }
+                        .padding(.bottom, 20)
+                        
+                    }
+                }
+                .sheet(isPresented: $showImagePicker, onDismiss: loadImage) {
+                    ImagePicker(selectedImage: $selectedImage)
+                }
+                
                 
                 Text("Add photo")
                     .font(.title2)
@@ -75,11 +105,11 @@ struct UploadCollectionView: View {
             .padding(.leading)
             .padding(.bottom, 24)
             
-        
+            
             VStack(alignment: .leading) {
                 Text("Description")
                     .font(.subheadline)
-                   
+                
                 
                 TextField("say something about this collection", text: $description)
                     .fontWeight(.semibold)
@@ -95,7 +125,7 @@ struct UploadCollectionView: View {
                     .fontWeight(.semibold)
                 TextField("€ 0.00 ", value: $amount, formatter: numberFormatter)
                     .keyboardType(.decimalPad)
-                    
+                
             }
             
             Spacer()
@@ -106,7 +136,12 @@ struct UploadCollectionView: View {
                 presentationMode.wrappedValue.dismiss()
             }
         }
-        
+    
+    }
+    
+    func loadImage() {
+        guard let selectedImage = selectedImage else { return }
+        profileImage = Image(uiImage: selectedImage)
     }
 }
 
