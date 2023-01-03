@@ -78,9 +78,7 @@ struct CollectionView: View {
                         .frame(width: 90, height: 30)
                         .background(Color(.systemBlue))
                         .clipShape(Capsule())
-                        
-        
-        
+
                 }
 
             }
