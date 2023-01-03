@@ -11,11 +11,12 @@ import Firebase
 
 struct CollectionView: View {
     @ObservedObject var viewModel: CollectionViewModel
-    private var percentage = 0.50
+    private var percentage = 0.00
+    @State private var popup = false
     
     init(collection: Collection) {
         self.viewModel = CollectionViewModel(collection: collection)
-        percentage = viewModel.collection.currentAmount/viewModel.collection.amount
+        self.percentage = viewModel.collection.currentAmount/viewModel.collection.amount
 
     }
     
@@ -24,8 +25,7 @@ struct CollectionView: View {
         
         VStack(alignment: .leading) {
             HStack(alignment: .center, spacing: 20) {
-                Image(systemName: "photo")
-                //                KFImage(URL(string: viewModel.collection.collectionImageUrl ?? ""))
+                KFImage(URL(string: viewModel.collection.collectionImageUrl ?? ""))
                     .resizable()
                     .scaledToFill()
                     .clipShape(RoundedRectangle(cornerRadius: 10))
@@ -49,12 +49,13 @@ struct CollectionView: View {
                     .font(.footnote)
                 ProgressView(value: percentage )
                     .frame(width: 75)
-                Text("50 %")
+                Text("\(round(percentage*100))") ///still to modify
                     .font(.footnote)
+                Spacer()
+                
             }
             .padding(.bottom, 16)
-            
-            
+    
             HStack {
                 Button(action: {
                     viewModel.collection.didLike ?? false ? viewModel.removeFromFavourite() : viewModel.addToFavourite()
@@ -70,14 +71,16 @@ struct CollectionView: View {
                     .padding(.trailing, 6)
                 Spacer()
                 Button {
-                    print("supporting collection")
+                    popup.toggle()
                 } label: {
-                    Text("Participate")
+                    Text("Donate")
                         .foregroundColor(.white)
-                        .frame(width: 120, height: 30)
+                        .frame(width: 90, height: 30)
                         .background(Color(.systemBlue))
                         .clipShape(Capsule())
                         
+        
+        
                 }
 
             }
@@ -85,7 +88,7 @@ struct CollectionView: View {
         }
         .padding()
         .frame(width: UIScreen.main.bounds.size.width*0.9, height: 230)
-        .background(Color(.systemGray6))
+        .background(Color(.white))
         .clipShape(RoundedRectangle(cornerRadius: 15))
         
     }
