@@ -7,6 +7,20 @@
 
 import Foundation
 import PassKit
+import Firebase
+import SwiftUI
+
+struct PaymentService {
+    
+    func makePayment(destinationId: String, collectionId: String, total: Float, completion: @escaping(Bool) -> Void) {
+    }
+    
+    //function to retrieve recent payment(made or received)
+    func fetchPayment() {
+        
+    }
+    
+}
 
 
 typealias PaymentCompletionHandler = (Bool) -> Void

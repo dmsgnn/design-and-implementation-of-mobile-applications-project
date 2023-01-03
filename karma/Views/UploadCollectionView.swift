@@ -10,7 +10,7 @@ import SwiftUI
 struct UploadCollectionView: View {
     @State private var title = ""
     @State private var description = ""
-    @State private var amount = 0.00
+    @State private var amount = 0.0
     private let numberFormatter: NumberFormatter
     
     @State private var showImagePicker = false
@@ -87,11 +87,6 @@ struct UploadCollectionView: View {
                     ImagePicker(selectedImage: $selectedImage)
                 }
                 
-                
-                Text("Add photo")
-                    .font(.title2)
-                    .fontWeight(.semibold)
-                    .foregroundColor(Color(.systemGray))
             }
             .padding(.bottom, 20)
             

@@ -11,14 +11,19 @@ import Firebase
 
 struct CollectionView: View {
     @ObservedObject var viewModel: CollectionViewModel
-    private var percentage = 0.00
-    @State private var popup = false
+//    private var percentage: Float = 0.0
+    private let numberFormatter: NumberFormatter
     
+//    @State private var showPaymentView = false
+//
     init(collection: Collection) {
         self.viewModel = CollectionViewModel(collection: collection)
-        self.percentage = viewModel.collection.currentAmount/viewModel.collection.amount
-
+        numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        numberFormatter.maximumFractionDigits = 2
     }
+    
+   
     
     
     var body: some View {
@@ -30,12 +35,15 @@ struct CollectionView: View {
                     .scaledToFill()
                     .clipShape(RoundedRectangle(cornerRadius: 10))
                     .frame(width: 80, height: 50)
-                
-                Text(viewModel.collection.title)
-                    .font(.title2)
-                    .fontWeight(.semibold)
-                
-
+                Button {
+                    print("CIAO")
+                } label: {
+                    Text(viewModel.collection.title)
+                        .foregroundColor(.black)
+                        .font(.title2)
+                        .fontWeight(.semibold)
+                    
+                }
             }
             
             Text(viewModel.collection.caption)
@@ -45,17 +53,18 @@ struct CollectionView: View {
                 .frame(maxHeight: 80)
             
             HStack {
-                Text("23 Mar 2022")
+                Text("\(viewModel.collection.timestamp.dateValue().formatted(date: .abbreviated, time: .omitted))")
                     .font(.footnote)
-                ProgressView(value: percentage )
+                    .fontWeight(.medium)
+                ProgressView(value: viewModel.collection.currentAmount/viewModel.collection.amount )
                     .frame(width: 75)
-                Text("\(round(percentage*100))") ///still to modify
+                Text("\((viewModel.collection.currentAmount/viewModel.collection.amount).formatted(.percent))")
                     .font(.footnote)
                 Spacer()
                 
             }
             .padding(.bottom, 16)
-    
+            
             HStack {
                 Button(action: {
                     viewModel.collection.didLike ?? false ? viewModel.removeFromFavourite() : viewModel.addToFavourite()
@@ -71,16 +80,19 @@ struct CollectionView: View {
                     .padding(.trailing, 6)
                 Spacer()
                 Button {
-                    popup.toggle()
+//                    showPaymentView.toggle()
                 } label: {
                     Text("Donate")
                         .foregroundColor(.white)
                         .frame(width: 90, height: 30)
                         .background(Color(.systemBlue))
                         .clipShape(Capsule())
-
+                    
                 }
-
+//                .fullScreenCover(isPresented: $showPaymentView) {
+//                    PaymentView(collection: viewModel.collection)
+//                }
+                
             }
             
         }
@@ -91,11 +103,9 @@ struct CollectionView: View {
         
     }
 }
-                
-        
 
 struct CollectionView_Previews: PreviewProvider {
     static var previews: some View {
-        CollectionView(collection: Collection(title: "Regalo di laurea ", caption: "Questa è una descrizione di prova per vedere se riesco a creare una collection View decente che mi possa piacere", amount: 30, currentAmount: 15, favourites: 0, participants: 6, collectionImageUrl: "ciao", timestamp: Firebase.Timestamp(date: Date.init()) , uid: "useridprova"))
+        CollectionView(collection: Collection(title: "Regalo di laurea ", caption: "Questa è una descrizione di prova per vedere se riesco a creare una collection View decente che mi possa piacere", amount: 30, currentAmount: 0, favourites: 0, participants: 6, collectionImageUrl: "ciao", timestamp: Firebase.Timestamp(date: Date.init()) , uid: "useridprova"))
     }
 }

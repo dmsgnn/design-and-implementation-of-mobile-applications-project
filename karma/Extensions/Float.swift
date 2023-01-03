@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension Double {
+extension Float {
     
     private var currencyFormatter: NumberFormatter {
         let formatter = NumberFormatter()

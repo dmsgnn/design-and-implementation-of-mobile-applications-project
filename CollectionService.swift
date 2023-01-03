@@ -59,6 +59,19 @@ struct CollectionService {
             }
     }
     
+//    func makePayment(destinationId: String, _ collection: Collection, total: Float) {
+//        guard let senderId = Auth.auth().currentUser?.uid else { return }
+//        guard let collectionId = collection.id else { return }
+//        
+//        let data = ["senderId": senderId,
+//                    "destinationId": destinationId,
+//                    "collectionId": collectionId,
+//                    "total": total,
+//                    "timestamp": Timestamp(date: Date())] as [String : Any]
+//        Firestore.firestore().collection("payments").document()
+//            .setData(data)
+//    }
+    
     func addToFavourite(_ collection: Collection, completion: @escaping() -> Void) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         guard let collId = collection.id else { return }

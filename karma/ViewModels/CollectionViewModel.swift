@@ -13,6 +13,11 @@ class CollectionViewModel: ObservableObject {
     
     private let service = CollectionService()
     @Published var collection: Collection
+    @Published private var total: Float = 0.0
+    
+    let paymentHandler = PaymentHandler()
+    @Published var paymentSuccess = false
+    
     
     init(collection: Collection) {
         self.collection = collection
@@ -25,7 +30,7 @@ class CollectionViewModel: ObservableObject {
             
         }
     }
-    
+       
     func removeFromFavourite() {
         service.removeFromFavourite(collection) {
             self.collection.didLike = false
@@ -39,4 +44,13 @@ class CollectionViewModel: ObservableObject {
             }
         }
     }
+    
+//    func makePayment() {
+//        paymentHandler.startPayment(collection: collection, total: total) { success in
+//            self.paymentSuccess = success
+//        }
+//        
+//        let destinationId = collection.uid
+//        service.makePayment(destinationId: destinationId, collection, total: total)
+//    }
 }

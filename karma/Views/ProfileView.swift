@@ -10,9 +10,10 @@ import Kingfisher
 
 struct ProfileView: View {
     @EnvironmentObject var authViewModel: AuthViewModel
-   
-    @ObservedObject var viewModel: ProfileViewModel
     
+    @ObservedObject var viewModel: ProfileViewModel
+    @State var showHeaderBar = false
+    @State var time = Timer.publish(every: 0.1, on: .current, in: .tracking).autoconnect()
     @State private var showNewCollectionView = false
     
     init(user: User) {
@@ -21,48 +22,87 @@ struct ProfileView: View {
     
     var body: some View {
         
-        ZStack{
-            Color.theme.custombackg
-            
-            ScrollView(.vertical, showsIndicators: false){
-                VStack {
-                    VStack {
-                        KFImage(URL(string: viewModel.user.profileImageUrl))
-                            .resizable()
-                            .scaledToFill()
-                            .clipShape(Circle())
-                            .frame(width: 100, height: 100)
-                            .padding(.bottom, 18)
-                        
-                        Button {
-                            authViewModel.signOut()
-                        } label: {
-                            Text("Sign Out")
-                        }
-                        
-                        Text("\(viewModel.user.username)")
-                            .font(.title).bold()
-                    }
-                    .padding(.bottom,24)
-                    .padding(.top, 20)
-                    
-                    
-                    statsView
-                    
-                    Divider()
-                    
-                    CollView
-                    
-                    RecentActivitiesView
-                }
-            }
-        }
-        .refreshable {
-            viewModel.fetchUserCollections()
-        }
-        .ignoresSafeArea()
-    }
         
+        
+        
+//        VStack {
+//
+//            }
+            
+        ZStack(alignment: .top) {
+            ScrollView(.vertical, showsIndicators: false) {
+                    VStack {
+                        GeometryReader{ g in
+                            VStack(alignment: .center) {
+                                HStack {
+                                    Spacer()
+                                    KFImage(URL(string: viewModel.user.profileImageUrl))
+                                        .resizable()
+                                        .scaledToFill()
+                                        .clipShape(Circle())
+                                        .frame(width: 100, height: 100)
+                                        .onReceive(self.time) { (_) in
+                                            let y = g.frame(in: .global).minY
+                                            if -y > (UIScreen.main.bounds.height * 0.1) - 50 {
+                                                withAnimation {
+                                                    self.showHeaderBar = true
+                                                }
+                                            } else {
+                                                withAnimation {
+                                                    self.showHeaderBar = false
+                                                }
+                                            }
+                                    }
+                                    Spacer()
+                                }
+                                .padding(.top, 30)
+
+                                
+                                
+                                Text("\(viewModel.user.username)")
+                                    .font(.title2)
+                                    .fontWeight(.semibold)
+ 
+                            }
+                            
+                        }
+                        .frame(height: UIScreen.main.bounds.height / 4.3)
+                        
+                        statsView
+                        
+                        Divider()
+                        
+                        CollView
+                        
+                        RecentActivitiesView
+                    }
+                }
+                .background(Color.theme.custombackg)
+                .refreshable {
+                    viewModel.fetchUserCollections()
+                }
+            
+            if self.showHeaderBar {
+                HStack {
+                    KFImage(URL(string: viewModel.user.profileImageUrl))
+                        .resizable()
+                        .scaledToFill()
+                        .clipShape(Circle())
+                        .frame(width: 50, height: 50)
+                    Text("tombucaioni")
+                        .font(.title2)
+                        .fontWeight(.semibold)
+                    Spacer()
+                }
+                .padding(.bottom)
+                .padding(.leading)
+                .background(Color.theme.custombackg)
+            }
+            
+        }
+//        .edgesIgnoringSafeArea(.top)
+//        }
+    }
 }
 
 
@@ -152,11 +192,9 @@ extension ProfileView {
                 .font(.title2)
                 .fontWeight(.semibold)
             
-            ScrollView(.vertical, showsIndicators: false) {
                 VStack {
                     ForEach(0 ... 20, id: \.self) { _ in
                         RecentActivityView()
-                    }
                     
                 }
                 
@@ -165,5 +203,4 @@ extension ProfileView {
     }
     
 }
-
 

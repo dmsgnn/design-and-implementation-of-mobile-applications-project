@@ -20,6 +20,9 @@
 		E32FE35A29641C850061C907 /* PaymentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32FE35929641C850061C907 /* PaymentHandler.swift */; };
 		E32FE35C29641C9E0061C907 /* PaymentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32FE35B29641C9E0061C907 /* PaymentButton.swift */; };
 		E32FE35F296429630061C907 /* PaymentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32FE35E296429630061C907 /* PaymentService.swift */; };
+		E32FE361296435FD0061C907 /* PaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32FE360296435FD0061C907 /* PaymentView.swift */; };
+		E32FE363296436600061C907 /* PaymentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32FE362296436600061C907 /* PaymentViewModel.swift */; };
+		E32FE3652964367C0061C907 /* Payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32FE3642964367C0061C907 /* Payment.swift */; };
 		E334CDB9295D93840082FC17 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E334CDB8295D93840082FC17 /* Collection.swift */; };
 		E334CDBB295D93E80082FC17 /* CollectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E334CDBA295D93E80082FC17 /* CollectionService.swift */; };
 		E334CDBD295D93FE0082FC17 /* UploadCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E334CDBC295D93FE0082FC17 /* UploadCollectionViewModel.swift */; };
@@ -46,7 +49,7 @@
 		E36EFC52295EE12100301ED4 /* CollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36EFC51295EE12100301ED4 /* CollectionViewModel.swift */; };
 		E378A41F2940E29A001CE2E2 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E378A41E2940E29A001CE2E2 /* AuthViewModel.swift */; };
 		E378A4222941135A001CE2E2 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = E378A4212941135A001CE2E2 /* Color.swift */; };
-		E3A8D0C6295F95B200C029C1 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A8D0C5295F95B200C029C1 /* Double.swift */; };
+		E3A8D0C6295F95B200C029C1 /* Float.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A8D0C5295F95B200C029C1 /* Float.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +87,9 @@
 		E32FE35B29641C9E0061C907 /* PaymentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentButton.swift; sourceTree = "<group>"; };
 		E32FE35D296424380061C907 /* karmaDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = karmaDebug.entitlements; sourceTree = "<group>"; };
 		E32FE35E296429630061C907 /* PaymentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PaymentService.swift; path = karma/Components/PaymentService.swift; sourceTree = SOURCE_ROOT; };
+		E32FE360296435FD0061C907 /* PaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentView.swift; sourceTree = "<group>"; };
+		E32FE362296436600061C907 /* PaymentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewModel.swift; sourceTree = "<group>"; };
+		E32FE3642964367C0061C907 /* Payment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Payment.swift; path = karma/Views/Payment.swift; sourceTree = SOURCE_ROOT; };
 		E334CDB8295D93840082FC17 /* Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = SOURCE_ROOT; };
 		E334CDBA295D93E80082FC17 /* CollectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionService.swift; sourceTree = SOURCE_ROOT; };
 		E334CDBC295D93FE0082FC17 /* UploadCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadCollectionViewModel.swift; sourceTree = "<group>"; };
@@ -106,7 +112,7 @@
 		E378A41E2940E29A001CE2E2 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		E378A4212941135A001CE2E2 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		E38C4F222962D503002326CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		E3A8D0C5295F95B200C029C1 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
+		E3A8D0C5295F95B200C029C1 /* Float.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Float.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,6 +234,7 @@
 			children = (
 				E3354772295B07FB003444E0 /* User.swift */,
 				E334CDB8295D93840082FC17 /* Collection.swift */,
+				E32FE3642964367C0061C907 /* Payment.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -242,6 +249,7 @@
 				E3354776295C4088003444E0 /* UploadCollectionView.swift */,
 				E3391588295DDED900945EFA /* OptionTabView.swift */,
 				E32FE357296333C10061C907 /* ImageUploaderView.swift */,
+				E32FE360296435FD0061C907 /* PaymentView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -275,6 +283,7 @@
 				E3354774295B5116003444E0 /* TabBarViewModel.swift */,
 				E334CDBC295D93FE0082FC17 /* UploadCollectionViewModel.swift */,
 				E334CDBE295D94190082FC17 /* ProfileViewModel.swift */,
+				E32FE362296436600061C907 /* PaymentViewModel.swift */,
 				E36EFC51295EE12100301ED4 /* CollectionViewModel.swift */,
 			);
 			path = ViewModels;
@@ -284,7 +293,7 @@
 			isa = PBXGroup;
 			children = (
 				E378A4212941135A001CE2E2 /* Color.swift */,
-				E3A8D0C5295F95B200C029C1 /* Double.swift */,
+				E3A8D0C5295F95B200C029C1 /* Float.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -437,16 +446,19 @@
 				E36EFC52295EE12100301ED4 /* CollectionViewModel.swift in Sources */,
 				E32FE35A29641C850061C907 /* PaymentHandler.swift in Sources */,
 				E33547672959AB64003444E0 /* CollectionView.swift in Sources */,
-				E3A8D0C6295F95B200C029C1 /* Double.swift in Sources */,
+				E32FE3652964367C0061C907 /* Payment.swift in Sources */,
+				E3A8D0C6295F95B200C029C1 /* Float.swift in Sources */,
 				E32FE35F296429630061C907 /* PaymentService.swift in Sources */,
 				E335476F295AF7FF003444E0 /* TabBarButton.swift in Sources */,
 				E339158E295DEF3D00945EFA /* ImageUploader.swift in Sources */,
 				E378A41F2940E29A001CE2E2 /* AuthViewModel.swift in Sources */,
 				E334CDBF295D94190082FC17 /* ProfileViewModel.swift in Sources */,
 				E3354777295C4088003444E0 /* UploadCollectionView.swift in Sources */,
+				E32FE361296435FD0061C907 /* PaymentView.swift in Sources */,
 				E334CDBD295D93FE0082FC17 /* UploadCollectionViewModel.swift in Sources */,
 				E33547602958668B003444E0 /* ProfileView.swift in Sources */,
 				E35215FA293F399F0074B787 /* RegistrationView.swift in Sources */,
+				E32FE363296436600061C907 /* PaymentViewModel.swift in Sources */,
 				E334CDB9295D93840082FC17 /* Collection.swift in Sources */,
 				E3354775295B5116003444E0 /* TabBarViewModel.swift in Sources */,
 				E339158C295DE72900945EFA /* ImagePicker.swift in Sources */,
