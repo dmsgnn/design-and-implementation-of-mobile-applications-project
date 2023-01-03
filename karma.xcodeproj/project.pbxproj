@@ -16,7 +16,6 @@
 		1BD8C258293E5D6300F1B32A /* karmaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD8C257293E5D6300F1B32A /* karmaTests.swift */; };
 		1BD8C262293E5D6300F1B32A /* karmaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD8C261293E5D6300F1B32A /* karmaUITests.swift */; };
 		1BD8C264293E5D6300F1B32A /* karmaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD8C263293E5D6300F1B32A /* karmaUITestsLaunchTests.swift */; };
-		E32FE358296333C10061C907 /* ImageUploaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32FE357296333C10061C907 /* ImageUploaderView.swift */; };
 		E32FE35A29641C850061C907 /* PaymentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32FE35929641C850061C907 /* PaymentHandler.swift */; };
 		E32FE35C29641C9E0061C907 /* PaymentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32FE35B29641C9E0061C907 /* PaymentButton.swift */; };
 		E32FE35F296429630061C907 /* PaymentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32FE35E296429630061C907 /* PaymentService.swift */; };
@@ -38,6 +37,8 @@
 		E3391589295DDED900945EFA /* OptionTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3391588295DDED900945EFA /* OptionTabView.swift */; };
 		E339158C295DE72900945EFA /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E339158B295DE72900945EFA /* ImagePicker.swift */; };
 		E339158E295DEF3D00945EFA /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E339158D295DEF3D00945EFA /* ImageUploader.swift */; };
+		E34C9B212964A83B00E8FC5E /* ImageUploaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34C9B202964A83B00E8FC5E /* ImageUploaderView.swift */; };
+		E34C9B232964AB4E00E8FC5E /* SummaryCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34C9B222964AB4E00E8FC5E /* SummaryCollectionView.swift */; };
 		E35215FA293F399F0074B787 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35215F9293F399F0074B787 /* RegistrationView.swift */; };
 		E35215FC293F3D4F0074B787 /* CustomInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35215FB293F3D4F0074B787 /* CustomInputField.swift */; };
 		E3521600293F4F910074B787 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E35215FF293F4F900074B787 /* GoogleService-Info.plist */; };
@@ -82,7 +83,6 @@
 		1BD8C25D293E5D6300F1B32A /* karmaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = karmaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BD8C261293E5D6300F1B32A /* karmaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = karmaUITests.swift; sourceTree = "<group>"; };
 		1BD8C263293E5D6300F1B32A /* karmaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = karmaUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		E32FE357296333C10061C907 /* ImageUploaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageUploaderView.swift; path = "../../../../../../Library/Mobile Documents/com~apple~CloudDocs/.Trash/ImageUploaderView.swift"; sourceTree = "<group>"; };
 		E32FE35929641C850061C907 /* PaymentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentHandler.swift; sourceTree = "<group>"; };
 		E32FE35B29641C9E0061C907 /* PaymentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentButton.swift; sourceTree = "<group>"; };
 		E32FE35D296424380061C907 /* karmaDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = karmaDebug.entitlements; sourceTree = "<group>"; };
@@ -105,6 +105,8 @@
 		E3391588295DDED900945EFA /* OptionTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionTabView.swift; sourceTree = "<group>"; };
 		E339158B295DE72900945EFA /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		E339158D295DEF3D00945EFA /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImageUploader.swift; path = karma/Utils/ImageUploader.swift; sourceTree = SOURCE_ROOT; };
+		E34C9B202964A83B00E8FC5E /* ImageUploaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageUploaderView.swift; path = "../../../../../iCloud Drive (archivio)/Documents/DIMA-Project/DIMA-Project2/karma/Views/ImageUploaderView.swift"; sourceTree = "<group>"; };
+		E34C9B222964AB4E00E8FC5E /* SummaryCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryCollectionView.swift; sourceTree = "<group>"; };
 		E35215F9293F399F0074B787 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		E35215FB293F3D4F0074B787 /* CustomInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputField.swift; sourceTree = "<group>"; };
 		E35215FF293F4F900074B787 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -248,8 +250,9 @@
 				E335475F2958668B003444E0 /* ProfileView.swift */,
 				E3354776295C4088003444E0 /* UploadCollectionView.swift */,
 				E3391588295DDED900945EFA /* OptionTabView.swift */,
-				E32FE357296333C10061C907 /* ImageUploaderView.swift */,
+				E34C9B202964A83B00E8FC5E /* ImageUploaderView.swift */,
 				E32FE360296435FD0061C907 /* PaymentView.swift */,
+				E34C9B222964AB4E00E8FC5E /* SummaryCollectionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -442,10 +445,11 @@
 			files = (
 				E3354771295B05A3003444E0 /* UserService.swift in Sources */,
 				E335476529586BDD003444E0 /* RecentActivityView.swift in Sources */,
-				E32FE358296333C10061C907 /* ImageUploaderView.swift in Sources */,
+				E34C9B212964A83B00E8FC5E /* ImageUploaderView.swift in Sources */,
 				E36EFC52295EE12100301ED4 /* CollectionViewModel.swift in Sources */,
 				E32FE35A29641C850061C907 /* PaymentHandler.swift in Sources */,
 				E33547672959AB64003444E0 /* CollectionView.swift in Sources */,
+				E34C9B232964AB4E00E8FC5E /* SummaryCollectionView.swift in Sources */,
 				E32FE3652964367C0061C907 /* Payment.swift in Sources */,
 				E3A8D0C6295F95B200C029C1 /* Float.swift in Sources */,
 				E32FE35F296429630061C907 /* PaymentService.swift in Sources */,
@@ -634,7 +638,7 @@
 				DEVELOPMENT_TEAM = 5LAQT62PVW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = karma/Info.plist;
+				INFOPLIST_FILE = "";
 				INFOPLIST_KEY_CFBundleDisplayName = dima.karma;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -665,7 +669,7 @@
 				DEVELOPMENT_TEAM = 5LAQT62PVW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = karma/Info.plist;
+				INFOPLIST_FILE = "";
 				INFOPLIST_KEY_CFBundleDisplayName = dima.karma;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

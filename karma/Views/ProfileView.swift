@@ -22,13 +22,6 @@ struct ProfileView: View {
     
     var body: some View {
         
-        
-        
-        
-//        VStack {
-//
-//            }
-            
         ZStack(alignment: .top) {
             ScrollView(.vertical, showsIndicators: false) {
                     VStack {
