@@ -9,6 +9,8 @@ import SwiftUI
 import Kingfisher
 
 struct ProfileView: View {
+    let workoutDateRange = Date()...Date().addingTimeInterval(1)
+    
     @EnvironmentObject var authViewModel: AuthViewModel
     
     @ObservedObject var viewModel: ProfileViewModel
@@ -22,79 +24,74 @@ struct ProfileView: View {
     
     var body: some View {
         
-        ZStack(alignment: .top) {
-            ScrollView(.vertical, showsIndicators: false) {
-                    VStack {
-                        GeometryReader{ g in
-                            VStack(alignment: .center) {
-                                HStack {
-                                    Spacer()
-                                    KFImage(URL(string: viewModel.user.profileImageUrl))
-                                        .resizable()
-                                        .scaledToFill()
-                                        .clipShape(Circle())
-                                        .frame(width: 100, height: 100)
-                                        .onReceive(self.time) { (_) in
-                                            let y = g.frame(in: .global).minY
-                                            if -y > (UIScreen.main.bounds.height * 0.1) - 50 {
-                                                withAnimation {
-                                                    self.showHeaderBar = true
+        NavigationStack {
+            ZStack(alignment: .top) {
+                ScrollView(.vertical, showsIndicators: false) {
+                        VStack {
+                            GeometryReader { g in
+                                VStack(alignment: .center) {
+                                    HStack {
+                                        Spacer()
+                                        KFImage(URL(string: viewModel.user.profileImageUrl))
+                                            .resizable()
+                                            .scaledToFill()
+                                            .clipShape(Circle())
+                                            .frame(width: 100, height: 100)
+                                            .onReceive(self.time) { (_) in
+                                                let y = g.frame(in: .global).minY
+                                                if -y > (UIScreen.main.bounds.height * 0.16) - 50 {
+                                                    withAnimation {
+                                                        self.showHeaderBar = true
+                                                    }
+                                                } else {
+                                                    withAnimation {
+                                                        self.showHeaderBar = false
+                                                    }
                                                 }
-                                            } else {
-                                                withAnimation {
-                                                    self.showHeaderBar = false
-                                                }
-                                            }
+                                        }
+                                        Spacer()
                                     }
-                                    Spacer()
-                                }
-                                .padding(.top, 30)
+                                    .padding(.top, 30)
 
+                                    
+                                    
+                                    Text("\(viewModel.user.username)")
+                                        .font(.title2)
+                                        .fontWeight(.semibold)
+     
+                                }
                                 
-                                
-                                Text("\(viewModel.user.username)")
-                                    .font(.title2)
-                                    .fontWeight(.semibold)
- 
                             }
+                            .frame(height: UIScreen.main.bounds.height / 4.3)
                             
+                            statsView
+                            
+                            Divider()
+                            
+                            CollView
+                            
+                            RecentActivitiesView
                         }
-                        .frame(height: UIScreen.main.bounds.height / 4.3)
-                        
-                        statsView
-                        
-                        Divider()
-                        
-                        CollView
-                        
-                        RecentActivitiesView
                     }
+                    .background(Color.theme.custombackg)
+                    .refreshable {
+                        viewModel.fetchUserCollections()
+                    }
+                
+                if self.showHeaderBar {
+                    HStack {
+                        Spacer()
+                        Text(viewModel.user.username)
+                            .font(.title3)
+                            .fontWeight(.semibold)
+                        Spacer()
+                    }
+                    .padding(.bottom)
+                    .background(Color.theme.custombackg)
                 }
-                .background(Color.theme.custombackg)
-                .refreshable {
-                    viewModel.fetchUserCollections()
-                }
-            
-            if self.showHeaderBar {
-                HStack {
-                    KFImage(URL(string: viewModel.user.profileImageUrl))
-                        .resizable()
-                        .scaledToFill()
-                        .clipShape(Circle())
-                        .frame(width: 50, height: 50)
-                    Text("tombucaioni")
-                        .font(.title2)
-                        .fontWeight(.semibold)
-                    Spacer()
-                }
-                .padding(.bottom)
-                .padding(.leading)
-                .background(Color.theme.custombackg)
+                
             }
-            
         }
-//        .edgesIgnoringSafeArea(.top)
-//        }
     }
 }
 
@@ -169,8 +166,13 @@ extension ProfileView {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
                     ForEach(viewModel.collections){ collection in
-                        CollectionView(collection: collection)
-                            .padding(.horizontal, 10)
+                        NavigationLink {
+                            SummaryCollectionView()
+                        } label: {
+                            CollectionView(collection: collection)
+                                .padding(.horizontal, 10)
+                        }
+                        
                         
                     }
                     

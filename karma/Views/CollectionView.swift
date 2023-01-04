@@ -11,11 +11,14 @@ import Firebase
 
 struct CollectionView: View {
     @ObservedObject var viewModel: CollectionViewModel
-//    private var percentage: Float = 0.0
+    
+    @State private var showSummaryCollection = false
+    
+    //    private var percentage: Float = 0.0
     private let numberFormatter: NumberFormatter
     
-//    @State private var showPaymentView = false
-//
+    //    @State private var showPaymentView = false
+    //
     init(collection: Collection) {
         self.viewModel = CollectionViewModel(collection: collection)
         numberFormatter = NumberFormatter()
@@ -23,7 +26,7 @@ struct CollectionView: View {
         numberFormatter.maximumFractionDigits = 2
     }
     
-   
+    
     
     
     var body: some View {
@@ -35,15 +38,11 @@ struct CollectionView: View {
                     .scaledToFill()
                     .clipShape(RoundedRectangle(cornerRadius: 10))
                     .frame(width: 80, height: 50)
-                Button {
-                    print("CIAO")
-                } label: {
-                    Text(viewModel.collection.title)
-                        .foregroundColor(.black)
-                        .font(.title2)
-                        .fontWeight(.semibold)
-                    
-                }
+                
+                Text(viewModel.collection.title)
+                    .foregroundColor(.black)
+                    .font(.title2)
+                    .fontWeight(.semibold)
             }
             
             Text(viewModel.collection.caption)
@@ -56,10 +55,13 @@ struct CollectionView: View {
                 Text("\(viewModel.collection.timestamp.dateValue().formatted(date: .abbreviated, time: .omitted))")
                     .font(.footnote)
                     .fontWeight(.medium)
+                    .foregroundColor(.black)
+                
                 ProgressView(value: viewModel.collection.currentAmount/viewModel.collection.amount )
                     .frame(width: 75)
                 Text("\((viewModel.collection.currentAmount/viewModel.collection.amount).formatted(.percent))")
                     .font(.footnote)
+                    .foregroundColor(.black)
                 Spacer()
                 
             }
@@ -70,7 +72,7 @@ struct CollectionView: View {
                     viewModel.collection.didLike ?? false ? viewModel.removeFromFavourite() : viewModel.addToFavourite()
                 }, label: {
                     Image(systemName: viewModel.collection.didLike ?? false ? "heart.fill" : "heart")
-                        .foregroundColor(.black)
+                        
                 })
                 .padding(.trailing, 6)
                 
@@ -80,7 +82,7 @@ struct CollectionView: View {
                     .padding(.trailing, 6)
                 Spacer()
                 Button {
-//                    showPaymentView.toggle()
+                    //                    showPaymentView.toggle()
                 } label: {
                     Text("Donate")
                         .foregroundColor(.white)
@@ -89,23 +91,23 @@ struct CollectionView: View {
                         .clipShape(Capsule())
                     
                 }
-//                .fullScreenCover(isPresented: $showPaymentView) {
-//                    PaymentView(collection: viewModel.collection)
-//                }
+                //                .fullScreenCover(isPresented: $showPaymentView) {
+                //                    PaymentView(collection: viewModel.collection)
+                //                }
                 
             }
+            .foregroundColor(.black)
             
         }
         .padding()
         .frame(width: UIScreen.main.bounds.size.width*0.9, height: 230)
         .background(Color(.white))
         .clipShape(RoundedRectangle(cornerRadius: 15))
-        
     }
 }
 
 struct CollectionView_Previews: PreviewProvider {
     static var previews: some View {
-        CollectionView(collection: Collection(title: "Regalo di laurea ", caption: "Questa è una descrizione di prova per vedere se riesco a creare una collection View decente che mi possa piacere", amount: 30, currentAmount: 0, favourites: 0, participants: 6, collectionImageUrl: "ciao", timestamp: Firebase.Timestamp(date: Date.init()) , uid: "useridprova"))
+        CollectionView(collection: Collection(title: "Regalo di laurea ", caption: "Questa è una descrizione di prova per vedere se riesco a creare una collection View decente che mi possa piacere", amount: 30, currentAmount: 15, favourites: 0, participants: 6, collectionImageUrl: "ciao", timestamp: Firebase.Timestamp(date: Date.init()) , uid: "useridprova"))
     }
 }
