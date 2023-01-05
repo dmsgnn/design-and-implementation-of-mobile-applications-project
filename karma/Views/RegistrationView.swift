@@ -14,15 +14,16 @@ struct RegistrationView: View {
     @State private var email = ""
     @State private var password = ""
     @Environment(\.dismiss) private var dismiss
-    
     @EnvironmentObject var viewModel: AuthViewModel
     
     var body: some View {
         ZStack {
-            Color.theme.background
+            Color.theme.custombackg
             
             VStack {
-                
+                NavigationLink(destination: ImageUploaderView(),
+                               isActive: $viewModel.didAuthenticateUser,
+                               label: { })
                 Spacer()
                 
                 HStack {

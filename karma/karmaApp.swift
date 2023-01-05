@@ -13,6 +13,7 @@ struct karmaApp: App {
     
     @StateObject var viewModel = AuthViewModel()
     
+    
     init() {
         FirebaseApp.configure()
     }
@@ -20,7 +21,7 @@ struct karmaApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                ContentView()
+                ContentView() //Replace it with dashboardView
                 
             }
             .environmentObject(viewModel)

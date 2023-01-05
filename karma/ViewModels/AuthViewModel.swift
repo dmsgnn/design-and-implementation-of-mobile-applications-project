@@ -11,18 +11,21 @@ import Firebase
 class AuthViewModel: ObservableObject {
     
     //to store the user session
-    @Published var userSession: FirebaseAuth.User? 
+    @Published var userSession: FirebaseAuth.User?
+    @Published var didAuthenticateUser = false
+    private let service = UserService()
+    @Published var currentUser: User?
+    private var tempUserSession: FirebaseAuth.User?
     
     init() {
         self.userSession = Auth.auth().currentUser
-        
-        print("DEBUG: User session is \(String(describing: self.userSession))")
+        self.fetchUser() 
         
     }
     
-    func login(withEmail email: String, password: String) {
+    /*func login(withEmail email: String, password: String) {
         print("DEBUG: login with email \(email)")
-    }
+    }*/
     
     func register(withEmail email: String, password: String, fullname: String, username: String) {
         Auth.auth().createUser(withEmail: email, password: password) { result, error in
@@ -33,10 +36,9 @@ class AuthViewModel: ObservableObject {
             }
             
             guard let user = result?.user else { return }
-            self.userSession = user
+            self.tempUserSession = user
+            self.fetchUser()
             
-            print("DEBUG: register user successfully")
-            print("DEBUG: User is \(String(describing: self.userSession))")
             
             //dictionary for backend infos
             let data = ["email": email,
@@ -47,9 +49,10 @@ class AuthViewModel: ObservableObject {
             Firestore.firestore().collection("users")
                 .document(user.uid)
                 .setData(data) { _ in
-                    print("DEBUG: Did upload user data..")
+                    self.didAuthenticateUser = true
                 }
         }
+    
     }
     
     func signOut() {
@@ -58,5 +61,27 @@ class AuthViewModel: ObservableObject {
         
         //signs user out on backend
         try? Auth.auth().signOut()
+    }
+    
+    func fetchUser() {
+        guard let uid = self.userSession?.uid else { return }
+        
+        service.fetchUser(withUid: uid) { user in
+            self.currentUser = user
+        }
+    }
+    
+    func uploadImage(_ image: UIImage) {
+        guard let uid = tempUserSession?.uid else { return }
+        
+        ImageUploader.uploadImage(image: image) { profileImageUrl in
+            Firestore.firestore().collection("users")
+                .document(uid)
+                .updateData(["profileImageUrl": profileImageUrl]) { _ in
+                    self.userSession = self.tempUserSession
+                    self.fetchUser()
+                    print(profileImageUrl)
+                }
+        }
     }
 }
