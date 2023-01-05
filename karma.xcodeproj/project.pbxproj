@@ -37,8 +37,8 @@
 		E3391589295DDED900945EFA /* OptionTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3391588295DDED900945EFA /* OptionTabView.swift */; };
 		E339158C295DE72900945EFA /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E339158B295DE72900945EFA /* ImagePicker.swift */; };
 		E339158E295DEF3D00945EFA /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E339158D295DEF3D00945EFA /* ImageUploader.swift */; };
-		E34C9B212964A83B00E8FC5E /* ImageUploaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34C9B202964A83B00E8FC5E /* ImageUploaderView.swift */; };
 		E34C9B232964AB4E00E8FC5E /* SummaryCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34C9B222964AB4E00E8FC5E /* SummaryCollectionView.swift */; };
+		E34C9B252966E3EE00E8FC5E /* ImageUploaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34C9B242966E3EE00E8FC5E /* ImageUploaderView.swift */; };
 		E35215FA293F399F0074B787 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35215F9293F399F0074B787 /* RegistrationView.swift */; };
 		E35215FC293F3D4F0074B787 /* CustomInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35215FB293F3D4F0074B787 /* CustomInputField.swift */; };
 		E3521600293F4F910074B787 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E35215FF293F4F900074B787 /* GoogleService-Info.plist */; };
@@ -105,8 +105,8 @@
 		E3391588295DDED900945EFA /* OptionTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionTabView.swift; sourceTree = "<group>"; };
 		E339158B295DE72900945EFA /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		E339158D295DEF3D00945EFA /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImageUploader.swift; path = karma/Utils/ImageUploader.swift; sourceTree = SOURCE_ROOT; };
-		E34C9B202964A83B00E8FC5E /* ImageUploaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageUploaderView.swift; path = "../../../../../iCloud Drive (archivio)/Documents/DIMA-Project/DIMA-Project2/karma/Views/ImageUploaderView.swift"; sourceTree = "<group>"; };
 		E34C9B222964AB4E00E8FC5E /* SummaryCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryCollectionView.swift; sourceTree = "<group>"; };
+		E34C9B242966E3EE00E8FC5E /* ImageUploaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageUploaderView.swift; path = "../../../../iCloud Drive (archivio)/Desktop/Tom/XCodeProject/DIMA-Project/karma/Views/ImageUploaderView.swift"; sourceTree = "<group>"; };
 		E35215F9293F399F0074B787 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		E35215FB293F3D4F0074B787 /* CustomInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputField.swift; sourceTree = "<group>"; };
 		E35215FF293F4F900074B787 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -250,7 +250,7 @@
 				E335475F2958668B003444E0 /* ProfileView.swift */,
 				E3354776295C4088003444E0 /* UploadCollectionView.swift */,
 				E3391588295DDED900945EFA /* OptionTabView.swift */,
-				E34C9B202964A83B00E8FC5E /* ImageUploaderView.swift */,
+				E34C9B242966E3EE00E8FC5E /* ImageUploaderView.swift */,
 				E32FE360296435FD0061C907 /* PaymentView.swift */,
 				E34C9B222964AB4E00E8FC5E /* SummaryCollectionView.swift */,
 			);
@@ -445,7 +445,6 @@
 			files = (
 				E3354771295B05A3003444E0 /* UserService.swift in Sources */,
 				E335476529586BDD003444E0 /* RecentActivityView.swift in Sources */,
-				E34C9B212964A83B00E8FC5E /* ImageUploaderView.swift in Sources */,
 				E36EFC52295EE12100301ED4 /* CollectionViewModel.swift in Sources */,
 				E32FE35A29641C850061C907 /* PaymentHandler.swift in Sources */,
 				E33547672959AB64003444E0 /* CollectionView.swift in Sources */,
@@ -473,6 +472,7 @@
 				E3391589295DDED900945EFA /* OptionTabView.swift in Sources */,
 				1BD8C247293E5D6100F1B32A /* karmaApp.swift in Sources */,
 				E32FE35C29641C9E0061C907 /* PaymentButton.swift in Sources */,
+				E34C9B252966E3EE00E8FC5E /* ImageUploaderView.swift in Sources */,
 				E378A4222941135A001CE2E2 /* Color.swift in Sources */,
 				E334CDBB295D93E80082FC17 /* CollectionService.swift in Sources */,
 				E35215FC293F3D4F0074B787 /* CustomInputField.swift in Sources */,

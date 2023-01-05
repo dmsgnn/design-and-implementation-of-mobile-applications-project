@@ -167,7 +167,7 @@ extension ProfileView {
                 HStack {
                     ForEach(viewModel.collections){ collection in
                         NavigationLink {
-                            SummaryCollectionView()
+                            SummaryCollectionView(collection: collection)
                         } label: {
                             CollectionView(collection: collection)
                                 .padding(.horizontal, 10)

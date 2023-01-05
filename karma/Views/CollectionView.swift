@@ -35,7 +35,7 @@ struct CollectionView: View {
             HStack(alignment: .center, spacing: 20) {
                 KFImage(URL(string: viewModel.collection.collectionImageUrl ?? ""))
                     .resizable()
-                    .scaledToFill()
+                    .scaledToFit()
                     .clipShape(RoundedRectangle(cornerRadius: 10))
                     .frame(width: 80, height: 50)
                 

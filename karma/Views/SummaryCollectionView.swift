@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import Firebase
+import Kingfisher
 
 struct SummaryCollectionView: View {
     
@@ -13,6 +15,11 @@ struct SummaryCollectionView: View {
     @State var showHeaderBar = false
     @State var time = Timer.publish(every: 0.1, on: .current, in: .tracking).autoconnect()
     
+    let collection: Collection
+    
+    init(collection: Collection){
+        self.collection = collection
+    }
     
     var body: some View {
         ZStack(alignment: .top) {
@@ -23,7 +30,7 @@ struct SummaryCollectionView: View {
                         HStack {
                             Spacer()
                             VStack {
-                                Image(systemName: "photo")
+                                KFImage(URL(string: collection.collectionImageUrl ?? ""))
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: UIScreen.main.bounds.width * 0.9, height: 200)
@@ -42,11 +49,11 @@ struct SummaryCollectionView: View {
                                     }
                                 
                                 
-                                Text("Title collection")
+                                Text(collection.title)
                                     .font(.title2)
                                     .fontWeight(.semibold)
                                 
-                                Text("collection owner")
+                                Text(collection.user?.username ?? "")
                                     .padding(.bottom)
                                 
                             }
@@ -57,7 +64,7 @@ struct SummaryCollectionView: View {
                     
                     VStack {
                         HStack {
-                            Text("€ 842 raised of €1000")
+                            Text("€\(collection.currentAmount) raised of € \(collection.amount)")
                                 .font(.subheadline)
                                 .fontWeight(.semibold)
                             Spacer()
@@ -69,7 +76,7 @@ struct SummaryCollectionView: View {
                         
                         HStack{
                             Image(systemName: "person.fill")
-                            Text("43 participants")
+                            Text("\(collection.participants) participants")
                                 .fontWeight(.regular)
                             Spacer()
                         }
@@ -94,14 +101,14 @@ struct SummaryCollectionView: View {
                     .padding(.vertical)
                     
                     
-                    Text("Descrizione di sto cazzo per la raccolta brutta brutta che sepriamo finisca presto etc etc mi chiamo tommaso e sono tommaso e sono tommaso e tifo per l'inter che gol ha fatto. Adriano, Messi è il Migliore giocatore al mondo.")
+                    Text(collection.caption)
                         .padding(.horizontal)
                         .font(.body)
                         .padding(.bottom, 8)
                     
                     VStack{
                         HStack {
-                            Text("23 Mar 2022 ")
+                            Text("\(collection.timestamp.dateValue().formatted(date: .abbreviated, time: .omitted))")
                                 .font(.footnote)
                                 .fontWeight(.regular)
                             Spacer()
@@ -154,7 +161,7 @@ struct SummaryCollectionView: View {
                 Spacer()
                 
                 if showHeaderBar{
-                    Text("Title Collection")
+                    Text(collection.title)
                         .font(.title3)
                         .fontWeight(.semibold)
                 }
@@ -184,7 +191,7 @@ struct SummaryCollectionView: View {
 struct SummaryCollectionView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            SummaryCollectionView()
+            SummaryCollectionView(collection: Collection(title: "Regalo di laurea ", caption: "Questa è una descrizione di prova per vedere se riesco a creare una collection View decente che mi possa piacere", amount: 30, currentAmount: 15, favourites: 0, participants: 6, collectionImageUrl: "ciao", timestamp: Firebase.Timestamp(date: Date.init()) , uid: "useridprova"))
         }
     }
 }
