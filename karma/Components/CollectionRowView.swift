@@ -7,7 +7,7 @@
 
 import SwiftUI
 import Firebase
-
+import Kingfisher
 struct CollectionRowView: View {
     
     let collection: Collection
@@ -15,10 +15,17 @@ struct CollectionRowView: View {
     init(collection: Collection){
         self.collection = collection
     }
+    
     var body: some View {
         HStack {
-            RoundedRectangle(cornerRadius: 10)
+            KFImage(URL(string: collection.collectionImageUrl ?? ""))
+                .resizable()
+                .scaledToFit()
                 .frame(width: 80, height: 60)
+                .clipShape(RoundedRectangle(cornerRadius: 10))
+            
+//            RoundedRectangle(cornerRadius: 10)
+//                .frame(width: 80, height: 60)
             
             VStack(alignment: .leading, spacing: 6){
                 Text(collection.title)

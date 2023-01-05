@@ -45,7 +45,7 @@ struct SearchView: View {
                     }
                 }
             }
-            .overlay(Divider().offset(x:0, y: 16))
+//            .overlay(Divider().offset(x:0, y: 20))
             
             ScrollView {
                 if selectedFilter == .users {
@@ -80,8 +80,9 @@ struct SearchView: View {
                 }
                 
             }
-            .background(Color.theme.custombackg)
+            
         }
+        .background(Color.theme.custombackg)
     }
 }
 
