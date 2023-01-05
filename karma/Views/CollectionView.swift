@@ -15,15 +15,15 @@ struct CollectionView: View {
     @State private var showSummaryCollection = false
     
     //    private var percentage: Float = 0.0
-    private let numberFormatter: NumberFormatter
+//    private let numberFormatter: NumberFormatter
     
     //    @State private var showPaymentView = false
     //
     init(collection: Collection) {
         self.viewModel = CollectionViewModel(collection: collection)
-        numberFormatter = NumberFormatter()
-        numberFormatter.numberStyle = .decimal
-        numberFormatter.maximumFractionDigits = 2
+//        numberFormatter = NumberFormatter()
+//        numberFormatter.numberStyle = .decimal
+//        numberFormatter.maximumFractionDigits = 2
     }
     
     
@@ -59,9 +59,8 @@ struct CollectionView: View {
                 
                 ProgressView(value: viewModel.collection.currentAmount/viewModel.collection.amount )
                     .frame(width: 75)
-                Text("\((viewModel.collection.currentAmount/viewModel.collection.amount).formatted(.percent))")
-                    .font(.footnote)
-                    .foregroundColor(.black)
+                Text("\(String((viewModel.collection.currentAmount*100/viewModel.collection.amount).formatted(.number.precision(.fractionLength(0)))))%")
+
                 Spacer()
                 
             }
@@ -108,6 +107,6 @@ struct CollectionView: View {
 
 struct CollectionView_Previews: PreviewProvider {
     static var previews: some View {
-        CollectionView(collection: Collection(title: "Regalo di laurea ", caption: "Questa è una descrizione di prova per vedere se riesco a creare una collection View decente che mi possa piacere", amount: 30, currentAmount: 15, favourites: 0, participants: 6, collectionImageUrl: "ciao", timestamp: Firebase.Timestamp(date: Date.init()) , uid: "useridprova"))
+        CollectionView(collection: Collection(title: "Regalo di laurea ", caption: "Questa è una descrizione di prova per vedere se riesco a creare una collection View decente che mi possa piacere", amount: 30, currentAmount: 20, favourites: 0, participants: 6, collectionImageUrl: "ciao", timestamp: Firebase.Timestamp(date: Date.init()) , uid: "useridprova"))
     }
 }

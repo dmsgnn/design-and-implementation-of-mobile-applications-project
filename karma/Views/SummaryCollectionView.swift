@@ -64,7 +64,8 @@ struct SummaryCollectionView: View {
                     
                     VStack {
                         HStack {
-                            Text("€\(collection.currentAmount) raised of € \(collection.amount)")
+                            Text("€\(String(collection.currentAmount.formatted(.number.precision(.fractionLength(2))))) raised of €\(String(collection.amount.formatted(.number.precision(.fractionLength(0)))))")
+//                            Text("€\(collection.currentAmount) raised of € \(collection.amount)")
                                 .font(.subheadline)
                                 .fontWeight(.semibold)
                             Spacer()

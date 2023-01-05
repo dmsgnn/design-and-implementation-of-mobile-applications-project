@@ -24,9 +24,6 @@ struct CollectionRowView: View {
                 .frame(width: 80, height: 60)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
             
-//            RoundedRectangle(cornerRadius: 10)
-//                .frame(width: 80, height: 60)
-            
             VStack(alignment: .leading, spacing: 6){
                 Text(collection.title)
                     .font(.headline).bold()
@@ -39,7 +36,7 @@ struct CollectionRowView: View {
                 Text("Money Raised:")
                     .font(.footnote)
                 
-                Text("€500 of €1000")
+                Text("€\(String(collection.currentAmount.formatted(.number.precision(.fractionLength(2))))) of €\(String(collection.amount.formatted(.number.precision(.fractionLength(0)))))")
                     .font(.subheadline).bold()
             }
             

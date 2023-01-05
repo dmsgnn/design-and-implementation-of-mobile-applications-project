@@ -9,6 +9,9 @@ import SwiftUI
 import Kingfisher
 
 struct ProfileView: View {
+    @Environment(\.verticalSizeClass) var heightSizeClass: UserInterfaceSizeClass?
+    @Environment(\.horizontalSizeClass) var widthSizeClass: UserInterfaceSizeClass?
+    
     let workoutDateRange = Date()...Date().addingTimeInterval(1)
     
     @EnvironmentObject var authViewModel: AuthViewModel
@@ -28,15 +31,6 @@ struct ProfileView: View {
             ZStack(alignment: .top) {
                 ScrollView(.vertical, showsIndicators: false) {
                         VStack {
-                            NavigationView {
-                                NavigationLink {
-                                    SearchView()
-                                } label: {
-                                    Text("go to search")
-                                        .frame(height: 20)
-                                }
-
-                            }
                             GeometryReader { g in
                                 VStack(alignment: .center) {
                                     HStack {
@@ -78,8 +72,11 @@ struct ProfileView: View {
                             Divider()
                             
                             CollView
-                            
-                            RecentActivitiesView
+                            if widthSizeClass == .compact{
+                                RecentActivitiesView
+                            } else {
+                                Text("modalità Ipad")
+                            }
                         }
                     }
                     .background(Color.theme.custombackg)
@@ -114,6 +111,15 @@ struct ProfileView_Previews: PreviewProvider {
             fullname: "Tommaso Bucaioni",
             profileImageUrl: "",
             email: "tbucaioni@virgilio.it"))
+        .previewDevice("iPhone 12")
+        
+        ProfileView(user: User(
+            id: NSUUID().uuidString,
+            username: "tombucaioni",
+            fullname: "Tommaso Bucaioni",
+            profileImageUrl: "",
+            email: "tbucaioni@virgilio.it"))
+        .previewDevice("iPad (10th generation)")
     }
 }
 
