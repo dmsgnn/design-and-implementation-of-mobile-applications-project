@@ -88,15 +88,17 @@ struct UploadCollectionView: View {
                 }
                 
             }
-            .padding(.bottom, 20)
+            .padding(.bottom, 10)
             
             VStack(alignment: .leading) {
                 Text("Title")
-                    .font(.subheadline)
+                    .font(.headline)
                     .fontWeight(.semibold)
                 
-                TextField("Give your collection a title ", text: $title)
-                    .fontWeight(.semibold)
+                TextArea("give your collection a title", text: $title)
+                    .frame(maxHeight: 40)
+                    
+                
             }
             .padding(.leading)
             .padding(.bottom, 24)
@@ -104,11 +106,11 @@ struct UploadCollectionView: View {
             
             VStack(alignment: .leading) {
                 Text("Description")
-                    .font(.subheadline)
-                
-                
-                TextField("say something about this collection", text: $description)
+                    .font(.headline)
                     .fontWeight(.semibold)
+                
+                TextArea("say something about this collection", text: $description)
+                    .frame(maxHeight: 150)
             }
             .padding(.leading)
             .padding(.bottom, 36)

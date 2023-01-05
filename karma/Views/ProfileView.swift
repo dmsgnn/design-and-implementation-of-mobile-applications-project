@@ -56,8 +56,6 @@ struct ProfileView: View {
                                     }
                                     .padding(.top, 30)
 
-                                    
-                                    
                                     Text("\(viewModel.user.username)")
                                         .font(.title2)
                                         .fontWeight(.semibold)
@@ -72,6 +70,7 @@ struct ProfileView: View {
                             Divider()
                             
                             CollView
+                            
                             if widthSizeClass == .compact{
                                 RecentActivitiesView
                             } else {
