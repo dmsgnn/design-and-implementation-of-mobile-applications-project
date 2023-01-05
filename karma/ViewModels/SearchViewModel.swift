@@ -10,6 +10,23 @@ import Foundation
 class SearchViewModel: ObservableObject {
     @Published var users = [User]()
     @Published var searchText = ""
+    @Published var collections = [Collection]()
+    
+    
+    var searchableCollections: [Collection] {
+        if searchText.isEmpty {
+            return collections
+        } else {
+            
+            let lowercasedQuery = searchText.lowercased()
+            return collections.filter({
+                
+                $0.title.lowercased().contains(lowercasedQuery) ||
+                $0.caption.lowercased().contains(lowercasedQuery)
+            })
+        }
+        
+    }
     
     var searchableUsers: [User] {
         if searchText.isEmpty {
@@ -25,16 +42,21 @@ class SearchViewModel: ObservableObject {
     }
         
     let service = UserService()
+    let collectionService = CollectionService()
     
     init() {
         fetchUsers()
+        fetchCollections()
     }
     
     func fetchUsers() {
         service.fetchUsers { users in
             self.users = users
-            
-            print("DEBUG: Users \(users)")
+        }
+    }
+    func fetchCollections() {
+        collectionService.fetchCollections { collections in
+            self.collections = collections
         }
     }
         
