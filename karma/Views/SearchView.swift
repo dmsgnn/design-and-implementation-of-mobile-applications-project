@@ -9,22 +9,20 @@ import SwiftUI
 import Firebase
 
 struct SearchView: View {
-    @State private var searchText = ""
+    @ObservedObject var viewModel = SearchViewModel()
     
     var body: some View {
         VStack {
-            SearchBar(text: $searchText)
+            SearchBar(text: $viewModel.searchText)
                 .padding()
             ScrollView {
                 LazyVStack {
-                    ForEach(0...5, id: \.self) { result in
+                    ForEach(viewModel.searchableUsers) { user in
                         NavigationLink {
-                            Text("ciao ciao")
+                            ProfileView(user: user)
                         } label: {
                             VStack {
-                                UserRowView()
-                                
-                                CollectionRowView()
+                                UserRowView(user: user)
                             }
                         }
                         .foregroundColor(.black)

@@ -28,6 +28,15 @@ struct ProfileView: View {
             ZStack(alignment: .top) {
                 ScrollView(.vertical, showsIndicators: false) {
                         VStack {
+                            NavigationView {
+                                NavigationLink {
+                                    SearchView()
+                                } label: {
+                                    Text("go to search")
+                                        .frame(height: 20)
+                                }
+
+                            }
                             GeometryReader { g in
                                 VStack(alignment: .center) {
                                     HStack {
