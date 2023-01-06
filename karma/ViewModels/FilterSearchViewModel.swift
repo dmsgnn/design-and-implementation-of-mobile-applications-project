@@ -1,5 +1,5 @@
 //
-//  FilterSearcViewModel.swift
+//  FilterSearchViewModel.swift
 //  karma
 //
 //  Created by Tommaso Bucaioni on 05/01/23.

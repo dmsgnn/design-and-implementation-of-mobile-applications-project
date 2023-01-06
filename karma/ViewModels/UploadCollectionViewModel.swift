@@ -16,7 +16,6 @@ class UploadCollectionViewModel: ObservableObject {
     
     
     func uploadCollection(withTitle title: String, withCaption caption: String, withAmount amount: Float, withImage image: UIImage) {
-//        let x = Float(amount)
         
         ImageUploader.uploadCollectionImage(image: image) { collectionImageUrl in
             self.service.uploadCollection(title: title, caption: caption, amount: amount, image: collectionImageUrl) {

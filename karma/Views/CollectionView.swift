@@ -17,7 +17,7 @@ struct CollectionView: View {
     //    private var percentage: Float = 0.0
 //    private let numberFormatter: NumberFormatter
     
-    //    @State private var showPaymentView = false
+    @State private var showPaymentView = false
     //
     init(collection: Collection) {
         self.viewModel = CollectionViewModel(collection: collection)
@@ -82,7 +82,7 @@ struct CollectionView: View {
                     .padding(.trailing, 6)
                 Spacer()
                 Button {
-                    //                    showPaymentView.toggle()
+                    showPaymentView.toggle()
                 } label: {
                     Text("Donate")
                         .foregroundColor(.white)
@@ -91,9 +91,10 @@ struct CollectionView: View {
                         .clipShape(Capsule())
                     
                 }
-                //                .fullScreenCover(isPresented: $showPaymentView) {
-                //                    PaymentView(collection: viewModel.collection)
-                //                }
+                .sheet(isPresented: $showPaymentView) { PaymentView(collection: viewModel.collection).presentationDetents([.medium])
+                }
+//                .fullScreenCover(isPresented: $showPaymentView) {
+//                    PaymentView(collection: viewModel.collection)
                 
             }
             .foregroundColor(.black)
