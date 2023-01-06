@@ -9,25 +9,34 @@ import SwiftUI
 import Firebase
 
 struct PaymentView: View {
+    @State private var eurosSel = 0
+    private var euros = [Int](0..<10000)
+    
     @ObservedObject var viewModel: CollectionViewModel
+    @ObservedObject var paymentViewModel = PaymentViewModel()
 
-    @State private var total:Float = 0.00
-    private let numberFormatter: NumberFormatter
+    
     init(collection: Collection) {
-        self.viewModel = CollectionViewModel(collection:  collection)
-        numberFormatter = NumberFormatter()
-        numberFormatter.numberStyle = .currency
-        numberFormatter.maximumFractionDigits = 2
+        self.viewModel = CollectionViewModel(collection: collection)
     }
     
     var body: some View {
-        VStack(alignment: .center) {
-            TextField("how much ?", value: $total, formatter: numberFormatter)
-                .keyboardType(.default)
-//            PaymentButton(action: viewModel.makePayment)
+        Picker(selection: self.$eurosSel, label: Text("")) {
+            ForEach(0 ..< self.euros.count) { index in
+                Text("\(self.euros[index]) €").tag(index)
+            }
         }
-        .padding()
+        .pickerStyle(.wheel)
+       
+        
+        Button {
+            paymentViewModel.makePayment(forCollection: viewModel.collection, ofAmount: Float(eurosSel))
+        } label: {
+            Text("PAY")
+        }
+
     }
+
 }
 
 struct PaymentView_Previews: PreviewProvider {

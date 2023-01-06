@@ -12,7 +12,38 @@ import SwiftUI
 
 struct PaymentService {
     
-    func makePayment(destinationId: String, collectionId: String, total: Float, completion: @escaping(Bool) -> Void) {
+    func makePayment(destinationId: String, collection: Collection, total: Float, completion: @escaping(Bool) -> Void) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        guard let collId = collection.id else { return }
+        let data = ["senderId": uid,
+                    "destinationId": destinationId,
+                    "collectionId": collId,
+                    "total": total,
+                    "timestamp": Timestamp(date: Date())] as [String : Any]
+        Firestore.firestore().collection("payments").document().setData(data) { error in
+            if let error = error {
+                print("DEBUG: Failed to upload pay with error. \(error.localizedDescription)")
+            }
+            
+            let ref = Firestore.firestore().collection("collections").document(collId).collection("Received-payments")
+
+            Firestore.firestore().collection("collections").document(collId).updateData(["currentAmount": collection.currentAmount + total, "participants": collection.participants + 1]) { _ in
+                ref.document(collId).setData([:]) { _ in
+                    completion(true)
+                }
+                completion(false)
+            }
+        }
+        
+//        Firestore.firestore().collection("payments").document()
+//            .setData(data) { error in
+//                if let error = error {
+//                    print("DEBUG: Failed to upload payment with error \(error.localizedDescription)")
+//                    completion(false)
+//                    return
+//                }
+//                completion(true)
+//            }
     }
     
     //function to retrieve recent payment(made or received)
