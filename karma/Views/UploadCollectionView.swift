@@ -10,8 +10,10 @@ import SwiftUI
 struct UploadCollectionView: View {
     @State private var title = ""
     @State private var description = ""
-    @State private var amount = 0.0
-    private let numberFormatter: NumberFormatter
+    
+    @State private var eurosSel = 0
+    
+    private var euros = [Int](0..<10000)
     
     @State private var showImagePicker = false
     @State private var selectedImage: UIImage?
@@ -22,12 +24,7 @@ struct UploadCollectionView: View {
     @ObservedObject var viewModel = UploadCollectionViewModel()
     @EnvironmentObject var collectionVM: CollectionViewModel
     
-    
-    init() {
-        numberFormatter = NumberFormatter()
-        numberFormatter.numberStyle = .currency
-        numberFormatter.maximumFractionDigits = 2
-    }
+   
     
     var body: some View {
         VStack {
@@ -41,7 +38,7 @@ struct UploadCollectionView: View {
                 Spacer()
                 
                 Button {
-                    viewModel.uploadCollection(withTitle: title, withCaption: description, withAmount: Float(amount), withImage: selectedImage!)
+                    viewModel.uploadCollection(withTitle: title, withCaption: description, withAmount: Float(eurosSel), withImage: selectedImage!)
                     
                 } label: {
                     Text("Publish")
@@ -97,6 +94,7 @@ struct UploadCollectionView: View {
                 
                 TextArea("give your collection a title", text: $title)
                     .frame(maxHeight: 40)
+                Divider().padding(.horizontal)
                     
                 
             }
@@ -111,26 +109,34 @@ struct UploadCollectionView: View {
                 
                 TextArea("say something about this collection", text: $description)
                     .frame(maxHeight: 150)
+                Divider().padding(.horizontal)
             }
             .padding(.leading)
             .padding(.bottom, 36)
             
             //toggle for private
             
-            VStack(alignment: .center) {
-                Text("Set your amount...")
-                    .font(.title2)
-                    .fontWeight(.semibold)
-                TextField("€ 0.00 ", value: $amount, formatter: numberFormatter)
-                    .keyboardType(.decimalPad)
-                
-            }
             
+            Text("Set your amount...")
+                .font(.title2)
+                .fontWeight(.semibold)
+            
+            Picker(selection: self.$eurosSel, label: Text("")) {
+                ForEach(0 ..< self.euros.count) { index in
+                    Text("\(self.euros[index]) €").tag(index)
+                }
+            }
+            .pickerStyle(.wheel)
+            .frame(height: 80)
+           
+//            TextField("€ 0.00 ", value: $amount, formatter: numberFormatter)
+//                .keyboardType(.numberPad)
+//
             Spacer()
         }
         .onReceive(viewModel.$didUploadCollection) { success in
             if success {
-                print("\(amount)")
+                print("\(eurosSel)")
                 presentationMode.wrappedValue.dismiss()
             }
         }
