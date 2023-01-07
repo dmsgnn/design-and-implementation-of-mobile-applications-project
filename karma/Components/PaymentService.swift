@@ -9,6 +9,7 @@ import Foundation
 import PassKit
 import Firebase
 import SwiftUI
+import FirebaseDatabase
 
 struct PaymentService {
     
@@ -26,25 +27,27 @@ struct PaymentService {
             }
             
             let ref = Firestore.firestore().collection("collections").document(collId).collection("Received-payments")
-
+        
             Firestore.firestore().collection("collections").document(collId).updateData(["currentAmount": collection.currentAmount + total, "participants": collection.participants + 1]) { _ in
-                ref.document(collId).setData([:]) { _ in
+                ref.document(uid).setData([:]) { _ in
                     completion(true)
                 }
                 completion(false)
             }
         }
-        
-//        Firestore.firestore().collection("payments").document()
-//            .setData(data) { error in
-//                if let error = error {
-//                    print("DEBUG: Failed to upload payment with error \(error.localizedDescription)")
-//                    completion(false)
-//                    return
-//                }
-//                completion(true)
-//            }
     }
+        
+//    func checkIfUserPayed(_ collection: Collection, completion:@escaping(Bool) -> Void) {
+//        guard let uid = Auth.auth().currentUser?.uid else { return }
+//        guard let collId = collection.id else { return }
+//        
+//        Firestore.firestore().collection("collections").document(collId).collection("Received-payments").document(uid).getDocument { snapshot, _ in
+//            guard let snapshot = snapshot else { return }
+//            
+//            completion(snapshot.exists)
+//        }
+//    }
+        
     
     //function to retrieve recent payment(made or received)
     func fetchPayment() {

@@ -30,7 +30,7 @@ struct CollectionRowView: View {
                     Text(collection.title)
                         .font(.headline).bold()
                     Text(user.username)
-                        .font(.headline)
+                        .font(.footnote)
                 }
             }
             

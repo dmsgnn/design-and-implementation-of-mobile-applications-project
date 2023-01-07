@@ -11,7 +11,6 @@ struct ContentView: View {
     
     @EnvironmentObject var viewModel: AuthViewModel
     
-    //@State var selectedTab: Tabs = .search
     
     var body: some View {
         Group{

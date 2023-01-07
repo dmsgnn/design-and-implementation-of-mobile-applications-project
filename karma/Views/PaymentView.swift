@@ -11,7 +11,7 @@ import Firebase
 struct PaymentView: View {
     @State private var eurosSel = 0
     private var euros = [Int](0..<10000)
-    
+    @Environment(\.presentationMode) var presentationMode
     @ObservedObject var viewModel: CollectionViewModel
     @ObservedObject var paymentViewModel = PaymentViewModel()
 
@@ -21,18 +21,26 @@ struct PaymentView: View {
     }
     
     var body: some View {
-        Picker(selection: self.$eurosSel, label: Text("")) {
-            ForEach(0 ..< self.euros.count) { index in
-                Text("\(self.euros[index]) €").tag(index)
+        VStack {
+            Picker(selection: self.$eurosSel, label: Text("")) {
+                ForEach(0 ..< self.euros.count) { index in
+                    Text("\(self.euros[index]) €").tag(index)
+                }
+            }
+            .pickerStyle(.wheel)
+            
+            
+            Button {
+                paymentViewModel.makePayment(forCollection: viewModel.collection, ofAmount: Float(eurosSel))
+            } label: {
+                Text("PAY")
             }
         }
-        .pickerStyle(.wheel)
-       
-        
-        Button {
-            paymentViewModel.makePayment(forCollection: viewModel.collection, ofAmount: Float(eurosSel))
-        } label: {
-            Text("PAY")
+        .onReceive(paymentViewModel.$didMakePayment) { success in
+            if success {
+                print("payment of \(eurosSel) made")
+                presentationMode.wrappedValue.dismiss()
+            }
         }
 
     }

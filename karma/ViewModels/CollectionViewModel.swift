@@ -15,8 +15,8 @@ class CollectionViewModel: ObservableObject {
     @Published var collection: Collection
     @Published private var total: Float = 0.0
     
-    let paymentHandler = PaymentHandler()
-    @Published var paymentSuccess = false
+//    let paymentHandler = PaymentHandler()
+//    @Published var paymentSuccess = false
     
     
     init(collection: Collection) {
@@ -27,8 +27,6 @@ class CollectionViewModel: ObservableObject {
     func addToFavourite() {
         service.addToFavourite(collection) {
             self.collection.didLike = true
-            
-            
         }
     }
        

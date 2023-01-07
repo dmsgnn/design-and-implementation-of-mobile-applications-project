@@ -70,6 +70,7 @@ struct CollectionView: View {
             HStack {
                 Button(action: {
                     viewModel.collection.didLike ?? false ? viewModel.removeFromFavourite() : viewModel.addToFavourite()
+                    print(viewModel.collection.didLike ?? false)
                 }, label: {
                     Image(systemName: viewModel.collection.didLike ?? false ? "heart.fill" : "heart")
                         

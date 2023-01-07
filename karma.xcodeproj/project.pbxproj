@@ -198,8 +198,8 @@
 				E378A42029411341001CE2E2 /* Extensions */,
 				E378A41D2940E271001CE2E2 /* ViewModels */,
 				1BD8C274293E5DE300F1B32A /* Views */,
-				1BD8C272293E5DCB00F1B32A /* Models */,
 				1BD8C271293E5DB800F1B32A /* Services */,
+				1BD8C272293E5DCB00F1B32A /* Models */,
 				1BD8C270293E5DA400F1B32A /* Repositories */,
 				1BD8C246293E5D6100F1B32A /* karmaApp.swift */,
 				1BD8C24A293E5D6200F1B32A /* Assets.xcassets */,
@@ -249,7 +249,8 @@
 				E339158D295DEF3D00945EFA /* ImageUploader.swift */,
 				E32FE35E296429630061C907 /* PaymentService.swift */,
 			);
-			path = Services;
+			name = Services;
+			path = Models/Services;
 			sourceTree = "<group>";
 		};
 		1BD8C272293E5DCB00F1B32A /* Models */ = {

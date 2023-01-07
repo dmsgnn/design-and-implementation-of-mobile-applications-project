@@ -32,11 +32,11 @@ struct ProfileView: View {
                 ScrollView(.vertical, showsIndicators: false) {
                         VStack {
                             GeometryReader { g in
-                                NavigationLink {
-                                    SearchView()
-                                } label: {
-                                    Text("go to search")
-                                }
+//                                NavigationLink {
+//                                    SearchView()
+//                                } label: {
+//                                    Text("go to search")
+//                                }
 
                                 VStack(alignment: .center) {
                                     HStack {

@@ -23,6 +23,7 @@ struct Collection: Identifiable, Decodable {
 //    let owner: String?
     
     var user: User?
+//    var didMakePayment: Bool? = false
     var didLike: Bool? = false
 }
 
