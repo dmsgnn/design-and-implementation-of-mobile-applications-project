@@ -20,7 +20,7 @@ struct Collection: Identifiable, Decodable {
     let collectionImageUrl: String?
     let timestamp: Timestamp
     let uid: String
-    
+//    let owner: String?
     
     var user: User?
     var didLike: Bool? = false

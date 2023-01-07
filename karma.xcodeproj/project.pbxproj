@@ -55,6 +55,8 @@
 		E36EFC50295ED26B00301ED4 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = E36EFC4F295ED26B00301ED4 /* Kingfisher */; };
 		E36EFC52295EE12100301ED4 /* CollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36EFC51295EE12100301ED4 /* CollectionViewModel.swift */; };
 		E3713E3B2967440F0037063C /* TextArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3713E3A2967440F0037063C /* TextArea.swift */; };
+		E37273A42969802C007D512E /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = E37273A32969802C007D512E /* FirebaseDatabase */; };
+		E37273A62969803A007D512E /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E37273A52969803A007D512E /* FirebaseDatabaseSwift */; };
 		E378A41F2940E29A001CE2E2 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E378A41E2940E29A001CE2E2 /* AuthViewModel.swift */; };
 		E378A4222941135A001CE2E2 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = E378A4212941135A001CE2E2 /* Color.swift */; };
 		E3A8D0C6295F95B200C029C1 /* Float.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A8D0C5295F95B200C029C1 /* Float.swift */; };
@@ -125,6 +127,7 @@
 		E35215FF293F4F900074B787 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		E36EFC51295EE12100301ED4 /* CollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewModel.swift; sourceTree = "<group>"; };
 		E3713E3A2967440F0037063C /* TextArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextArea.swift; sourceTree = "<group>"; };
+		E37273A729698C4E007D512E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E378A41E2940E29A001CE2E2 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		E378A4212941135A001CE2E2 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		E38C4F222962D503002326CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -136,6 +139,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E37273A62969803A007D512E /* FirebaseDatabaseSwift in Frameworks */,
+				E37273A42969802C007D512E /* FirebaseDatabase in Frameworks */,
 				E3521603293F51B30074B787 /* FirebaseAuth in Frameworks */,
 				E3521609293F51B30074B787 /* FirebaseStorage in Frameworks */,
 				E3521605293F51B30074B787 /* FirebaseFirestore in Frameworks */,
@@ -168,6 +173,7 @@
 				1BD8C256293E5D6300F1B32A /* karmaTests */,
 				1BD8C260293E5D6300F1B32A /* karmaUITests */,
 				1BD8C244293E5D6100F1B32A /* Products */,
+				E37273A22969802C007D512E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -184,6 +190,7 @@
 		1BD8C245293E5D6100F1B32A /* karma */ = {
 			isa = PBXGroup;
 			children = (
+				E37273A729698C4E007D512E /* Info.plist */,
 				E32FE35D296424380061C907 /* karmaDebug.entitlements */,
 				E38C4F222962D503002326CA /* Info.plist */,
 				E339158A295DE70700945EFA /* Utils */,
@@ -297,6 +304,13 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		E37273A22969802C007D512E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E378A41D2940E271001CE2E2 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -344,6 +358,8 @@
 				E3521606293F51B30074B787 /* FirebaseFirestoreSwift */,
 				E3521608293F51B30074B787 /* FirebaseStorage */,
 				E36EFC4F295ED26B00301ED4 /* Kingfisher */,
+				E37273A32969802C007D512E /* FirebaseDatabase */,
+				E37273A52969803A007D512E /* FirebaseDatabaseSwift */,
 			);
 			productName = karma;
 			productReference = 1BD8C243293E5D6100F1B32A /* karma.app */;
@@ -666,7 +682,7 @@
 				DEVELOPMENT_TEAM = 5LAQT62PVW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "";
+				INFOPLIST_FILE = karma/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Karma;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -697,7 +713,7 @@
 				DEVELOPMENT_TEAM = 5LAQT62PVW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "";
+				INFOPLIST_FILE = karma/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Karma;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -874,6 +890,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E36EFC4E295ED26B00301ED4 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		E37273A32969802C007D512E /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E3521601293F51B20074B787 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		E37273A52969803A007D512E /* FirebaseDatabaseSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E3521601293F51B20074B787 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabaseSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

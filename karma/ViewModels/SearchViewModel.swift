@@ -41,7 +41,7 @@ class SearchViewModel: ObservableObject {
         }
     }
         
-    let service = UserService()
+    let userService = UserService()
     let collectionService = CollectionService()
     
     init() {
@@ -50,13 +50,19 @@ class SearchViewModel: ObservableObject {
     }
     
     func fetchUsers() {
-        service.fetchUsers { users in
+        userService.fetchUsers { users in
             self.users = users
         }
     }
     func fetchCollections() {
         collectionService.fetchCollections { collections in
             self.collections = collections
+            for i in 0 ..< collections.count {
+                let uid = collections[i].uid
+                self.userService.fetchUser(withUid: uid) { user in
+                    self.collections[i].user = user
+                }
+            }
         }
     }
         
