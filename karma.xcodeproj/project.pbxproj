@@ -10,12 +10,19 @@
 		1B658DBC293F428C00DF06DB /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B658DBB293F428C00DF06DB /* LoginView.swift */; };
 		1B658DBE293F439B00DF06DB /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B658DBD293F439B00DF06DB /* LoginViewModel.swift */; };
 		1B6B3146294520A000779BBE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6B3145294520A000779BBE /* ContentView.swift */; };
+		1BCB44C42969E27300205BC1 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCB44C32969E27300205BC1 /* MainView.swift */; };
 		1BD8C247293E5D6100F1B32A /* karmaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD8C246293E5D6100F1B32A /* karmaApp.swift */; };
 		1BD8C24B293E5D6200F1B32A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BD8C24A293E5D6200F1B32A /* Assets.xcassets */; };
 		1BD8C24E293E5D6200F1B32A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BD8C24D293E5D6200F1B32A /* Preview Assets.xcassets */; };
 		1BD8C258293E5D6300F1B32A /* karmaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD8C257293E5D6300F1B32A /* karmaTests.swift */; };
 		1BD8C262293E5D6300F1B32A /* karmaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD8C261293E5D6300F1B32A /* karmaUITests.swift */; };
 		1BD8C264293E5D6300F1B32A /* karmaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD8C263293E5D6300F1B32A /* karmaUITestsLaunchTests.swift */; };
+		1BE74EFE29675F30006ACEF0 /* CollectionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE74EFD29675F30006ACEF0 /* CollectionRepository.swift */; };
+		1BE74F0029675F5A006ACEF0 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE74EFF29675F5A006ACEF0 /* DashboardViewModel.swift */; };
+		1BE74F0229675F83006ACEF0 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE74F0129675F83006ACEF0 /* DashboardView.swift */; };
+		1BE74F0429676F97006ACEF0 /* ImageUploaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE74F0329676F97006ACEF0 /* ImageUploaderView.swift */; };
+		1BF9AAAB2968BFBD007F4B34 /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF9AAAA2968BFBD007F4B34 /* Tab.swift */; };
+		1BF9AAAD2968C2AC007F4B34 /* CustomCornerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF9AAAC2968C2AC007F4B34 /* CustomCornerView.swift */; };
 		E32FE35A29641C850061C907 /* PaymentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32FE35929641C850061C907 /* PaymentHandler.swift */; };
 		E32FE35C29641C9E0061C907 /* PaymentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32FE35B29641C9E0061C907 /* PaymentButton.swift */; };
 		E32FE35F296429630061C907 /* PaymentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32FE35E296429630061C907 /* PaymentService.swift */; };
@@ -38,7 +45,6 @@
 		E339158C295DE72900945EFA /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E339158B295DE72900945EFA /* ImagePicker.swift */; };
 		E339158E295DEF3D00945EFA /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E339158D295DEF3D00945EFA /* ImageUploader.swift */; };
 		E34C9B232964AB4E00E8FC5E /* SummaryCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34C9B222964AB4E00E8FC5E /* SummaryCollectionView.swift */; };
-		E34C9B252966E3EE00E8FC5E /* ImageUploaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34C9B242966E3EE00E8FC5E /* ImageUploaderView.swift */; };
 		E35215FA293F399F0074B787 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35215F9293F399F0074B787 /* RegistrationView.swift */; };
 		E35215FC293F3D4F0074B787 /* CustomInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35215FB293F3D4F0074B787 /* CustomInputField.swift */; };
 		E3521600293F4F910074B787 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E35215FF293F4F900074B787 /* GoogleService-Info.plist */; };
@@ -74,6 +80,7 @@
 		1B658DBB293F428C00DF06DB /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		1B658DBD293F439B00DF06DB /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		1B6B3145294520A000779BBE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		1BCB44C32969E27300205BC1 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		1BD8C243293E5D6100F1B32A /* karma.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = karma.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BD8C246293E5D6100F1B32A /* karmaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = karmaApp.swift; sourceTree = "<group>"; };
 		1BD8C24A293E5D6200F1B32A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -83,6 +90,12 @@
 		1BD8C25D293E5D6300F1B32A /* karmaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = karmaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BD8C261293E5D6300F1B32A /* karmaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = karmaUITests.swift; sourceTree = "<group>"; };
 		1BD8C263293E5D6300F1B32A /* karmaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = karmaUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		1BE74EFD29675F30006ACEF0 /* CollectionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CollectionRepository.swift; path = karma/Views/CollectionRepository.swift; sourceTree = SOURCE_ROOT; };
+		1BE74EFF29675F5A006ACEF0 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
+		1BE74F0129675F83006ACEF0 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		1BE74F0329676F97006ACEF0 /* ImageUploaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageUploaderView.swift; path = "../../../../../../../../Library/Containers/com.apple.mail/Data/Library/Mail Downloads/00FC9FC5-17C0-4B5E-8465-631AEC30D169/ImageUploaderView.swift"; sourceTree = "<group>"; };
+		1BF9AAAA2968BFBD007F4B34 /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
+		1BF9AAAC2968C2AC007F4B34 /* CustomCornerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCornerView.swift; sourceTree = "<group>"; };
 		E32FE35929641C850061C907 /* PaymentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentHandler.swift; sourceTree = "<group>"; };
 		E32FE35B29641C9E0061C907 /* PaymentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentButton.swift; sourceTree = "<group>"; };
 		E32FE35D296424380061C907 /* karmaDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = karmaDebug.entitlements; sourceTree = "<group>"; };
@@ -106,7 +119,6 @@
 		E339158B295DE72900945EFA /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		E339158D295DEF3D00945EFA /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImageUploader.swift; path = karma/Utils/ImageUploader.swift; sourceTree = SOURCE_ROOT; };
 		E34C9B222964AB4E00E8FC5E /* SummaryCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryCollectionView.swift; sourceTree = "<group>"; };
-		E34C9B242966E3EE00E8FC5E /* ImageUploaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageUploaderView.swift; path = "../../../../iCloud Drive (archivio)/Desktop/Tom/XCodeProject/DIMA-Project/karma/Views/ImageUploaderView.swift"; sourceTree = "<group>"; };
 		E35215F9293F399F0074B787 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		E35215FB293F3D4F0074B787 /* CustomInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputField.swift; sourceTree = "<group>"; };
 		E35215FF293F4F900074B787 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -216,6 +228,7 @@
 		1BD8C270293E5DA400F1B32A /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				1BE74EFD29675F30006ACEF0 /* CollectionRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -223,6 +236,7 @@
 		1BD8C271293E5DB800F1B32A /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				1BF9AAA82968B382007F4B34 /* Repositories */,
 				E3354770295B05A3003444E0 /* UserService.swift */,
 				E334CDBA295D93E80082FC17 /* CollectionService.swift */,
 				E339158D295DEF3D00945EFA /* ImageUploader.swift */,
@@ -237,6 +251,7 @@
 				E3354772295B07FB003444E0 /* User.swift */,
 				E334CDB8295D93840082FC17 /* Collection.swift */,
 				E32FE3642964367C0061C907 /* Payment.swift */,
+				1BF9AAAA2968BFBD007F4B34 /* Tab.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -244,17 +259,27 @@
 		1BD8C274293E5DE300F1B32A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1BE74F0329676F97006ACEF0 /* ImageUploaderView.swift */,
 				1B658DBB293F428C00DF06DB /* LoginView.swift */,
 				E35215F9293F399F0074B787 /* RegistrationView.swift */,
 				1B6B3145294520A000779BBE /* ContentView.swift */,
 				E335475F2958668B003444E0 /* ProfileView.swift */,
 				E3354776295C4088003444E0 /* UploadCollectionView.swift */,
 				E3391588295DDED900945EFA /* OptionTabView.swift */,
-				E34C9B242966E3EE00E8FC5E /* ImageUploaderView.swift */,
 				E32FE360296435FD0061C907 /* PaymentView.swift */,
 				E34C9B222964AB4E00E8FC5E /* SummaryCollectionView.swift */,
+				1BE74F0129675F83006ACEF0 /* DashboardView.swift */,
+				1BF9AAAC2968C2AC007F4B34 /* CustomCornerView.swift */,
+				1BCB44C32969E27300205BC1 /* MainView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		1BF9AAA82968B382007F4B34 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repositories;
 			sourceTree = "<group>";
 		};
 		E335476129586954003444E0 /* Components */ = {
@@ -288,6 +313,7 @@
 				E334CDBE295D94190082FC17 /* ProfileViewModel.swift */,
 				E32FE362296436600061C907 /* PaymentViewModel.swift */,
 				E36EFC51295EE12100301ED4 /* CollectionViewModel.swift */,
+				1BE74EFF29675F5A006ACEF0 /* DashboardViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -444,19 +470,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3354771295B05A3003444E0 /* UserService.swift in Sources */,
+				1BCB44C42969E27300205BC1 /* MainView.swift in Sources */,
 				E335476529586BDD003444E0 /* RecentActivityView.swift in Sources */,
 				E36EFC52295EE12100301ED4 /* CollectionViewModel.swift in Sources */,
 				E32FE35A29641C850061C907 /* PaymentHandler.swift in Sources */,
 				E33547672959AB64003444E0 /* CollectionView.swift in Sources */,
 				E34C9B232964AB4E00E8FC5E /* SummaryCollectionView.swift in Sources */,
+				1BE74F0029675F5A006ACEF0 /* DashboardViewModel.swift in Sources */,
 				E32FE3652964367C0061C907 /* Payment.swift in Sources */,
 				E3A8D0C6295F95B200C029C1 /* Float.swift in Sources */,
 				E32FE35F296429630061C907 /* PaymentService.swift in Sources */,
 				E335476F295AF7FF003444E0 /* TabBarButton.swift in Sources */,
 				E339158E295DEF3D00945EFA /* ImageUploader.swift in Sources */,
 				E378A41F2940E29A001CE2E2 /* AuthViewModel.swift in Sources */,
+				1BF9AAAB2968BFBD007F4B34 /* Tab.swift in Sources */,
+				1BE74F0229675F83006ACEF0 /* DashboardView.swift in Sources */,
 				E334CDBF295D94190082FC17 /* ProfileViewModel.swift in Sources */,
+				1BF9AAAD2968C2AC007F4B34 /* CustomCornerView.swift in Sources */,
 				E3354777295C4088003444E0 /* UploadCollectionView.swift in Sources */,
+				1BE74F0429676F97006ACEF0 /* ImageUploaderView.swift in Sources */,
 				E32FE361296435FD0061C907 /* PaymentView.swift in Sources */,
 				E334CDBD295D93FE0082FC17 /* UploadCollectionViewModel.swift in Sources */,
 				E33547602958668B003444E0 /* ProfileView.swift in Sources */,
@@ -468,11 +500,11 @@
 				E3354773295B07FB003444E0 /* User.swift in Sources */,
 				1B6B3146294520A000779BBE /* ContentView.swift in Sources */,
 				1B658DBC293F428C00DF06DB /* LoginView.swift in Sources */,
+				1BE74EFE29675F30006ACEF0 /* CollectionRepository.swift in Sources */,
 				1B658DBE293F439B00DF06DB /* LoginViewModel.swift in Sources */,
 				E3391589295DDED900945EFA /* OptionTabView.swift in Sources */,
 				1BD8C247293E5D6100F1B32A /* karmaApp.swift in Sources */,
 				E32FE35C29641C9E0061C907 /* PaymentButton.swift in Sources */,
-				E34C9B252966E3EE00E8FC5E /* ImageUploaderView.swift in Sources */,
 				E378A4222941135A001CE2E2 /* Color.swift in Sources */,
 				E334CDBB295D93E80082FC17 /* CollectionService.swift in Sources */,
 				E35215FC293F3D4F0074B787 /* CustomInputField.swift in Sources */,
