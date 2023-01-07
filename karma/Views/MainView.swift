@@ -58,20 +58,18 @@ struct MainView: View {
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 24, height: 24)
                     .foregroundColor(currentTab == tab ? .white : .gray.opacity(0.5))
-                    .offset(y: currentTab == tab ? -30 : 0)
                     .background(content : {
                         if(currentTab == tab){
                             Circle()
                                 .fill(.black)
                                 .scaleEffect(2.5)
-                                .shadow(color: .black.opacity(0.3), radius: 8, x: 5, y: 10)
+                                //.shadow(color: .black.opacity(0.3), radius: 8, x: 5, y: 10)
                                 .matchedGeometryEffect(id: "TAB", in: animation)
-                                .offset(y: currentTab == tab ? -30 : 0)
                         }
                         
                     })
                     .frame(maxWidth: .infinity)
-                    .padding(.top, 15)
+                    .padding(.top, 25)
                     .padding(.bottom, 10)
                     .contentShape(Rectangle())
                     .onTapGesture {

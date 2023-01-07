@@ -9,9 +9,11 @@ import Kingfisher
 
 struct DashboardView: View {
     @StateObject var viewModel: DashboardViewModel
+    @State var showHeaderBar = false
+
     
     var body: some View {
-
+        
         NavigationStack {
             ZStack(alignment: .top) {
                 ScrollView(.vertical, showsIndicators: false) {
@@ -22,18 +24,38 @@ struct DashboardView: View {
                             .padding(.top, 10)
                             .padding(.leading, -UIScreen.main.bounds.width * 0.4)
                         
-                            VStack(alignment: .leading) {
-                                ForEach(viewModel.campaigns){ collection in
+                        VStack(alignment: .leading) {
+                            ForEach(viewModel.campaigns){ collection in
+                                NavigationLink(destination: SummaryCollectionView(collection: collection)) {
+                                    
                                     HStack(spacing: UIScreen.main.bounds.width * 0.1){
                                         
+                                        if(collection.collectionImageUrl != nil)
+                                        {
                                         KFImage(URL(string: collection.collectionImageUrl ?? ""))
                                             .resizable()
                                             .scaledToFill()
                                             .clipShape(Circle())
                                             .frame(width: 80, height: 80)
                                             .padding(.leading, 20)
-
-
+                                            
+                                        }
+                                        else {
+                                            ZStack(alignment: .center) {
+                                                Circle()
+                                                    .fill(.black)
+                                                    .frame(width: 80, height: 80)
+                                                    .padding(.leading, 20)
+                                                Image(systemName: "sun.max")
+                                                    .resizable()
+                                                    .aspectRatio(1.0, contentMode: .fit)
+                                                    .frame(width: 30, height: 30)
+                                                    .foregroundColor(.white)
+                                                    .padding(.leading, 20)
+                                            }
+                                        }
+                                        
+                                        
                                         
                                         VStack(alignment: .leading) {
                                             Text(collection.title)
@@ -41,20 +63,24 @@ struct DashboardView: View {
                                                 .fontWeight(.semibold)
                                                 .padding(.bottom, 2)
                                                 .lineLimit(1)
+                                                .foregroundColor(.black)
                                             
                                             Text(collection.caption)
                                                 .font(.subheadline)
                                                 .fontWeight(.semibold)
                                                 .foregroundColor(Color(.systemGray))
                                                 .lineLimit(2)
+                                                .multilineTextAlignment(.leading)
                                         }
                                         .padding(.vertical)
+                                        .frame(maxWidth: .infinity, alignment: .leading)
                                         
                                         Text("\(collection.currentAmount / collection.amount * 100, specifier: "%.1f") %")
                                             .font(.title2)
                                             .fontWeight(.semibold)
-                                            .padding(.trailing)
-                                            
+                                            .padding(.trailing, 20)
+                                            .foregroundColor(.black)
+                                        
                                         //.offset(y: -14)
                                     }
                                     .frame(width: UIScreen.main.bounds.width * 0.95, height: UIScreen.main.bounds.width * 0.35)
@@ -62,14 +88,29 @@ struct DashboardView: View {
                                     .clipShape(RoundedRectangle(cornerRadius: 45))
                                     .padding(.bottom, UIScreen.main.bounds.width * 0.01)
                                 }
-                                
                             }
+                            
+                        }
                     }
                 }
                 .background(Color.white)
                 .refreshable {
                     viewModel.updateHome()
                 }
+                
+//                TODO
+//                if self.showHeaderBar {
+//                    HStack {
+//                        Spacer()
+//                        Text("Home")
+//                            .font(.title3)
+//                            .fontWeight(.semibold)
+//                        Spacer()
+//                    }
+//                    .padding(.bottom)
+//                    .background(Color.theme.custombackg)
+//                }
+                
             }
         }
     }
