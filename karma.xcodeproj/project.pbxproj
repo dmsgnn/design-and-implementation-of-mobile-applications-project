@@ -236,7 +236,6 @@
 		1BD8C271293E5DB800F1B32A /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				1BF9AAA82968B382007F4B34 /* Repositories */,
 				E3354770295B05A3003444E0 /* UserService.swift */,
 				E334CDBA295D93E80082FC17 /* CollectionService.swift */,
 				E339158D295DEF3D00945EFA /* ImageUploader.swift */,
@@ -273,13 +272,6 @@
 				1BCB44C32969E27300205BC1 /* MainView.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		1BF9AAA82968B382007F4B34 /* Repositories */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Repositories;
 			sourceTree = "<group>";
 		};
 		E335476129586954003444E0 /* Components */ = {

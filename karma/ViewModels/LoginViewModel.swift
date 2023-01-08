@@ -19,6 +19,8 @@ extension LoginView {
         @AppStorage("USER_KEY") var email = ""
         @Published var password = ""
         @Published var invalid: Bool = false
+        private let service = UserService()
+
         
         // Debugging notifictions
         init() {
@@ -62,6 +64,5 @@ extension LoginView {
         func logPressed() {
             print("Login button pressed.")
         }
-        
     }
 }

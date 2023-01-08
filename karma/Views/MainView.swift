@@ -32,7 +32,7 @@ struct MainView: View {
                     .setTabBarBackground(color: Color("BG"))
                     .tag(Tab.search)
                 
-                Text("Post")
+                UploadCollectionView()
                     .setTabBarBackground(color: Color("BG"))
                     .tag(Tab.post)
                 
@@ -76,7 +76,6 @@ struct MainView: View {
                                 //.shadow(color: .black.opacity(0.3), radius: 8, x: 5, y: 10)
                                 .matchedGeometryEffect(id: "TAB", in: animation)
                         }
-                        
                     })
                     .frame(maxWidth: .infinity)
                     .padding(.top, 25)

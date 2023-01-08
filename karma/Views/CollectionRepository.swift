@@ -12,7 +12,7 @@ import Firebase
 import UIKit
 
 
-final class CampaignRepository: ObservableObject {
+final class CollectionRepository: ObservableObject {
     private let path = "collections"
     private let store = Firestore.firestore()
     @Published var campaigns: [Collection] = []

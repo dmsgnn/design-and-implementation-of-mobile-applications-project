@@ -7,7 +7,7 @@
 import Combine
 
 final class DashboardViewModel: ObservableObject {
-    @Published var campaignRepository = CampaignRepository()
+    @Published var campaignRepository = CollectionRepository()
     @Published var campaigns: [Collection] = []
     
     private var cancellables: Set<AnyCancellable> = []
