@@ -13,7 +13,6 @@ struct CollectionService {
     
     func uploadCollection(title: String, caption: String, amount: Float, image: String, completion: @escaping(Bool) -> Void) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
-        
         let data  = ["uid": uid,
                      "title": title,
                      "caption": caption,
