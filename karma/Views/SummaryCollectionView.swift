@@ -153,6 +153,7 @@ struct SummaryCollectionView: View {
             HStack {
                 Button(action: {
                     presentationMode.wrappedValue.dismiss()
+                    showTabBar()
                 }, label: {
                     Image(systemName: "chevron.backward")
                         .foregroundColor(Color.theme.dark)
