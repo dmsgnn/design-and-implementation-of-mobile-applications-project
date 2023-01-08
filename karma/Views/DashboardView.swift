@@ -68,7 +68,7 @@ struct DashboardView: View {
                                             Text(collection.caption)
                                                 .font(.subheadline)
                                                 .fontWeight(.semibold)
-                                                .foregroundColor(Color(.systemGray))
+                                                .foregroundColor(Color(.black))
                                                 .lineLimit(2)
                                                 .multilineTextAlignment(.leading)
                                         }
@@ -113,7 +113,12 @@ struct DashboardView: View {
                 
             }
         }
+        .onTapGesture {
+            hideTabBar()
+            //                                    withAnimation(.interactiveSpring(response: 0.5, dampingFraction: 0.7, blendDuration: 0.7))
+        }
     }
+
 }
 
 
