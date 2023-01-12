@@ -76,6 +76,17 @@ struct CollectionService {
     //
     //    }
     
+    
+    func fetchSingleCollection(forCid cid: String, completion: @escaping(Collection) -> Void) {
+        Firestore.firestore().collection("collections").document(cid).getDocument{ snapshot, _ in
+            guard let snapshot = snapshot else { return }
+            
+            guard let collection = try? snapshot.data(as: Collection.self) else { return }
+            completion(collection)
+        }
+    }
+    
+    
     //fetching collections for personal User
     func fetchCollections(forUid uid: String, completion: @escaping([Collection]) -> Void) {
         Firestore.firestore().collection("collections")

@@ -10,13 +10,19 @@ import Foundation
 class RecentUserActivityViewModel: ObservableObject {
     
     private let service = PaymentService()
+    private let collectionService = CollectionService()
     @Published var payment: Payment
+
     
     init(payment: Payment) {
         self.payment = payment
+        fetchCollectionPayment()
     }
     
-//    func fetchCollectionPayment() {
-//        service.fetchPaymentForCollection(forCid: <#T##String#>, completion: <#T##([Payment]) -> Void#>)
-//    }
+    func fetchCollectionPayment() {
+        let cid = payment.collectionId
+        collectionService.fetchSingleCollection(forCid: cid) { collection in
+            self.payment.collection = collection
+        }
+    }
 }

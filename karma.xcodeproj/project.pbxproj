@@ -27,7 +27,7 @@
 		E334CDBD295D93FE0082FC17 /* UploadCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E334CDBC295D93FE0082FC17 /* UploadCollectionViewModel.swift */; };
 		E334CDBF295D94190082FC17 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E334CDBE295D94190082FC17 /* ProfileViewModel.swift */; };
 		E33547602958668B003444E0 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E335475F2958668B003444E0 /* ProfileView.swift */; };
-		E335476529586BDD003444E0 /* RecentActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E335476429586BDD003444E0 /* RecentActivityView.swift */; };
+		E335476529586BDD003444E0 /* RecentUserActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E335476429586BDD003444E0 /* RecentUserActivityView.swift */; };
 		E33547672959AB64003444E0 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33547662959AB64003444E0 /* CollectionView.swift */; };
 		E335476F295AF7FF003444E0 /* TabBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E335476E295AF7FF003444E0 /* TabBarButton.swift */; };
 		E3354771295B05A3003444E0 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3354770295B05A3003444E0 /* UserService.swift */; };
@@ -106,7 +106,7 @@
 		E334CDBC295D93FE0082FC17 /* UploadCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadCollectionViewModel.swift; sourceTree = "<group>"; };
 		E334CDBE295D94190082FC17 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		E335475F2958668B003444E0 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
-		E335476429586BDD003444E0 /* RecentActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentActivityView.swift; sourceTree = "<group>"; };
+		E335476429586BDD003444E0 /* RecentUserActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentUserActivityView.swift; sourceTree = "<group>"; };
 		E33547662959AB64003444E0 /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CollectionView.swift; path = ../Views/CollectionView.swift; sourceTree = "<group>"; };
 		E335476E295AF7FF003444E0 /* TabBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarButton.swift; sourceTree = "<group>"; };
 		E3354770295B05A3003444E0 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserService.swift; path = karma/Components/UserService.swift; sourceTree = SOURCE_ROOT; };
@@ -288,7 +288,7 @@
 			isa = PBXGroup;
 			children = (
 				E35215FB293F3D4F0074B787 /* CustomInputField.swift */,
-				E335476429586BDD003444E0 /* RecentActivityView.swift */,
+				E335476429586BDD003444E0 /* RecentUserActivityView.swift */,
 				E335476E295AF7FF003444E0 /* TabBarButton.swift */,
 				E33547662959AB64003444E0 /* CollectionView.swift */,
 				E32FE35B29641C9E0061C907 /* PaymentButton.swift */,
@@ -489,7 +489,7 @@
 			files = (
 				E34C9B2D2966F03100E8FC5E /* SearchBar.swift in Sources */,
 				E3354771295B05A3003444E0 /* UserService.swift in Sources */,
-				E335476529586BDD003444E0 /* RecentActivityView.swift in Sources */,
+				E335476529586BDD003444E0 /* RecentUserActivityView.swift in Sources */,
 				E36EFC52295EE12100301ED4 /* CollectionViewModel.swift in Sources */,
 				E34C9B2F2967119400E8FC5E /* SearchViewModel.swift in Sources */,
 				E32FE35A29641C850061C907 /* PaymentHandler.swift in Sources */,

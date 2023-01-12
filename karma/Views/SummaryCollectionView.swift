@@ -134,10 +134,10 @@ struct SummaryCollectionView: View {
                                 .fontWeight(.semibold)
                             Spacer()
                         }
-                        RecentActivityView()
-                        RecentActivityView()
-                        RecentActivityView()
-                        RecentActivityView()
+//                        RecentActivityView()
+//                        RecentActivityView()
+//                        RecentActivityView()
+//                        RecentActivityView()
                     }
                     .padding()
                     

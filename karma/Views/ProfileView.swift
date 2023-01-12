@@ -78,7 +78,7 @@ struct ProfileView: View {
                             CollView
                             
                             if widthSizeClass == .compact{
-                                RecentActivitiesView
+                                RecentUserActivitiesView
                             } else {
                                 Text("modalità Ipad")
                             }
@@ -201,7 +201,7 @@ extension ProfileView {
         }
     }
     
-    var RecentActivitiesView: some View {
+    var RecentUserActivitiesView: some View {
         VStack(alignment: .leading) {
             Text("Attività recenti")
                 .font(.title2)
@@ -209,7 +209,8 @@ extension ProfileView {
             
                 VStack {
                     ForEach(0 ... 20, id: \.self) { _ in
-                        RecentActivityView()
+                        Text("ciao")
+//                        RecentUserActivityView()
                     
                 }
                 

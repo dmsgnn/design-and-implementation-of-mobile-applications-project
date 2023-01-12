@@ -1,5 +1,5 @@
 //
-//  RecentActivityView.swift
+//  RecentUserActivityView.swift
 //  karma
 //
 //  Created by Tommaso Bucaioni on 25/12/22.
@@ -23,7 +23,7 @@ struct RecentUserActivityView: View {
                 .padding(.leading)
             
             VStack(alignment: .leading) {
-                Text("Regalo Ale")
+                Text(viewModel.payment.collection?.title ?? "")
                     .font(.title2)
                     .fontWeight(.semibold)
                     .padding(.bottom, 2)
