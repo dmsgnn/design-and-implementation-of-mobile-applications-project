@@ -7,8 +7,13 @@
 
 import SwiftUI
 
-struct RecentActivityView: View {
+struct RecentUserActivityView: View {
     
+    @ObservedObject var viewModel: RecentUserActivityViewModel
+    
+    init(payment: Payment) {
+        self.viewModel = RecentUserActivityViewModel(payment: payment)
+    }
     
     
     var body: some View {
@@ -23,14 +28,14 @@ struct RecentActivityView: View {
                     .fontWeight(.semibold)
                     .padding(.bottom, 2)
                 
-                Text("23 mar - Money sent")
+                Text("\(viewModel.payment.timestamp.dateValue().formatted(date: .abbreviated, time: .omitted))")
                     .font(.subheadline)
                     .fontWeight(.semibold)
                     .foregroundColor(Color(.systemGray))
             }
             .padding(.vertical)
             
-            Text("10 €")
+            Text("\(String(viewModel.payment.total.formatted(.number.precision(.fractionLength(2)))))")
                 .font(.title2)
                 .fontWeight(.semibold)
                 .padding(.trailing)
@@ -41,8 +46,8 @@ struct RecentActivityView: View {
     }
 }
 
-struct RecentActivityView_Previews: PreviewProvider {
-    static var previews: some View {
-        RecentActivityView()
-    }
-}
+//struct RecentUserActivityView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        RecentUserActivityView()
+//    }
+//}
