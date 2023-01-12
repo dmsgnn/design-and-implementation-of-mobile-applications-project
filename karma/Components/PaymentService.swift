@@ -49,11 +49,30 @@ struct PaymentService {
 //    }
         
     
-    //function to retrieve recent payment(made or received)
-    func fetchPayment() {
-        
+    //function to retrieve payment related to collection
+    func fetchPaymentForCollection(forCid cid: String, completion:@escaping([Payment]) -> Void) {
+        Firestore.firestore().collection("payments").whereField("collectionId", isEqualTo: cid).getDocuments { snapshot, _ in
+            guard let documents = snapshot?.documents else { return }
+            let payments = documents.compactMap({try? $0.data(as: Payment.self) })
+            completion(payments.sorted(by: { $0.timestamp.dateValue() > $1.timestamp.dateValue() }))
+        }
     }
     
+    func fetchPaymentForSender(forUid uid: String, completion: @escaping([Payment]) -> Void) {
+        Firestore.firestore().collection("payments").whereField("senderId", isEqualTo: uid).getDocuments { snapshot, _ in
+            guard let documents = snapshot?.documents else { return }
+            let payments = documents.compactMap({try? $0.data(as: Payment.self) })
+            completion(payments.sorted(by: { $0.timestamp.dateValue() > $1.timestamp.dateValue() }))
+        }
+    }
+    
+    func fetchPaymentForReceiver(forUid uid: String, completion: @escaping([Payment]) -> Void) {
+        Firestore.firestore().collection("payments").whereField("destinationId", isEqualTo: uid).getDocuments { snapshot, _ in
+            guard let documents = snapshot?.documents else { return }
+            let payments = documents.compactMap({try? $0.data(as: Payment.self) })
+            completion(payments.sorted(by: { $0.timestamp.dateValue() > $1.timestamp.dateValue() }))
+        }
+    }
 }
 
 
