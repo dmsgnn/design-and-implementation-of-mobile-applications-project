@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct RecentActivityView: View {
+    
+    
+    
     var body: some View {
         HStack(spacing: 24){
             Circle()

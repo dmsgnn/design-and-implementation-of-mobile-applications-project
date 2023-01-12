@@ -15,10 +15,10 @@ struct SummaryCollectionView: View {
     @State var showHeaderBar = false
     @State var time = Timer.publish(every: 0.1, on: .current, in: .tracking).autoconnect()
     
-    let collection: Collection
+    @ObservedObject var viewModel: SummaryCollectionViewModel
     
     init(collection: Collection){
-        self.collection = collection
+        self.viewModel = SummaryCollectionViewModel(collection: collection)
     }
     
     var body: some View {
@@ -30,7 +30,7 @@ struct SummaryCollectionView: View {
                         HStack {
                             Spacer()
                             VStack {
-                                KFImage(URL(string: collection.collectionImageUrl ?? ""))
+                                KFImage(URL(string: viewModel.collection.collectionImageUrl ?? ""))
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: UIScreen.main.bounds.width * 0.9, height: 200)
@@ -49,11 +49,11 @@ struct SummaryCollectionView: View {
                                     }
                                 
                                 
-                                Text(collection.title)
+                                Text(viewModel.collection.title)
                                     .font(.title2)
                                     .fontWeight(.semibold)
                                 
-                                Text(collection.user?.username ?? "")
+                                Text(viewModel.collection.user?.username ?? "")
                                     .padding(.bottom)
                                 
                             }
@@ -64,19 +64,19 @@ struct SummaryCollectionView: View {
                     
                     VStack {
                         HStack {
-                            Text("€\(String(collection.currentAmount.formatted(.number.precision(.fractionLength(2))))) raised of €\(String(collection.amount.formatted(.number.precision(.fractionLength(0)))))")
+                            Text("€\(String(viewModel.collection.currentAmount.formatted(.number.precision(.fractionLength(2))))) raised of €\(String(viewModel.collection.amount.formatted(.number.precision(.fractionLength(0)))))")
                                 .font(.subheadline)
                                 .fontWeight(.semibold)
                             Spacer()
                         }
                         
-                        ProgressView(value: collection.currentAmount/collection.amount)
+                        ProgressView(value: viewModel.collection.currentAmount/viewModel.collection.amount)
                             .scaleEffect(x: 1, y: 2)
                         
                         
                         HStack{
                             Image(systemName: "person.fill")
-                            Text("\(collection.participants) participants")
+                            Text("\(viewModel.collection.participants) participants")
                                 .fontWeight(.regular)
                             Spacer()
                         }
@@ -101,14 +101,14 @@ struct SummaryCollectionView: View {
                     .padding(.vertical)
                     
                     
-                    Text(collection.caption)
+                    Text(viewModel.collection.caption)
                         .padding(.horizontal)
                         .font(.body)
                         .padding(.bottom, 8)
                     
                     VStack{
                         HStack {
-                            Text("\(collection.timestamp.dateValue().formatted(date: .abbreviated, time: .omitted))")
+                            Text("\(viewModel.collection.timestamp.dateValue().formatted(date: .abbreviated, time: .omitted))")
                                 .font(.footnote)
                                 .fontWeight(.regular)
                             Spacer()
@@ -161,7 +161,7 @@ struct SummaryCollectionView: View {
                 Spacer()
                 
                 if showHeaderBar{
-                    Text(collection.title)
+                    Text(viewModel.collection.title)
                         .font(.title3)
                         .fontWeight(.semibold)
                 }

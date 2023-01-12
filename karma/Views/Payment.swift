@@ -16,6 +16,9 @@ struct Payment: Identifiable, Decodable {
     let destinationId: String
     let collectionId: String
     let total: Float
-    let timestamp: Timestamp    
+    let timestamp: Timestamp
+    
+    //to retrieve data of the related collection
+    var collection: Collection?
 }
 
