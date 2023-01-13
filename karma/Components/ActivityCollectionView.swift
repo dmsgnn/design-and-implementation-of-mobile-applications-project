@@ -1,30 +1,32 @@
 //
-//  RecentUserActivityView.swift
+//  ActivityCollectionView.swift
 //  karma
 //
-//  Created by Tommaso Bucaioni on 25/12/22.
+//  Created by Tommaso Bucaioni on 13/01/23.
 //
 
 import SwiftUI
+import Kingfisher
 
-struct RecentUserActivityView: View {
+struct ActivityCollectionView: View {
     
-    @ObservedObject var viewModel: RecentUserActivityViewModel
-
+    @ObservedObject var viewModel: ActivityCollectionViewModel
     
     init(payment: Payment) {
-        self.viewModel = RecentUserActivityViewModel(payment: payment)
+        self.viewModel = ActivityCollectionViewModel(payment: payment)
     }
-    
     
     var body: some View {
         HStack(spacing: 24){
-            Circle()
+            KFImage(URL(string: viewModel.payment.sender?.profileImageUrl ?? " "))
+                .resizable()
+                .scaledToFill()
+                .clipShape(Circle())
                 .frame(width: 60, height: 60)
                 .padding(.leading)
             
             VStack(alignment: .leading) {
-                Text(viewModel.payment.collection?.title ?? "")
+                Text(viewModel.payment.sender?.username ?? "")
                     .font(.title2)
                     .fontWeight(.semibold)
                     .padding(.bottom, 2)
@@ -40,15 +42,15 @@ struct RecentUserActivityView: View {
                 .font(.title2)
                 .fontWeight(.semibold)
                 .padding(.trailing)
-                //.offset(y: -14)
+                
         }
         .background(Color(.white))
         .clipShape(RoundedRectangle(cornerRadius: 15))
     }
 }
 
-//struct RecentUserActivityView_Previews: PreviewProvider {
+//struct ActivityCollectionView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        RecentUserActivityView()
+//        ActivityCollectionView()
 //    }
 //}

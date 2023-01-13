@@ -211,7 +211,7 @@ extension ProfileView {
                 VStack {
                     ForEach(viewModel.payments) { payment in
                         RecentUserActivityView(payment: payment)
-                    
+
                 }
                 
             }

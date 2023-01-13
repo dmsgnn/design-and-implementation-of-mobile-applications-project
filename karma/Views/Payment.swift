@@ -21,5 +21,6 @@ struct Payment: Identifiable, Decodable {
     //to retrieve data of the related collection
     var collection: Collection?
     var sender: User?
+    
 }
 

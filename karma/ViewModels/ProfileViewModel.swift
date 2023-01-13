@@ -31,14 +31,17 @@ class ProfileViewModel: ObservableObject {
         }
     }
     
+    //fetch payment where user is the Sender
     func fetchUserPayments() {
         guard let uid = user.id else { return }
         paymentService.fetchPaymentsForSender(forUid: uid) { payments in
             self.payments = payments
             for i in 0 ..< payments.count {
                 self.payments[i].sender = self.user
+            
             }
         }
     }
+    
 }
 

@@ -134,10 +134,11 @@ struct SummaryCollectionView: View {
                                 .fontWeight(.semibold)
                             Spacer()
                         }
-//                        RecentActivityView()
-//                        RecentActivityView()
-//                        RecentActivityView()
-//                        RecentActivityView()
+                        
+                        ForEach(viewModel.payments) { payment in
+                            ActivityCollectionView(payment: payment)
+                        }
+                       
                     }
                     .padding()
                     
@@ -147,6 +148,9 @@ struct SummaryCollectionView: View {
                     
                 }
                 
+            }
+            .refreshable {
+                viewModel.fetchPaymentsForCollection()
             }
             .navigationBarBackButtonHidden(true)
             

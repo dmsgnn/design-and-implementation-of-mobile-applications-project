@@ -16,6 +16,7 @@
 		1BD8C258293E5D6300F1B32A /* karmaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD8C257293E5D6300F1B32A /* karmaTests.swift */; };
 		1BD8C262293E5D6300F1B32A /* karmaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD8C261293E5D6300F1B32A /* karmaUITests.swift */; };
 		1BD8C264293E5D6300F1B32A /* karmaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD8C263293E5D6300F1B32A /* karmaUITestsLaunchTests.swift */; };
+		E30E1DF62971D09E00B6ABAA /* ActivityCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30E1DF52971D09E00B6ABAA /* ActivityCollectionView.swift */; };
 		E32FE35A29641C850061C907 /* PaymentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32FE35929641C850061C907 /* PaymentHandler.swift */; };
 		E32FE35C29641C9E0061C907 /* PaymentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32FE35B29641C9E0061C907 /* PaymentButton.swift */; };
 		E32FE35F296429630061C907 /* PaymentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32FE35E296429630061C907 /* PaymentService.swift */; };
@@ -60,6 +61,7 @@
 		E378A41F2940E29A001CE2E2 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E378A41E2940E29A001CE2E2 /* AuthViewModel.swift */; };
 		E378A4222941135A001CE2E2 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = E378A4212941135A001CE2E2 /* Color.swift */; };
 		E3A8D0C6295F95B200C029C1 /* Float.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A8D0C5295F95B200C029C1 /* Float.swift */; };
+		E3BA1B1E2971D1F8009945A5 /* ActivityCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BA1B1D2971D1F8009945A5 /* ActivityCollectionViewModel.swift */; };
 		E3DDB18B2970AE2C008CE84B /* SummaryCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DDB18A2970AE2C008CE84B /* SummaryCollectionViewModel.swift */; };
 		E3DDB18D2970AF6F008CE84B /* RecentUserActivityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DDB18C2970AF6F008CE84B /* RecentUserActivityViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -94,6 +96,7 @@
 		1BD8C25D293E5D6300F1B32A /* karmaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = karmaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BD8C261293E5D6300F1B32A /* karmaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = karmaUITests.swift; sourceTree = "<group>"; };
 		1BD8C263293E5D6300F1B32A /* karmaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = karmaUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E30E1DF52971D09E00B6ABAA /* ActivityCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCollectionView.swift; sourceTree = "<group>"; };
 		E32FE35929641C850061C907 /* PaymentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentHandler.swift; sourceTree = "<group>"; };
 		E32FE35B29641C9E0061C907 /* PaymentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentButton.swift; sourceTree = "<group>"; };
 		E32FE35D296424380061C907 /* karmaDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = karmaDebug.entitlements; sourceTree = "<group>"; };
@@ -134,6 +137,7 @@
 		E378A4212941135A001CE2E2 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		E38C4F222962D503002326CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E3A8D0C5295F95B200C029C1 /* Float.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Float.swift; sourceTree = "<group>"; };
+		E3BA1B1D2971D1F8009945A5 /* ActivityCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCollectionViewModel.swift; sourceTree = "<group>"; };
 		E3DDB18A2970AE2C008CE84B /* SummaryCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryCollectionViewModel.swift; sourceTree = "<group>"; };
 		E3DDB18C2970AF6F008CE84B /* RecentUserActivityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentUserActivityViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -289,6 +293,7 @@
 			children = (
 				E35215FB293F3D4F0074B787 /* CustomInputField.swift */,
 				E335476429586BDD003444E0 /* RecentUserActivityView.swift */,
+				E30E1DF52971D09E00B6ABAA /* ActivityCollectionView.swift */,
 				E335476E295AF7FF003444E0 /* TabBarButton.swift */,
 				E33547662959AB64003444E0 /* CollectionView.swift */,
 				E32FE35B29641C9E0061C907 /* PaymentButton.swift */,
@@ -330,6 +335,7 @@
 				E34C9B302967188600E8FC5E /* FilterSearchViewModel.swift */,
 				E3DDB18A2970AE2C008CE84B /* SummaryCollectionViewModel.swift */,
 				E3DDB18C2970AF6F008CE84B /* RecentUserActivityViewModel.swift */,
+				E3BA1B1D2971D1F8009945A5 /* ActivityCollectionViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -490,6 +496,7 @@
 				E34C9B2D2966F03100E8FC5E /* SearchBar.swift in Sources */,
 				E3354771295B05A3003444E0 /* UserService.swift in Sources */,
 				E335476529586BDD003444E0 /* RecentUserActivityView.swift in Sources */,
+				E3BA1B1E2971D1F8009945A5 /* ActivityCollectionViewModel.swift in Sources */,
 				E36EFC52295EE12100301ED4 /* CollectionViewModel.swift in Sources */,
 				E34C9B2F2967119400E8FC5E /* SearchViewModel.swift in Sources */,
 				E32FE35A29641C850061C907 /* PaymentHandler.swift in Sources */,
@@ -524,6 +531,7 @@
 				1BD8C247293E5D6100F1B32A /* karmaApp.swift in Sources */,
 				E32FE35C29641C9E0061C907 /* PaymentButton.swift in Sources */,
 				E34C9B252966E3EE00E8FC5E /* ImageUploaderView.swift in Sources */,
+				E30E1DF62971D09E00B6ABAA /* ActivityCollectionView.swift in Sources */,
 				E378A4222941135A001CE2E2 /* Color.swift in Sources */,
 				E34C9B2B2966EE0000E8FC5E /* CollectionRowView.swift in Sources */,
 				E3DDB18D2970AF6F008CE84B /* RecentUserActivityViewModel.swift in Sources */,
