@@ -210,7 +210,7 @@ extension ProfileView {
             
                 VStack {
                     ForEach(viewModel.payments) { payment in
-                        RecentUserActivityView(payment: payment)
+                        RecentUserActivityView(payment: payment, isPositive: payment.isPositive ?? false)
 
                 }
                 

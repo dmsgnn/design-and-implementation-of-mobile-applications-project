@@ -15,6 +15,7 @@ struct SummaryCollectionView: View {
     @State var showHeaderBar = false
     @State var time = Timer.publish(every: 0.1, on: .current, in: .tracking).autoconnect()
     
+    @State private var showPaymentView = false
     @ObservedObject var viewModel: SummaryCollectionViewModel
     
     init(collection: Collection){
@@ -87,7 +88,7 @@ struct SummaryCollectionView: View {
                     .padding(.horizontal)
                     
                     Button() {
-                        print("donate")
+                        showPaymentView.toggle()
                     } label: {
                         Text("Donate")
                             .foregroundColor(.white)
@@ -98,6 +99,10 @@ struct SummaryCollectionView: View {
                             .clipShape(RoundedRectangle(cornerRadius: 10))
                         
                     }
+                    .sheet(isPresented: $showPaymentView, content: {
+                        PaymentView(collection: viewModel.collection)
+                            .presentationDetents([.medium])
+                    })
                     .padding(.vertical)
                     
                     

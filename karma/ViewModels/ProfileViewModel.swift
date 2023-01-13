@@ -38,6 +38,7 @@ class ProfileViewModel: ObservableObject {
             self.payments = payments
             for i in 0 ..< payments.count {
                 self.payments[i].sender = self.user
+                self.payments[i].isPositive = false
             
             }
         }

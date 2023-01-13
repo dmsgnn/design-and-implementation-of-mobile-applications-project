@@ -10,10 +10,12 @@ import SwiftUI
 struct RecentUserActivityView: View {
     
     @ObservedObject var viewModel: RecentUserActivityViewModel
+    private let isPositive: Bool
 
     
-    init(payment: Payment) {
+    init(payment: Payment, isPositive: Bool) {
         self.viewModel = RecentUserActivityViewModel(payment: payment)
+        self.isPositive = isPositive
     }
     
     
@@ -39,8 +41,8 @@ struct RecentUserActivityView: View {
             Text("\(String(viewModel.payment.total.formatted(.number.precision(.fractionLength(0))))) €")
                 .font(.title2)
                 .fontWeight(.semibold)
+                .foregroundColor(isPositive ? Color.black : Color.red)
                 .padding(.trailing)
-                //.offset(y: -14)
         }
         .background(Color(.white))
         .clipShape(RoundedRectangle(cornerRadius: 15))

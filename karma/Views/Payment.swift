@@ -22,5 +22,7 @@ struct Payment: Identifiable, Decodable {
     var collection: Collection?
     var sender: User?
     
+    var isPositive: Bool? = false
+    
 }
 
