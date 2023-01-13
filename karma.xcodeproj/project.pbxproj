@@ -17,7 +17,6 @@
 		1BD8C258293E5D6300F1B32A /* karmaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD8C257293E5D6300F1B32A /* karmaTests.swift */; };
 		1BD8C262293E5D6300F1B32A /* karmaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD8C261293E5D6300F1B32A /* karmaUITests.swift */; };
 		1BD8C264293E5D6300F1B32A /* karmaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD8C263293E5D6300F1B32A /* karmaUITestsLaunchTests.swift */; };
-		1BE74EFE29675F30006ACEF0 /* CollectionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE74EFD29675F30006ACEF0 /* CollectionRepository.swift */; };
 		1BE74F0029675F5A006ACEF0 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE74EFF29675F5A006ACEF0 /* DashboardViewModel.swift */; };
 		1BE74F0229675F83006ACEF0 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE74F0129675F83006ACEF0 /* DashboardView.swift */; };
 		1BE74F0429676F97006ACEF0 /* ImageUploaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE74F0329676F97006ACEF0 /* ImageUploaderView.swift */; };
@@ -45,7 +44,6 @@
 		E339158C295DE72900945EFA /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E339158B295DE72900945EFA /* ImagePicker.swift */; };
 		E339158E295DEF3D00945EFA /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E339158D295DEF3D00945EFA /* ImageUploader.swift */; };
 		E34C9B232964AB4E00E8FC5E /* SummaryCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34C9B222964AB4E00E8FC5E /* SummaryCollectionView.swift */; };
-		E34C9B252966E3EE00E8FC5E /* ImageUploaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34C9B242966E3EE00E8FC5E /* ImageUploaderView.swift */; };
 		E34C9B272966EA0700E8FC5E /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34C9B262966EA0700E8FC5E /* SearchView.swift */; };
 		E34C9B292966EB9000E8FC5E /* UserRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34C9B282966EB9000E8FC5E /* UserRowView.swift */; };
 		E34C9B2B2966EE0000E8FC5E /* CollectionRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34C9B2A2966EE0000E8FC5E /* CollectionRowView.swift */; };
@@ -98,7 +96,6 @@
 		1BD8C25D293E5D6300F1B32A /* karmaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = karmaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BD8C261293E5D6300F1B32A /* karmaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = karmaUITests.swift; sourceTree = "<group>"; };
 		1BD8C263293E5D6300F1B32A /* karmaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = karmaUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		1BE74EFD29675F30006ACEF0 /* CollectionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CollectionRepository.swift; path = karma/Views/CollectionRepository.swift; sourceTree = SOURCE_ROOT; };
 		1BE74EFF29675F5A006ACEF0 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		1BE74F0129675F83006ACEF0 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		1BE74F0329676F97006ACEF0 /* ImageUploaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageUploaderView.swift; path = "../../../../../../../../Library/Containers/com.apple.mail/Data/Library/Mail Downloads/00FC9FC5-17C0-4B5E-8465-631AEC30D169/ImageUploaderView.swift"; sourceTree = "<group>"; };
@@ -127,7 +124,6 @@
 		E339158B295DE72900945EFA /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		E339158D295DEF3D00945EFA /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImageUploader.swift; path = karma/Utils/ImageUploader.swift; sourceTree = SOURCE_ROOT; };
 		E34C9B222964AB4E00E8FC5E /* SummaryCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryCollectionView.swift; sourceTree = "<group>"; };
-		E34C9B242966E3EE00E8FC5E /* ImageUploaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageUploaderView.swift; path = "../../../../iCloud Drive (archivio)/Desktop/Tom/XCodeProject/DIMA-Project/karma/Views/ImageUploaderView.swift"; sourceTree = "<group>"; };
 		E34C9B262966EA0700E8FC5E /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		E34C9B282966EB9000E8FC5E /* UserRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRowView.swift; sourceTree = "<group>"; };
 		E34C9B2A2966EE0000E8FC5E /* CollectionRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionRowView.swift; sourceTree = "<group>"; };
@@ -207,7 +203,6 @@
 				1BD8C274293E5DE300F1B32A /* Views */,
 				1BD8C272293E5DCB00F1B32A /* Models */,
 				1BD8C271293E5DB800F1B32A /* Services */,
-				1BD8C270293E5DA400F1B32A /* Repositories */,
 				1BD8C246293E5D6100F1B32A /* karmaApp.swift */,
 				1BD8C24A293E5D6200F1B32A /* Assets.xcassets */,
 				E35215FF293F4F900074B787 /* GoogleService-Info.plist */,
@@ -239,14 +234,6 @@
 				1BD8C263293E5D6300F1B32A /* karmaUITestsLaunchTests.swift */,
 			);
 			path = karmaUITests;
-			sourceTree = "<group>";
-		};
-		1BD8C270293E5DA400F1B32A /* Repositories */ = {
-			isa = PBXGroup;
-			children = (
-				1BE74EFD29675F30006ACEF0 /* CollectionRepository.swift */,
-			);
-			path = Repositories;
 			sourceTree = "<group>";
 		};
 		1BD8C271293E5DB800F1B32A /* Services */ = {
@@ -521,7 +508,6 @@
 				E3354773295B07FB003444E0 /* User.swift in Sources */,
 				1B6B3146294520A000779BBE /* ContentView.swift in Sources */,
 				1B658DBC293F428C00DF06DB /* LoginView.swift in Sources */,
-				1BE74EFE29675F30006ACEF0 /* CollectionRepository.swift in Sources */,
 				1B658DBE293F439B00DF06DB /* LoginViewModel.swift in Sources */,
 				E3391589295DDED900945EFA /* OptionTabView.swift in Sources */,
 				1BD8C247293E5D6100F1B32A /* karmaApp.swift in Sources */,

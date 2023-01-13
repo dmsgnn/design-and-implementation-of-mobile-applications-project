@@ -34,8 +34,6 @@ struct CollectionService {
             }
     }
     
-    
-    
     //fetching collections for DashboardView
     func fetchCollections(completion: @escaping([Collection]) -> Void) {
         Firestore.firestore().collection("collections")

@@ -25,7 +25,7 @@ struct DashboardView: View {
                             .padding(.leading, -UIScreen.main.bounds.width * 0.4)
                         
                         VStack(alignment: .leading) {
-                            ForEach(viewModel.campaigns){ collection in
+                            ForEach(viewModel.collections){ collection in
                                 NavigationLink(destination: SummaryCollectionView(collection: collection)) {
                                     
                                     HStack(spacing: UIScreen.main.bounds.width * 0.1){
