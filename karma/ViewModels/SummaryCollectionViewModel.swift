@@ -12,8 +12,18 @@ class SummaryCollectionViewModel: ObservableObject {
     private let service = CollectionService()
     @Published var collection: Collection
     
+    private let paymentService = PaymentService()
+    @Published var payments = [Payment]()
+    
     init(collection: Collection) {
         self.collection = collection
+    }
+    
+    func fetchPaymentForCollection() {
+        guard let cid = collection.id else { return }
+        paymentService.fetchPaymentsForCollection(forCid: cid) { payments in
+            self.payments = payments
+        }
     }
     
 }

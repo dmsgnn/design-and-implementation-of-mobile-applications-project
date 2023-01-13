@@ -78,7 +78,7 @@ struct ProfileView: View {
                             CollView
                             
                             if widthSizeClass == .compact{
-                                RecentUserActivitiesView
+                                RecentActivitiesView
                             } else {
                                 Text("modalità Ipad")
                             }
@@ -87,6 +87,7 @@ struct ProfileView: View {
                     .background(Color.theme.custombackg)
                     .refreshable {
                         viewModel.fetchUserCollections()
+                        viewModel.fetchUserPayments()
                     }
                 
                 if self.showHeaderBar {
@@ -201,16 +202,15 @@ extension ProfileView {
         }
     }
     
-    var RecentUserActivitiesView: some View {
+    var RecentActivitiesView: some View {
         VStack(alignment: .leading) {
             Text("Attività recenti")
                 .font(.title2)
                 .fontWeight(.semibold)
             
                 VStack {
-                    ForEach(0 ... 20, id: \.self) { _ in
-                        Text("ciao")
-//                        RecentUserActivityView()
+                    ForEach(viewModel.payments) { payment in
+                        RecentUserActivityView(payment: payment)
                     
                 }
                 

@@ -12,6 +12,7 @@ class RecentUserActivityViewModel: ObservableObject {
     private let service = PaymentService()
     private let collectionService = CollectionService()
     @Published var payment: Payment
+    
 
     
     init(payment: Payment) {
