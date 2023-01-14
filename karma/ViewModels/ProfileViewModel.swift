@@ -12,14 +12,18 @@ class ProfileViewModel: ObservableObject {
     private let service = CollectionService()
     let user: User
     private let paymentService = PaymentService()
-    @Published var payments = [Payment]()
+    @Published var sentPayments = [Payment]()
+//    private var receivedPayments = [Payment]()
+//    @Published var totalPayments = [Payment]()
+    
     
     init(user: User) {
         self.user = user
         self.fetchUserCollections()
-        self.fetchUserPayments()
+        self.fetchSenderPayments()
+//        self.fetchReceiverPayments()
     }
-    
+
     
     func fetchUserCollections() {
         guard let uid = user.id else { return }
@@ -32,17 +36,28 @@ class ProfileViewModel: ObservableObject {
     }
     
     //fetch payment where user is the Sender
-    func fetchUserPayments() {
+    func fetchSenderPayments() {
         guard let uid = user.id else { return }
         paymentService.fetchPaymentsForSender(forUid: uid) { payments in
-            self.payments = payments
+            self.sentPayments = payments
             for i in 0 ..< payments.count {
-                self.payments[i].sender = self.user
-                self.payments[i].isPositive = false
-            
+                self.sentPayments[i].sender = self.user
+                self.sentPayments[i].isPositive = false
             }
+            
         }
     }
+    
+//    func fetchReceiverPayments() {
+//        guard let uid = user.id else { return }
+//        paymentService.fetchPaymentsForReceiver(forUid: uid) { payments in
+//            self.receivedPayments = payments
+//            for i in 0 ..< payments.count {
+//                self.receivedPayments[i].receiver = self.user
+//                self.receivedPayments[i].isPositive = true
+//            }
+//        }
+//    }
     
 }
 

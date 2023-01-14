@@ -87,7 +87,8 @@ struct ProfileView: View {
                     .background(Color.theme.custombackg)
                     .refreshable {
                         viewModel.fetchUserCollections()
-                        viewModel.fetchUserPayments()
+                        viewModel.fetchSenderPayments()
+//                        viewModel.fetchReceiverPayments()
                     }
                 
                 if self.showHeaderBar {
@@ -208,12 +209,10 @@ extension ProfileView {
                 .font(.title2)
                 .fontWeight(.semibold)
             
-                VStack {
-                    ForEach(viewModel.payments) { payment in
-                        RecentUserActivityView(payment: payment, isPositive: payment.isPositive ?? false)
-
+            VStack {
+                ForEach(viewModel.sentPayments) { payment in
+                    RecentUserActivityView(payment: payment, isPositive: payment.isPositive ?? false)
                 }
-                
             }
         }
     }

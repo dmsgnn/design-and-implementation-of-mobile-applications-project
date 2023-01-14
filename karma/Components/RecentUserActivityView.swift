@@ -41,7 +41,7 @@ struct RecentUserActivityView: View {
             Text("\(String(viewModel.payment.total.formatted(.number.precision(.fractionLength(0))))) €")
                 .font(.title2)
                 .fontWeight(.semibold)
-                .foregroundColor(isPositive ? Color.black : Color.red)
+                .foregroundColor(isPositive ? Color.green : Color.red)
                 .padding(.trailing)
         }
         .background(Color(.white))
