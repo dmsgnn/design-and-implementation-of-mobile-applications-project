@@ -31,13 +31,13 @@ struct ProfileView: View {
             ZStack(alignment: .top) {
                 ScrollView(.vertical, showsIndicators: false) {
                         VStack {
-                            GeometryReader { g in
-//                                NavigationLink {
-//                                    SearchView()
-//                                } label: {
-//                                    Text("go to search")
-//                                }
-
+                            NavigationLink {
+                                SearchView()
+                            } label: {
+                                Text("go to search")
+                            }
+                            
+//                            GeometryReader { g in
                                 VStack(alignment: .center) {
                                     HStack {
                                         Spacer()
@@ -46,18 +46,19 @@ struct ProfileView: View {
                                             .scaledToFill()
                                             .clipShape(Circle())
                                             .frame(width: 100, height: 100)
-                                            .onReceive(self.time) { (_) in
-                                                let y = g.frame(in: .global).minY
-                                                if -y > (UIScreen.main.bounds.height * 0.16) - 50 {
-                                                    withAnimation {
-                                                        self.showHeaderBar = true
-                                                    }
-                                                } else {
-                                                    withAnimation {
-                                                        self.showHeaderBar = false
-                                                    }
-                                                }
-                                        }
+//                                            .onReceive(self.time) { (_) in
+//                                                let y = g.frame(in: .global).minY
+//                                                if -y > (UIScreen.main.bounds.height * 0.16) - 50 {
+//                                                    withAnimation {
+//                                                        self.showHeaderBar = true
+//                                                    }
+//                                                } else {
+//                                                    withAnimation {
+//                                                        self.showHeaderBar = false
+//                                                    }
+//                                                }
+//                                        }
+                                        
                                         Spacer()
                                     }
                                     .padding(.top, 30)
@@ -88,7 +89,7 @@ struct ProfileView: View {
                     .refreshable {
                         viewModel.fetchUserCollections()
                         viewModel.fetchSenderPayments()
-//                        viewModel.fetchReceiverPayments()
+//                       viewModel.fetchReceiverPayments()
                     }
                 
                 if self.showHeaderBar {
@@ -106,7 +107,7 @@ struct ProfileView: View {
             }
         }
     }
-}
+//}
 
 
 
@@ -179,6 +180,7 @@ extension ProfileView {
                         .fontWeight(.semibold)
                         .foregroundColor(Color(.systemBlue))
                 }
+                
             }
             .padding(.horizontal, 20)
             .fullScreenCover(isPresented: $showNewCollectionView) {

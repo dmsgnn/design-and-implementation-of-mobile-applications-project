@@ -13,20 +13,11 @@ struct CollectionService {
     
     func uploadCollection(title: String, caption: String, amount: Float, image: String, completion: @escaping(Bool) -> Void) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
-        //        let ref = Database.database().reference()
-        //        ref.child("users\(uid)").getData { error, snapshot in
-        //            if let error = error {
-        //                print("DEBUG: Failed to upload usernames with error: \(error.localizedDescription)")
-        //                return
-        //            }
-        //            let username = snapshot?.value as? String ?? ""
-        //
         let data  = ["uid": uid,
                      "title": title,
                      "caption": caption,
                      "collectionImageUrl": image,
                      "amount": amount,
-                     //                         "owner": username,
                      "currentAmount": 0,
                      "favourites": 0,
                      "participants": 0,
@@ -42,7 +33,6 @@ struct CollectionService {
                 completion(true)
             }
     }
-    //    }
     
     
     //fetching collections for DashboardView and exploreView
