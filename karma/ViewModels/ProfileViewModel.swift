@@ -20,7 +20,6 @@ class ProfileViewModel: ObservableObject {
     
     init(user: User) {
         self.user = user
-       
         self.fetchUserCollections()
         self.fetchSenderPayments()
 //        self.fetchReceiverPayments()
@@ -31,8 +30,6 @@ class ProfileViewModel: ObservableObject {
         
     }
 
-    
-    
     
     func fetchUserCollections() {
         guard let uid = user.id else { return }

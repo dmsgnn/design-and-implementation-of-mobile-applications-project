@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct RecentUserActivityView: View {
     
@@ -20,11 +21,13 @@ struct RecentUserActivityView: View {
     
     
     var body: some View {
-        HStack(spacing: 24){
-            Circle()
+        HStack(spacing: 32){
+            KFImage(URL(string: viewModel.payment.sender?.profileImageUrl ?? ""))
+                .resizable()
+                .scaledToFill().clipShape(Circle())
                 .frame(width: 60, height: 60)
                 .padding(.leading)
-            
+
             VStack(alignment: .leading) {
                 Text(viewModel.payment.collection?.title ?? "")
                     .font(.title2)
@@ -44,7 +47,7 @@ struct RecentUserActivityView: View {
                 .foregroundColor(isPositive ? Color.green : Color.red)
                 .padding(.trailing)
         }
-        .frame(width: UIScreen.main.bounds.size.width*0.8, height: 100)
+        .frame(width: UIScreen.main.bounds.size.width*0.9, height: 100)
         .background(.white)
         .containerShape(RoundedRectangle(cornerRadius: 15))
     }
