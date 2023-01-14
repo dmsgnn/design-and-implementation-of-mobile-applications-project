@@ -13,7 +13,6 @@ class CollectionViewModel: ObservableObject {
     
     private let service = CollectionService()
     @Published var collection: Collection
-    @Published private var total: Float = 0.0
     
 //    let paymentHandler = PaymentHandler()
 //    @Published var paymentSuccess = false

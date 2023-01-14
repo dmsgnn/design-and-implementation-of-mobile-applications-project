@@ -136,7 +136,7 @@ extension ProfileView {
     var statsView: some View {
         HStack {
             VStack {
-                Text("23")
+                Text("\(viewModel.sentPayments.count)")
                 Text("Donazioni")
                     .fontWeight(.regular)
             }
@@ -152,7 +152,7 @@ extension ProfileView {
             Spacer()
             
             VStack {
-                Text("+ 10 €")
+                Text("+10")
                 Text("Bilancio")
                     .fontWeight(.regular)
             }

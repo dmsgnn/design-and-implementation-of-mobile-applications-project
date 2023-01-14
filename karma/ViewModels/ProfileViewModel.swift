@@ -15,15 +15,24 @@ class ProfileViewModel: ObservableObject {
     @Published var sentPayments = [Payment]()
 //    private var receivedPayments = [Payment]()
 //    @Published var totalPayments = [Payment]()
+//    @Published var balance: Float
     
     
     init(user: User) {
         self.user = user
+       
         self.fetchUserCollections()
         self.fetchSenderPayments()
 //        self.fetchReceiverPayments()
+//        for i in 0 ..< self.sentPayments.count {
+//            self.balance += self.sentPayments[i].total
+//        }
+//        print(self.balance)
+        
     }
 
+    
+    
     
     func fetchUserCollections() {
         guard let uid = user.id else { return }
