@@ -29,7 +29,7 @@ struct RecentUserActivityView: View {
                 .padding(.leading)
 
             VStack(alignment: .leading) {
-                Text(viewModel.payment.collection?.title ?? "")
+                Text((isPositive ? viewModel.payment.sender?.username : viewModel.payment.receiver?.username) ?? "")
                     .font(.title2)
                     .fontWeight(.semibold)
                     .padding(.bottom, 2)

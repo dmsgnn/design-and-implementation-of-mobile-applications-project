@@ -89,7 +89,7 @@ struct ProfileView: View {
                     .refreshable {
                         viewModel.fetchUserCollections()
                         viewModel.fetchSenderPayments()
-//                       viewModel.fetchReceiverPayments()
+                       viewModel.fetchReceiverPayments()
                     }
                 
                 if self.showHeaderBar {
@@ -121,13 +121,13 @@ struct ProfileView_Previews: PreviewProvider {
             email: "tbucaioni@virgilio.it"))
         .previewDevice("iPhone 12")
         
-        ProfileView(user: User(
-            id: NSUUID().uuidString,
-            username: "tombucaioni",
-            fullname: "Tommaso Bucaioni",
-            profileImageUrl: "",
-            email: "tbucaioni@virgilio.it"))
-        .previewDevice("iPad (10th generation)")
+//        ProfileView(user: User(
+//            id: NSUUID().uuidString,
+//            username: "tombucaioni",
+//            fullname: "Tommaso Bucaioni",
+//            profileImageUrl: "",
+//            email: "tbucaioni@virgilio.it"))
+//        .previewDevice("iPad (10th generation)")
     }
 }
 
@@ -136,27 +136,27 @@ extension ProfileView {
     
     var statsView: some View {
         HStack {
+            
             VStack {
                 Text("\(viewModel.sentPayments.count)")
                 Text("Donazioni")
                     .fontWeight(.regular)
             }
-            
-            Spacer()
-            
+            .frame(width: UIScreen.main.bounds.width * 0.33)
+
             VStack {
                 Text("\(viewModel.collections.count)")
                 Text("Raccolte")
                     .fontWeight(.regular)
             }
-            
-            Spacer()
+            .frame(width: UIScreen.main.bounds.width * 0.33)
             
             VStack {
                 Text("+10")
                 Text("Bilancio")
                     .fontWeight(.regular)
             }
+            .frame(width: UIScreen.main.bounds.width * 0.33)
         }
         .font(.title2)
         .fontWeight(.bold)
@@ -203,6 +203,7 @@ extension ProfileView {
                 }
             }
         }
+        .padding(.horizontal)
     }
     
     var RecentActivitiesView: some View {
@@ -213,6 +214,10 @@ extension ProfileView {
             
             VStack {
                 ForEach(viewModel.sentPayments) { payment in
+                    RecentUserActivityView(payment: payment, isPositive: payment.isPositive ?? false)
+                }
+                
+                ForEach(viewModel.receivedPayments) { payment in
                     RecentUserActivityView(payment: payment, isPositive: payment.isPositive ?? false)
                 }
             }

@@ -13,21 +13,14 @@ class ProfileViewModel: ObservableObject {
     let user: User
     private let paymentService = PaymentService()
     @Published var sentPayments = [Payment]()
-//    private var receivedPayments = [Payment]()
-//    @Published var totalPayments = [Payment]()
-//    @Published var balance: Float
+    @Published var receivedPayments = [Payment]()
     
     
     init(user: User) {
         self.user = user
         self.fetchUserCollections()
         self.fetchSenderPayments()
-//        self.fetchReceiverPayments()
-//        for i in 0 ..< self.sentPayments.count {
-//            self.balance += self.sentPayments[i].total
-//        }
-//        print(self.balance)
-        
+        self.fetchReceiverPayments()
     }
 
     
@@ -54,16 +47,16 @@ class ProfileViewModel: ObservableObject {
         }
     }
     
-//    func fetchReceiverPayments() {
-//        guard let uid = user.id else { return }
-//        paymentService.fetchPaymentsForReceiver(forUid: uid) { payments in
-//            self.receivedPayments = payments
-//            for i in 0 ..< payments.count {
-//                self.receivedPayments[i].receiver = self.user
-//                self.receivedPayments[i].isPositive = true
-//            }
-//        }
-//    }
+    func fetchReceiverPayments() {
+        guard let uid = user.id else { return }
+        paymentService.fetchPaymentsForReceiver(forUid: uid) { payments in
+            self.receivedPayments = payments
+            for i in 0 ..< payments.count {
+                self.receivedPayments[i].receiver = self.user
+                self.receivedPayments[i].isPositive = true
+            }
+        }
+    }
     
 }
 

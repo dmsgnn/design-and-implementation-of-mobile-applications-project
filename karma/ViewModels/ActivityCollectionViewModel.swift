@@ -24,6 +24,7 @@ class ActivityCollectionViewModel: ObservableObject {
             self.payment.sender = user
         }
     }
+    
 }
 
 
