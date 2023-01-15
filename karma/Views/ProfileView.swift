@@ -88,8 +88,8 @@ struct ProfileView: View {
                     .background(Color.theme.custombackg)
                     .refreshable {
                         viewModel.fetchUserCollections()
-                        viewModel.fetchSenderPayments()
-                       viewModel.fetchReceiverPayments()
+//                        viewModel.fetchSenderPayments()
+                       viewModel.fetchPayments()
                     }
                 
                 if self.showHeaderBar {
@@ -152,7 +152,7 @@ extension ProfileView {
             .frame(width: UIScreen.main.bounds.width * 0.33)
             
             VStack {
-                Text("+10")
+                Text("\(viewModel.balance)")
                 Text("Bilancio")
                     .fontWeight(.regular)
             }
@@ -213,13 +213,17 @@ extension ProfileView {
                 .fontWeight(.semibold)
             
             VStack {
-                ForEach(viewModel.sentPayments) { payment in
+                ForEach(viewModel.totalPayments) { payment in
                     RecentUserActivityView(payment: payment, isPositive: payment.isPositive ?? false)
                 }
-                
-                ForEach(viewModel.receivedPayments) { payment in
-                    RecentUserActivityView(payment: payment, isPositive: payment.isPositive ?? false)
-                }
+
+//                ForEach(viewModel.sentPayments) { payment in
+//                    RecentUserActivityView(payment: payment, isPositive: payment.isPositive ?? false)
+//                }
+//
+//                ForEach(viewModel.receivedPayments) { payment in
+//                    RecentUserActivityView(payment: payment, isPositive: payment.isPositive ?? false)
+//                }
             }
         }
     }
