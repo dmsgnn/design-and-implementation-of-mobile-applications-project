@@ -87,9 +87,13 @@ struct DashboardView: View {
                                         //.offset(y: -14)
                                     }
                                     .frame(width: UIScreen.main.bounds.width * 0.95, height: UIScreen.main.bounds.width * 0.35)
-                                    .background(Color(.yellow))
+                                    .background(Color(.yellow)
+                                        //.shadow(color: .black.opacity(0.2), radius: 1, x: 6, y: 6)
+                                        //.blur(radius: 8, opaque: false)
+                                    )
                                     .clipShape(RoundedRectangle(cornerRadius: 45))
                                     .padding(.bottom, UIScreen.main.bounds.width * 0.01)
+                                    
                                 }
                             }
                             
