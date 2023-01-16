@@ -11,6 +11,9 @@ struct DashboardView: View {
     @StateObject var viewModel: DashboardViewModel
     @State var showHeaderBar = false
 
+    // Variables for header
+    var safeArea: EdgeInsets
+    var size: CGSize
     
     var body: some View {
         
@@ -92,25 +95,15 @@ struct DashboardView: View {
                             
                         }
                     }
+                    .overlay(alignment: .top) {
+                        HeaderView()
+                    }
                 }
                 .background(Color.white)
                 .refreshable {
                     viewModel.updateHome()
                 }
-                
-//                TODO
-//                if self.showHeaderBar {
-//                    HStack {
-//                        Spacer()
-//                        Text("Home")
-//                            .font(.title3)
-//                            .fontWeight(.semibold)
-//                        Spacer()
-//                    }
-//                    .padding(.bottom)
-//                    .background(Color.theme.custombackg)
-//                }
-                
+
             }
         }
         .onTapGesture {
@@ -118,6 +111,39 @@ struct DashboardView: View {
             //                                    withAnimation(.interactiveSpring(response: 0.5, dampingFraction: 0.7, blendDuration: 0.7))
         }
     }
+    
+    // MARK: HeaderView
+        @ViewBuilder
+        func HeaderView()->some View{
+            GeometryReader{proxy in
+                let minY = proxy.frame(in: .named("SCROLL")).minY
+                let height = size.height * 0.0
+                let progress = minY / (height * (minY > 0 ? 0.5 : 0.8))
+                let titleProgress = minY / height
+                
+                HStack(spacing: 15){
+                    Spacer(minLength: 0)
+
+                }
+                .overlay(content: {
+                    Text("Home")
+                        .foregroundColor(.black)
+                        .fontWeight(.semibold)
+                        // Your Choice Where to display the title
+                        .offset(y: -titleProgress > 0.75 ? 0 : 45)
+                        .clipped()
+                        .animation(.easeInOut(duration: 0.25), value: -titleProgress > 0.75)
+                })
+                .padding(.top,safeArea.top + 10)
+                .padding([.horizontal,.bottom],15)
+                .background(content: {
+                    Color.white
+                        .opacity(-progress > 1 ? 1 : 0)
+                })
+                .offset(y: -minY)
+            }
+            .frame(height: 35)
+        }
 
 }
 
@@ -142,8 +168,13 @@ struct CampaignCell: View {
 }
 
 struct DashboardView_Previews : PreviewProvider {
-    static var previews: some View {
-        DashboardView(viewModel: DashboardViewModel())
+    static var previews: some View {        
+        GeometryReader{
+            let safeArea = $0.safeAreaInsets
+            let size = $0.size
+            DashboardView(viewModel: DashboardViewModel(), safeArea: safeArea, size: size)
+                .ignoresSafeArea(.container, edges: .top)
+        }
     }
 }
 
