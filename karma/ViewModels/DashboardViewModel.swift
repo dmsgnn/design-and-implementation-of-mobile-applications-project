@@ -4,22 +4,24 @@
 //
 //  Created by Giovanni Demasi on 26/12/22.
 //
-import Combine
+import Foundation
 
 final class DashboardViewModel: ObservableObject {
-    @Published var campaignRepository = CollectionRepository()
-    @Published var campaigns: [Collection] = []
-    
-    private var cancellables: Set<AnyCancellable> = []
+    @Published var collections = [Collection]()
+    private let service = CollectionService()
     
     init() {
-        campaignRepository.$campaigns.assign(to: \.campaigns, on: self)
-            .store(in: &cancellables)
+        self.updateHome()
     }
     
     func updateHome() {
-        campaigns.removeAll()
-        campaignRepository.get()
+        collections.removeAll()
+        service.fetchCollections() { collections in
+            self.collections = collections
+            for i in 0 ..< collections.count {
+                self.collections[i] = collections[i]
+            }
+        }
     }
     
 }

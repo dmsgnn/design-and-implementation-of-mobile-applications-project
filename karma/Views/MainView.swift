@@ -24,11 +24,16 @@ struct MainView: View {
     var body: some View {
         ZStack(alignment: .bottom){
             TabView(selection: $currentTab){
-                DashboardView(viewModel: DashboardViewModel())
-                    .setTabBarBackground(color: Color("BG"))
-                    .tag(Tab.home)
+                GeometryReader{
+                    let safeArea = $0.safeAreaInsets
+                    let size = $0.size
+                    DashboardView(viewModel: DashboardViewModel(), safeArea: safeArea, size: size)
+                        .ignoresSafeArea(.container, edges: .top)
+                        .setTabBarBackground(color: Color("BG"))
+                        .tag(Tab.home)
+                }
                 
-                Text("Search")
+                SearchView()
                     .setTabBarBackground(color: Color("BG"))
                     .tag(Tab.search)
                 
