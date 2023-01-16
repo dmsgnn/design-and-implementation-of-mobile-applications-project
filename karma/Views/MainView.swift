@@ -33,7 +33,7 @@ struct MainView: View {
                         .tag(Tab.home)
                 }
                 
-                Text("Search")
+                SearchView()
                     .setTabBarBackground(color: Color("BG"))
                     .tag(Tab.search)
                 
