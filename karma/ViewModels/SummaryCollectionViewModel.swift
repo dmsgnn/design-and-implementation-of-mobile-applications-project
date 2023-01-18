@@ -11,6 +11,7 @@ class SummaryCollectionViewModel: ObservableObject {
     
     private let service = CollectionService()
     @Published var collection: Collection
+
     
     private let paymentService = PaymentService()
     @Published var payments = [Payment]()

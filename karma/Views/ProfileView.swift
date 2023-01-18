@@ -193,6 +193,7 @@ extension ProfileView {
                             SummaryCollectionView(collection: collection)
                         } label: {
                             CollectionView(collection: collection).padding(.horizontal, 18)
+                                
                         }
                         
                         
@@ -211,10 +212,12 @@ extension ProfileView {
             Text("Attività recenti")
                 .font(.title2)
                 .fontWeight(.semibold)
+                .padding(.top, 8)
             
             VStack {
                 ForEach(viewModel.totalPayments) { payment in
                     RecentUserActivityView(payment: payment, isPositive: payment.isPositive ?? false)
+                        .padding(.bottom, 4)
                 }
 
 //                ForEach(viewModel.sentPayments) { payment in

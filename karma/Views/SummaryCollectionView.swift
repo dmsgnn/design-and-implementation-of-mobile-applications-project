@@ -76,7 +76,7 @@ struct SummaryCollectionView: View {
                         
                         
                         HStack{
-                            Image(systemName: "person.fill")
+                            Image(systemName: "person.2.fill")
                             Text("\(viewModel.collection.participants) donations")
                                 .fontWeight(.regular)
                             Spacer()
