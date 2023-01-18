@@ -150,9 +150,8 @@ extension ProfileView {
                     .fontWeight(.regular)
             }
             .frame(width: UIScreen.main.bounds.width * 0.33)
-            
             VStack {
-                Text("\(viewModel.balance)")
+                Text("\(String(viewModel.balance.formatted(.number.precision(.fractionLength(0))))) €")
                 Text("Bilancio")
                     .fontWeight(.regular)
             }
@@ -165,7 +164,7 @@ extension ProfileView {
     }
     
     var CollView: some View {
-        VStack {
+        VStack(alignment: .center) {
             HStack {
                 Text("Raccolte")
                     .font(.title2)
@@ -193,8 +192,7 @@ extension ProfileView {
                         NavigationLink {
                             SummaryCollectionView(collection: collection)
                         } label: {
-                            CollectionView(collection: collection)
-                                .padding(.horizontal, 10)
+                            CollectionView(collection: collection).padding(.horizontal, 18)
                         }
                         
                         
@@ -202,6 +200,7 @@ extension ProfileView {
                     
                 }
             }
+        
         }
         .padding(.horizontal)
     }

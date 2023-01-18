@@ -72,7 +72,7 @@ struct CollectionView: View {
                     viewModel.collection.didLike ?? false ? viewModel.removeFromFavourite() : viewModel.addToFavourite()
                     print(viewModel.collection.didLike ?? false)
                 }, label: {
-                    Image(systemName: viewModel.collection.didLike ?? false ? "heart.fill" : "heart")
+                    Image(systemName: viewModel.collection.didLike ?? false ? "bookmark.fill" : "bookmark")
                         
                 })
                 .padding(.trailing, 6)
@@ -86,6 +86,7 @@ struct CollectionView: View {
                     showPaymentView.toggle()
                 } label: {
                     Text("Donate")
+                        .fontWeight(.semibold)
                         .foregroundColor(.white)
                         .frame(width: 90, height: 30)
                         .background(Color(.systemBlue))

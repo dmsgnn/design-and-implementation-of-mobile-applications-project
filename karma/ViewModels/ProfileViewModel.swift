@@ -51,17 +51,18 @@ class ProfileViewModel: ObservableObject {
         guard let uid = user.id else { return }
         paymentService.fetchPaymentsForReceiver(forUid: uid) { payments in
             self.receivedPayments = payments
+            self.balance = 0
             for i in 0 ..< payments.count {
                 self.receivedPayments[i].receiver = self.user
                 self.receivedPayments[i].isPositive = true
-                self.balance -= self.receivedPayments[i].total
+                self.balance += self.receivedPayments[i].total
             }
             self.paymentService.fetchPaymentsForSender(forUid: uid) { payments in
                 self.sentPayments = payments
                 for i in 0 ..< payments.count {
                     self.sentPayments[i].sender = self.user
                     self.sentPayments[i].isPositive = false
-                    self.balance += self.sentPayments[i].total
+                    self.balance -= self.sentPayments[i].total
                 }
                 self.totalPayments = self.receivedPayments + self.sentPayments
                 print("total payments" + "\(self.totalPayments.count)")
