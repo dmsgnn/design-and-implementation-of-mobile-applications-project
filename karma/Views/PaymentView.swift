@@ -22,6 +22,63 @@ struct PaymentView: View {
     
     var body: some View {
         VStack {
+            Text("Donation amount")
+                .font(.title2)
+                .fontWeight(.semibold)
+                .padding(.top, 20)
+            
+            Grid(horizontalSpacing: 20, verticalSpacing: 20) {
+                GridRow {
+                    Button {
+                        self.eurosSel = 2
+                    } label: {
+                        Text("2 €")
+                            .font(.title2)
+                            .fontWeight(.semibold)
+                            .padding(.horizontal, 30)
+                            .padding(.vertical, 22)
+                            .border(Color(.systemBlue), width: 2)
+                    }
+                    
+                    
+                    Button {
+                        self.eurosSel = 5
+                    } label: {
+                        Text("5 €")
+                            .font(.title2)
+                            .fontWeight(.semibold)
+                            .padding(.horizontal, 30)
+                            .padding(.vertical, 22)
+                            .border(Color(.systemBlue), width: 2)
+                    }
+                }
+                
+                GridRow {
+                    Button {
+                        self.eurosSel = 10
+                    } label: {
+                        Text("10 €")
+                            .font(.title2)
+                            .fontWeight(.semibold)
+                            .padding(.horizontal, 24)
+                            .padding(.vertical, 22)
+                            .border(Color(.systemBlue), width: 2)
+                    }
+                    
+                    Button {
+                        self.eurosSel = 20
+                    } label: {
+                        Text("20 €")
+                            .font(.title2)
+                            .fontWeight(.semibold)
+                            .padding(.horizontal, 24)
+                            .padding(.vertical, 22)
+                            .border(Color(.systemBlue), width: 2)
+                    }
+                }
+                
+            }
+            
             Picker(selection: self.$eurosSel, label: Text("")) {
                 ForEach(0 ..< self.euros.count) { index in
                     Text("\(self.euros[index]) €").tag(index)

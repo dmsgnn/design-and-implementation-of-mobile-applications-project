@@ -206,6 +206,7 @@ extension ProfileView {
     }
     
     var RecentActivitiesView: some View {
+        
         VStack(alignment: .leading) {
             Text("Attività recenti")
                 .font(.title2)

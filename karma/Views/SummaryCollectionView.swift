@@ -65,7 +65,7 @@ struct SummaryCollectionView: View {
                     
                     VStack {
                         HStack {
-                            Text("€\(String(viewModel.collection.currentAmount.formatted(.number.precision(.fractionLength(2))))) raised of €\(String(viewModel.collection.amount.formatted(.number.precision(.fractionLength(0)))))")
+                            Text("€ \(String(viewModel.collection.currentAmount.formatted(.number.precision(.fractionLength(2))))) raised of € \(String(viewModel.collection.amount.formatted(.number.precision(.fractionLength(0)))))")
                                 .font(.subheadline)
                                 .fontWeight(.semibold)
                             Spacer()
@@ -77,7 +77,7 @@ struct SummaryCollectionView: View {
                         
                         HStack{
                             Image(systemName: "person.fill")
-                            Text("\(viewModel.collection.participants) participants")
+                            Text("\(viewModel.collection.participants) donations")
                                 .fontWeight(.regular)
                             Spacer()
                         }

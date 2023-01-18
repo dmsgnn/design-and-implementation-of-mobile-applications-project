@@ -37,7 +37,7 @@ struct ActivityCollectionView: View {
                     .fontWeight(.semibold)
                     .foregroundColor(Color(.systemGray))
             }
-            .frame(width: 160)
+            .padding(.leading, 12)
             .padding(.vertical)
             
             Spacer()

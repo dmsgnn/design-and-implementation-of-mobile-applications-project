@@ -46,7 +46,7 @@ struct RecentUserActivityView: View {
                     .foregroundColor(Color(.systemGray))
                     
             }
-            .frame(width: 160)
+            .padding(.leading, 12)
             .padding(.vertical)
          
             Spacer()
