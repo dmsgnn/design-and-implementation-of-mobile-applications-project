@@ -27,7 +27,7 @@ struct SummaryCollectionView: View {
             Color.theme.custombackg.ignoresSafeArea()
             ScrollView {
                 VStack {
-                    GeometryReader { g in
+//                    GeometryReader { g in
                         HStack {
                             Spacer()
                             VStack {
@@ -36,18 +36,18 @@ struct SummaryCollectionView: View {
                                     .scaledToFit()
                                     .frame(width: UIScreen.main.bounds.width * 0.9, height: 200)
                                     .padding(.top, 50)
-                                    .onReceive(self.time) { (_) in
-                                        let y = g.frame(in: .global).minY
-                                        if -y > (UIScreen.main.bounds.height * 0.3) - 50 {
-                                            withAnimation {
-                                                self.showHeaderBar = true
-                                            }
-                                        } else {
-                                            withAnimation {
-                                                self.showHeaderBar = false
-                                            }
-                                        }
-                                    }
+//                                    .onReceive(self.time) { (_) in
+//                                        let y = g.frame(in: .global).minY
+//                                        if -y > (UIScreen.main.bounds.height * 0.3) - 50 {
+//                                            withAnimation {
+//                                                self.showHeaderBar = true
+//                                            }
+//                                        } else {
+//                                            withAnimation {
+//                                                self.showHeaderBar = false
+//                                            }
+//                                        }
+//                                    }
                                 
                                 
                                 Text(viewModel.collection.title)
@@ -60,8 +60,8 @@ struct SummaryCollectionView: View {
                             }
                             Spacer()
                         }
-                    }
-                    .frame(height: UIScreen.main.bounds.height / 2.5)
+//                    }
+//                    .frame(height: UIScreen.main.bounds.height / 2.5)
                     
                     VStack {
                         HStack {
@@ -121,20 +121,11 @@ struct SummaryCollectionView: View {
                         .padding(.horizontal)
                     }
                     
-                    VStack(alignment: .leading){
-                        HStack {
-                            Text("Past Donations")
-                                .font(.title2)
-                                .fontWeight(.semibold)
-                            
-                            Spacer()
-                        }
-                    }
-                    .padding()
+                   
                     
                     VStack(alignment: .leading){
                         HStack {
-                            Text("Charts")
+                            Text("Donations")
                                 .font(.title2)
                                 .fontWeight(.semibold)
                             Spacer()

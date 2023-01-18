@@ -17,7 +17,8 @@ struct ActivityCollectionView: View {
     }
     
     var body: some View {
-        HStack(spacing: 24){
+        
+        HStack(){
             KFImage(URL(string: viewModel.payment.sender?.profileImageUrl ?? " "))
                 .resizable()
                 .scaledToFill()
@@ -36,7 +37,10 @@ struct ActivityCollectionView: View {
                     .fontWeight(.semibold)
                     .foregroundColor(Color(.systemGray))
             }
+            .frame(width: 160)
             .padding(.vertical)
+            
+            Spacer()
             
             Text("\(String(viewModel.payment.total.formatted(.number.precision(.fractionLength(0))))) €")
                 .font(.title2)
@@ -44,8 +48,9 @@ struct ActivityCollectionView: View {
                 .padding(.trailing)
                 
         }
+        .frame(width: UIScreen.main.bounds.size.width*0.9, height: 100)
         .background(Color(.white))
-        .clipShape(RoundedRectangle(cornerRadius: 15))
+        .containerShape(RoundedRectangle(cornerRadius: 15))
     }
 }
 
