@@ -43,7 +43,6 @@
 		E3391589295DDED900945EFA /* OptionTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3391588295DDED900945EFA /* OptionTabView.swift */; };
 		E339158C295DE72900945EFA /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E339158B295DE72900945EFA /* ImagePicker.swift */; };
 		E339158E295DEF3D00945EFA /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E339158D295DEF3D00945EFA /* ImageUploader.swift */; };
-		E34C47F32979A29800F04937 /* ImageUploaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34C47F22979A29800F04937 /* ImageUploaderView.swift */; };
 		E34C47F52979AABD00F04937 /* BookmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34C47F42979AABD00F04937 /* BookmarkView.swift */; };
 		E34C47F72979AACD00F04937 /* BookmarkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34C47F62979AACD00F04937 /* BookmarkViewModel.swift */; };
 		E34C9B232964AB4E00E8FC5E /* SummaryCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34C9B222964AB4E00E8FC5E /* SummaryCollectionView.swift */; };
@@ -135,6 +134,7 @@
 		E34C47F22979A29800F04937 /* ImageUploaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageUploaderView.swift; path = "../../../../iCloud Drive (archivio)/Documents/DIMA-Project/DIMA-Project2/karma/Views/ImageUploaderView.swift"; sourceTree = "<group>"; };
 		E34C47F42979AABD00F04937 /* BookmarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkView.swift; sourceTree = "<group>"; };
 		E34C47F62979AACD00F04937 /* BookmarkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkViewModel.swift; sourceTree = "<group>"; };
+		E34C47F82979BF3600F04937 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E34C9B222964AB4E00E8FC5E /* SummaryCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryCollectionView.swift; sourceTree = "<group>"; };
 		E34C9B262966EA0700E8FC5E /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		E34C9B282966EB9000E8FC5E /* UserRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRowView.swift; sourceTree = "<group>"; };
@@ -214,6 +214,7 @@
 		1BD8C245293E5D6100F1B32A /* karma */ = {
 			isa = PBXGroup;
 			children = (
+				E34C47F82979BF3600F04937 /* Info.plist */,
 				E3F51F29297835BF00E66C08 /* karma.entitlements */,
 				E3A952F72974129B006B111C /* Info.plist */,
 				E32FE35D296424380061C907 /* karmaDebug.entitlements */,
@@ -438,7 +439,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1410;
-				LastUpgradeCheck = 1410;
+				LastUpgradeCheck = 1420;
 				TargetAttributes = {
 					1BD8C242293E5D6100F1B32A = {
 						CreatedOnToolsVersion = 14.1;
@@ -514,7 +515,6 @@
 				E335476529586BDD003444E0 /* RecentUserActivityView.swift in Sources */,
 				E3BA1B1E2971D1F8009945A5 /* ActivityCollectionViewModel.swift in Sources */,
 				1BCB44C42969E27300205BC1 /* MainView.swift in Sources */,
-				E335476529586BDD003444E0 /* RecentUserActivityView.swift in Sources */,
 				E36EFC52295EE12100301ED4 /* CollectionViewModel.swift in Sources */,
 				E34C9B2F2967119400E8FC5E /* SearchViewModel.swift in Sources */,
 				E32FE35A29641C850061C907 /* PaymentHandler.swift in Sources */,
@@ -558,7 +558,6 @@
 				E30E1DF62971D09E00B6ABAA /* ActivityCollectionView.swift in Sources */,
 				E378A4222941135A001CE2E2 /* Color.swift in Sources */,
 				E34C9B2B2966EE0000E8FC5E /* CollectionRowView.swift in Sources */,
-				E34C47F32979A29800F04937 /* ImageUploaderView.swift in Sources */,
 				E3DDB18D2970AF6F008CE84B /* RecentUserActivityViewModel.swift in Sources */,
 				E334CDBB295D93E80082FC17 /* CollectionService.swift in Sources */,
 				E35215FC293F3D4F0074B787 /* CustomInputField.swift in Sources */,
@@ -725,10 +724,9 @@
 				DEVELOPMENT_TEAM = EDG8TGNYUA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "";
+				INFOPLIST_FILE = karma/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Karma;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -758,10 +756,9 @@
 				DEVELOPMENT_TEAM = EDG8TGNYUA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "";
+				INFOPLIST_FILE = karma/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Karma;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

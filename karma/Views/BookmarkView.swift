@@ -12,17 +12,14 @@ struct BookmarkView: View {
     @ObservedObject var viewModel = BookmarkViewModel()
     
     var body: some View {
-        ScrollView(.vertical, showsIndicators: false) {
-            
-            VStack {
-                Text("Favourites")
-                    .font(.title)
-                    .fontWeight(.bold)
-                
-                ForEach(viewModel.collections) { collection in
-                    CollectionRowView(collection: collection)
-                        .padding()
-                    
+        VStack {
+            Text("Favourites")
+                .font(.title)
+                .fontWeight(.bold)
+
+            ScrollView(.vertical, showsIndicators: false) {
+                ForEach(viewModel.collections) { collections in
+                    CollectionView(collection: collections)
                 }
             }
         }

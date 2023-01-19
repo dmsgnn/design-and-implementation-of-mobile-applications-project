@@ -13,7 +13,7 @@ class BookmarkViewModel: ObservableObject {
     @Published var collections = [Collection]()
     
     init() {
-        self.fetchCollections()
+        fetchCollections()
     }
     
     func fetchCollections() {

@@ -75,10 +75,19 @@ struct CollectionService {
     
     func fetchFavouritesCollections(completion: @escaping([Collection]) -> Void) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
+        var collections = [Collection]()
         Firestore.firestore().collection("users").document(uid).collection("user-favs").getDocuments { snapshot, _ in
             guard let documents = snapshot?.documents else { return }
-            let collections = documents.compactMap({try? $0.data(as: Collection.self) })
-            completion(collections.sorted(by: { $0.timestamp.dateValue() > $1.timestamp.dateValue() }))
+            documents.forEach { doc in
+                let collId = doc.documentID
+                
+                Firestore.firestore().collection("collections").document(collId).getDocument { snapshot, _ in
+                    guard let collection = try? snapshot?.data(as: Collection.self) else { return }
+                    collections.append(collection)
+                    completion(collections)
+                }
+            }
+
         }
     }
     
@@ -89,7 +98,7 @@ struct CollectionService {
         Firestore.firestore().collection("collections").document(collId)
             .updateData(["favourites": collection.favourites + 1]) { _ in
                 userFavRef.document(collId).setData([:]) { _ in
-                    print("DEBUG: Failed to put like")
+                    print("DEBUG: \(uid) \(collId)")
                     completion()
                 }
             }
