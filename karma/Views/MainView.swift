@@ -41,7 +41,7 @@ struct MainView: View {
                     .setTabBarBackground(color: Color("BG"))
                     .tag(Tab.post)
                 
-                Text("Bookmarks")
+                BookmarkView()
                     .setTabBarBackground(color: Color("BG"))
                     .tag(Tab.bookmarks)
                 

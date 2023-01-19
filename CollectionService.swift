@@ -49,23 +49,7 @@ struct CollectionService {
             }
     }
     
-    //    func fetchUserCollection(collections: [Collection], completion: @escaping([String]) -> Void) {
-    //        var users = [String]()
-    //        let ref = Database.database().reference()
-    //        for i in 0 ..< collections.count {
-    //            ref.child("users/\(collections[i].uid)/username").getData { error, snapshot in
-    //                if let error = error {
-    //                    print("DEBUG: Failed to upload usernames with error: \(error.localizedDescription)")
-    //                    return
-    //                }
-    //                let username = snapshot?.value as? String ?? ""
-    //                users.append(username)
-    //
-    //            }
-    //            completion(users)
-    //        }
-    //
-    //    }
+
     
     
     func fetchSingleCollection(forCid cid: String, completion: @escaping(Collection) -> Void) {
@@ -89,27 +73,32 @@ struct CollectionService {
             }
     }
     
+    func fetchFavouritesCollections(completion: @escaping([Collection]) -> Void) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        Firestore.firestore().collection("users").document(uid).collection("user-favs").getDocuments { snapshot, _ in
+            guard let documents = snapshot?.documents else { return }
+            let collections = documents.compactMap({try? $0.data(as: Collection.self) })
+            completion(collections.sorted(by: { $0.timestamp.dateValue() > $1.timestamp.dateValue() }))
+        }
+    }
+    
     func addToFavourite(_ collection: Collection, completion: @escaping() -> Void) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         guard let collId = collection.id else { return }
         let userFavRef = Firestore.firestore().collection("users").document(uid).collection("user-favs")
-        
         Firestore.firestore().collection("collections").document(collId)
             .updateData(["favourites": collection.favourites + 1]) { _ in
                 userFavRef.document(collId).setData([:]) { _ in
+                    print("DEBUG: Failed to put like")
                     completion()
                 }
             }
     }
     
 
-    
-    
-    
     func checkIfUserlikedCollection(_ collection: Collection, completion: @escaping(Bool) -> Void) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         guard let collId = collection.id else { return }
-        
         Firestore.firestore().collection("users").document(uid).collection("user-favs").document(collId).getDocument { snapshot, _ in
             guard let snapshot = snapshot else { return }
             
@@ -130,6 +119,7 @@ struct CollectionService {
                     completion()
                 }
             }
-        
     }
+    
+    
 }

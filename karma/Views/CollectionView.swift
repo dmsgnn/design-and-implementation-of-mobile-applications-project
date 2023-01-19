@@ -69,8 +69,8 @@ struct CollectionView: View {
             
             HStack {
                 Button(action: {
+//                    Text((isPositive ? viewModel.payment.sender?.username : viewModel.payment.receiver?.username) ?? "")
                     viewModel.collection.didLike ?? false ? viewModel.removeFromFavourite() : viewModel.addToFavourite()
-                    print(viewModel.collection.didLike ?? false)
                 }, label: {
                     Image(systemName: viewModel.collection.didLike ?? false ? "bookmark.fill" : "bookmark")
                         

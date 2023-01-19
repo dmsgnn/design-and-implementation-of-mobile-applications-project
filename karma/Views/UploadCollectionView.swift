@@ -29,12 +29,12 @@ struct UploadCollectionView: View {
     var body: some View {
         VStack {
             HStack {
-//                Button {
-//                    presentationMode.wrappedValue.dismiss()
-//                } label: {
-//                    Text("Cancel")
-//                        .foregroundColor(Color(.systemBlue))
-//                }
+                Button {
+                    presentationMode.wrappedValue.dismiss()
+                } label: {
+                    Text("Cancel")
+                        .foregroundColor(Color(.systemBlue))
+                }
                 Spacer()
                 
                 Button {

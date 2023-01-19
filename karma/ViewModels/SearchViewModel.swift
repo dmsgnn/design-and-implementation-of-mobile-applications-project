@@ -54,6 +54,7 @@ class SearchViewModel: ObservableObject {
             self.users = users
         }
     }
+    
     func fetchCollections() {
         collectionService.fetchCollections { collections in
             self.collections = collections
