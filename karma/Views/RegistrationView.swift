@@ -78,6 +78,7 @@ struct RegistrationView: View {
                         .frame(width: UIScreen.main.bounds.size.width*0.8, height: 50)
                         .background(Color.theme.dark)
                         .clipShape(RoundedRectangle(cornerRadius: 15))
+                        
                 }
                 
                 Spacer()

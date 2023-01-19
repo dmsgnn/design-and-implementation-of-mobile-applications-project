@@ -15,10 +15,11 @@ struct SummaryCollectionView: View {
     @State var showHeaderBar = false
     @State var time = Timer.publish(every: 0.1, on: .current, in: .tracking).autoconnect()
     
-    let collection: Collection
+    @State private var showPaymentView = false
+    @ObservedObject var viewModel: SummaryCollectionViewModel
     
     init(collection: Collection){
-        self.collection = collection
+        self.viewModel = SummaryCollectionViewModel(collection: collection)
     }
     
     var body: some View {
@@ -26,57 +27,57 @@ struct SummaryCollectionView: View {
             Color.theme.custombackg.ignoresSafeArea()
             ScrollView {
                 VStack {
-                    GeometryReader { g in
+//                    GeometryReader { g in
                         HStack {
                             Spacer()
                             VStack {
-                                KFImage(URL(string: collection.collectionImageUrl ?? ""))
+                                KFImage(URL(string: viewModel.collection.collectionImageUrl ?? ""))
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: UIScreen.main.bounds.width * 0.9, height: 200)
                                     .padding(.top, 50)
-                                    .onReceive(self.time) { (_) in
-                                        let y = g.frame(in: .global).minY
-                                        if -y > (UIScreen.main.bounds.height * 0.3) - 50 {
-                                            withAnimation {
-                                                self.showHeaderBar = true
-                                            }
-                                        } else {
-                                            withAnimation {
-                                                self.showHeaderBar = false
-                                            }
-                                        }
-                                    }
+//                                    .onReceive(self.time) { (_) in
+//                                        let y = g.frame(in: .global).minY
+//                                        if -y > (UIScreen.main.bounds.height * 0.3) - 50 {
+//                                            withAnimation {
+//                                                self.showHeaderBar = true
+//                                            }
+//                                        } else {
+//                                            withAnimation {
+//                                                self.showHeaderBar = false
+//                                            }
+//                                        }
+//                                    }
                                 
                                 
-                                Text(collection.title)
+                                Text(viewModel.collection.title)
                                     .font(.title2)
                                     .fontWeight(.semibold)
                                 
-                                Text(collection.user?.username ?? "")
+                                Text(viewModel.collection.user?.username ?? "")
                                     .padding(.bottom)
                                 
                             }
                             Spacer()
                         }
-                    }
-                    .frame(height: UIScreen.main.bounds.height / 2.5)
+//                    }
+//                    .frame(height: UIScreen.main.bounds.height / 2.5)
                     
                     VStack {
                         HStack {
-                            Text("€\(String(collection.currentAmount.formatted(.number.precision(.fractionLength(2))))) raised of €\(String(collection.amount.formatted(.number.precision(.fractionLength(0)))))")
+                            Text("€ \(String(viewModel.collection.currentAmount.formatted(.number.precision(.fractionLength(2))))) raised of € \(String(viewModel.collection.amount.formatted(.number.precision(.fractionLength(0)))))")
                                 .font(.subheadline)
                                 .fontWeight(.semibold)
                             Spacer()
                         }
                         
-                        ProgressView(value: collection.currentAmount/collection.amount)
+                        ProgressView(value: viewModel.collection.currentAmount/viewModel.collection.amount)
                             .scaleEffect(x: 1, y: 2)
                         
                         
                         HStack{
-                            Image(systemName: "person.fill")
-                            Text("\(collection.participants) participants")
+                            Image(systemName: "person.2.fill")
+                            Text("\(viewModel.collection.participants) donations")
                                 .fontWeight(.regular)
                             Spacer()
                         }
@@ -87,7 +88,7 @@ struct SummaryCollectionView: View {
                     .padding(.horizontal)
                     
                     Button() {
-                        print("donate")
+                        showPaymentView.toggle()
                     } label: {
                         Text("Donate")
                             .foregroundColor(.white)
@@ -98,17 +99,21 @@ struct SummaryCollectionView: View {
                             .clipShape(RoundedRectangle(cornerRadius: 10))
                         
                     }
+                    .sheet(isPresented: $showPaymentView, content: {
+                        PaymentView(collection: viewModel.collection)
+                            .presentationDetents([.medium])
+                    })
                     .padding(.vertical)
                     
                     
-                    Text(collection.caption)
+                    Text(viewModel.collection.caption)
                         .padding(.horizontal)
                         .font(.body)
                         .padding(.bottom, 8)
                     
                     VStack{
                         HStack {
-                            Text("\(collection.timestamp.dateValue().formatted(date: .abbreviated, time: .omitted))")
+                            Text("\(viewModel.collection.timestamp.dateValue().formatted(date: .abbreviated, time: .omitted))")
                                 .font(.footnote)
                                 .fontWeight(.regular)
                             Spacer()
@@ -116,28 +121,20 @@ struct SummaryCollectionView: View {
                         .padding(.horizontal)
                     }
                     
-                    VStack(alignment: .leading){
-                        HStack {
-                            Text("Past Donations")
-                                .font(.title2)
-                                .fontWeight(.semibold)
-                            
-                            Spacer()
-                        }
-                    }
-                    .padding()
+                   
                     
                     VStack(alignment: .leading){
                         HStack {
-                            Text("Charts")
+                            Text("Donations")
                                 .font(.title2)
                                 .fontWeight(.semibold)
                             Spacer()
                         }
-                        RecentActivityView()
-                        RecentActivityView()
-                        RecentActivityView()
-                        RecentActivityView()
+                        
+                        ForEach(viewModel.payments) { payment in
+                            ActivityCollectionView(payment: payment)
+                        }
+                       
                     }
                     .padding()
                     
@@ -147,6 +144,9 @@ struct SummaryCollectionView: View {
                     
                 }
                 
+            }
+            .refreshable {
+                viewModel.fetchPaymentsForCollection()
             }
             .navigationBarBackButtonHidden(true)
             
@@ -162,7 +162,7 @@ struct SummaryCollectionView: View {
                 Spacer()
                 
                 if showHeaderBar{
-                    Text(collection.title)
+                    Text(viewModel.collection.title)
                         .font(.title3)
                         .fontWeight(.semibold)
                 }

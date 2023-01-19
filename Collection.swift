@@ -20,9 +20,10 @@ struct Collection: Identifiable, Decodable {
     let collectionImageUrl: String?
     let timestamp: Timestamp
     let uid: String
-    
+//    let owner: String?
     
     var user: User?
+//    var didMakePayment: Bool? = false
     var didLike: Bool? = false
 }
 

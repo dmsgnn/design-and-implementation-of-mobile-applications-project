@@ -23,11 +23,15 @@ struct CollectionRowView: View {
                 .scaledToFit()
                 .frame(width: 80, height: 60)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
-            
-            VStack(alignment: .leading, spacing: 6){
-                Text(collection.title)
-                    .font(.headline).bold()
+        
+            if let user = collection.user {
                 
+                VStack(alignment: .leading, spacing: 6){
+                    Text(collection.title)
+                        .font(.headline).bold()
+                    Text(user.username)
+                        .font(.footnote)
+                }
             }
             
             Spacer()

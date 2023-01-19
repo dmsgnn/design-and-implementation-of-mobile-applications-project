@@ -17,6 +17,7 @@
 		1BD8C258293E5D6300F1B32A /* karmaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD8C257293E5D6300F1B32A /* karmaTests.swift */; };
 		1BD8C262293E5D6300F1B32A /* karmaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD8C261293E5D6300F1B32A /* karmaUITests.swift */; };
 		1BD8C264293E5D6300F1B32A /* karmaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD8C263293E5D6300F1B32A /* karmaUITestsLaunchTests.swift */; };
+		E30E1DF62971D09E00B6ABAA /* ActivityCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30E1DF52971D09E00B6ABAA /* ActivityCollectionView.swift */; };
 		1BE74F0029675F5A006ACEF0 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE74EFF29675F5A006ACEF0 /* DashboardViewModel.swift */; };
 		1BE74F0229675F83006ACEF0 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE74F0129675F83006ACEF0 /* DashboardView.swift */; };
 		1BE74F0429676F97006ACEF0 /* ImageUploaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE74F0329676F97006ACEF0 /* ImageUploaderView.swift */; };
@@ -33,7 +34,7 @@
 		E334CDBD295D93FE0082FC17 /* UploadCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E334CDBC295D93FE0082FC17 /* UploadCollectionViewModel.swift */; };
 		E334CDBF295D94190082FC17 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E334CDBE295D94190082FC17 /* ProfileViewModel.swift */; };
 		E33547602958668B003444E0 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E335475F2958668B003444E0 /* ProfileView.swift */; };
-		E335476529586BDD003444E0 /* RecentActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E335476429586BDD003444E0 /* RecentActivityView.swift */; };
+		E335476529586BDD003444E0 /* RecentUserActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E335476429586BDD003444E0 /* RecentUserActivityView.swift */; };
 		E33547672959AB64003444E0 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33547662959AB64003444E0 /* CollectionView.swift */; };
 		E335476F295AF7FF003444E0 /* TabBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E335476E295AF7FF003444E0 /* TabBarButton.swift */; };
 		E3354771295B05A3003444E0 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3354770295B05A3003444E0 /* UserService.swift */; };
@@ -60,9 +61,15 @@
 		E36EFC50295ED26B00301ED4 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = E36EFC4F295ED26B00301ED4 /* Kingfisher */; };
 		E36EFC52295EE12100301ED4 /* CollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36EFC51295EE12100301ED4 /* CollectionViewModel.swift */; };
 		E3713E3B2967440F0037063C /* TextArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3713E3A2967440F0037063C /* TextArea.swift */; };
+		E37273A42969802C007D512E /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = E37273A32969802C007D512E /* FirebaseDatabase */; };
+		E37273A62969803A007D512E /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E37273A52969803A007D512E /* FirebaseDatabaseSwift */; };
 		E378A41F2940E29A001CE2E2 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E378A41E2940E29A001CE2E2 /* AuthViewModel.swift */; };
 		E378A4222941135A001CE2E2 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = E378A4212941135A001CE2E2 /* Color.swift */; };
+		E39A023129731630005CE413 /* ImageUploaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39A023029731630005CE413 /* ImageUploaderView.swift */; };
 		E3A8D0C6295F95B200C029C1 /* Float.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A8D0C5295F95B200C029C1 /* Float.swift */; };
+		E3BA1B1E2971D1F8009945A5 /* ActivityCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BA1B1D2971D1F8009945A5 /* ActivityCollectionViewModel.swift */; };
+		E3DDB18B2970AE2C008CE84B /* SummaryCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DDB18A2970AE2C008CE84B /* SummaryCollectionViewModel.swift */; };
+		E3DDB18D2970AF6F008CE84B /* RecentUserActivityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DDB18C2970AF6F008CE84B /* RecentUserActivityViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,11 +103,15 @@
 		1BD8C25D293E5D6300F1B32A /* karmaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = karmaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BD8C261293E5D6300F1B32A /* karmaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = karmaUITests.swift; sourceTree = "<group>"; };
 		1BD8C263293E5D6300F1B32A /* karmaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = karmaUITestsLaunchTests.swift; sourceTree = "<group>"; };
+
+		E30E1DF52971D09E00B6ABAA /* ActivityCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCollectionView.swift; sourceTree = "<group>"; };
+
 		1BE74EFF29675F5A006ACEF0 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		1BE74F0129675F83006ACEF0 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		1BE74F0329676F97006ACEF0 /* ImageUploaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageUploaderView.swift; path = "../../../../../../../../Library/Containers/com.apple.mail/Data/Library/Mail Downloads/00FC9FC5-17C0-4B5E-8465-631AEC30D169/ImageUploaderView.swift"; sourceTree = "<group>"; };
 		1BF9AAAA2968BFBD007F4B34 /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
 		1BF9AAAC2968C2AC007F4B34 /* CustomCornerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCornerView.swift; sourceTree = "<group>"; };
+
 		E32FE35929641C850061C907 /* PaymentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentHandler.swift; sourceTree = "<group>"; };
 		E32FE35B29641C9E0061C907 /* PaymentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentButton.swift; sourceTree = "<group>"; };
 		E32FE35D296424380061C907 /* karmaDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = karmaDebug.entitlements; sourceTree = "<group>"; };
@@ -113,7 +124,7 @@
 		E334CDBC295D93FE0082FC17 /* UploadCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadCollectionViewModel.swift; sourceTree = "<group>"; };
 		E334CDBE295D94190082FC17 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		E335475F2958668B003444E0 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
-		E335476429586BDD003444E0 /* RecentActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentActivityView.swift; sourceTree = "<group>"; };
+		E335476429586BDD003444E0 /* RecentUserActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentUserActivityView.swift; sourceTree = "<group>"; };
 		E33547662959AB64003444E0 /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CollectionView.swift; path = ../Views/CollectionView.swift; sourceTree = "<group>"; };
 		E335476E295AF7FF003444E0 /* TabBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarButton.swift; sourceTree = "<group>"; };
 		E3354770295B05A3003444E0 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserService.swift; path = karma/Components/UserService.swift; sourceTree = SOURCE_ROOT; };
@@ -137,8 +148,13 @@
 		E3713E3A2967440F0037063C /* TextArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextArea.swift; sourceTree = "<group>"; };
 		E378A41E2940E29A001CE2E2 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		E378A4212941135A001CE2E2 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
-		E38C4F222962D503002326CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		E39A023029731630005CE413 /* ImageUploaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageUploaderView.swift; path = "../../../../iCloud Drive (archivio)/Documents/DIMA-Project/DIMA-Project2/karma/Views/ImageUploaderView.swift"; sourceTree = "<group>"; };
 		E3A8D0C5295F95B200C029C1 /* Float.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Float.swift; sourceTree = "<group>"; };
+		E3A952F72974129B006B111C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		E3BA1B1D2971D1F8009945A5 /* ActivityCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCollectionViewModel.swift; sourceTree = "<group>"; };
+		E3DDB18A2970AE2C008CE84B /* SummaryCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryCollectionViewModel.swift; sourceTree = "<group>"; };
+		E3DDB18C2970AF6F008CE84B /* RecentUserActivityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentUserActivityViewModel.swift; sourceTree = "<group>"; };
+		E3F51F29297835BF00E66C08 /* karma.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = karma.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +162,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E37273A62969803A007D512E /* FirebaseDatabaseSwift in Frameworks */,
+				E37273A42969802C007D512E /* FirebaseDatabase in Frameworks */,
 				E3521603293F51B30074B787 /* FirebaseAuth in Frameworks */,
 				E3521609293F51B30074B787 /* FirebaseStorage in Frameworks */,
 				E3521605293F51B30074B787 /* FirebaseFirestore in Frameworks */,
@@ -178,6 +196,7 @@
 				1BD8C256293E5D6300F1B32A /* karmaTests */,
 				1BD8C260293E5D6300F1B32A /* karmaUITests */,
 				1BD8C244293E5D6100F1B32A /* Products */,
+				E37273A22969802C007D512E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -194,15 +213,19 @@
 		1BD8C245293E5D6100F1B32A /* karma */ = {
 			isa = PBXGroup;
 			children = (
+				E3F51F29297835BF00E66C08 /* karma.entitlements */,
+				E3A952F72974129B006B111C /* Info.plist */,
 				E32FE35D296424380061C907 /* karmaDebug.entitlements */,
-				E38C4F222962D503002326CA /* Info.plist */,
 				E339158A295DE70700945EFA /* Utils */,
 				E335476129586954003444E0 /* Components */,
 				E378A42029411341001CE2E2 /* Extensions */,
 				E378A41D2940E271001CE2E2 /* ViewModels */,
 				1BD8C274293E5DE300F1B32A /* Views */,
-				1BD8C272293E5DCB00F1B32A /* Models */,
 				1BD8C271293E5DB800F1B32A /* Services */,
+
+				1BD8C272293E5DCB00F1B32A /* Models */,
+				1BD8C270293E5DA400F1B32A /* Repositories */,
+
 				1BD8C246293E5D6100F1B32A /* karmaApp.swift */,
 				1BD8C24A293E5D6200F1B32A /* Assets.xcassets */,
 				E35215FF293F4F900074B787 /* GoogleService-Info.plist */,
@@ -244,7 +267,8 @@
 				E339158D295DEF3D00945EFA /* ImageUploader.swift */,
 				E32FE35E296429630061C907 /* PaymentService.swift */,
 			);
-			path = Services;
+			name = Services;
+			path = Models/Services;
 			sourceTree = "<group>";
 		};
 		1BD8C272293E5DCB00F1B32A /* Models */ = {
@@ -268,6 +292,7 @@
 				1B6B3145294520A000779BBE /* ContentView.swift */,
 				E335475F2958668B003444E0 /* ProfileView.swift */,
 				E3354776295C4088003444E0 /* UploadCollectionView.swift */,
+				E39A023029731630005CE413 /* ImageUploaderView.swift */,
 				E3391588295DDED900945EFA /* OptionTabView.swift */,
 				E32FE360296435FD0061C907 /* PaymentView.swift */,
 				E34C9B222964AB4E00E8FC5E /* SummaryCollectionView.swift */,
@@ -282,7 +307,8 @@
 			isa = PBXGroup;
 			children = (
 				E35215FB293F3D4F0074B787 /* CustomInputField.swift */,
-				E335476429586BDD003444E0 /* RecentActivityView.swift */,
+				E335476429586BDD003444E0 /* RecentUserActivityView.swift */,
+				E30E1DF52971D09E00B6ABAA /* ActivityCollectionView.swift */,
 				E335476E295AF7FF003444E0 /* TabBarButton.swift */,
 				E33547662959AB64003444E0 /* CollectionView.swift */,
 				E32FE35B29641C9E0061C907 /* PaymentButton.swift */,
@@ -303,19 +329,29 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		E37273A22969802C007D512E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E378A41D2940E271001CE2E2 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
 				E378A41E2940E29A001CE2E2 /* AuthViewModel.swift */,
 				1B658DBD293F439B00DF06DB /* LoginViewModel.swift */,
 				E3354774295B5116003444E0 /* TabBarViewModel.swift */,
+				E32FE362296436600061C907 /* PaymentViewModel.swift */,
 				E334CDBC295D93FE0082FC17 /* UploadCollectionViewModel.swift */,
 				E334CDBE295D94190082FC17 /* ProfileViewModel.swift */,
-				E32FE362296436600061C907 /* PaymentViewModel.swift */,
 				E36EFC51295EE12100301ED4 /* CollectionViewModel.swift */,
 				1BE74EFF29675F5A006ACEF0 /* DashboardViewModel.swift */,
 				E34C9B2E2967119400E8FC5E /* SearchViewModel.swift */,
 				E34C9B302967188600E8FC5E /* FilterSearchViewModel.swift */,
+				E3DDB18A2970AE2C008CE84B /* SummaryCollectionViewModel.swift */,
+				E3DDB18C2970AF6F008CE84B /* RecentUserActivityViewModel.swift */,
+				E3BA1B1D2971D1F8009945A5 /* ActivityCollectionViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -351,6 +387,8 @@
 				E3521606293F51B30074B787 /* FirebaseFirestoreSwift */,
 				E3521608293F51B30074B787 /* FirebaseStorage */,
 				E36EFC4F295ED26B00301ED4 /* Kingfisher */,
+				E37273A32969802C007D512E /* FirebaseDatabase */,
+				E37273A52969803A007D512E /* FirebaseDatabaseSwift */,
 			);
 			productName = karma;
 			productReference = 1BD8C243293E5D6100F1B32A /* karma.app */;
@@ -473,8 +511,13 @@
 			files = (
 				E34C9B2D2966F03100E8FC5E /* SearchBar.swift in Sources */,
 				E3354771295B05A3003444E0 /* UserService.swift in Sources */,
+
+				E335476529586BDD003444E0 /* RecentUserActivityView.swift in Sources */,
+				E3BA1B1E2971D1F8009945A5 /* ActivityCollectionViewModel.swift in Sources */,
+
 				1BCB44C42969E27300205BC1 /* MainView.swift in Sources */,
 				E335476529586BDD003444E0 /* RecentActivityView.swift in Sources */,
+
 				E36EFC52295EE12100301ED4 /* CollectionViewModel.swift in Sources */,
 				E34C9B2F2967119400E8FC5E /* SearchViewModel.swift in Sources */,
 				E32FE35A29641C850061C907 /* PaymentHandler.swift in Sources */,
@@ -493,12 +536,17 @@
 				1BE74F0229675F83006ACEF0 /* DashboardView.swift in Sources */,
 				E34C9B312967188600E8FC5E /* FilterSearchViewModel.swift in Sources */,
 				E334CDBF295D94190082FC17 /* ProfileViewModel.swift in Sources */,
+
+				E3DDB18B2970AE2C008CE84B /* SummaryCollectionViewModel.swift in Sources */,
+
 				1BF9AAAD2968C2AC007F4B34 /* CustomCornerView.swift in Sources */,
+
 				E3354777295C4088003444E0 /* UploadCollectionView.swift in Sources */,
 				1BE74F0429676F97006ACEF0 /* ImageUploaderView.swift in Sources */,
 				E32FE361296435FD0061C907 /* PaymentView.swift in Sources */,
 				E334CDBD295D93FE0082FC17 /* UploadCollectionViewModel.swift in Sources */,
 				E33547602958668B003444E0 /* ProfileView.swift in Sources */,
+				E39A023129731630005CE413 /* ImageUploaderView.swift in Sources */,
 				E35215FA293F399F0074B787 /* RegistrationView.swift in Sources */,
 				E32FE363296436600061C907 /* PaymentViewModel.swift in Sources */,
 				E334CDB9295D93840082FC17 /* Collection.swift in Sources */,
@@ -512,8 +560,12 @@
 				E3391589295DDED900945EFA /* OptionTabView.swift in Sources */,
 				1BD8C247293E5D6100F1B32A /* karmaApp.swift in Sources */,
 				E32FE35C29641C9E0061C907 /* PaymentButton.swift in Sources */,
+
+				E30E1DF62971D09E00B6ABAA /* ActivityCollectionView.swift in Sources */,
+
 				E378A4222941135A001CE2E2 /* Color.swift in Sources */,
 				E34C9B2B2966EE0000E8FC5E /* CollectionRowView.swift in Sources */,
+				E3DDB18D2970AF6F008CE84B /* RecentUserActivityViewModel.swift in Sources */,
 				E334CDBB295D93E80082FC17 /* CollectionService.swift in Sources */,
 				E35215FC293F3D4F0074B787 /* CustomInputField.swift in Sources */,
 			);
@@ -672,15 +724,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = karma/karmaDebug.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"karma/Preview Content\"";
-				DEVELOPMENT_TEAM = 5LAQT62PVW;
+				DEVELOPMENT_TEAM = EDG8TGNYUA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "";
+				INFOPLIST_FILE = karma/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Karma;
-				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -690,8 +743,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dima.karma;
+				PRODUCT_BUNDLE_IDENTIFIER = it.polimi.deepse.demasibucaioni;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -703,15 +757,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = karma/karma.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"karma/Preview Content\"";
-				DEVELOPMENT_TEAM = 5LAQT62PVW;
+				DEVELOPMENT_TEAM = EDG8TGNYUA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "";
+				INFOPLIST_FILE = karma/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Karma;
-				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -721,7 +776,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dima.karma;
+				PRODUCT_BUNDLE_IDENTIFIER = it.polimi.deepse.demasibucaioni;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -886,6 +941,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E36EFC4E295ED26B00301ED4 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		E37273A32969802C007D512E /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E3521601293F51B20074B787 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		E37273A52969803A007D512E /* FirebaseDatabaseSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E3521601293F51B20074B787 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabaseSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

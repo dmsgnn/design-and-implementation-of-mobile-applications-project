@@ -31,7 +31,13 @@ struct ProfileView: View {
             ZStack(alignment: .top) {
                 ScrollView(.vertical, showsIndicators: false) {
                         VStack {
-                            GeometryReader { g in
+                            NavigationLink {
+                                SearchView()
+                            } label: {
+                                Text("go to search")
+                            }
+                            
+//                            GeometryReader { g in
                                 VStack(alignment: .center) {
                                     HStack {
                                         Spacer()
@@ -40,18 +46,19 @@ struct ProfileView: View {
                                             .scaledToFill()
                                             .clipShape(Circle())
                                             .frame(width: 100, height: 100)
-                                            .onReceive(self.time) { (_) in
-                                                let y = g.frame(in: .global).minY
-                                                if -y > (UIScreen.main.bounds.height * 0.16) - 50 {
-                                                    withAnimation {
-                                                        self.showHeaderBar = true
-                                                    }
-                                                } else {
-                                                    withAnimation {
-                                                        self.showHeaderBar = false
-                                                    }
-                                                }
-                                        }
+//                                            .onReceive(self.time) { (_) in
+//                                                let y = g.frame(in: .global).minY
+//                                                if -y > (UIScreen.main.bounds.height * 0.16) - 50 {
+//                                                    withAnimation {
+//                                                        self.showHeaderBar = true
+//                                                    }
+//                                                } else {
+//                                                    withAnimation {
+//                                                        self.showHeaderBar = false
+//                                                    }
+//                                                }
+//                                        }
+                                        
                                         Spacer()
                                     }
                                     .padding(.top, 30)
@@ -81,6 +88,8 @@ struct ProfileView: View {
                     .background(Color.theme.custombackg)
                     .refreshable {
                         viewModel.fetchUserCollections()
+//                        viewModel.fetchSenderPayments()
+                       viewModel.fetchPayments()
                     }
                 
                 if self.showHeaderBar {
@@ -98,7 +107,7 @@ struct ProfileView: View {
             }
         }
     }
-}
+//}
 
 
 
@@ -112,13 +121,13 @@ struct ProfileView_Previews: PreviewProvider {
             email: "tbucaioni@virgilio.it"))
         .previewDevice("iPhone 12")
         
-        ProfileView(user: User(
-            id: NSUUID().uuidString,
-            username: "tombucaioni",
-            fullname: "Tommaso Bucaioni",
-            profileImageUrl: "",
-            email: "tbucaioni@virgilio.it"))
-        .previewDevice("iPad (10th generation)")
+//        ProfileView(user: User(
+//            id: NSUUID().uuidString,
+//            username: "tombucaioni",
+//            fullname: "Tommaso Bucaioni",
+//            profileImageUrl: "",
+//            email: "tbucaioni@virgilio.it"))
+//        .previewDevice("iPad (10th generation)")
     }
 }
 
@@ -127,27 +136,26 @@ extension ProfileView {
     
     var statsView: some View {
         HStack {
+            
             VStack {
-                Text("23")
+                Text("\(viewModel.sentPayments.count)")
                 Text("Donazioni")
                     .fontWeight(.regular)
             }
-            
-            Spacer()
-            
+            .frame(width: UIScreen.main.bounds.width * 0.33)
+
             VStack {
                 Text("\(viewModel.collections.count)")
                 Text("Raccolte")
                     .fontWeight(.regular)
             }
-            
-            Spacer()
-            
+            .frame(width: UIScreen.main.bounds.width * 0.33)
             VStack {
-                Text("+ 10 €")
+                Text("\(String(viewModel.balance.formatted(.number.precision(.fractionLength(0))))) €")
                 Text("Bilancio")
                     .fontWeight(.regular)
             }
+            .frame(width: UIScreen.main.bounds.width * 0.33)
         }
         .font(.title2)
         .fontWeight(.bold)
@@ -156,7 +164,7 @@ extension ProfileView {
     }
     
     var CollView: some View {
-        VStack {
+        VStack(alignment: .center) {
             HStack {
                 Text("Raccolte")
                     .font(.title2)
@@ -171,6 +179,7 @@ extension ProfileView {
                         .fontWeight(.semibold)
                         .foregroundColor(Color(.systemBlue))
                 }
+                
             }
             .padding(.horizontal, 20)
             .fullScreenCover(isPresented: $showNewCollectionView) {
@@ -183,8 +192,8 @@ extension ProfileView {
                         NavigationLink {
                             SummaryCollectionView(collection: collection)
                         } label: {
-                            CollectionView(collection: collection)
-                                .padding(.horizontal, 10)
+                            CollectionView(collection: collection).padding(.horizontal, 18)
+                                
                         }
                         
                         
@@ -192,21 +201,32 @@ extension ProfileView {
                     
                 }
             }
+        
         }
+        .padding(.horizontal)
     }
     
     var RecentActivitiesView: some View {
+        
         VStack(alignment: .leading) {
             Text("Attività recenti")
                 .font(.title2)
                 .fontWeight(.semibold)
+                .padding(.top, 8)
             
-                VStack {
-                    ForEach(0 ... 20, id: \.self) { _ in
-                        RecentActivityView()
-                    
+            VStack {
+                ForEach(viewModel.totalPayments) { payment in
+                    RecentUserActivityView(payment: payment, isPositive: payment.isPositive ?? false)
+                        .padding(.bottom, 4)
                 }
-                
+
+//                ForEach(viewModel.sentPayments) { payment in
+//                    RecentUserActivityView(payment: payment, isPositive: payment.isPositive ?? false)
+//                }
+//
+//                ForEach(viewModel.receivedPayments) { payment in
+//                    RecentUserActivityView(payment: payment, isPositive: payment.isPositive ?? false)
+//                }
             }
         }
     }

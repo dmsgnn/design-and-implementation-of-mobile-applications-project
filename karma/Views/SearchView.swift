@@ -45,7 +45,6 @@ struct SearchView: View {
                     }
                 }
             }
-//            .overlay(Divider().offset(x:0, y: 20))
             
             ScrollView {
                 if selectedFilter == .users {

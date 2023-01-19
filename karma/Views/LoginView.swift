@@ -9,8 +9,10 @@ import SwiftUI
 
 struct LoginView: View {
     @StateObject var vm = ViewModel()
+    @EnvironmentObject var viewModel: AuthViewModel
     
     var body: some View {
+  
         if vm.authenticated {
             // Dashboard page must be shown
             VStack {
@@ -18,6 +20,7 @@ struct LoginView: View {
                 Button("LogOut", action: vm.logOut)
             }
         }
+
         else {
             // Login page must be shown
             ZStack {
