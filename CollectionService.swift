@@ -36,6 +36,7 @@ struct CollectionService {
     
     
     //fetching collections for DashboardView and exploreView
+    
     func fetchCollections(completion: @escaping([Collection]) -> Void) {
         Firestore.firestore().collection("collections")
             .order(by: "timestamp", descending: true)
