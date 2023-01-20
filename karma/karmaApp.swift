@@ -26,5 +26,6 @@ struct karmaApp: App {
             }
             .environmentObject(viewModel)
         }
+    
     }
 }

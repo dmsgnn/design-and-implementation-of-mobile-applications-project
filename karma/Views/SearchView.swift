@@ -79,6 +79,7 @@ struct SearchView: View {
                 }
                 
             }
+    
             
         }
         .background(Color.theme.custombackg)

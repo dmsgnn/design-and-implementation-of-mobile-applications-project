@@ -88,10 +88,16 @@ struct ProfileView: View {
                        viewModel.fetchPayments()
                     }
                     .toolbar {
+                        ToolbarItem(placement: ToolbarItemPlacement.navigationBarLeading) {
+                            Text(viewModel.user.username)
+                                .font(.title)
+                                .fontWeight(.semibold)
+                        }
                         ToolbarItem(placement: ToolbarItemPlacement.navigationBarTrailing) {
                             Menu {
                                 Button(action: {}, label: {
                                     Label("Edit profile", systemImage: "pencil")
+                                        
                                 })
                                 
                                 Button(
@@ -109,11 +115,14 @@ struct ProfileView: View {
                                     icon: { Image(systemName: "ellipsis") }
                                 )
                             }
+                           
                         
                                     
                                 
                         }
+                        
                     }
+                    .foregroundColor(.black)
                 
                 if self.showHeaderBar {
                     HStack {
@@ -128,6 +137,7 @@ struct ProfileView: View {
                 }
                 
             }
+   
         
         }
     }
