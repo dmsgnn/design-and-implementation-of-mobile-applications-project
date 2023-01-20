@@ -15,74 +15,79 @@ struct SearchView: View {
     @ObservedObject var viewModel = SearchViewModel()
     
     var body: some View {
-        VStack {
-            SearchBar(text: $viewModel.searchText)
-                .padding()
-            
-            HStack {
-                ForEach(FilterSearchViewModel.allCases, id: \.self) { item in
-                    VStack {
-                        Text(item.title)
-                            .font(.subheadline)
-                            .fontWeight(selectedFilter == item ? .semibold : .regular)
-                            .foregroundColor(selectedFilter == item ? .black : .gray)
-                        
-                        if selectedFilter == item {
-                            Capsule()
-                                .foregroundColor(.black)
-                                .frame(height: 3)
-                                .matchedGeometryEffect(id: "filter", in: animation)
-                        } else {
-                            Capsule()
-                                .foregroundColor(.clear)
-                                .frame(height: 3)
-                        }
-                    }
-                    .onTapGesture {
-                        withAnimation(.easeInOut) {
-                            self.selectedFilter = item
-                        }
-                    }
-                }
-            }
-            
-            ScrollView {
-                if selectedFilter == .users {
-                    LazyVStack {
-                        ForEach(viewModel.searchableUsers) { user in
-                            NavigationLink {
-                                ProfileView(user: user)
-                            } label: {
-                                VStack {
-                                    UserRowView(user: user)
-                                }
-                            }
-                            .foregroundColor(.black)
+        NavigationStack {
+            VStack {
+                SearchBar(text: $viewModel.searchText)
+                    .padding()
+                
+                HStack {
+                    ForEach(FilterSearchViewModel.allCases, id: \.self) { item in
+                        VStack {
+                            Text(item.title)
+                                .font(.subheadline)
+                                .fontWeight(selectedFilter == item ? .semibold : .regular)
+                                .foregroundColor(selectedFilter == item ? .black : .gray)
                             
-                        }
-                    }
-                } else {
-                    LazyVStack {
-                        ForEach(viewModel.searchableCollections) { collection in
-                            NavigationLink {
-                                SummaryCollectionView(collection: collection)
-                            } label: {
-                                VStack {
-                                    CollectionRowView(collection: collection)
-                                }
+                            if selectedFilter == item {
+                                Capsule()
+                                    .foregroundColor(.black)
+                                    .frame(height: 3)
+                                    .matchedGeometryEffect(id: "filter", in: animation)
+                            } else {
+                                Capsule()
+                                    .foregroundColor(.clear)
+                                    .frame(height: 3)
                             }
-                            .foregroundColor(.black)
-                            
+                        }
+                        .onTapGesture {
+                            withAnimation(.easeInOut) {
+                                self.selectedFilter = item
+                            }
                         }
                     }
-                    
                 }
                 
+                ScrollView {
+                    if selectedFilter == .users {
+                        LazyVStack {
+                            ForEach(viewModel.searchableUsers) { user in
+                                NavigationLink {
+                                    ProfileView(user: user)
+                                } label: {
+                                    VStack {
+                                        UserRowView(user: user)
+                                    }
+                                }
+                                .foregroundColor(.black)
+                                
+                            }
+                        }
+                    } else {
+                        LazyVStack {
+                            ForEach(viewModel.searchableCollections) { collection in
+                                NavigationLink {
+                                    SummaryCollectionView(collection: collection)
+                                } label: {
+                                    VStack {
+                                        CollectionRowView(collection: collection)
+                                    }
+                                }
+                                .foregroundColor(.black)
+                                
+                            }
+                            
+                        }
+                        
+                    }
+                        
+                    
+                }
+        
+                
             }
-    
-            
+            .navigationBarBackButtonHidden(true)
+            .background(Color.theme.custombackg)
         }
-        .background(Color.theme.custombackg)
     }
 }
 

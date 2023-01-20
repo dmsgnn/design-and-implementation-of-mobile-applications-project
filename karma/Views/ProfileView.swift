@@ -14,6 +14,8 @@ struct ProfileView: View {
     
     let workoutDateRange = Date()...Date().addingTimeInterval(1)
     
+    @Environment(\.presentationMode) var presentationMode
+    
     @EnvironmentObject var authViewModel: AuthViewModel
     
     @ObservedObject var viewModel: ProfileViewModel
@@ -89,11 +91,23 @@ struct ProfileView: View {
                     }
                     .toolbar {
                         ToolbarItem(placement: ToolbarItemPlacement.navigationBarLeading) {
+                            Button(action: {
+                                presentationMode.wrappedValue.dismiss()
+                            }, label: {
+                                Image(systemName: "chevron.backward")
+                                    .fontWeight(.semibold)
+                            })
+                        }
+                        
+                        ToolbarItem(placement: ToolbarItemPlacement.principal) {
+        
                             Text(viewModel.user.username)
                                 .font(.title)
                                 .fontWeight(.semibold)
+                            
                         }
-                        ToolbarItem(placement: ToolbarItemPlacement.navigationBarTrailing) {
+                        
+                        ToolbarItem(placement: ToolbarItemPlacement.primaryAction) {
                             Menu {
                                 Button(action: {}, label: {
                                     Label("Edit profile", systemImage: "pencil")
@@ -115,13 +129,11 @@ struct ProfileView: View {
                                     icon: { Image(systemName: "ellipsis") }
                                 )
                             }
-                           
-                        
-                                    
-                                
+        
                         }
                         
                     }
+                    .navigationBarBackButtonHidden(true)
                     .foregroundColor(.black)
                 
                 if self.showHeaderBar {
@@ -135,6 +147,7 @@ struct ProfileView: View {
                     .padding(.bottom)
                     .background(Color.theme.custombackg)
                 }
+                
                 
             }
    
