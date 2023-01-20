@@ -31,7 +31,8 @@ struct ProfileView: View {
             ZStack(alignment: .top) {
                 ScrollView(.vertical, showsIndicators: false) {
                         VStack {
-                        
+                            
+                            
 //                            GeometryReader { g in
                                 VStack(alignment: .center) {
                                     HStack {
@@ -86,6 +87,33 @@ struct ProfileView: View {
 //                        viewModel.fetchSenderPayments()
                        viewModel.fetchPayments()
                     }
+                    .toolbar {
+                        ToolbarItem(placement: ToolbarItemPlacement.navigationBarTrailing) {
+                            Menu {
+                                Button(action: {}, label: {
+                                    Label("Edit profile", systemImage: "pencil")
+                                })
+                                
+                                Button(
+                                    role: .destructive,
+                                    action: {
+                                        authViewModel.signOut()
+                                    }, label: {
+                                        Label("Sign out", systemImage: "rectangle.portrait.and.arrow.right")
+                                    }
+                                )
+                            
+                            } label: {
+                                Label (
+                                    title: { Text("Add") },
+                                    icon: { Image(systemName: "ellipsis") }
+                                )
+                            }
+                        
+                                    
+                                
+                        }
+                    }
                 
                 if self.showHeaderBar {
                     HStack {
@@ -100,6 +128,7 @@ struct ProfileView: View {
                 }
                 
             }
+        
         }
     }
 //}
