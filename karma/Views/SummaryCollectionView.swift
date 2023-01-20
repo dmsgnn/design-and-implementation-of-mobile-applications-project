@@ -23,11 +23,12 @@ struct SummaryCollectionView: View {
     }
     
     var body: some View {
-        ZStack(alignment: .top) {
-            Color.theme.custombackg.ignoresSafeArea()
-            ScrollView {
-                VStack {
-//                    GeometryReader { g in
+        NavigationStack {
+            ZStack(alignment: .top) {
+                Color.theme.custombackg.ignoresSafeArea()
+                ScrollView {
+                    VStack {
+                        //                    GeometryReader { g in
                         HStack {
                             Spacer()
                             VStack {
@@ -36,18 +37,18 @@ struct SummaryCollectionView: View {
                                     .scaledToFit()
                                     .frame(width: UIScreen.main.bounds.width * 0.9, height: 200)
                                     .padding(.top, 50)
-//                                    .onReceive(self.time) { (_) in
-//                                        let y = g.frame(in: .global).minY
-//                                        if -y > (UIScreen.main.bounds.height * 0.3) - 50 {
-//                                            withAnimation {
-//                                                self.showHeaderBar = true
-//                                            }
-//                                        } else {
-//                                            withAnimation {
-//                                                self.showHeaderBar = false
-//                                            }
-//                                        }
-//                                    }
+                                //                                    .onReceive(self.time) { (_) in
+                                //                                        let y = g.frame(in: .global).minY
+                                //                                        if -y > (UIScreen.main.bounds.height * 0.3) - 50 {
+                                //                                            withAnimation {
+                                //                                                self.showHeaderBar = true
+                                //                                            }
+                                //                                        } else {
+                                //                                            withAnimation {
+                                //                                                self.showHeaderBar = false
+                                //                                            }
+                                //                                        }
+                                //                                    }
                                 
                                 
                                 Text(viewModel.collection.title)
@@ -60,130 +61,125 @@ struct SummaryCollectionView: View {
                             }
                             Spacer()
                         }
-//                    }
-//                    .frame(height: UIScreen.main.bounds.height / 2.5)
-                    
-                    VStack {
-                        HStack {
-                            Text("€ \(String(viewModel.collection.currentAmount.formatted(.number.precision(.fractionLength(2))))) raised of € \(String(viewModel.collection.amount.formatted(.number.precision(.fractionLength(0)))))")
-                                .font(.subheadline)
-                                .fontWeight(.semibold)
-                            Spacer()
-                        }
+                        //                    }
+                        //                    .frame(height: UIScreen.main.bounds.height / 2.5)
                         
-                        ProgressView(value: viewModel.collection.currentAmount/viewModel.collection.amount)
-                            .scaleEffect(x: 1, y: 2)
-                        
-                        
-                        HStack{
-                            Image(systemName: "person.2.fill")
-                            Text("\(viewModel.collection.participants) donations")
-                                .fontWeight(.regular)
-                            Spacer()
-                        }
-                        .font(.subheadline)
-                        .padding(.top, 10)
-                        
-                    }
-                    .padding(.horizontal)
-                    
-                    Button() {
-                        showPaymentView.toggle()
-                    } label: {
-                        Text("Donate")
-                            .foregroundColor(.white)
-                            .fontWeight(.semibold)
-                            .frame(minWidth: 100, maxWidth: 250)
-                            .frame(height: 45)
-                            .background(Color(.systemBlue))
-                            .clipShape(RoundedRectangle(cornerRadius: 10))
-                        
-                    }
-                    .sheet(isPresented: $showPaymentView, content: {
-                        PaymentView(collection: viewModel.collection)
-                            .presentationDetents([.medium])
-                    })
-                    .padding(.vertical)
-                    
-                    
-                    Text(viewModel.collection.caption)
-                        .padding(.horizontal)
-                        .font(.body)
-                        .padding(.bottom, 8)
-                    
-                    VStack{
-                        HStack {
-                            Text("\(viewModel.collection.timestamp.dateValue().formatted(date: .abbreviated, time: .omitted))")
-                                .font(.footnote)
-                                .fontWeight(.regular)
-                            Spacer()
+                        VStack {
+                            HStack {
+                                Text("€ \(String(viewModel.collection.currentAmount.formatted(.number.precision(.fractionLength(2))))) raised of € \(String(viewModel.collection.amount.formatted(.number.precision(.fractionLength(0)))))")
+                                    .font(.subheadline)
+                                    .fontWeight(.semibold)
+                                Spacer()
+                            }
+                            
+                            ProgressView(value: viewModel.collection.currentAmount/viewModel.collection.amount)
+                                .scaleEffect(x: 1, y: 2)
+                            
+                            
+                            HStack{
+                                Image(systemName: "person.2.fill")
+                                Text("\(viewModel.collection.participants) donations")
+                                    .fontWeight(.regular)
+                                Spacer()
+                            }
+                            .font(.subheadline)
+                            .padding(.top, 10)
+                            
                         }
                         .padding(.horizontal)
-                    }
-                    
-                   
-                    
-                    VStack(alignment: .leading){
-                        HStack {
-                            Text("Donations")
-                                .font(.title2)
+                        
+                        Button() {
+                            showPaymentView.toggle()
+                        } label: {
+                            Text("Donate")
+                                .foregroundColor(.white)
                                 .fontWeight(.semibold)
-                            Spacer()
+                                .frame(minWidth: 100, maxWidth: 250)
+                                .frame(height: 45)
+                                .background(Color(.systemBlue))
+                                .clipShape(RoundedRectangle(cornerRadius: 10))
+                            
+                        }
+                        .sheet(isPresented: $showPaymentView, content: {
+                            PaymentView(collection: viewModel.collection)
+                                .presentationDetents([.medium])
+                        })
+                        .padding(.vertical)
+                        
+                        
+                        Text(viewModel.collection.caption)
+                            .padding(.horizontal)
+                            .font(.body)
+                            .padding(.bottom, 8)
+                        
+                        VStack{
+                            HStack {
+                                Text("\(viewModel.collection.timestamp.dateValue().formatted(date: .abbreviated, time: .omitted))")
+                                    .font(.footnote)
+                                    .fontWeight(.regular)
+                                Spacer()
+                            }
+                            .padding(.horizontal)
                         }
                         
-                        ForEach(viewModel.payments) { payment in
-                            ActivityCollectionView(payment: payment)
+                        
+                        
+                        VStack(alignment: .leading){
+                            HStack {
+                                Text("Donations")
+                                    .font(.title2)
+                                    .fontWeight(.semibold)
+                                Spacer()
+                            }
+                            
+                            ForEach(viewModel.payments) { payment in
+                                ActivityCollectionView(payment: payment)
+                            }
+                            
                         }
-                       
+                        .padding()
+                        
+                        
+                        
+                        Spacer()
+                        
                     }
-                    .padding()
-                    
-                    
-                    
-                    Spacer()
                     
                 }
+                .refreshable {
+                    viewModel.fetchPaymentsForCollection()
+                }
                 
-            }
-            .refreshable {
-                viewModel.fetchPaymentsForCollection()
-            }
-            .navigationBarBackButtonHidden(true)
             
-            HStack {
-                Button(action: {
+            }
+        }
+        .toolbar {
+            ToolbarItem(placement: ToolbarItemPlacement.navigationBarLeading) {
+                Button {
                     presentationMode.wrappedValue.dismiss()
-                    showTabBar()
-                }, label: {
+                } label: {
                     Image(systemName: "chevron.backward")
-                        .foregroundColor(Color.theme.dark)
-                })
-                
-                Spacer()
-                
-                if showHeaderBar{
-                    Text(viewModel.collection.title)
-                        .font(.title3)
                         .fontWeight(.semibold)
                 }
-                
-                Spacer()
-                
-                Button(action: {
-                    presentationMode.wrappedValue.dismiss()
-                }, label: {
-                    Image(systemName: "ellipsis")
-                        .foregroundColor(Color.theme.dark)
-                })
             }
             
-            .padding(.bottom)
-            .padding(.horizontal)
-            .background(showHeaderBar ? Color.theme.custombackg : Color.clear)
+            ToolbarItem(placement: ToolbarItemPlacement.principal) {
+                Text(viewModel.collection.title)
+                    .font(.title2)
+                    .fontWeight(.semibold)
+            }
             
-            
-            
+            ToolbarItem(placement: ToolbarItemPlacement.navigationBarTrailing) {
+                Button {
+                    print("edit collection")
+                } label: {
+                    Label("Edit collection", systemImage: "pencil")
+                }
+
+            }
         }
+        .navigationBarBackButtonHidden(true)
+        .foregroundColor(.black)
         
     }
     

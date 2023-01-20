@@ -33,8 +33,6 @@ struct ProfileView: View {
             ZStack(alignment: .top) {
                 ScrollView(.vertical, showsIndicators: false) {
                         VStack {
-                            
-                            
 //                            GeometryReader { g in
                                 VStack(alignment: .center) {
                                     HStack {
@@ -59,16 +57,17 @@ struct ProfileView: View {
                                         
                                         Spacer()
                                     }
-                                    .padding(.top, 30)
+                                    
 
                                     Text("\(viewModel.user.username)")
                                         .font(.title2)
                                         .fontWeight(.semibold)
      
                                 }
+                                .padding(.bottom, 24)
                                 
                             }
-                            .frame(height: UIScreen.main.bounds.height / 4.3)
+//                            .frame(height: UIScreen.main.bounds.height / 4.3)
                             
                             statsView
                             
@@ -102,12 +101,12 @@ struct ProfileView: View {
                         ToolbarItem(placement: ToolbarItemPlacement.principal) {
         
                             Text(viewModel.user.username)
-                                .font(.title)
+                                .font(.title2)
                                 .fontWeight(.semibold)
                             
                         }
                         
-                        ToolbarItem(placement: ToolbarItemPlacement.primaryAction) {
+                        ToolbarItem(placement: ToolbarItemPlacement.navigationBarTrailing) {
                             Menu {
                                 Button(action: {}, label: {
                                     Label("Edit profile", systemImage: "pencil")
