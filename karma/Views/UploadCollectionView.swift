@@ -66,29 +66,53 @@ struct UploadCollectionView: View {
                         .font(.headline)
                         .fontWeight(.semibold)
                     
-                    TextArea("give your collection a title", text: $title)
-                        .frame(maxHeight: 40)
-                    Divider().padding(.horizontal)
+                    TextField("give your collection a title", text: $title)
                     
+                    Divider()
                     
-                }
-                .padding(.leading)
-                .padding(.bottom, 24)
-                
-                
-                VStack(alignment: .leading) {
                     Text("Description")
                         .font(.headline)
                         .fontWeight(.semibold)
                     
-                    TextArea("say something about this collection", text: $description)
-                        .frame(maxHeight: 150)
-                    Divider().padding(.horizontal)
+                    TextField("say something about this collection", text: $description)
+                        
+                    
                 }
-                .padding(.leading)
-                .padding(.bottom, 36)
+                .frame(width: UIScreen.main.bounds.width*0.9)
                 
-                //toggle for private
+                .padding(.horizontal)
+                
+                Spacer()
+                Divider().padding(.horizontal)
+                
+              
+//                VStack(alignment: .leading) {
+//                    Text("Title")
+//                        .font(.headline)
+//                        .fontWeight(.semibold)
+//
+//                    TextArea("give your collection a title", text: $title)
+//                        .frame(maxHeight: 40)
+//                    Divider().padding(.horizontal)
+//
+//
+//                }
+//                .padding(.leading)
+//                .padding(.bottom, 24)
+//
+//
+//                VStack(alignment: .leading) {
+//                    Text("Description")
+//                        .font(.headline)
+//                        .fontWeight(.semibold)
+//
+//                    TextArea("say something about this collection", text: $description)
+//                        .frame(maxHeight: 150)
+//                    Divider().padding(.horizontal)
+//                }
+//                .padding(.leading)
+//                .padding(.bottom, 36)
+//
                 
                 
                 Text("Set your amount...")
