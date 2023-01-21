@@ -170,12 +170,25 @@ struct SummaryCollectionView: View {
             }
             
             ToolbarItem(placement: ToolbarItemPlacement.navigationBarTrailing) {
-                Button {
-                    print("edit collection")
+                Menu {
+                    NavigationLink {
+                        EditProfileView()
+                    } label: {
+                        Label("Edit collection", systemImage: "pencil")
+                    }
+                    
+                    Button {
+                        viewModel.collection.didLike ?? false ? viewModel.removeFromFavourite() : viewModel.addToFavourite()
+                    } label: {
+                        Label(viewModel.collection.didLike ?? false ? "Remove to favourites" : "Add to favourites", systemImage: viewModel.collection.didLike ?? false ? "bookmark.fill" : "bookmark")
+                    }
+                    
                 } label: {
-                    Label("Edit collection", systemImage: "pencil")
+                    Label (
+                        title: { Text("Add") },
+                        icon: { Image(systemName: "ellipsis") }
+                    )
                 }
-
             }
         }
         .navigationBarBackButtonHidden(true)

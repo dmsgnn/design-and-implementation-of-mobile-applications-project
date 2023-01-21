@@ -19,12 +19,33 @@ class SummaryCollectionViewModel: ObservableObject {
     init(collection: Collection) {
         self.collection = collection
         self.fetchPaymentsForCollection()
+        checkIfUserLikedCollection()
     }
     
     func fetchPaymentsForCollection() {
         guard let cid = collection.id else { return }
         paymentService.fetchPaymentsForCollection(forCid: cid) { payments in
             self.payments = payments
+        }
+    }
+    
+    func addToFavourite() {
+        service.addToFavourite(collection) {
+            self.collection.didLike = true
+        }
+    }
+       
+    func removeFromFavourite() {
+        service.removeFromFavourite(collection) {
+            self.collection.didLike = false
+        }
+    }
+    
+    func checkIfUserLikedCollection() {
+        service.checkIfUserlikedCollection(collection) { didLike in
+            if didLike {
+                self.collection.didLike = true
+            }
         }
     }
     

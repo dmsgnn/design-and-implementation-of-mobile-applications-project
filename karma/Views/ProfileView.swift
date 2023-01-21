@@ -11,9 +11,6 @@ import Kingfisher
 struct ProfileView: View {
     @Environment(\.verticalSizeClass) var heightSizeClass: UserInterfaceSizeClass?
     @Environment(\.horizontalSizeClass) var widthSizeClass: UserInterfaceSizeClass?
-    
-    let workoutDateRange = Date()...Date().addingTimeInterval(1)
-    
     @Environment(\.presentationMode) var presentationMode
     
     @EnvironmentObject var authViewModel: AuthViewModel
