@@ -49,6 +49,8 @@
 		E34C9B2D2966F03100E8FC5E /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34C9B2C2966F03100E8FC5E /* SearchBar.swift */; };
 		E34C9B2F2967119400E8FC5E /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34C9B2E2967119400E8FC5E /* SearchViewModel.swift */; };
 		E34C9B312967188600E8FC5E /* FilterSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34C9B302967188600E8FC5E /* FilterSearchViewModel.swift */; };
+		E351CC1F297BDC4E00E74228 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E351CC1E297BDC4D00E74228 /* EditProfileView.swift */; };
+		E351CC21297BE1DB00E74228 /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E351CC20297BE1DB00E74228 /* EditProfileViewModel.swift */; };
 		E35215FA293F399F0074B787 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35215F9293F399F0074B787 /* RegistrationView.swift */; };
 		E35215FC293F3D4F0074B787 /* CustomInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35215FB293F3D4F0074B787 /* CustomInputField.swift */; };
 		E3521600293F4F910074B787 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E35215FF293F4F900074B787 /* GoogleService-Info.plist */; };
@@ -136,6 +138,8 @@
 		E34C9B2C2966F03100E8FC5E /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		E34C9B2E2967119400E8FC5E /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		E34C9B302967188600E8FC5E /* FilterSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSearchViewModel.swift; sourceTree = "<group>"; };
+		E351CC1E297BDC4D00E74228 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
+		E351CC20297BE1DB00E74228 /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
 		E35215F9293F399F0074B787 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		E35215FB293F3D4F0074B787 /* CustomInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputField.swift; sourceTree = "<group>"; };
 		E35215FF293F4F900074B787 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -292,6 +296,7 @@
 				1BF9AAAC2968C2AC007F4B34 /* CustomCornerView.swift */,
 				1BCB44C32969E27300205BC1 /* MainView.swift */,
 				E34C47F42979AABD00F04937 /* BookmarkView.swift */,
+				E351CC1E297BDC4D00E74228 /* EditProfileView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -344,6 +349,7 @@
 				E3DDB18C2970AF6F008CE84B /* RecentUserActivityViewModel.swift */,
 				E3BA1B1D2971D1F8009945A5 /* ActivityCollectionViewModel.swift */,
 				E34C47F62979AACD00F04937 /* BookmarkViewModel.swift */,
+				E351CC20297BE1DB00E74228 /* EditProfileViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -529,9 +535,11 @@
 				E3354777295C4088003444E0 /* UploadCollectionView.swift in Sources */,
 				E32FE361296435FD0061C907 /* PaymentView.swift in Sources */,
 				E334CDBD295D93FE0082FC17 /* UploadCollectionViewModel.swift in Sources */,
+				E351CC1F297BDC4E00E74228 /* EditProfileView.swift in Sources */,
 				E33547602958668B003444E0 /* ProfileView.swift in Sources */,
 				E39A023129731630005CE413 /* ImageUploaderView.swift in Sources */,
 				E35215FA293F399F0074B787 /* RegistrationView.swift in Sources */,
+				E351CC21297BE1DB00E74228 /* EditProfileViewModel.swift in Sources */,
 				E32FE363296436600061C907 /* PaymentViewModel.swift in Sources */,
 				E34C47F72979AACD00F04937 /* BookmarkViewModel.swift in Sources */,
 				E334CDB9295D93840082FC17 /* Collection.swift in Sources */,

@@ -22,6 +22,7 @@ struct ProfileView: View {
     @State var showHeaderBar = false
     @State var time = Timer.publish(every: 0.1, on: .current, in: .tracking).autoconnect()
     @State private var showNewCollectionView = false
+    @State private var showEditPage = false
     
     init(user: User) {
         self.viewModel = ProfileViewModel(user: user)
@@ -108,11 +109,12 @@ struct ProfileView: View {
                         
                         ToolbarItem(placement: ToolbarItemPlacement.navigationBarTrailing) {
                             Menu {
-                                Button(action: {}, label: {
+                                NavigationLink {
+                                    EditProfileView()
+                                } label: {
                                     Label("Edit profile", systemImage: "pencil")
-                                        
-                                })
-                                
+                                }
+
                                 Button(
                                     role: .destructive,
                                     action: {
@@ -131,7 +133,9 @@ struct ProfileView: View {
         
                         }
                         
+                        
                     }
+            
                     .navigationBarBackButtonHidden(true)
                     .foregroundColor(.black)
                 
