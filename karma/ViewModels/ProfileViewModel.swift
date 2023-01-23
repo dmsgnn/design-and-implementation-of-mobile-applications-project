@@ -17,6 +17,7 @@ class ProfileViewModel: ObservableObject {
     @Published var totalPayments = [Payment]()
     @Published var balance: Float = 0.0
     
+
     
     init(user: User) {
         self.user = user
@@ -29,15 +30,15 @@ class ProfileViewModel: ObservableObject {
         guard let uid = user.id else { return }
         service.fetchCollections(forUid: uid) { collections in
                 self.collections = collections
-                for i in 0 ..< collections.count {
-                    self.collections[i].user = self.user
-                }
-            
-            
-            
-           
+            for i in 0 ..< collections.count {
+                self.collections[i].user = self.user
+            }
         }
     }
+    
+
+    
+    
     
     //fetch payment where user is the Sender
     //    func fetchSenderPayments() {

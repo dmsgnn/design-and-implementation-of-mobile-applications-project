@@ -73,13 +73,6 @@ struct EditProfileView: View {
                     Divider()
                         .padding(.bottom)
                     
-//                    HStack {
-//                        Text("Email:")
-//                            .padding(.trailing)
-//                        TextField("Email", text: $email)
-//                    }
-//                    
-//                    Divider()
                 }
                 .padding()
                 
@@ -106,7 +99,7 @@ struct EditProfileView: View {
                 ToolbarItem(placement: ToolbarItemPlacement.navigationBarTrailing) {
                     if let selectedImage = selectedImage {
                         Button {
-                            authVM.editImage(selectedImage)
+                            viewModel.editImage(selectedImage)
                             viewModel.updateUserData(fullname: fullname, username: username)
                         
                         } label: {

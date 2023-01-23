@@ -41,14 +41,9 @@ struct UserService {
         Firestore.firestore().collection("users").document(user).setData(["fullname" : fullname, "username" : username.lowercased()], merge: true)
         completion(true)
     }
+    
+    
+    
+    
 }
 
-//func register(withEmail email: String, password: String, fullname: String, username: String) {
-//    Auth.auth().createUser(withEmail: email, password: password) { result, error in
-//        //check if an error happens
-//        if let error = error {
-//            print("DEBUG: failed to register with error \(error.localizedDescription)")
-//            return
-//        }
-
-//db.collection("cities").document("BJ").setData([ "capital": true ], merge: true)

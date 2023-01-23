@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import SwiftUI
+import Firebase
 
 class EditProfileViewModel: ObservableObject {
     
@@ -18,10 +20,45 @@ class EditProfileViewModel: ObservableObject {
     }
     
     func updateUserData(fullname: String, username: String) {
-        service.updateUserData(fullname: fullname, username: username) { success in
-            if success {
-                self.didEditProfile = true
-            } else {
+        if fullname == "" {
+            service.updateUserData(fullname: user.fullname, username: username) { success in
+                if success {
+                    self.didEditProfile = true
+                } else {
+                    
+                }
+            }
+        } else if username == "" {
+            service.updateUserData(fullname: fullname, username: user.username) { success in
+                if success {
+                    self.didEditProfile = true
+                } else {
+                    
+                }
+            }
+        } else if username == "" && fullname == "" {
+            service.updateUserData(fullname: user.fullname, username: user.username) { success in
+                if success {
+                    self.didEditProfile = true
+                } else {
+                    
+                }
+            }
+        } else {
+            service.updateUserData(fullname: fullname, username: username) { success in
+                if success {
+                    self.didEditProfile = true
+                } else {
+                }
+            }
+        }
+    }
+    
+    func editImage(_ image: UIImage) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        ImageUploader.uploadImage(image: image) { profileImageUrl in
+            Firestore.firestore().collection("users").document(uid).updateData(["profileImageUrl": profileImageUrl]) { _ in
+                print(profileImageUrl)
             }
         }
     }

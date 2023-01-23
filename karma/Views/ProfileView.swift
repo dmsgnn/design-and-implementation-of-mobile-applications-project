@@ -23,6 +23,7 @@ struct ProfileView: View {
     
     init(user: User) {
         self.viewModel = ProfileViewModel(user: user)
+        viewModel.fetchUserCollections()
     
     }
     
