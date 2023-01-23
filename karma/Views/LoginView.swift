@@ -13,12 +13,9 @@ struct LoginView: View {
     
     var body: some View {
   
-        if vm.authenticated {
+        if let user = viewModel.currentUser {
             // Dashboard page must be shown
-            VStack {
-                Text("Dashboard")
-                Button("LogOut", action: vm.logOut)
-            }
+            MainView(user: user)
         }
 
         else {

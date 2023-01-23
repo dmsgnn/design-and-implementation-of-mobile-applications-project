@@ -11,6 +11,11 @@ class EditProfileViewModel: ObservableObject {
     
     private let service = UserService()
     @Published var didEditProfile = false
+    let user: User
+    
+    init(user: User) {
+        self.user = user
+    }
     
     func updateUserData(fullname: String, username: String) {
         service.updateUserData(fullname: fullname, username: username) { success in

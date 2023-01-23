@@ -21,7 +21,7 @@ struct karmaApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                ContentView() //Replace it with dashboardView
+                ContentView()
                 
             }
             .environmentObject(viewModel)

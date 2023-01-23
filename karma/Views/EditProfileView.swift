@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct EditProfileView: View {
     
@@ -14,22 +15,49 @@ struct EditProfileView: View {
     @State private var username = ""
     @State private var email = ""
     
-    @ObservedObject var viewModel = EditProfileViewModel()
+    @State private var showImagePicker = false
+    @State private var selectedImage: UIImage?
+    @State private var profileImage: Image?
+
+    @EnvironmentObject var authVM: AuthViewModel
+    @ObservedObject var viewModel: EditProfileViewModel
+    
+    
+    init(user: User) {
+        self.viewModel = EditProfileViewModel(user: user)
+    }
     
     var body: some View {
         NavigationStack {
             VStack {
-                Circle()
-                    .frame(width: 80, height: 80)
-                    .padding()
-                
+                Button {
+                    showImagePicker.toggle()
+                } label: {
+                    if let profileImage = profileImage {
+                        profileImage
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 100, height: 100)
+                            .clipShape(Circle())
+                    } else {
+                        KFImage(URL(string: viewModel.user.profileImageUrl))
+                            .resizable()
+                            .scaledToFill()
+                            .clipShape(Circle())
+                            .frame(width: 100, height: 100)
+                    }
+                }
+                .sheet(isPresented: $showImagePicker, onDismiss: loadImage) {
+                    ImagePicker(selectedImage: $selectedImage)
+                }
+
                 Divider()
                 
                 VStack {
                     HStack {
                         Text("Name:")
                             .padding(.trailing)
-                        TextField("Name", text: $fullname)
+                        TextField(viewModel.user.fullname, text: $fullname)
   
                     }
                     Divider()
@@ -38,7 +66,7 @@ struct EditProfileView: View {
                     HStack {
                         Text("Username:")
                             .padding(.trailing)
-                        TextField("Username", text: $username)
+                        TextField(viewModel.user.username, text: $username)
                         
                     }
                     
@@ -76,11 +104,15 @@ struct EditProfileView: View {
                 }
                 
                 ToolbarItem(placement: ToolbarItemPlacement.navigationBarTrailing) {
-                    Button {
-                        viewModel.updateUserData(fullname: fullname, username: username)
-                    } label: {
-                        Text("Done")
-                            .bold()
+                    if let selectedImage = selectedImage {
+                        Button {
+                            authVM.uploadImage(selectedImage)
+                            viewModel.updateUserData(fullname: fullname, username: username)
+                        
+                        } label: {
+                            Text("Done")
+                                .bold()
+                        }
                     }
                 }
                 
@@ -95,10 +127,21 @@ struct EditProfileView: View {
         
         
     }
+    
+    func loadImage() {
+        guard let selectedImage = selectedImage else { return }
+        profileImage = Image(uiImage: selectedImage)
+        
+    }
 }
 
 struct EditProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        EditProfileView()
+        EditProfileView(user: User(
+            id: NSUUID().uuidString,
+            username: "tombucaioni",
+            fullname: "Tommaso Bucaioni",
+            profileImageUrl: "",
+            email: "tbucaioni@virgilio.it"))
     }
 }

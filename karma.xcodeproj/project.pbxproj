@@ -140,6 +140,7 @@
 		E34C9B302967188600E8FC5E /* FilterSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSearchViewModel.swift; sourceTree = "<group>"; };
 		E351CC1E297BDC4D00E74228 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		E351CC20297BE1DB00E74228 /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
+		E351CC23297E7B2000E74228 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E35215F9293F399F0074B787 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		E35215FB293F3D4F0074B787 /* CustomInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputField.swift; sourceTree = "<group>"; };
 		E35215FF293F4F900074B787 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -212,6 +213,7 @@
 		1BD8C245293E5D6100F1B32A /* karma */ = {
 			isa = PBXGroup;
 			children = (
+				E351CC23297E7B2000E74228 /* Info.plist */,
 				E34C47F82979BF3600F04937 /* Info.plist */,
 				E3F51F29297835BF00E66C08 /* karma.entitlements */,
 				E3A952F72974129B006B111C /* Info.plist */,
@@ -720,7 +722,7 @@
 				DEVELOPMENT_TEAM = EDG8TGNYUA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "";
+				INFOPLIST_FILE = karma/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Karma;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -752,7 +754,7 @@
 				DEVELOPMENT_TEAM = EDG8TGNYUA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "";
+				INFOPLIST_FILE = karma/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Karma;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

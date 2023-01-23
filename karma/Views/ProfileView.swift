@@ -107,7 +107,7 @@ struct ProfileView: View {
                         ToolbarItem(placement: ToolbarItemPlacement.navigationBarTrailing) {
                             Menu {
                                 NavigationLink {
-                                    EditProfileView()
+                                    EditProfileView(user: viewModel.user)
                                 } label: {
                                     Label("Edit profile", systemImage: "pencil")
                                 }

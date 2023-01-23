@@ -172,7 +172,7 @@ struct SummaryCollectionView: View {
             ToolbarItem(placement: ToolbarItemPlacement.navigationBarTrailing) {
                 Menu {
                     NavigationLink {
-                        EditProfileView()
+                        Text("ciao")
                     } label: {
                         Label("Edit collection", systemImage: "pencil")
                     }
