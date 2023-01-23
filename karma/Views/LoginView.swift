@@ -33,7 +33,7 @@ struct LoginView: View {
                     // App name and login text
                     HStack {
                         Image("kLogo-40")
-                            .offset(x: 10, y: -7)
+                            .offset(x: screenHeight * 0.01, y: -screenHeight * 0.009)
                             .padding(.trailing, screenWidth*0.01)
                       
                         Text("arma")
@@ -41,7 +41,7 @@ struct LoginView: View {
                             .fontWeight(.bold)
                             .foregroundColor(.black)
                     }
-                    .offset(x: -5)
+                    .offset(x: -screenHeight * 0.008)
                 
                     Spacer()
                     
@@ -60,14 +60,14 @@ struct LoginView: View {
                         CustomInputField(placeholderText: "Email", text: $vm.email)
                             .shadow(
                                 color: Color.gray.opacity(0.15),
-                                radius: 16,
+                                radius: screenHeight * 0.02,
                                 x: 0,
                                 y: 0
                             )
                         CustomInputField(placeholderText: "Password", text: $vm.password)
                             .shadow(
                                 color: Color.gray.opacity(0.15),
-                                radius: 16,
+                                radius: screenHeight * 0.02,
                                 x: 0,
                                 y: 0
                             )
@@ -103,10 +103,10 @@ struct LoginView: View {
                     }
                     
                     Spacer()
-                        .frame(height: UIScreen.main.bounds.height * 0.1)
+                        .frame(height: screenHeight * 0.1)
 
                 }
-                .frame(width: UIScreen.main.bounds.width * 0.8)
+                .frame(width: screenWidth * 0.8)
                 .padding()
             }
         }
