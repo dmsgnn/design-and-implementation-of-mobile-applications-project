@@ -10,6 +10,8 @@ import SwiftUI
 struct LoginView: View {
     @StateObject var vm = ViewModel()
     @EnvironmentObject var viewModel: AuthViewModel
+    let screenHeight = UIScreen.main.bounds.height
+    let screenWidth = UIScreen.main.bounds.width
     
     var body: some View {
   
@@ -24,41 +26,67 @@ struct LoginView: View {
         else {
             // Login page must be shown
             ZStack {
-                VStack(alignment: .center, spacing: UIScreen.main.bounds.height * 0.05) {
+                VStack(alignment: .center, spacing: screenHeight * 0.05) {
                     Spacer()
-                        .frame(height: UIScreen.main.bounds.height * 0.1)
+                        .frame(height: screenHeight * 0.15)
                     
                     // App name and login text
-                    Text("karma")
-                        .foregroundColor(.black)
-                        .font(.system(size: 50, weight: .bold))
-                    Text("Log in")
-                        .foregroundColor(.black)
-                        .font(.system(size: 40, weight: .medium))
+                    HStack {
+                        Image("kLogo-40")
+                            .offset(x: 10, y: -7)
+                            .padding(.trailing, screenWidth*0.01)
+                      
+                        Text("arma")
+                            .font(.largeTitle)
+                            .fontWeight(.bold)
+                            .foregroundColor(.black)
+                    }
+                    .offset(x: -5)
+                
+                    Spacer()
+                    
+                    HStack() {
+                        Text("Login")
+                            .font(.largeTitle)
+                            .fontWeight(.bold)
+                            .foregroundColor(.black)
+                            .padding(.horizontal)
+                            .padding(.top, -screenHeight*0.04)
+                            .padding(.bottom, screenHeight*0.04)
+                    }
                     
                     
-                    // Textfields for email and password
-                    TextField("Email", text: $vm.email)
-                        .textFieldStyle(.roundedBorder)
-                        .textInputAutocapitalization(.never)
-                    SecureField("Password", text: $vm.password)
-                        .textFieldStyle(.roundedBorder)
-                        .textInputAutocapitalization(.never)
-                        .privacySensitive()
+                    VStack(spacing: screenHeight*0.05){
+                        CustomInputField(placeholderText: "Email", text: $vm.email)
+                            .shadow(
+                                color: Color.gray.opacity(0.15),
+                                radius: 16,
+                                x: 0,
+                                y: 0
+                            )
+                        CustomInputField(placeholderText: "Password", text: $vm.password)
+                            .shadow(
+                                color: Color.gray.opacity(0.15),
+                                radius: 16,
+                                x: 0,
+                                y: 0
+                            )
+                    }
                     
                     Spacer()
-                        .frame(height: UIScreen.main.bounds.height * 0.01)
+                        .frame(height: screenHeight * 0.01)
                     
                     // Login and signup buttons
                     Button("Login", action: vm.authenticate)
-                        .frame(maxWidth: .infinity, minHeight: UIScreen.main.bounds.height * 0.05)
+                        .font(.headline)
+                        .frame(width: screenWidth*0.8, height: screenHeight * 0.06)
                         .foregroundColor(.white)
                         .background(.black)
-                        .cornerRadius(16)
+                        .cornerRadius(screenHeight*0.02)
                     
                     
                     Spacer()
-                        .frame(height: UIScreen.main.bounds.height * 0.1)
+                        .frame(height: UIScreen.main.bounds.height * 0.02)
                     
                    
                     NavigationLink {
@@ -76,13 +104,7 @@ struct LoginView: View {
                     
                     Spacer()
                         .frame(height: UIScreen.main.bounds.height * 0.1)
-                    /*}
-                     .alert("Access denied!", isPresented: $vm.invalid) {
-                     Button("Dismiss", action: vm.logPressed)
-                     }
-                     
-                     }
-                     .transition(.offset(x: 0, y: 850))*/
+
                 }
                 .frame(width: UIScreen.main.bounds.width * 0.8)
                 .padding()

@@ -12,6 +12,8 @@ struct CustomInputField: View {
     let placeholderText: String
     var isSecureField: Bool? = false
     @Binding var text: String
+    let screenHeight = UIScreen.main.bounds.height
+    let screenWidth = UIScreen.main.bounds.width
     
     var body: some View {
 
@@ -24,9 +26,9 @@ struct CustomInputField: View {
                         .padding()
                 }
             }
-            .frame(width: UIScreen.main.bounds.size.width*0.8, height: 50)
+            .frame(width: screenWidth*0.8, height: screenHeight * 0.06)
             .background(.white)
-            .containerShape(RoundedRectangle(cornerRadius: 15))
+            .containerShape(RoundedRectangle(cornerRadius: screenHeight * 0.02))
 
         
     }
