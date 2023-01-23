@@ -183,9 +183,21 @@ struct SummaryCollectionView: View {
                         Label(viewModel.collection.didLike ?? false ? "Remove to favourites" : "Add to favourites", systemImage: viewModel.collection.didLike ?? false ? "bookmark.fill" : "bookmark")
                     }
                     
+                    Button (
+                        role: .destructive,
+                        action: {
+                            viewModel.deleteCollection()
+                            presentationMode.wrappedValue.dismiss()
+                        },
+                        label: {
+                            Label("Delete collection", systemImage: "trash")
+                            
+                        }
+                    )
+                    
                 } label: {
                     Label (
-                        title: { Text("Add") },
+                        title: { Text("") },
                         icon: { Image(systemName: "ellipsis") }
                     )
                 }

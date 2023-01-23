@@ -106,7 +106,7 @@ struct EditProfileView: View {
                 ToolbarItem(placement: ToolbarItemPlacement.navigationBarTrailing) {
                     if let selectedImage = selectedImage {
                         Button {
-                            authVM.uploadImage(selectedImage)
+                            authVM.editImage(selectedImage)
                             viewModel.updateUserData(fullname: fullname, username: username)
                         
                         } label: {

@@ -36,9 +36,9 @@ struct UserService {
         
     }
     
-    func updateUserData(fullname: String, username: String, completion: @escaping(Bool) -> Void) {
+    func updateUserData(fullname: String, username: String, completion: @escaping(Bool) -> Void) {
         guard let user = Auth.auth().currentUser?.uid else { return }
-        Firestore.firestore().collection("users").document(user).setData(["fullname" : fullname, "username" : username], merge: true)
+        Firestore.firestore().collection("users").document(user).setData(["fullname" : fullname, "username" : username.lowercased()], merge: true)
         completion(true)
     }
 }

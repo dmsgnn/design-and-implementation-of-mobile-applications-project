@@ -21,13 +21,13 @@ class UploadCollectionViewModel: ObservableObject {
             self.service.uploadCollection(title: title, caption: caption, amount: amount, image: collectionImageUrl) {
                 success in
                 if success {
-                    self.didUploadCollection = true
-                    
+                    self.didUploadCollection = true                    
                     //dismiss screen somehow
                 } else {
                     // show error message to user
                 }
             }
+            
         }
         
         

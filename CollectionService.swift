@@ -30,6 +30,7 @@ struct CollectionService {
                     completion(false)
                     return
                 }
+                
                 completion(true)
             }
     }
@@ -128,6 +129,16 @@ struct CollectionService {
                     completion()
                 }
             }
+    }
+    
+    func deleteCollection(_ collection: Collection, completion: @escaping(Bool) -> Void) {
+        guard let id = collection.id else { return }
+        Firestore.firestore().collection("collections").document(id).delete { error in
+            if let error = error {
+                print("DEBUG: failed with error: \(error.localizedDescription)")
+            }
+            completion(true)
+        }
     }
     
     

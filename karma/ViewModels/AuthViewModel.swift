@@ -94,4 +94,13 @@ class AuthViewModel: ObservableObject {
                 }
         }
     }
+    
+    func editImage(_ image: UIImage) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        ImageUploader.uploadImage(image: image) { profileImageUrl in
+            Firestore.firestore().collection("users").document(uid).updateData(["profileImageUrl": profileImageUrl]) { _ in
+                print(profileImageUrl)
+            }
+        }
+    }
 }

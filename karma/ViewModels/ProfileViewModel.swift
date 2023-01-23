@@ -28,10 +28,15 @@ class ProfileViewModel: ObservableObject {
     func fetchUserCollections() {
         guard let uid = user.id else { return }
         service.fetchCollections(forUid: uid) { collections in
-            self.collections = collections
-            for i in 0 ..< collections.count {
-                self.collections[i].user = self.user
-            }
+            
+                self.collections = collections
+                for i in 0 ..< collections.count {
+                    self.collections[i].user = self.user
+                }
+            
+            
+            
+           
         }
     }
     
@@ -50,23 +55,25 @@ class ProfileViewModel: ObservableObject {
     func fetchPayments() {
         guard let uid = user.id else { return }
         paymentService.fetchPaymentsForReceiver(forUid: uid) { payments in
-            self.receivedPayments = payments
-            self.balance = 0
-            for i in 0 ..< payments.count {
-                self.receivedPayments[i].receiver = self.user
-                self.receivedPayments[i].isPositive = true
-                self.balance += self.receivedPayments[i].total
-            }
-            self.paymentService.fetchPaymentsForSender(forUid: uid) { payments in
-                self.sentPayments = payments
+            
+                self.receivedPayments = payments
+                self.balance = 0
                 for i in 0 ..< payments.count {
-                    self.sentPayments[i].sender = self.user
-                    self.sentPayments[i].isPositive = false
-                    self.balance -= self.sentPayments[i].total
+                    self.receivedPayments[i].receiver = self.user
+                    self.receivedPayments[i].isPositive = true
+                    self.balance += self.receivedPayments[i].total
                 }
-                self.totalPayments = self.receivedPayments + self.sentPayments
-                print("total payments" + "\(self.totalPayments.count)")
-                self.totalPayments = self.totalPayments.sorted(by: { $0.timestamp.dateValue() > $1.timestamp.dateValue() })
+                self.paymentService.fetchPaymentsForSender(forUid: uid) { payments in
+                    self.sentPayments = payments
+                    for i in 0 ..< payments.count {
+                        self.sentPayments[i].sender = self.user
+                        self.sentPayments[i].isPositive = false
+                        self.balance -= self.sentPayments[i].total
+                    }
+                    self.totalPayments = self.receivedPayments + self.sentPayments
+                    print("total payments" + "\(self.totalPayments.count)")
+                    self.totalPayments = self.totalPayments.sorted(by: { $0.timestamp.dateValue() > $1.timestamp.dateValue() })
+                
             }
         }
     }

@@ -49,4 +49,14 @@ class SummaryCollectionViewModel: ObservableObject {
         }
     }
     
+    func deleteCollection() {
+        service.deleteCollection(collection) { success in
+           
+                if success {
+                    print("collection deleted")
+                }
+            
+        }
+    }
+    
 }

@@ -100,14 +100,14 @@ class PaymentHandler:NSObject {
         
         let paymentRequest = PKPaymentRequest()
         paymentRequest.paymentSummaryItems = paymentSummaryItem
-//        paymentRequest.merchantIdentifier = ""
-//        paymentRequest.merchantCapabilities = .capability3DS
+        //        paymentRequest.merchantIdentifier = ""
+        //        paymentRequest.merchantCapabilities = .capability3DS
         paymentRequest.countryCode = "US"
         paymentRequest.currencyCode = "USD"
         paymentRequest.supportedNetworks = PaymentHandler.supportedNetworks
-//        paymentRequest.shippingMethods = .none
-//        paymentRequest.shippingType = .shipping
-//        paymentRequest.requiredShippingContactFields = [.name, .postalAddress]
+        //        paymentRequest.shippingMethods = .none
+        //        paymentRequest.shippingType = .shipping
+        //        paymentRequest.requiredShippingContactFields = [.name, .postalAddress]
         
         
         paymentController = PKPaymentAuthorizationController(paymentRequest: paymentRequest)
@@ -119,11 +119,11 @@ class PaymentHandler:NSObject {
                 debugPrint("Failed to present payment controller")
             }
         })
-
+        
     }
 }
-        
-                                    
+
+
 
 extension PaymentHandler: PKPaymentAuthorizationControllerDelegate {
     func paymentAuthorizationController(_ controller: PKPaymentAuthorizationController, didAuthorizePayment payment: PKPayment, handler completion: @escaping (PKPaymentAuthorizationResult) -> Void) {
@@ -136,16 +136,16 @@ extension PaymentHandler: PKPaymentAuthorizationControllerDelegate {
     
     func paymentAuthorizationControllerDidFinish(_ controller: PKPaymentAuthorizationController) {
         controller.dismiss {
-            DispatchQueue.main.async {
-                if self.paymentStatus == .success {
+            
+            if self.paymentStatus == .success {
+                if let completionHandler = self.completionHandler {
+                    completionHandler(true)
+                } else {
                     if let completionHandler = self.completionHandler {
-                        completionHandler(true)
-                    } else {
-                        if let completionHandler = self.completionHandler {
-                            completionHandler(false)
-                        }
+                        completionHandler(false)
                     }
                 }
+                
             }
         }
     }
