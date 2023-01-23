@@ -30,7 +30,7 @@ struct CollectionService {
                     completion(false)
                     return
                 }
-                
+            
                 completion(true)
             }
     }
@@ -43,10 +43,10 @@ struct CollectionService {
             .order(by: "timestamp", descending: true)
             .getDocuments { snapshot, _ in
                 guard let documents = snapshot?.documents else { return }
-                
-                let collections = documents.compactMap({try? $0.data(as: Collection.self)})
-                
-                completion(collections)
+                DispatchQueue.main.async {
+                    let collections = documents.compactMap({try? $0.data(as: Collection.self)})
+                    completion(collections)
+                }
             }
     }
     
@@ -69,8 +69,10 @@ struct CollectionService {
             .whereField("uid", isEqualTo: uid)
             .getDocuments { snapshot, _ in
                 guard let documents = snapshot?.documents else { return }
-                let collections = documents.compactMap({try? $0.data(as: Collection.self) })
-                completion(collections.sorted(by: { $0.timestamp.dateValue() > $1.timestamp.dateValue() }))
+                DispatchQueue.main.async {
+                    let collections = documents.compactMap({try? $0.data(as: Collection.self) })
+                    completion(collections.sorted(by: { $0.timestamp.dateValue() > $1.timestamp.dateValue() }))
+                }
             }
     }
     
@@ -81,7 +83,6 @@ struct CollectionService {
             guard let documents = snapshot?.documents else { return }
             documents.forEach { doc in
                 let collId = doc.documentID
-                
                 Firestore.firestore().collection("collections").document(collId).getDocument { snapshot, _ in
                     guard let collection = try? snapshot?.data(as: Collection.self) else { return }
                     collections.append(collection)

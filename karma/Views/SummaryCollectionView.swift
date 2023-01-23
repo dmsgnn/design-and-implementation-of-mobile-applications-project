@@ -17,6 +17,7 @@ struct SummaryCollectionView: View {
     
     @State private var showPaymentView = false
     @ObservedObject var viewModel: SummaryCollectionViewModel
+    @ObservedObject var authViewModel = AuthViewModel()
     
     init(collection: Collection){
         self.viewModel = SummaryCollectionViewModel(collection: collection)
@@ -150,10 +151,11 @@ struct SummaryCollectionView: View {
                     viewModel.fetchPaymentsForCollection()
                 }
                 
-            
+                
             }
         }
         .toolbar {
+            
             ToolbarItem(placement: ToolbarItemPlacement.navigationBarLeading) {
                 Button {
                     presentationMode.wrappedValue.dismiss()
@@ -168,39 +170,49 @@ struct SummaryCollectionView: View {
                     .font(.title2)
                     .fontWeight(.semibold)
             }
-            
-            ToolbarItem(placement: ToolbarItemPlacement.navigationBarTrailing) {
-                Menu {
-                    NavigationLink {
-                        Text("ciao")
+            if viewModel.collection.uid == authViewModel.currentUser?.id {
+                ToolbarItem(placement: ToolbarItemPlacement.navigationBarTrailing) {
+                    Menu {
+                        NavigationLink {
+                            Text("ciao")
+                        } label: {
+                            Label("Edit collection", systemImage: "pencil")
+                        }
+                        
+                        Button {
+                            viewModel.collection.didLike ?? false ? viewModel.removeFromFavourite() : viewModel.addToFavourite()
+                        } label: {
+                            Label(viewModel.collection.didLike ?? false ? "Remove to favourites" : "Add to favourites", systemImage: viewModel.collection.didLike ?? false ? "bookmark.fill" : "bookmark")
+                        }
+                        
+                        Button (
+                            role: .destructive,
+                            action: {
+                                viewModel.deleteCollection()
+                                presentationMode.wrappedValue.dismiss()
+                            },
+                            label: {
+                                Label("Delete collection", systemImage: "trash")
+                                
+                            }
+                        )
+                        
                     } label: {
-                        Label("Edit collection", systemImage: "pencil")
+                        Label (
+                            title: { Text("") },
+                            icon: { Image(systemName: "ellipsis") }
+                        )
                     }
-                    
+                }
+            } else {
+                ToolbarItem(placement: ToolbarItemPlacement.navigationBarTrailing) {
                     Button {
                         viewModel.collection.didLike ?? false ? viewModel.removeFromFavourite() : viewModel.addToFavourite()
                     } label: {
-                        Label(viewModel.collection.didLike ?? false ? "Remove to favourites" : "Add to favourites", systemImage: viewModel.collection.didLike ?? false ? "bookmark.fill" : "bookmark")
+                        Image(systemName: viewModel.collection.didLike ?? false ? "bookmark.fill" : "bookmark")
                     }
-                    
-                    Button (
-                        role: .destructive,
-                        action: {
-                            viewModel.deleteCollection()
-                            presentationMode.wrappedValue.dismiss()
-                        },
-                        label: {
-                            Label("Delete collection", systemImage: "trash")
-                            
-                        }
-                    )
-                    
-                } label: {
-                    Label (
-                        title: { Text("") },
-                        icon: { Image(systemName: "ellipsis") }
-                    )
                 }
+                
             }
         }
         .navigationBarBackButtonHidden(true)

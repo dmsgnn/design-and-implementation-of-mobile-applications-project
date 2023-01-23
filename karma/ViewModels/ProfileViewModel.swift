@@ -28,7 +28,6 @@ class ProfileViewModel: ObservableObject {
     func fetchUserCollections() {
         guard let uid = user.id else { return }
         service.fetchCollections(forUid: uid) { collections in
-            
                 self.collections = collections
                 for i in 0 ..< collections.count {
                     self.collections[i].user = self.user

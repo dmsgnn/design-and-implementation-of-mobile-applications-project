@@ -23,6 +23,7 @@ struct ProfileView: View {
     
     init(user: User) {
         self.viewModel = ProfileViewModel(user: user)
+    
     }
     
     var body: some View {
@@ -83,7 +84,6 @@ struct ProfileView: View {
                     .background(Color.theme.custombackg)
                     .refreshable {
                         viewModel.fetchUserCollections()
-//                        viewModel.fetchSenderPayments()
                        viewModel.fetchPayments()
                     }
                     .toolbar {
@@ -103,31 +103,32 @@ struct ProfileView: View {
                                 .fontWeight(.semibold)
                             
                         }
-                        
-                        ToolbarItem(placement: ToolbarItemPlacement.navigationBarTrailing) {
-                            Menu {
-                                NavigationLink {
-                                    EditProfileView(user: viewModel.user)
-                                } label: {
-                                    Label("Edit profile", systemImage: "pencil")
-                                }
-
-                                Button(
-                                    role: .destructive,
-                                    action: {
-                                        authViewModel.signOut()
-                                    }, label: {
-                                        Label("Sign out", systemImage: "rectangle.portrait.and.arrow.right")
+                        if viewModel.user.id == authViewModel.currentUser?.id {
+                            ToolbarItem(placement: ToolbarItemPlacement.navigationBarTrailing) {
+                                Menu {
+                                    NavigationLink {
+                                        EditProfileView(user: viewModel.user)
+                                    } label: {
+                                        Label("Edit profile", systemImage: "pencil")
                                     }
-                                )
-                            
-                            } label: {
-                                Label (
-                                    title: { Text("Add") },
-                                    icon: { Image(systemName: "ellipsis") }
-                                )
+                                    
+                                    Button(
+                                        role: .destructive,
+                                        action: {
+                                            authViewModel.signOut()
+                                        }, label: {
+                                            Label("Sign out", systemImage: "rectangle.portrait.and.arrow.right")
+                                        }
+                                    )
+                                    
+                                } label: {
+                                    Label (
+                                        title: { Text("Add") },
+                                        icon: { Image(systemName: "ellipsis") }
+                                    )
+                                }
+                                
                             }
-        
                         }
                         
                         
@@ -218,13 +219,14 @@ extension ProfileView {
                     .fontWeight(.semibold)
                 
                 Spacer()
-                
-                Button {
-                    showNewCollectionView.toggle()
-                } label: {
-                    Text("+ Add New")
-                        .fontWeight(.semibold)
-                        .foregroundColor(Color(.systemBlue))
+                if viewModel.user.id == authViewModel.currentUser?.id {
+                    Button {
+                        showNewCollectionView.toggle()
+                    } label: {
+                        Text("+ Add New")
+                            .fontWeight(.semibold)
+                            .foregroundColor(Color(.systemBlue))
+                    }
                 }
                 
             }

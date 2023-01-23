@@ -74,7 +74,8 @@ struct UploadCollectionView: View {
                         .font(.headline)
                         .fontWeight(.semibold)
                     
-                    TextField("say something about this collection", text: $description)
+                    TextField("say something about this collection", text: $description, axis: .vertical)
+                        .lineLimit(4, reservesSpace: true)
                         
                     
                 }
