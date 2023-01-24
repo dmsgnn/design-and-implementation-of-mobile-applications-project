@@ -57,10 +57,15 @@ struct CollectionView: View {
                     .fontWeight(.medium)
                     .foregroundColor(.black)
                 
-                ProgressView(value: viewModel.collection.currentAmount/viewModel.collection.amount)
+                ProgressView(value:  viewModel.collection.currentAmount/viewModel.collection.amount)
                     .frame(width: 75)
-                Text("\(String((viewModel.collection.currentAmount*100/viewModel.collection.amount).formatted(.number.precision(.fractionLength(0)))))%")
-                    .foregroundColor(.black)
+                
+                if (viewModel.collection.currentAmount == viewModel.collection.amount) {
+                    Image(systemName: "checkmark.circle.fill").foregroundColor(Color(.systemGreen))
+                } else {
+                    Text("\(String((viewModel.collection.currentAmount*100/viewModel.collection.amount).formatted(.number.precision(.fractionLength(0)))))%")
+                        .foregroundColor(.black)
+                }
 
                 Spacer()
                 

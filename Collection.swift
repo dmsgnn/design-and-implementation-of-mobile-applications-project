@@ -17,7 +17,7 @@ struct Collection: Identifiable, Decodable {
     var currentAmount: Float
     var favourites: Int
     var participants: Int
-    let collectionImageUrl: String?
+    let collectionImageUrl: String
     let timestamp: Timestamp
     let uid: String
 //    let owner: String?
