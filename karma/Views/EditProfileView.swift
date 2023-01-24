@@ -66,7 +66,7 @@ struct EditProfileView: View {
                     HStack {
                         Text("Username:")
                             .padding(.trailing)
-                        TextField(viewModel.user.username, text: $username)
+                        TextField(viewModel.user.username, text: $username).textInputAutocapitalization(.never).textCase(.lowercase)
                         
                     }
                     
