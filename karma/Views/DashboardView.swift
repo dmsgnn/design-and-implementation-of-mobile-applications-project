@@ -10,6 +10,8 @@ import Kingfisher
 struct DashboardView: View {
     @StateObject var viewModel: DashboardViewModel
     @State var showHeaderBar = false
+    let screenHeight = UIScreen.main.bounds.height
+    let screenWidth = UIScreen.main.bounds.width
 
     // Variables for header
     var safeArea: EdgeInsets
@@ -78,22 +80,31 @@ struct DashboardView: View {
                                         .padding(.vertical)
                                         .frame(maxWidth: .infinity, alignment: .leading)
                                         
-                                        Text("\(collection.currentAmount / collection.amount * 100, specifier: "%.1f") %")
-                                            .font(.title2)
-                                            .fontWeight(.semibold)
-                                            .padding(.trailing, 20)
-                                            .foregroundColor(.black)
+//
+//                                        Text("\(collection.currentAmount / collection.amount * 100, specifier: "%.1f") %")
+//                                            .font(.title2)
+//                                            .fontWeight(.semibold)
+//                                            .padding(.trailing, 20)
+//                                            .foregroundColor(.black)
+                                        
+                                        ProgressBar(progress: (collection.currentAmount / collection.amount * 100))
+                                            .frame(width: 30.0, height: 30.0)
                                         
                                         //.offset(y: -14)
                                     }
                                     .frame(width: UIScreen.main.bounds.width * 0.95, height: UIScreen.main.bounds.width * 0.35)
-                                    .background(Color(.yellow)
+                                    .background(Color(.white)
                                         //.shadow(color: .black.opacity(0.2), radius: 1, x: 6, y: 6)
                                         //.blur(radius: 8, opaque: false)
                                     )
                                     .clipShape(RoundedRectangle(cornerRadius: 45))
                                     .padding(.bottom, UIScreen.main.bounds.width * 0.01)
-                                    
+                                    .shadow(
+                                        color: Color.gray.opacity(0.15),
+                                        radius: screenHeight * 0.02,
+                                        x: 0,
+                                        y: 0
+                                    )
                                 }
                             }
                             
@@ -167,6 +178,35 @@ struct CampaignCell: View {
                 Text("\(campaign.currentAmount) / \(campaign.amount)")
                     .fontWeight(.semibold)
             }
+        }
+    }
+}
+
+struct ProgressBar: View {
+    var progress: Float
+    
+    var body: some View {
+        ZStack {
+            Circle()
+                .stroke(lineWidth: UIScreen.main.bounds.width*0.03)
+                .opacity(0.3)
+                .foregroundColor(Color.gray)
+                .frame(width: UIScreen.main.bounds.width*0.1)
+            
+            Circle()
+                .trim(from: 0.0, to: CGFloat(min(self.progress, 1.0)))
+                .stroke(style: StrokeStyle(lineWidth: UIScreen.main.bounds.width*0.03, lineCap: .round, lineJoin: .round))
+                .foregroundColor(Color.black)
+                .rotationEffect(Angle(degrees: 270.0))
+                .animation(.linear)
+                .frame(width: UIScreen.main.bounds.width*0.1)
+
+
+            Text(String(format: "%.0f %%", min(self.progress, 1.0)*100.0))
+                .font(.headline)
+                .bold()
+                .padding(.top, 80)
+                .foregroundColor(.black)
         }
     }
 }
