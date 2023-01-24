@@ -1,30 +1,34 @@
 //
-//  EditProfileView.swift
+//  EditCollectionView.swift
 //  karma
 //
-//  Created by Tommaso Bucaioni on 21/01/23.
+//  Created by Tommaso Bucaioni on 24/01/23.
 //
 
 import SwiftUI
 import Kingfisher
+import Firebase
 
-struct EditProfileView: View {
+struct EditCollectionView: View {
     
-    @Environment(\.presentationMode) var presentationMode
-    @State private var fullname = ""
-    @State private var username = ""
-    @State private var email = ""
+    @State private var title = ""
+    @State private var description = ""
+    
+    @State private var euroSel = 0
+    
+    private var euros = [Int](0..<10000)
     
     @State private var showImagePicker = false
     @State private var selectedImage: UIImage?
-    @State private var profileImage: Image?
+    @State private var collectionImage: Image?
+    
+    @Environment(\.presentationMode) var presentationMode
+    
+    @ObservedObject var viewModel: EditCollectionViewModel
 
-    @EnvironmentObject var authVM: AuthViewModel
-    @ObservedObject var viewModel: EditProfileViewModel
     
-    
-    init(user: User) {
-        self.viewModel = EditProfileViewModel(user: user)
+    init(collection: Collection) {
+        self.viewModel = EditCollectionViewModel(collection: collection)
     }
     
     var body: some View {
@@ -33,14 +37,14 @@ struct EditProfileView: View {
                 Button {
                     showImagePicker.toggle()
                 } label: {
-                    if let profileImage = profileImage {
-                        profileImage
+                    if let collectionImage = collectionImage {
+                        collectionImage
                             .resizable()
                             .scaledToFill()
                             .frame(width: 100, height: 100)
                             .clipShape(Circle())
                     } else {
-                        KFImage(URL(string: viewModel.user.profileImageUrl))
+                        KFImage(URL(string: viewModel.collection.collectionImageUrl))
                             .resizable()
                             .scaledToFill()
                             .clipShape(Circle())
@@ -50,34 +54,47 @@ struct EditProfileView: View {
                 .sheet(isPresented: $showImagePicker, onDismiss: loadImage) {
                     ImagePicker(selectedImage: $selectedImage)
                 }
-
+                
                 Divider()
                 
-                VStack {
-                    HStack {
-                        Text("Name:")
-                            .padding(.trailing)
-                        TextField(viewModel.user.fullname, text: $fullname)
-  
-                    }
+                VStack(alignment: .leading) {
+                    
+                    Text("Title")
+                        .font(.headline)
+                        .fontWeight(.semibold)
+                    
+                    TextField(viewModel.collection.title, text: $title)
+                    
                     Divider()
                         .padding(.bottom)
                     
-                    HStack {
-                        Text("Username:")
-                            .padding(.trailing)
-                        TextField(viewModel.user.username, text: $username).textInputAutocapitalization(.never).textCase(.lowercase)
-                        
-                    }
+                    
+                    Text("Description")
+                        .font(.headline)
+                        .fontWeight(.semibold)
+                    
+                    TextField(viewModel.collection.caption, text: $description, axis: .vertical)
+                        .lineLimit(4, reservesSpace: true)
                     
                     Divider()
                         .padding(.bottom)
                     
                 }
-                .padding()
+                .frame(width: UIScreen.main.bounds.width*0.9)
+                .padding(.horizontal)
                 
                 Spacer()
                 
+                Text("Set your new amount...")
+                    .font(.title2)
+                    .fontWeight(.semibold)
+                
+                Picker(selection: self.$euroSel, label: Text("")) {
+                    ForEach(0 ..< self.euros.count) { index in
+                        Text("\(self.euros[index]) €").tag(index)
+                    }
+                }
+                .pickerStyle(.wheel)
                 
             }
             .toolbar {
@@ -101,22 +118,22 @@ struct EditProfileView: View {
                         Button {
                             if let selectedImage = selectedImage {
                                 viewModel.editImage(selectedImage)
-                                viewModel.updateUserData(fullname: fullname, username: username)
+                                viewModel.updateCollectionData(title: title, description: description, amount: Float(euroSel))
                             } else {
-                                viewModel.updateUserData(fullname: fullname, username: username)
+                                viewModel.updateCollectionData(title: title, description: description, amount: Float(euroSel))
                             }
                         
                         } label: {
                             Text("Done")
                                 .bold()
                         }
-                    }
-            
+                    
+                }
                 
             }
             .navigationBarBackButtonHidden(true)
         }
-        .onReceive(viewModel.$didEditProfile) { success in
+        .onReceive(viewModel.$didEditCollection) { success in
             if success {
                 presentationMode.wrappedValue.dismiss()
             }
@@ -127,18 +144,14 @@ struct EditProfileView: View {
     
     func loadImage() {
         guard let selectedImage = selectedImage else { return }
-        profileImage = Image(uiImage: selectedImage)
+        collectionImage = Image(uiImage: selectedImage)
         
     }
+        
 }
 
-struct EditProfileView_Previews: PreviewProvider {
+struct EditCollectionView_Previews: PreviewProvider {
     static var previews: some View {
-        EditProfileView(user: User(
-            id: NSUUID().uuidString,
-            username: "tombucaioni",
-            fullname: "Tommaso Bucaioni",
-            profileImageUrl: "",
-            email: "tbucaioni@virgilio.it"))
+        EditCollectionView(collection: Collection(title: "Regalo di laurea ", caption: "Questa è una descrizione di prova per vedere se riesco a creare una collection View decente che mi possa piacere", amount: 30, currentAmount: 20, favourites: 0, participants: 6, collectionImageUrl: "ciao", timestamp: Firebase.Timestamp(date: Date.init()) , uid: "useridprova"))
     }
 }

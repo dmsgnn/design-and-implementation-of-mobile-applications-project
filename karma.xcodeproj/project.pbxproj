@@ -70,6 +70,8 @@
 		E3BA1B1E2971D1F8009945A5 /* ActivityCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BA1B1D2971D1F8009945A5 /* ActivityCollectionViewModel.swift */; };
 		E3DDB18B2970AE2C008CE84B /* SummaryCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DDB18A2970AE2C008CE84B /* SummaryCollectionViewModel.swift */; };
 		E3DDB18D2970AF6F008CE84B /* RecentUserActivityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DDB18C2970AF6F008CE84B /* RecentUserActivityViewModel.swift */; };
+		E3EA3509297FFDD900B01978 /* EditCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EA3508297FFDD900B01978 /* EditCollectionView.swift */; };
+		E3EA350B297FFEB400B01978 /* EditCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EA350A297FFEB400B01978 /* EditCollectionViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -151,6 +153,8 @@
 		E3BA1B1D2971D1F8009945A5 /* ActivityCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCollectionViewModel.swift; sourceTree = "<group>"; };
 		E3DDB18A2970AE2C008CE84B /* SummaryCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryCollectionViewModel.swift; sourceTree = "<group>"; };
 		E3DDB18C2970AF6F008CE84B /* RecentUserActivityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentUserActivityViewModel.swift; sourceTree = "<group>"; };
+		E3EA3508297FFDD900B01978 /* EditCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCollectionView.swift; sourceTree = "<group>"; };
+		E3EA350A297FFEB400B01978 /* EditCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCollectionViewModel.swift; sourceTree = "<group>"; };
 		E3F51F29297835BF00E66C08 /* karma.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = karma.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -293,6 +297,7 @@
 				1BCB44C32969E27300205BC1 /* MainView.swift */,
 				E34C47F42979AABD00F04937 /* BookmarkView.swift */,
 				E351CC1E297BDC4D00E74228 /* EditProfileView.swift */,
+				E3EA3508297FFDD900B01978 /* EditCollectionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -346,6 +351,7 @@
 				E3BA1B1D2971D1F8009945A5 /* ActivityCollectionViewModel.swift */,
 				E34C47F62979AACD00F04937 /* BookmarkViewModel.swift */,
 				E351CC20297BE1DB00E74228 /* EditProfileViewModel.swift */,
+				E3EA350A297FFEB400B01978 /* EditCollectionViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -545,6 +551,7 @@
 				1B6B3146294520A000779BBE /* ContentView.swift in Sources */,
 				1B658DBC293F428C00DF06DB /* LoginView.swift in Sources */,
 				1B658DBE293F439B00DF06DB /* LoginViewModel.swift in Sources */,
+				E3EA350B297FFEB400B01978 /* EditCollectionViewModel.swift in Sources */,
 				1BD8C247293E5D6100F1B32A /* karmaApp.swift in Sources */,
 				E32FE35C29641C9E0061C907 /* PaymentButton.swift in Sources */,
 				E30E1DF62971D09E00B6ABAA /* ActivityCollectionView.swift in Sources */,
@@ -553,6 +560,7 @@
 				E3DDB18D2970AF6F008CE84B /* RecentUserActivityViewModel.swift in Sources */,
 				E334CDBB295D93E80082FC17 /* CollectionService.swift in Sources */,
 				E35215FC293F3D4F0074B787 /* CustomInputField.swift in Sources */,
+				E3EA3509297FFDD900B01978 /* EditCollectionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

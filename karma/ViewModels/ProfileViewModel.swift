@@ -10,12 +10,13 @@ import Foundation
 class ProfileViewModel: ObservableObject {
     @Published var collections = [Collection]()
     private let service = CollectionService()
-    let user: User
+    @Published var user: User
     private let paymentService = PaymentService()
     @Published var sentPayments = [Payment]()
     @Published var receivedPayments = [Payment]()
     @Published var totalPayments = [Payment]()
     @Published var balance: Float = 0.0
+    private let userService = UserService()
     
 
     
@@ -23,6 +24,7 @@ class ProfileViewModel: ObservableObject {
         self.user = user
         self.fetchUserCollections()
         self.fetchPayments()
+        self.fetchUser()
     }
     
     
@@ -33,6 +35,13 @@ class ProfileViewModel: ObservableObject {
             for i in 0 ..< collections.count {
                 self.collections[i].user = self.user
             }
+        }
+    }
+    
+    func fetchUser() {
+        guard let uid = self.user.id else { return }
+        userService.fetchUser(withUid: uid) { user in
+            self.user = user
         }
     }
     

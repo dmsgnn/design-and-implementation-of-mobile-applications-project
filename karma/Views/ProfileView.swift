@@ -86,6 +86,7 @@ struct ProfileView: View {
                     .refreshable {
                         viewModel.fetchUserCollections()
                        viewModel.fetchPayments()
+                        viewModel.fetchUser()
                     }
                     .toolbar {
                         ToolbarItem(placement: ToolbarItemPlacement.navigationBarLeading) {
@@ -99,7 +100,7 @@ struct ProfileView: View {
                         
                         ToolbarItem(placement: ToolbarItemPlacement.principal) {
         
-                            Text(viewModel.user.username)
+                            Text(viewModel.user.fullname)
                                 .font(.title2)
                                 .fontWeight(.semibold)
                             

@@ -142,5 +142,11 @@ struct CollectionService {
         }
     }
     
+    func updateCollectionData(_ collection: Collection, title: String, description: String, amount: Float, completion: @escaping(Bool) -> Void) {
+        guard let id = collection.id else { return }
+        Firestore.firestore().collection("collections").document(id).setData(["title" : title, "description" : description, "amount" : amount], merge: true)
+        completion(true)
+    }
+    
     
 }

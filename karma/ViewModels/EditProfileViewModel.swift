@@ -20,7 +20,7 @@ class EditProfileViewModel: ObservableObject {
     }
     
     func updateUserData(fullname: String, username: String) {
-        if fullname == "" {
+        if fullname == "" && username != "" {
             service.updateUserData(fullname: user.fullname, username: username) { success in
                 if success {
                     self.didEditProfile = true
@@ -28,7 +28,7 @@ class EditProfileViewModel: ObservableObject {
                     
                 }
             }
-        } else if username == "" {
+        } else if username == "" && fullname != "" {
             service.updateUserData(fullname: fullname, username: user.username) { success in
                 if success {
                     self.didEditProfile = true

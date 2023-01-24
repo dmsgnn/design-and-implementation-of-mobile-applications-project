@@ -17,7 +17,7 @@ struct UploadCollectionView: View {
     
     @State private var showImagePicker = false
     @State private var selectedImage: UIImage?
-    @State private var profileImage: Image?
+    @State private var collectionImage: Image?
     
     @Environment(\.presentationMode) var presentationMode
     
@@ -31,8 +31,8 @@ struct UploadCollectionView: View {
                     Button {
                         showImagePicker.toggle()
                     } label: {
-                        if let profileImage = profileImage {
-                            profileImage
+                        if let collectionImage = collectionImage {
+                            collectionImage
                                 .resizable()
                                 .scaledToFill()
                                 .frame(width: 180, height: 180)
@@ -69,10 +69,12 @@ struct UploadCollectionView: View {
                     TextField("give your collection a title", text: $title)
                     
                     Divider()
+                        .padding(.bottom)
                     
                     Text("Description")
                         .font(.headline)
                         .fontWeight(.semibold)
+                        
                     
                     TextField("say something about this collection", text: $description, axis: .vertical)
                         .lineLimit(4, reservesSpace: true)
@@ -126,7 +128,7 @@ struct UploadCollectionView: View {
                     }
                 }
                 .pickerStyle(.wheel)
-                .frame(height: 80)
+                
                 
                 //            TextField("€ 0.00 ", value: $amount, formatter: numberFormatter)
                 //                .keyboardType(.numberPad)
@@ -150,19 +152,34 @@ struct UploadCollectionView: View {
                 }
                 
                 ToolbarItem(placement: ToolbarItemPlacement.navigationBarTrailing) {
-                    Button {
-                        viewModel.uploadCollection(withTitle: title, withCaption: description, withAmount: Float(eurosSel), withImage: selectedImage!)
-                    } label: {
-                        Text("Share")
-                            .bold()
-                            .padding(.horizontal)
-                            .padding(.vertical, 10)
-                            .background(Color(.systemBlue))
-                            .foregroundColor(.white)
-                            .clipShape(Capsule())
+                    if (title == "" || description == "" || eurosSel == 0 || selectedImage == nil) {
+                        Button {
+                            
+                        } label: {
+                            Text("Share")
+                                .bold()
+                                .padding(.horizontal)
+                                .padding(.vertical, 10)
+                                .background(Color(.systemBlue).opacity(0.3))
+                                .foregroundColor(.white)
+                                .clipShape(Capsule())
+                        }
+                    } else {
+                        Button {
+                            viewModel.uploadCollection(withTitle: title, withCaption: description, withAmount: Float(eurosSel), withImage: selectedImage!)
+                        } label: {
+                            Text("Share")
+                                .bold()
+                                .padding(.horizontal)
+                                .padding(.vertical, 10)
+                                .background(Color(.systemBlue))
+                                .foregroundColor(.white)
+                                .clipShape(Capsule())
+                            
+                            
+                        }
                     }
                 }
-                
             }
             .onReceive(viewModel.$didUploadCollection) { success in
                 if success {
@@ -171,12 +188,12 @@ struct UploadCollectionView: View {
                 }
             }
         }
-    
+        
     }
     
     func loadImage() {
         guard let selectedImage = selectedImage else { return }
-        profileImage = Image(uiImage: selectedImage)
+        collectionImage = Image(uiImage: selectedImage)
     }
 }
 

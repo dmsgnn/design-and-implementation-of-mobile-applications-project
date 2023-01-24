@@ -174,7 +174,7 @@ struct SummaryCollectionView: View {
                 ToolbarItem(placement: ToolbarItemPlacement.navigationBarTrailing) {
                     Menu {
                         NavigationLink {
-                            Text("ciao")
+                            EditCollectionView(collection: viewModel.collection)
                         } label: {
                             Label("Edit collection", systemImage: "pencil")
                         }
