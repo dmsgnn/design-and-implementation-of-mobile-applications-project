@@ -8,6 +8,7 @@
 import SwiftUI
 import Firebase
 import Kingfisher
+import FirebaseFirestore
 
 struct SummaryCollectionView: View {
     
@@ -33,7 +34,7 @@ struct SummaryCollectionView: View {
                         HStack {
                             Spacer()
                             VStack {
-                                KFImage(URL(string: viewModel.collection.collectionImageUrl ?? ""))
+                                KFImage(URL(string: viewModel.collection.collectionImageUrl))
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: UIScreen.main.bounds.width * 0.9, height: 200)
@@ -225,7 +226,7 @@ struct SummaryCollectionView: View {
 struct SummaryCollectionView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            SummaryCollectionView(collection: Collection(title: "Regalo di laurea ", caption: "Questa è una descrizione di prova per vedere se riesco a creare una collection View decente che mi possa piacere", amount: 30, currentAmount: 20, favourites: 0, participants: 6, collectionImageUrl: "ciao", timestamp: Firebase.Timestamp(date: Date.init()) , uid: "useridprova"))
+            SummaryCollectionView(collection: Collection(title: "Regalo di laurea ", caption: "Questa è una descrizione di prova per vedere se riesco a creare una collection View decente che mi possa piacere", amount: 30, currentAmount: 20, favourites: 0, participants: 6, collectionImageUrl: "ciao", timestamp: FirebaseFirestore.Timestamp(date: Date.init()) , uid: "useridprova"))
         }
     }
 }

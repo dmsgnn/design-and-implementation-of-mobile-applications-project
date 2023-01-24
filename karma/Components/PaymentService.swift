@@ -10,6 +10,7 @@ import PassKit
 import Firebase
 import SwiftUI
 import FirebaseDatabase
+import FirebaseFirestore
 
 struct PaymentService {
     

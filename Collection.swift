@@ -7,6 +7,7 @@
 
 import FirebaseFirestoreSwift
 import Firebase
+import FirebaseFirestore
 
 
 struct Collection: Identifiable, Decodable {

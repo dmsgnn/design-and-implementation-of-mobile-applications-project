@@ -6,6 +6,7 @@
 //
 import Firebase
 import FirebaseFirestoreSwift
+import FirebaseFirestore
 
 struct UserService {
     
@@ -19,10 +20,10 @@ struct UserService {
                 guard let user = try? snapshot.data(as: User.self) else { return }
                 completion(user)
                 
-                print("DEBUG Username is \(user.username)")
-                print("DEBUG: Email is \(user.email)")
-            
-                
+//                print("DEBUG Username is \(user.username)")
+//                print("DEBUG: Email is \(user.email)")
+//            
+//                
             }
     }
     

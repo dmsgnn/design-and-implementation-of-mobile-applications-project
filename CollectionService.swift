@@ -8,6 +8,7 @@
 import Firebase
 import SwiftUI
 import FirebaseDatabase
+import FirebaseFirestore
 
 struct CollectionService {
     

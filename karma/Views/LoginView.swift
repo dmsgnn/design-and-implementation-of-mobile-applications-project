@@ -13,12 +13,12 @@ struct LoginView: View {
     
     var body: some View {
   
-        if let user = viewModel.currentUser {
-            // Dashboard page must be shown
-            MainView(user: user)
-        }
-
-        else {
+//        if let user = viewModel.currentUser {
+//            // Dashboard page must be shown
+//            MainView(user: user)
+//        }
+//
+//        else {
             // Login page must be shown
             ZStack {
                 VStack(alignment: .center, spacing: UIScreen.main.bounds.height * 0.05) {
@@ -86,7 +86,7 @@ struct LoginView: View {
             }
         }
     }
-}
+//}
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {

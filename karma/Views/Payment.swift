@@ -9,6 +9,7 @@
 
 import FirebaseFirestoreSwift
 import Firebase
+import FirebaseFirestore
 
 struct Payment: Identifiable, Decodable {
     @DocumentID var id: String?
