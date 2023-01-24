@@ -80,7 +80,6 @@ class ProfileViewModel: ObservableObject {
                         self.balance -= self.sentPayments[i].total
                     }
                     self.totalPayments = self.receivedPayments + self.sentPayments
-                    print("total payments" + "\(self.totalPayments.count)")
                     self.totalPayments = self.totalPayments.sorted(by: { $0.timestamp.dateValue() > $1.timestamp.dateValue() })
                 
             }
