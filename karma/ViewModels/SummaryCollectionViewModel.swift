@@ -18,6 +18,7 @@ class SummaryCollectionViewModel: ObservableObject {
     
     init(collection: Collection) {
         self.collection = collection
+        
         self.fetchPaymentsForCollection()
         checkIfUserLikedCollection()
     }
@@ -54,7 +55,13 @@ class SummaryCollectionViewModel: ObservableObject {
                 if success {
                     print("collection deleted")
                 }
-            
+        }
+    }
+    
+    func fetchCollection() {
+        guard let cid = collection.id else { return }
+        service.fetchSingleCollection(forCid: cid) { collection in
+            self.collection = collection
         }
     }
     

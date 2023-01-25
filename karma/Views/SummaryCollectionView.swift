@@ -150,6 +150,8 @@ struct SummaryCollectionView: View {
                 }
                 .refreshable {
                     viewModel.fetchPaymentsForCollection()
+                    viewModel.fetchCollection()
+
                 }
                 
                 
