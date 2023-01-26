@@ -1,13 +1,13 @@
 //
-//  CustomInputField.swift
+//  iPadCustomInputField.swift
 //  karma
 //
-//  Created by Tommaso Bucaioni on 06/12/22.
+//  Created by Giovanni Demasi on 26/01/23.
 //
 
 import SwiftUI
 
-struct CustomInputField: View {
+struct iPadCustomInputField: View {
     
     let placeholderText: String
     var isSecureField: Bool? = false
@@ -26,7 +26,7 @@ struct CustomInputField: View {
                         .padding()
                 }
             }
-            .frame(width: screenWidth*0.8, height: screenHeight * 0.06)
+            .frame(width: screenWidth*0.6, height: screenHeight * 0.06)
             .background(.white)
             .containerShape(RoundedRectangle(cornerRadius: screenHeight * 0.02))
 
@@ -34,8 +34,10 @@ struct CustomInputField: View {
     }
 }
 
-struct CustomInputField_Previews: PreviewProvider {
+struct iPadCustomInputField_Previews: PreviewProvider {
     static var previews: some View {
         CustomInputField(placeholderText: "Email", text: .constant(""))
+            .previewDevice(PreviewDevice(rawValue: "iPad Pro (12.9-inch) (6th generation)"))
+            .previewDisplayName("iPad Pro 12.9")
     }
 }
