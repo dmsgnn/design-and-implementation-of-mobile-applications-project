@@ -14,7 +14,7 @@ struct LoginView: View {
     let screenWidth = UIScreen.main.bounds.width
     
     var body: some View {
-  
+        
         if vm.authenticated {
             // Dashboard page must be shown
             VStack {

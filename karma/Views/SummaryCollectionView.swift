@@ -153,7 +153,9 @@ struct SummaryCollectionView: View {
             HStack {
                 Button(action: {
                     presentationMode.wrappedValue.dismiss()
-                    showTabBar()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.05){
+                        showTabBar()
+                    }
                 }, label: {
                     Image(systemName: "chevron.backward")
                         .foregroundColor(Color.theme.dark)

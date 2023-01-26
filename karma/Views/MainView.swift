@@ -54,12 +54,14 @@ struct MainView: View {
                 .animation(.interactiveSpring(response: 0.6, dampingFraction: 0.7, blendDuration: 0.7), value: showTabBar)
         }
         .ignoresSafeArea(.keyboard, edges: .bottom)
-        .onReceive(NotificationCenter.default.publisher(for: .init("SHOWTABBAR"))){ _ in
+        .onReceive(NotificationCenter.default.publisher(for: .init("SHOWTABBAR"))
+        ){ _ in
             showTabBar = true
         }
         .onReceive(NotificationCenter.default.publisher(for: .init("HIDETABBAR"))){ _ in
             showTabBar = false
         }
+        
     }
     
     // Custom Tab Bar
@@ -111,11 +113,15 @@ struct MainView_Previews : PreviewProvider {
 
 extension View{
     func showTabBar(){
-        NotificationCenter.default.post(name: NSNotification.Name("SHOWTABBAR"), object: nil)
+//        NotificationCenter.default.post(name: NSNotification.Name("SHOWTABBAR"), object: nil)
+        NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "SHOWTABBAR"),object: nil))
+
+
     }
     
     func hideTabBar(){
-        NotificationCenter.default.post(name: NSNotification.Name("HIDETABBAR"), object: nil)
+//        NotificationCenter.default.post(name: NSNotification.Name("HIDETABBAR"), object: nil)
+        NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "HIDETABBAR"),object: nil))
     }
     
     @ViewBuilder

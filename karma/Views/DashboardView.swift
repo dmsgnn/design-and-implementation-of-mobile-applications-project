@@ -80,15 +80,15 @@ struct DashboardView: View {
                                         .padding(.vertical)
                                         .frame(maxWidth: .infinity, alignment: .leading)
                                         
-//
-//                                        Text("\(collection.currentAmount / collection.amount * 100, specifier: "%.1f") %")
-//                                            .font(.title2)
-//                                            .fontWeight(.semibold)
-//                                            .padding(.trailing, 20)
-//                                            .foregroundColor(.black)
+
+                                        Text("\(collection.currentAmount / collection.amount * 100, specifier: "%.1f") %")
+                                            .font(.title2)
+                                            .fontWeight(.semibold)
+                                            .padding(.trailing, 20)
+                                            .foregroundColor(.black)
                                         
-                                        ProgressBar(progress: (collection.currentAmount / collection.amount * 100))
-                                            .frame(width: 30.0, height: 30.0)
+//                                        ProgressBar(progress: (collection.currentAmount / collection.amount * 100))
+//                                            .frame(width: 30.0, height: 30.0)
                                         
                                         //.offset(y: -14)
                                     }
