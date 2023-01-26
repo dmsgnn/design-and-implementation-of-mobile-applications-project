@@ -12,14 +12,17 @@ struct BookmarkView: View {
     @ObservedObject var viewModel = BookmarkViewModel()
     
     var body: some View {
-        VStack {
-            Text("Favourites")
-                .font(.title)
-                .fontWeight(.bold)
+        ZStack {
+            Color.theme.custombackg.ignoresSafeArea()
+            VStack {
+                Text("Favourites")
+                    .font(.title)
+                    .fontWeight(.bold)
 
-            ScrollView(.vertical, showsIndicators: false) {
-                ForEach(viewModel.collections) { collections in
-                    CollectionView(collection: collections)
+                ScrollView(.vertical, showsIndicators: false) {
+                    ForEach(viewModel.collections) { collections in
+                        CollectionView(collection: collections)
+                    }
                 }
             }
         }

@@ -8,6 +8,7 @@
 import SwiftUI
 import Kingfisher
 import Firebase
+import FirebaseFirestore
 
 struct CollectionView: View {
     @ObservedObject var viewModel: CollectionViewModel
@@ -33,7 +34,7 @@ struct CollectionView: View {
         
         VStack(alignment: .leading) {
             HStack(alignment: .center, spacing: 20) {
-                KFImage(URL(string: viewModel.collection.collectionImageUrl ?? ""))
+                KFImage(URL(string: viewModel.collection.collectionImageUrl))
                     .resizable()
                     .scaledToFit()
                     .clipShape(RoundedRectangle(cornerRadius: 10))
@@ -57,10 +58,15 @@ struct CollectionView: View {
                     .fontWeight(.medium)
                     .foregroundColor(.black)
                 
-                ProgressView(value: viewModel.collection.currentAmount/viewModel.collection.amount)
+                ProgressView(value:  viewModel.collection.currentAmount/viewModel.collection.amount)
                     .frame(width: 75)
-                Text("\(String((viewModel.collection.currentAmount*100/viewModel.collection.amount).formatted(.number.precision(.fractionLength(0)))))%")
-                    .foregroundColor(.black)
+                
+                if (viewModel.collection.currentAmount == viewModel.collection.amount) {
+                    Image(systemName: "checkmark.circle.fill").foregroundColor(Color(.systemGreen))
+                } else {
+                    Text("\(String((viewModel.collection.currentAmount*100/viewModel.collection.amount).formatted(.number.precision(.fractionLength(0)))))%")
+                        .foregroundColor(.black)
+                }
 
                 Spacer()
                 
@@ -111,6 +117,6 @@ struct CollectionView: View {
 
 struct CollectionView_Previews: PreviewProvider {
     static var previews: some View {
-        CollectionView(collection: Collection(title: "Regalo di laurea ", caption: "Questa è una descrizione di prova per vedere se riesco a creare una collection View decente che mi possa piacere", amount: 30, currentAmount: 20, favourites: 0, participants: 6, collectionImageUrl: "ciao", timestamp: Firebase.Timestamp(date: Date.init()) , uid: "useridprova"))
+        CollectionView(collection: Collection(title: "Regalo di laurea ", caption: "Questa è una descrizione di prova per vedere se riesco a creare una collection View decente che mi possa piacere", amount: 30, currentAmount: 20, favourites: 0, participants: 6, collectionImageUrl: "ciao", timestamp: FirebaseFirestore.Timestamp(date: Date.init()) , uid: "useridprova"))
     }
 }

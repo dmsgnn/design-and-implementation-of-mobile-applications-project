@@ -50,6 +50,7 @@ extension LoginView {
             }
         }
         
+        
         // Log out function
         func logOut() {
             let firebaseAuth = Auth.auth()

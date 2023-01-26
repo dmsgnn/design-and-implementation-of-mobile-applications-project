@@ -11,8 +11,7 @@ import Kingfisher
 struct ProfileView: View {
     @Environment(\.verticalSizeClass) var heightSizeClass: UserInterfaceSizeClass?
     @Environment(\.horizontalSizeClass) var widthSizeClass: UserInterfaceSizeClass?
-    
-    let workoutDateRange = Date()...Date().addingTimeInterval(1)
+    @Environment(\.presentationMode) var presentationMode
     
     @EnvironmentObject var authViewModel: AuthViewModel
     
@@ -20,9 +19,12 @@ struct ProfileView: View {
     @State var showHeaderBar = false
     @State var time = Timer.publish(every: 0.1, on: .current, in: .tracking).autoconnect()
     @State private var showNewCollectionView = false
+    @State private var showEditPage = false
     
     init(user: User) {
         self.viewModel = ProfileViewModel(user: user)
+        viewModel.fetchUserCollections()
+    
     }
     
     var body: some View {
@@ -31,7 +33,6 @@ struct ProfileView: View {
             ZStack(alignment: .top) {
                 ScrollView(.vertical, showsIndicators: false) {
                         VStack {
-                        
 //                            GeometryReader { g in
                                 VStack(alignment: .center) {
                                     HStack {
@@ -56,16 +57,17 @@ struct ProfileView: View {
                                         
                                         Spacer()
                                     }
-                                    .padding(.top, 30)
+                                    
 
                                     Text("\(viewModel.user.username)")
                                         .font(.title2)
                                         .fontWeight(.semibold)
      
                                 }
+                                .padding(.bottom, 24)
                                 
                             }
-                            .frame(height: UIScreen.main.bounds.height / 4.3)
+//                            .frame(height: UIScreen.main.bounds.height / 4.3)
                             
                             statsView
                             
@@ -83,9 +85,59 @@ struct ProfileView: View {
                     .background(Color.theme.custombackg)
                     .refreshable {
                         viewModel.fetchUserCollections()
-//                        viewModel.fetchSenderPayments()
                        viewModel.fetchPayments()
+                        viewModel.fetchUser()
                     }
+                    .toolbar {
+                        ToolbarItem(placement: ToolbarItemPlacement.navigationBarLeading) {
+                            Button(action: {
+                                presentationMode.wrappedValue.dismiss()
+                            }, label: {
+                                Image(systemName: "chevron.backward")
+                                    .fontWeight(.semibold)
+                            })
+                        }
+                        
+                        ToolbarItem(placement: ToolbarItemPlacement.principal) {
+        
+                            Text(viewModel.user.fullname)
+                                .font(.title2)
+                                .fontWeight(.semibold)
+                            
+                        }
+                        if viewModel.user.id == authViewModel.currentUser?.id {
+                            ToolbarItem(placement: ToolbarItemPlacement.navigationBarTrailing) {
+                                Menu {
+                                    NavigationLink {
+                                        EditProfileView(user: viewModel.user)
+                                    } label: {
+                                        Label("Edit profile", systemImage: "pencil")
+                                    }
+                                    
+                                    Button(
+                                        role: .destructive,
+                                        action: {
+                                            authViewModel.signOut()
+                                        }, label: {
+                                            Label("Sign out", systemImage: "rectangle.portrait.and.arrow.right")
+                                        }
+                                    )
+                                    
+                                } label: {
+                                    Label (
+                                        title: { Text("Add") },
+                                        icon: { Image(systemName: "ellipsis") }
+                                    )
+                                }
+                                
+                            }
+                        }
+                        
+                        
+                    }
+            
+                    .navigationBarBackButtonHidden(true)
+                    .foregroundColor(.black)
                 
                 if self.showHeaderBar {
                     HStack {
@@ -99,7 +151,10 @@ struct ProfileView: View {
                     .background(Color.theme.custombackg)
                 }
                 
+                
             }
+   
+        
         }
     }
 //}
@@ -166,13 +221,14 @@ extension ProfileView {
                     .fontWeight(.semibold)
                 
                 Spacer()
-                
-                Button {
-                    showNewCollectionView.toggle()
-                } label: {
-                    Text("+ Add New")
-                        .fontWeight(.semibold)
-                        .foregroundColor(Color(.systemBlue))
+                if viewModel.user.id == authViewModel.currentUser?.id {
+                    Button {
+                        showNewCollectionView.toggle()
+                    } label: {
+                        Text("+ Add New")
+                            .fontWeight(.semibold)
+                            .foregroundColor(Color(.systemBlue))
+                    }
                 }
                 
             }

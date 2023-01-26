@@ -6,6 +6,7 @@
 //
 import Firebase
 import FirebaseFirestoreSwift
+import FirebaseFirestore
 
 struct UserService {
     
@@ -19,10 +20,10 @@ struct UserService {
                 guard let user = try? snapshot.data(as: User.self) else { return }
                 completion(user)
                 
-                print("DEBUG Username is \(user.username)")
-                print("DEBUG: Email is \(user.email)")
-            
-                
+//                print("DEBUG Username is \(user.username)")
+//                print("DEBUG: Email is \(user.email)")
+//            
+//                
             }
     }
     
@@ -35,4 +36,15 @@ struct UserService {
             }
         
     }
+    
+    func updateUserData(fullname: String, username: String, completion: @escaping(Bool) -> Void) {
+        guard let user = Auth.auth().currentUser?.uid else { return }
+        Firestore.firestore().collection("users").document(user).setData(["fullname" : fullname, "username" : username.lowercased()], merge: true)
+        completion(true)
+    }
+    
+    
+    
+    
 }
+
