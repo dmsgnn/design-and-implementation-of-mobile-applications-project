@@ -10,6 +10,7 @@ import Foundation
 class SummaryCollectionViewModel: ObservableObject {
     
     private let service = CollectionService()
+    private let userService = UserService()
     @Published var collection: Collection
 
     
@@ -18,9 +19,8 @@ class SummaryCollectionViewModel: ObservableObject {
     
     init(collection: Collection) {
         self.collection = collection
-        
         self.fetchPaymentsForCollection()
-        checkIfUserLikedCollection()
+        self.checkIfUserLikedCollection()
     }
     
     func fetchPaymentsForCollection() {
@@ -63,6 +63,23 @@ class SummaryCollectionViewModel: ObservableObject {
         service.fetchSingleCollection(forCid: cid) { collection in
             self.collection = collection
         }
+        
+//        let ownerID = collection.uid
+//        userService.fetchUser(withUid: ownerID) { owner in
+//            self.collection.user = owner
+//        }
     }
+    
+//    func fetchUserCollections() {
+//        guard let uid = user.id else { return }
+//        DispatchQueue.main.async {
+//            self.service.fetchCollections(forUid: uid) { collections in
+//                self.collections = collections
+//                for i in 0 ..< collections.count {
+//                    self.collections[i].user = self.user
+//                }
+//            }
+//        }
+//    }
     
 }
