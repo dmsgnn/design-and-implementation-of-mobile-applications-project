@@ -35,33 +35,13 @@ struct DashboardView: View {
                                     
                                     HStack(spacing: UIScreen.main.bounds.width * 0.1){
                                         
-                                        if(collection.collectionImageUrl != nil)
-                                        {
-                                        KFImage(URL(string: collection.collectionImageUrl ?? ""))
+                                        KFImage(URL(string: collection.collectionImageUrl))
                                             .resizable()
                                             .scaledToFill()
                                             .clipShape(Circle())
                                             .frame(width: 80, height: 80)
                                             .padding(.leading, 20)
                                             
-                                        }
-                                        else {
-                                            ZStack(alignment: .center) {
-                                                Circle()
-                                                    .fill(.black)
-                                                    .frame(width: 80, height: 80)
-                                                    .padding(.leading, 20)
-                                                Image(systemName: "sun.max")
-                                                    .resizable()
-                                                    .aspectRatio(1.0, contentMode: .fit)
-                                                    .frame(width: 30, height: 30)
-                                                    .foregroundColor(.white)
-                                                    .padding(.leading, 20)
-                                            }
-                                        }
-                                        
-                                        
-                                        
                                         VStack(alignment: .leading) {
                                             Text(collection.title)
                                                 .font(.title2)
@@ -162,25 +142,25 @@ struct DashboardView: View {
 
 }
 
-
-struct CampaignCell: View {
-    var campaign: Collection
-    var body: some View{
-        HStack {
-            VStack(alignment: .leading, spacing: UIScreen.main.bounds.height * 0.01){
-                Text(campaign.title)
-                    .fontWeight(.bold)
-                    .lineLimit(1)
-                
-                Text(campaign.caption)
-                    .lineLimit(2)
-                
-                Text("\(campaign.currentAmount) / \(campaign.amount)")
-                    .fontWeight(.semibold)
-            }
-        }
-    }
-}
+//
+//struct CampaignCell: View {
+//    var campaign: Collection
+//    var body: some View{
+//        HStack {
+//            VStack(alignment: .leading, spacing: UIScreen.main.bounds.height * 0.01){
+//                Text(campaign.title)
+//                    .fontWeight(.bold)
+//                    .lineLimit(1)
+//
+//                Text(campaign.caption)
+//                    .lineLimit(2)
+//
+//                Text("\(campaign.currentAmount) / \(campaign.amount)")
+//                    .fontWeight(.semibold)
+//            }
+//        }
+//    }
+//}
 
 struct ProgressBar: View {
     var progress: Float

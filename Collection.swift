@@ -21,9 +21,8 @@ struct Collection: Identifiable, Decodable {
     let collectionImageUrl: String
     let timestamp: Timestamp
     let uid: String
-//    let owner: String?
-    
-    var user: User?
+
+    var user: User? //contains owner of collection 
 //    var didMakePayment: Bool? = false
     var didLike: Bool? = false
 }

@@ -25,16 +25,13 @@ class CollectionViewModel: ObservableObject {
     
     func addToFavourite() {
         service.addToFavourite(collection) {
-            
                 self.collection.didLike = true
-            
             
         }
     }
        
     func removeFromFavourite() {
         service.removeFromFavourite(collection) {
-           
                 self.collection.didLike = false
             
         }

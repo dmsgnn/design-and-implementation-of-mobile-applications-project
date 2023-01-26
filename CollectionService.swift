@@ -55,7 +55,6 @@ struct CollectionService {
     func fetchSingleCollection(forCid cid: String, completion: @escaping(Collection) -> Void) {
         Firestore.firestore().collection("collections").document(cid).getDocument{ snapshot, _ in
             guard let snapshot = snapshot else { return }
-            
             guard let collection = try? snapshot.data(as: Collection.self) else { return }
             completion(collection)
         }
@@ -98,7 +97,7 @@ struct CollectionService {
         Firestore.firestore().collection("collections").document(collId)
             .updateData(["favourites": collection.favourites + 1]) { _ in
                 userFavRef.document(collId).setData([:]) { _ in
-                    print("DEBUG: \(uid) \(collId)")
+                    print("DEBUG: Like updated")
                     completion()
                 }
             }

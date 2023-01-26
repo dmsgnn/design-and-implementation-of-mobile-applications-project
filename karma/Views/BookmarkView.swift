@@ -24,7 +24,11 @@ struct BookmarkView: View {
                         CollectionView(collection: collections)
                     }
                 }
+                
             }
+        }
+        .refreshable {
+            viewModel.fetchCollections()
         }
     }
 }

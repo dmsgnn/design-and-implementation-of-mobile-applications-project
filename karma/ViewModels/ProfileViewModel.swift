@@ -48,22 +48,6 @@ class ProfileViewModel: ObservableObject {
     }
     
     
-
-    
-    
-    
-    //fetch payment where user is the Sender
-    //    func fetchSenderPayments() {
-    //        guard let uid = user.id else { return }
-    //        paymentService.fetchPaymentsForSender(forUid: uid) { payments in
-    //            self.sentPayments = payments
-    //            for i in 0 ..< payments.count {
-    //                self.sentPayments[i].sender = self.user
-    //                self.sentPayments[i].isPositive = false
-    //            }
-    //        }
-    //    }
-    
     func fetchPayments() {
         guard let uid = user.id else { return }
         paymentService.fetchPaymentsForReceiver(forUid: uid) { payments in
@@ -88,5 +72,20 @@ class ProfileViewModel: ObservableObject {
             }
         }
     }
+    
+    
+    
+    
+    //fetch payment where user is the Sender
+    //    func fetchSenderPayments() {
+    //        guard let uid = user.id else { return }
+    //        paymentService.fetchPaymentsForSender(forUid: uid) { payments in
+    //            self.sentPayments = payments
+    //            for i in 0 ..< payments.count {
+    //                self.sentPayments[i].sender = self.user
+    //                self.sentPayments[i].isPositive = false
+    //            }
+    //        }
+    //    }
 }
     

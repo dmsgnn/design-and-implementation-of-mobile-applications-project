@@ -39,32 +39,22 @@ struct SummaryCollectionView: View {
                                     .scaledToFit()
                                     .frame(width: UIScreen.main.bounds.width * 0.9, height: 200)
                                     .padding(.top, 50)
-                                //                                    .onReceive(self.time) { (_) in
-                                //                                        let y = g.frame(in: .global).minY
-                                //                                        if -y > (UIScreen.main.bounds.height * 0.3) - 50 {
-                                //                                            withAnimation {
-                                //                                                self.showHeaderBar = true
-                                //                                            }
-                                //                                        } else {
-                                //                                            withAnimation {
-                                //                                                self.showHeaderBar = false
-                                //                                            }
-                                //                                        }
-                                //                                    }
+                                
                                 
                                 
                                 Text(viewModel.collection.title)
                                     .font(.title2)
                                     .fontWeight(.semibold)
                                 
+                                
                                 Text(viewModel.collection.user?.username ?? "")
                                     .padding(.bottom)
+                            
                                 
                             }
                             Spacer()
                         }
-                        //                    }
-                        //                    .frame(height: UIScreen.main.bounds.height / 2.5)
+                    
                         
                         VStack {
                             HStack {
