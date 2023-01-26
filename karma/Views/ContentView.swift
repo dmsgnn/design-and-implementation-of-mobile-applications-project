@@ -17,7 +17,6 @@ struct ContentView: View {
             if viewModel.userSession == nil {
                 LoginView()
             } else if let user = viewModel.currentUser {
-                //MainPageView()
                 MainView(user: user)
             }
             
