@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		1B3CD7E7298282A5002EF9BF /* iPadCustomInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3CD7E6298282A5002EF9BF /* iPadCustomInputField.swift */; };
 		1B658DBC293F428C00DF06DB /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B658DBB293F428C00DF06DB /* LoginView.swift */; };
-		1B658DBE293F439B00DF06DB /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B658DBD293F439B00DF06DB /* LoginViewModel.swift */; };
 		1B6B3146294520A000779BBE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6B3145294520A000779BBE /* ContentView.swift */; };
 		1B83CE48297F298D00FCEAC4 /* ImageUploaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B83CE47297F298D00FCEAC4 /* ImageUploaderView.swift */; };
 		1BCB44C42969E27300205BC1 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCB44C32969E27300205BC1 /* MainView.swift */; };
@@ -94,7 +93,6 @@
 /* Begin PBXFileReference section */
 		1B3CD7E6298282A5002EF9BF /* iPadCustomInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iPadCustomInputField.swift; sourceTree = "<group>"; };
 		1B658DBB293F428C00DF06DB /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		1B658DBD293F439B00DF06DB /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		1B6B3145294520A000779BBE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1B83CE47297F298D00FCEAC4 /* ImageUploaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploaderView.swift; sourceTree = "<group>"; };
 		1BCB44C32969E27300205BC1 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -290,7 +288,6 @@
 				1B6B3145294520A000779BBE /* ContentView.swift */,
 				E335475F2958668B003444E0 /* ProfileView.swift */,
 				E3354776295C4088003444E0 /* UploadCollectionView.swift */,
-				E3391588295DDED900945EFA /* OptionTabView.swift */,
 				E39A023029731630005CE413 /* ImageUploaderView.swift */,
 				E32FE360296435FD0061C907 /* PaymentView.swift */,
 				E34C9B222964AB4E00E8FC5E /* SummaryCollectionView.swift */,
@@ -316,7 +313,6 @@
 				E34C9B2A2966EE0000E8FC5E /* CollectionRowView.swift */,
 				E34C9B282966EB9000E8FC5E /* UserRowView.swift */,
 				E34C9B2C2966F03100E8FC5E /* SearchBar.swift */,
-				E3713E3A2967440F0037063C /* TextArea.swift */,
 				1B3CD7E6298282A5002EF9BF /* iPadCustomInputField.swift */,
 			);
 			path = Components;
@@ -342,7 +338,6 @@
 			isa = PBXGroup;
 			children = (
 				E378A41E2940E29A001CE2E2 /* AuthViewModel.swift */,
-				1B658DBD293F439B00DF06DB /* LoginViewModel.swift */,
 				E32FE362296436600061C907 /* PaymentViewModel.swift */,
 				E334CDBC295D93FE0082FC17 /* UploadCollectionViewModel.swift */,
 				E334CDBE295D94190082FC17 /* ProfileViewModel.swift */,
@@ -553,7 +548,6 @@
 				E3354773295B07FB003444E0 /* User.swift in Sources */,
 				1B6B3146294520A000779BBE /* ContentView.swift in Sources */,
 				1B658DBC293F428C00DF06DB /* LoginView.swift in Sources */,
-				1B658DBE293F439B00DF06DB /* LoginViewModel.swift in Sources */,
 				E3EA350B297FFEB400B01978 /* EditCollectionViewModel.swift in Sources */,
 				1BD8C247293E5D6100F1B32A /* karmaApp.swift in Sources */,
 				E32FE35C29641C9E0061C907 /* PaymentButton.swift in Sources */,

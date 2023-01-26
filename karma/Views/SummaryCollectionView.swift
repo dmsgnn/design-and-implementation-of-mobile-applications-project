@@ -160,7 +160,8 @@ struct SummaryCollectionView: View {
         .toolbar {
             
             ToolbarItem(placement: ToolbarItemPlacement.navigationBarLeading) {
-                Button {
+                
+                Button(action: {
                     presentationMode.wrappedValue.dismiss()
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.05){
                         showTabBar()
@@ -168,7 +169,8 @@ struct SummaryCollectionView: View {
                 }, label: {
                     Image(systemName: "chevron.backward")
                         .fontWeight(.semibold)
-                }
+                })
+                
             }
             
             ToolbarItem(placement: ToolbarItemPlacement.principal) {
