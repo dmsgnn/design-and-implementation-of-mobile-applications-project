@@ -39,7 +39,7 @@ struct LoginView: View {
                         Text("arma")
                             .font(.largeTitle)
                             .fontWeight(.bold)
-                            .foregroundColor(.black)
+                            .foregroundColor(Color.theme.dark)
                     }
                     .offset(x: -screenHeight * 0.008)
                 
@@ -49,7 +49,7 @@ struct LoginView: View {
                         Text("Login")
                             .font(.largeTitle)
                             .fontWeight(.bold)
-                            .foregroundColor(.black)
+                            .foregroundColor(Color.theme.dark)
                             .padding(.horizontal)
                             .padding(.top, -screenHeight*0.04)
                             .padding(.bottom, screenHeight*0.04)
@@ -81,7 +81,7 @@ struct LoginView: View {
                         .font(.headline)
                         .frame(width: screenWidth*0.8, height: screenHeight * 0.06)
                         .foregroundColor(.white)
-                        .background(.black)
+                        .background(.blue)
                         .cornerRadius(screenHeight*0.02)
                     
                     
