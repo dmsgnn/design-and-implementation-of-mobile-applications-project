@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Firebase
+import FirebaseFirestore
 
 @main
 struct karmaApp: App {
@@ -15,6 +16,17 @@ struct karmaApp: App {
     
     init() {
         FirebaseApp.configure()
+        // Checking if unit tests are running
+        if ProcessInfo.processInfo.environment["unit_tests"] == "true" {
+          print("Setting up Firebase emulator localhost:8080")
+          Auth.auth().useEmulator(withHost: "127.0.0.1", port: 9099)
+          //Firestore.firestore().useEmulator(withHost: "127.0.0.1", port: 8080)
+          let settings = Firestore.firestore().settings
+          settings.host = "127.0.0.1:8080"
+          settings.isPersistenceEnabled = false
+          settings.isSSLEnabled = false
+          Firestore.firestore().settings = settings
+        }
     }
     
     var body: some Scene {

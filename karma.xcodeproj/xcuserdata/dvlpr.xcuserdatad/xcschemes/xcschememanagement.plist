@@ -28,7 +28,25 @@
 		<key>karma.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>1</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>1BD8C242293E5D6100F1B32A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1BD8C252293E5D6300F1B32A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1BD8C25C293E5D6300F1B32A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
