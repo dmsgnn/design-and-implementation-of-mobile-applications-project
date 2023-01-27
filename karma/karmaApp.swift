@@ -7,20 +7,16 @@
 
 import SwiftUI
 import Firebase
-import UserNotifications
 
 @main
 struct karmaApp: App {
     
     @StateObject var viewModel = AuthViewModel()
     
-    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-
     
-//    init() {
-//        FirebaseApp.configure()
-//        
-//    }
+    init() {
+        FirebaseApp.configure()
+    }
     
     var body: some Scene {
         WindowGroup {
