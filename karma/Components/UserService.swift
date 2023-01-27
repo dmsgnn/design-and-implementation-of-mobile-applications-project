@@ -11,7 +11,6 @@ import FirebaseFirestore
 struct UserService {
     
     func fetchUser(withUid uid: String, completion: @escaping(User) -> Void) {
-    
         Firestore.firestore().collection("users")
             .document(uid)
             .getDocument{ snapshot, _ in

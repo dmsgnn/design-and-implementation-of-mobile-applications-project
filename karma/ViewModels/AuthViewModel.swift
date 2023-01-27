@@ -34,6 +34,7 @@ class AuthViewModel: ObservableObject {
 
             guard let user = result?.user else { return }
             self.userSession = user
+            self.fetchUser()
 
             print("DEBUG: login with email \(email)")
         }

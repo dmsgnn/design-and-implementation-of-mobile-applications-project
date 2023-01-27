@@ -24,7 +24,6 @@ class ProfileViewModel: ObservableObject {
         self.user = user
         self.fetchUserCollections()
         self.fetchPayments()
-        self.fetchUser()
     }
     
     

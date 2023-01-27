@@ -12,102 +12,108 @@ struct MainView: View {
     @State var currentTab: Tab = .home
     @Namespace var animation
     @State var showTabBar: Bool = true
-    let user : User
     
-    init(user: User) {
+    @EnvironmentObject var authViewModel: AuthViewModel
+    //    let user : User
+    
+    init() {
         // Hiding native tab bar
         UITabBar.appearance().isHidden = true
-        self.user = user
+        //        self.user = user
     }
     
     
     var body: some View {
-        ZStack(alignment: .bottom){
-            TabView(selection: $currentTab){
-                GeometryReader{
-                    let safeArea = $0.safeAreaInsets
-                    let size = $0.size
-                    DashboardView(viewModel: DashboardViewModel(), safeArea: safeArea, size: size)
-                        .ignoresSafeArea(.container, edges: .top)
+        
+        if let user = authViewModel.currentUser {
+            ZStack(alignment: .bottom){
+                TabView(selection: $currentTab){
+                    GeometryReader{
+                        let safeArea = $0.safeAreaInsets
+                        let size = $0.size
+                        DashboardView(viewModel: DashboardViewModel(), safeArea: safeArea, size: size)
+                            .ignoresSafeArea(.container, edges: .top)
+                            .setTabBarBackground(color: Color("BG"))
+                            .tag(Tab.home)
+                    }
+                    
+                    SearchView()
                         .setTabBarBackground(color: Color("BG"))
-                        .tag(Tab.home)
+                        .tag(Tab.search)
+                    
+                    UploadCollectionView()
+                        .setTabBarBackground(color: Color("BG"))
+                        .tag(Tab.post)
+                    
+                    BookmarkView()
+                        .setTabBarBackground(color: Color("BG"))
+                        .tag(Tab.bookmarks)
+                    
+                    ProfileView(user: user)
+                        .setTabBarBackground(color: Color("BG"))
+                        .tag(Tab.profile)
                 }
-                
-                SearchView()
-                    .setTabBarBackground(color: Color("BG"))
-                    .tag(Tab.search)
-                
-                UploadCollectionView()
-                    .setTabBarBackground(color: Color("BG"))
-                    .tag(Tab.post)
-                
-                BookmarkView()
-                    .setTabBarBackground(color: Color("BG"))
-                    .tag(Tab.bookmarks)
-                
-                ProfileView(user: user)
-                    .setTabBarBackground(color: Color("BG"))
-                    .tag(Tab.profile)
+                TabBar()
+                    .offset(y: showTabBar ? 0 : 130)
+                    .animation(.interactiveSpring(response: 0.6, dampingFraction: 0.7, blendDuration: 0.7), value: showTabBar)
             }
-            TabBar()
-                .offset(y: showTabBar ? 0 : 130)
-                .animation(.interactiveSpring(response: 0.6, dampingFraction: 0.7, blendDuration: 0.7), value: showTabBar)
+            .ignoresSafeArea(.keyboard, edges: .bottom)
+            .onReceive(NotificationCenter.default.publisher(for: .init("SHOWTABBAR"))
+            ){ _ in
+                showTabBar = true
+            }
+            .onReceive(NotificationCenter.default.publisher(for: .init("HIDETABBAR"))){ _ in
+                showTabBar = false
+            }
+            
         }
-        .ignoresSafeArea(.keyboard, edges: .bottom)
-        .onReceive(NotificationCenter.default.publisher(for: .init("SHOWTABBAR"))
-        ){ _ in
-            showTabBar = true
-        }
-        .onReceive(NotificationCenter.default.publisher(for: .init("HIDETABBAR"))){ _ in
-            showTabBar = false
+    }
+        
+        // Custom Tab Bar
+        @ViewBuilder
+        func TabBar()->some View{
+            HStack(spacing: 0){
+                ForEach(Tab.allCases, id: \.rawValue){ tab in
+                    Image(tab.rawValue)
+                        .resizable()
+                        .renderingMode(.template)
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 24, height: 24)
+                        .foregroundColor(currentTab == tab ? .white : .gray.opacity(0.5))
+                        .background(content : {
+                            if(currentTab == tab){
+                                Circle()
+                                    .fill(.black)
+                                    .scaleEffect(2.5)
+                                //.shadow(color: .black.opacity(0.3), radius: 8, x: 5, y: 10)
+                                    .matchedGeometryEffect(id: "TAB", in: animation)
+                            }
+                        })
+                        .frame(maxWidth: .infinity)
+                        .padding(.top, 25)
+                        .padding(.bottom, 10)
+                        .contentShape(Rectangle())
+                        .onTapGesture {
+                            currentTab = tab
+                        }
+                }
+            }
+            .padding(.horizontal, 15)
+            .animation(.interactiveSpring(response: 0.5, dampingFraction: 0.65, blendDuration: 0.65), value: currentTab)
+            .background{
+                // Custom corner
+                CustomCorner(corners: [.topLeft, .topRight], radius: 25)
+                    .fill(Color(.white))
+                    .ignoresSafeArea()
+            }
         }
         
     }
     
-    // Custom Tab Bar
-    @ViewBuilder
-    func TabBar()->some View{
-        HStack(spacing: 0){
-            ForEach(Tab.allCases, id: \.rawValue){ tab in
-                Image(tab.rawValue)
-                    .resizable()
-                    .renderingMode(.template)
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 24, height: 24)
-                    .foregroundColor(currentTab == tab ? .white : .gray.opacity(0.5))
-                    .background(content : {
-                        if(currentTab == tab){
-                            Circle()
-                                .fill(.black)
-                                .scaleEffect(2.5)
-                                //.shadow(color: .black.opacity(0.3), radius: 8, x: 5, y: 10)
-                                .matchedGeometryEffect(id: "TAB", in: animation)
-                        }
-                    })
-                    .frame(maxWidth: .infinity)
-                    .padding(.top, 25)
-                    .padding(.bottom, 10)
-                    .contentShape(Rectangle())
-                    .onTapGesture {
-                        currentTab = tab
-                    }
-            }
-        }
-        .padding(.horizontal, 15)
-        .animation(.interactiveSpring(response: 0.5, dampingFraction: 0.65, blendDuration: 0.65), value: currentTab)
-        .background{
-            // Custom corner
-            CustomCorner(corners: [.topLeft, .topRight], radius: 25)
-                .fill(Color(.white))
-                .ignoresSafeArea()
-        }
-    }
-    
-}
 
 struct MainView_Previews : PreviewProvider {
     static var previews: some View {
-        MainView(user: User(username: "Test", fullname: "Test name", profileImageUrl: "none", email: "Test@gmail.com"))
+        MainView()
     }
 }
 
