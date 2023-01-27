@@ -13,19 +13,39 @@ struct karmaApp: App {
     
     @StateObject var viewModel = AuthViewModel()
     
-    
     init() {
         FirebaseApp.configure()
     }
     
     var body: some Scene {
         WindowGroup {
-            NavigationView {
-                ContentView()
+            // MARK: iPad
+            if UIDevice.isIPad {
+                NavigationView {
+                    ContentView()
+                }
+                .environmentObject(viewModel)
+                .navigationViewStyle(StackNavigationViewStyle())
                 
             }
-            .environmentObject(viewModel)
+            // MARK: iPhone
+            else{
+                NavigationView {
+                    ContentView()
+                }
+                .environmentObject(viewModel)
+            }
         }
-    
     }
 }
+
+extension UIDevice {
+    static var isIPad: Bool {
+        UIDevice.current.userInterfaceIdiom == .pad
+    }
+    
+    static var isIPhone: Bool {
+        UIDevice.current.userInterfaceIdiom == .phone
+    }
+}
+

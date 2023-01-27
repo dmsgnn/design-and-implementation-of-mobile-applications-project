@@ -14,11 +14,11 @@ struct LoginView: View {
     @State private var password = ""
     let screenHeight = UIScreen.main.bounds.height
     let screenWidth = UIScreen.main.bounds.width
-    @Environment(\.horizontalSizeClass) var widthSizeClass: UserInterfaceSizeClass?
     
     
     var body: some View {
-        if widthSizeClass != .compact{
+        // MARK: iPad
+        if UIDevice.isIPad{
                 // Login page must be shown
                 ZStack {
                     VStack(alignment: .center, spacing: screenHeight * 0.05) {
@@ -115,13 +115,9 @@ struct LoginView: View {
                     .frame(width: screenWidth * 0.8)
                     .padding()
                 }
-
-            
-            
         }
+        // MARK: iPhone
         else {
-
-
                 ZStack {
                     VStack(alignment: .center, spacing: screenHeight * 0.05) {
                         Spacer()
@@ -182,7 +178,7 @@ struct LoginView: View {
                         } label: {
                             Text("Login")
                                 .font(.headline)
-                                .frame(width: screenWidth*0.4, height: screenHeight * 0.05)
+                                .frame(width: screenWidth*0.8, height: screenHeight * 0.06)
                                 .foregroundColor(.white)
                                 .background(.blue)
                                 .cornerRadius(screenHeight*0.02)
