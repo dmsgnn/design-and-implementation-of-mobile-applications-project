@@ -65,6 +65,8 @@
 		E37273A62969803A007D512E /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E37273A52969803A007D512E /* FirebaseDatabaseSwift */; };
 		E378A41F2940E29A001CE2E2 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E378A41E2940E29A001CE2E2 /* AuthViewModel.swift */; };
 		E378A4222941135A001CE2E2 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = E378A4212941135A001CE2E2 /* Color.swift */; };
+		E381936C2982DF9C00B4BBBB /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = E381936B2982DF9C00B4BBBB /* FirebaseMessaging */; };
+		E38193732982E08900B4BBBB /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38193722982E08900B4BBBB /* NotificationService.swift */; };
 		E3A8D0C6295F95B200C029C1 /* Float.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A8D0C5295F95B200C029C1 /* Float.swift */; };
 		E3BA1B1E2971D1F8009945A5 /* ActivityCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BA1B1D2971D1F8009945A5 /* ActivityCollectionViewModel.swift */; };
 		E3DDB18B2970AE2C008CE84B /* SummaryCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DDB18A2970AE2C008CE84B /* SummaryCollectionViewModel.swift */; };
@@ -146,6 +148,9 @@
 		E36EFC51295EE12100301ED4 /* CollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewModel.swift; sourceTree = "<group>"; };
 		E378A41E2940E29A001CE2E2 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		E378A4212941135A001CE2E2 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		E38193722982E08900B4BBBB /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		E38193742982E41600B4BBBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		E3933AEC298049BD0049D39B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E39A023029731630005CE413 /* ImageUploaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageUploaderView.swift; path = "../../../../iCloud Drive (archivio)/Documents/DIMA-Project/DIMA-Project2/karma/Views/ImageUploaderView.swift"; sourceTree = "<group>"; };
 		E3A8D0C5295F95B200C029C1 /* Float.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Float.swift; sourceTree = "<group>"; };
 		E3BA1B1D2971D1F8009945A5 /* ActivityCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCollectionViewModel.swift; sourceTree = "<group>"; };
@@ -161,6 +166,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E381936C2982DF9C00B4BBBB /* FirebaseMessaging in Frameworks */,
 				E37273A62969803A007D512E /* FirebaseDatabaseSwift in Frameworks */,
 				E37273A42969802C007D512E /* FirebaseDatabase in Frameworks */,
 				E3521603293F51B30074B787 /* FirebaseAuth in Frameworks */,
@@ -212,6 +218,8 @@
 		1BD8C245293E5D6100F1B32A /* karma */ = {
 			isa = PBXGroup;
 			children = (
+				E38193742982E41600B4BBBB /* Info.plist */,
+				E3933AEC298049BD0049D39B /* Info.plist */,
 				E3F51F29297835BF00E66C08 /* karma.entitlements */,
 				E32FE35D296424380061C907 /* karmaDebug.entitlements */,
 				E339158A295DE70700945EFA /* Utils */,
@@ -258,6 +266,7 @@
 			isa = PBXGroup;
 			children = (
 				E3354770295B05A3003444E0 /* UserService.swift */,
+				E38193722982E08900B4BBBB /* NotificationService.swift */,
 				E334CDBA295D93E80082FC17 /* CollectionService.swift */,
 				E339158D295DEF3D00945EFA /* ImageUploader.swift */,
 				E32FE35E296429630061C907 /* PaymentService.swift */,
@@ -386,6 +395,7 @@
 				E36EFC4F295ED26B00301ED4 /* Kingfisher */,
 				E37273A32969802C007D512E /* FirebaseDatabase */,
 				E37273A52969803A007D512E /* FirebaseDatabaseSwift */,
+				E381936B2982DF9C00B4BBBB /* FirebaseMessaging */,
 			);
 			productName = karma;
 			productReference = 1BD8C243293E5D6100F1B32A /* karma.app */;
@@ -534,6 +544,7 @@
 				E3354777295C4088003444E0 /* UploadCollectionView.swift in Sources */,
 				E32FE361296435FD0061C907 /* PaymentView.swift in Sources */,
 				E334CDBD295D93FE0082FC17 /* UploadCollectionViewModel.swift in Sources */,
+				E38193732982E08900B4BBBB /* NotificationService.swift in Sources */,
 				E351CC1F297BDC4E00E74228 /* EditProfileView.swift in Sources */,
 				E33547602958668B003444E0 /* ProfileView.swift in Sources */,
 				E35215FA293F399F0074B787 /* RegistrationView.swift in Sources */,
@@ -722,10 +733,9 @@
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = EDG8TGNYUA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "";
+				INFOPLIST_FILE = karma/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Karma;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIRequiresFullScreen = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -759,10 +769,9 @@
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = EDG8TGNYUA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "";
+				INFOPLIST_FILE = karma/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Karma;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIRequiresFullScreen = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -949,6 +958,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E3521601293F51B20074B787 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseDatabaseSwift;
+		};
+		E381936B2982DF9C00B4BBBB /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E3521601293F51B20074B787 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

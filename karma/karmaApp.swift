@@ -14,20 +14,21 @@ struct karmaApp: App {
     
     @StateObject var viewModel = AuthViewModel()
     
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 
-    init() {
-        FirebaseApp.configure()
-
-    }
+    
+//    init() {
+//        FirebaseApp.configure()
+//        
+//    }
     
     var body: some Scene {
         WindowGroup {
             NavigationView {
                 ContentView()
-                    .environmentObject(viewModel)
                 
             }
-            
+            .environmentObject(viewModel)
         }
     
     }
