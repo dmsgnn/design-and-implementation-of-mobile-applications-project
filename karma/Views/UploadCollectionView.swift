@@ -57,6 +57,7 @@ struct UploadCollectionView: View {
                     .sheet(isPresented: $showImagePicker, onDismiss: loadImage) {
                         ImagePicker(selectedImage: $selectedImage)
                     }
+                    .accessibility(identifier: "collectionImageUpload")
                     
                 }
                 .padding(.bottom, 10)
@@ -67,6 +68,7 @@ struct UploadCollectionView: View {
                         .fontWeight(.semibold)
                     
                     TextField("give your collection a title", text: $title)
+                        .accessibility(identifier: "collectionTitleField")
                     
                     Divider()
                         .padding(.bottom)
@@ -78,6 +80,7 @@ struct UploadCollectionView: View {
                     
                     TextField("say something about this collection", text: $description, axis: .vertical)
                         .lineLimit(4, reservesSpace: true)
+                        .accessibility(identifier: "collectionDescriptionField")
                         
                     
                 }
@@ -149,6 +152,7 @@ struct UploadCollectionView: View {
                             
                             
                         }
+                        .accessibility(identifier: "shareCollection")
                     }
                 }
             }

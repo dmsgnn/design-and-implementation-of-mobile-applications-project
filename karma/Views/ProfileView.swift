@@ -229,6 +229,7 @@ extension ProfileView {
                             .fontWeight(.semibold)
                             .foregroundColor(Color(.systemBlue))
                     }
+                    .accessibility(identifier: "addNewCollection")
                 }
                 
             }

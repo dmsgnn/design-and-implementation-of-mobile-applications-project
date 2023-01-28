@@ -55,7 +55,7 @@ final class karmaUITests: XCTestCase {
         let emailTextField = app.textFields["email"]
         XCTAssertTrue(emailTextField.exists)
         emailTextField.tap()
-        emailTextField.typeText("UIUIUU@gmail.com")
+        emailTextField.typeText("UITest7@gmail.com")
         
         let passwordSecureTextField = app.secureTextFields["password"]
         XCTAssertTrue(passwordSecureTextField.exists)
@@ -104,6 +104,47 @@ final class karmaUITests: XCTestCase {
         let doneButton = app.buttons["editDone"]
         XCTAssertTrue(doneButton.exists)
         doneButton.tap()
+        sleep(2)
+        
+        // MARK: New collection
+        let addNewCollectionButton = app.images["plus"]
+        addNewCollectionButton.tap()
+        sleep(1)
+        
+        // collection image upload button not found, to check
+        let uploadCollectionPhotoButton = app.buttons["collectionImageUpload"]
+        XCTAssertTrue(uploadCollectionPhotoButton.exists)
+        uploadCollectionPhotoButton.tap()
+        
+        app/*@START_MENU_TOKEN@*/.scrollViews.otherElements.images["Foto, 30 marzo 2018, 9:14 PM"]/*[[".otherElements[\"Photos\"].scrollViews.otherElements",".otherElements[\"Foto, 30 marzo 2018, 9:14 PM, Foto, 08 agosto 2012, 11:55 PM, Foto, 08 agosto 2012, 11:29 PM, Foto, 08 agosto 2012, 8:52 PM, Foto, 09 ottobre 2009, 11:09 PM, Foto, 13 marzo 2011, 1:17 AM\"].images[\"Foto, 30 marzo 2018, 9:14 PM\"]",".images[\"Foto, 30 marzo 2018, 9:14 PM\"]",".scrollViews.otherElements"],[[[-1,3,1],[-1,0,1]],[[-1,2],[-1,1]]],[0,0]]@END_MENU_TOKEN@*/.tap()
+        sleep(1)
+        
+        let collectionTitleTextField = app.textFields["collectionTitleField"]
+        XCTAssertTrue(collectionTitleTextField.exists)
+        collectionTitleTextField.tap()
+        collectionTitleTextField.typeText("New collection")
+        
+        let collectionDescriptionTextField = app.textFields["collectionDescriptionField"]
+        XCTAssertTrue(collectionDescriptionTextField.exists)
+        collectionDescriptionTextField.tap()
+        collectionDescriptionTextField.typeText("Collection description")
+        collectionDescriptionTextField.typeText("\n")
+
+        
+        let picker = app.pickers["picker"].pickerWheels.firstMatch
+        XCTAssertTrue(picker.exists)
+        picker.adjust(toPickerWheelValue: "1")
+        
+        let shareCollectionButton = app.images["shareCollection"]
+        XCTAssertTrue(shareCollectionButton.exists)
+        shareCollectionButton.tap()
+        sleep(1)
+        
+        // MARK: Home and open collections
+        let homeButton = app.images["house"]
+        XCTAssertTrue(homeButton.exists)
+        homeButton.tap()
+        sleep(1)
         
     }
     
