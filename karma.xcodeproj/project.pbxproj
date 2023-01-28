@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B0DD374298557BF002FAB53 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 1B0DD373298557BF002FAB53 /* Kingfisher */; };
 		1B3CD7E7298282A5002EF9BF /* iPadCustomInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3CD7E6298282A5002EF9BF /* iPadCustomInputField.swift */; };
 		1B658DBC293F428C00DF06DB /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B658DBB293F428C00DF06DB /* LoginView.swift */; };
 		1B6B3146294520A000779BBE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6B3145294520A000779BBE /* ContentView.swift */; };
@@ -299,6 +300,7 @@
 				1B78B175298417A100268661 /* FirebaseDatabase in Frameworks */,
 				1B78B171298417A100268661 /* FirebaseAppCheck in Frameworks */,
 				1B78B179298417A100268661 /* FirebaseFirestore in Frameworks */,
+				1B0DD374298557BF002FAB53 /* Kingfisher in Frameworks */,
 				1B78B17D298417A100268661 /* FirebaseStorage in Frameworks */,
 				1B78B173298417A100268661 /* FirebaseAuth in Frameworks */,
 				1B78B17B298417A100268661 /* FirebaseFirestoreSwift in Frameworks */,
@@ -549,6 +551,7 @@
 				1B78B178298417A100268661 /* FirebaseFirestore */,
 				1B78B17A298417A100268661 /* FirebaseFirestoreSwift */,
 				1B78B17C298417A100268661 /* FirebaseStorage */,
+				1B0DD373298557BF002FAB53 /* Kingfisher */,
 			);
 			productName = karmaTests;
 			productReference = 1BD8C253293E5D6300F1B32A /* karmaTests.xctest */;
@@ -954,7 +957,8 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = karmaTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = dima.karmaTests;
@@ -1170,7 +1174,8 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = karmaTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = dima.karmaTests;
@@ -1189,7 +1194,8 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = karmaTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = dima.karmaTests;
@@ -1300,6 +1306,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		1B0DD373298557BF002FAB53 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E36EFC4E295ED26B00301ED4 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
 		1B78B160298416AC00268661 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E3521601293F51B20074B787 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

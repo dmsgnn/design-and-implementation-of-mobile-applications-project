@@ -20,6 +20,7 @@ struct karmaApp: App {
 #if EMULATORS
           print("Setting up Firebase emulator localhost:8080")
           Auth.auth().useEmulator(withHost: "127.0.0.1", port: 9099)
+          Storage.storage().useEmulator(withHost: "127.0.0.1", port: 9199)
           //Firestore.firestore().useEmulator(withHost: "127.0.0.1", port: 8080)
           let settings = Firestore.firestore().settings
           settings.host = "127.0.0.1:8080"
