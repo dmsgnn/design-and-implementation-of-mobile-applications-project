@@ -17,7 +17,7 @@ struct karmaApp: App {
     init() {
         FirebaseApp.configure()
         // Checking if unit tests are running
-        if ProcessInfo.processInfo.environment["unit_tests"] == "true" {
+#if EMULATORS
           print("Setting up Firebase emulator localhost:8080")
           Auth.auth().useEmulator(withHost: "127.0.0.1", port: 9099)
           //Firestore.firestore().useEmulator(withHost: "127.0.0.1", port: 8080)
@@ -26,7 +26,7 @@ struct karmaApp: App {
           settings.isPersistenceEnabled = false
           settings.isSSLEnabled = false
           Firestore.firestore().settings = settings
-        }
+#endif
     }
     
     var body: some Scene {
