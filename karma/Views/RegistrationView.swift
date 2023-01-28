@@ -159,19 +159,17 @@ struct RegistrationView: View {
                     .offset(x: -screenHeight * 0.008)
                     
                     Spacer()
-                        .frame(height: screenHeight * 0.02)
+                        .frame(height: screenHeight * 0.04)
                     
-                    HStack() {
                         Text("Sign Up")
                             .font(.largeTitle)
                             .fontWeight(.bold)
                             .foregroundColor(Color.theme.dark)
-                    }
-                    .padding(.leading, screenHeight*0.02)
-                    .padding(.bottom, screenHeight*0.04)
+                            .padding(.leading, screenHeight*0.02)
+                            .padding(.bottom, screenHeight*0.04)
                     
                     
-                    VStack(spacing: screenHeight*0.05) {
+                    VStack(spacing: screenHeight*0.035) {
                         
                         CustomInputField(placeholderText: "Fullname", text: $fullname)
                             .shadow(
@@ -212,7 +210,7 @@ struct RegistrationView: View {
                     }
                     
                     Spacer()
-                        .frame(height: screenHeight * 0.03)
+                        .frame(height: screenHeight * 0.07)
                     
                     Button {
                         viewModel.register(withEmail: email,
@@ -230,7 +228,7 @@ struct RegistrationView: View {
                     }
                     
                     Spacer()
-                        .frame(height: screenHeight * 0.03)
+                        .frame(height: screenHeight * 0.05)
                     
                     Button {
                         dismiss()
