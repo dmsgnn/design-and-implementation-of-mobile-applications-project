@@ -36,13 +36,7 @@ struct DashboardView: View {
                                 ForEach(viewModel.collections){ collection in
                                     NavigationLink(destination: SummaryCollectionView(collection: collection)) {
                                         MainCollectionView(collection: collection)
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
+
                                         //.shadow(color: .black.opacity(0.2), radius: 1, x: 6, y: 6)
                                         //.blur(radius: 8, opaque: false)
                                         
@@ -56,6 +50,7 @@ struct DashboardView: View {
                         .overlay(alignment: .top) {
                             HeaderView()
                         }
+                        Spacer().frame(height: 60)
                     }
                     .background(Color.white)
                     .refreshable {

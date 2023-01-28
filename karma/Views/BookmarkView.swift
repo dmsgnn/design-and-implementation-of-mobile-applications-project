@@ -28,6 +28,7 @@ struct BookmarkView: View {
                         CollectionView(collection: collections)
                     }
                 }
+                Spacer().frame(height: 60)
                 
             }
         }

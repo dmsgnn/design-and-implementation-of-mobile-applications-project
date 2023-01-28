@@ -277,7 +277,9 @@ extension ProfileView {
 //                    RecentUserActivityView(payment: payment, isPositive: payment.isPositive ?? false)
 //                }
             }
+            Spacer().frame(height: 60)
         }
+        
     }
     
 }
