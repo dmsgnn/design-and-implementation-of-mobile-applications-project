@@ -12,6 +12,8 @@ struct DashboardView: View {
     @State var showHeaderBar = false
     let screenHeight = UIScreen.main.bounds.height
     let screenWidth = UIScreen.main.bounds.width
+    
+    
 
     // Variables for header
     var safeArea: EdgeInsets
@@ -20,44 +22,48 @@ struct DashboardView: View {
     var body: some View {
         
         NavigationStack {
-            ZStack(alignment: .top) {
-                ScrollView(.vertical, showsIndicators: false) {
-                    VStack {
-                        Text("Home")
-                            .foregroundColor(.black)
-                            .font(.system(size: UIScreen.main.bounds.width * 0.1, weight: .bold))
-                            .padding(.top, 10)
-                            .padding(.leading, -UIScreen.main.bounds.width * 0.4)
-                        
-                        VStack(alignment: .leading) {
-                            ForEach(viewModel.collections){ collection in
-                                NavigationLink(destination: SummaryCollectionView(collection: collection)) {
-                                    MainCollectionView(collection: collection)
-                                    
+            ZStack(alignment: .bottomTrailing) {
+                ZStack(alignment: .top) {
+                    ScrollView(.vertical, showsIndicators: false) {
+                        VStack {
+                            Text("Home")
+                                .foregroundColor(.black)
+                                .font(.system(size: UIScreen.main.bounds.width * 0.1, weight: .bold))
+                                .padding(.top, 10)
+                                .padding(.leading, -UIScreen.main.bounds.width * 0.4)
+                            
+                            VStack(alignment: .leading) {
+                                ForEach(viewModel.collections){ collection in
+                                    NavigationLink(destination: SummaryCollectionView(collection: collection)) {
+                                        MainCollectionView(collection: collection)
                                         
-                                                    
-
-                                
-                                    
-                                    
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
                                         //.shadow(color: .black.opacity(0.2), radius: 1, x: 6, y: 6)
                                         //.blur(radius: 8, opaque: false)
-                            
-                            
+                                        
+                                        
+                                    }
+                                    Divider().padding(.horizontal)
                                 }
-                                Divider().padding(.horizontal)
+                                
                             }
-                            
+                        }
+                        .overlay(alignment: .top) {
+                            HeaderView()
                         }
                     }
-                    .overlay(alignment: .top) {
-                        HeaderView()
+                    .background(Color.white)
+                    .refreshable {
+                        viewModel.updateHome()
                     }
+                    
                 }
-                .background(Color.white)
-                .refreshable {
-                    viewModel.updateHome()
-                }
+                
 
             }
         }

@@ -15,10 +15,14 @@ struct BookmarkView: View {
         ZStack {
             Color.theme.custombackg.ignoresSafeArea()
             VStack {
-                Text("Favourites")
-                    .font(.title)
-                    .fontWeight(.bold)
-
+                HStack {
+                    Text("Favourites")
+                        .font(.title)
+                        .fontWeight(.bold)
+                    Spacer()
+                }
+                .padding(.leading)
+                
                 ScrollView(.vertical, showsIndicators: false) {
                     ForEach(viewModel.collections) { collections in
                         CollectionView(collection: collections)

@@ -25,7 +25,7 @@ struct MainCollectionView: View {
                 .resizable()
                 .scaledToFit()
                 .clipShape(RoundedRectangle(cornerRadius: 10))
-                .frame(width: 120, height: 120)
+                .frame(width: 100, height: 100)
                 .padding(.leading, 20)
             
             
