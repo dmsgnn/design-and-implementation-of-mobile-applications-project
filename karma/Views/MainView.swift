@@ -41,9 +41,13 @@ struct MainView: View {
                         .setTabBarBackground(color: Color("BG"))
                         .tag(Tab.search)
                     
+                 
+                    
+            
                     UploadCollectionView()
                         .setTabBarBackground(color: Color("BG"))
                         .tag(Tab.post)
+                    
                     
                     BookmarkView()
                         .setTabBarBackground(color: Color("BG"))

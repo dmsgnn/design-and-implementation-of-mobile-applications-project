@@ -11,7 +11,8 @@ class SearchViewModel: ObservableObject {
     @Published var users = [User]()
     @Published var searchText = ""
     @Published var collections = [Collection]()
-    
+    let userService = UserService()
+    let collectionService = CollectionService()
     
     var searchableCollections: [Collection] {
         if searchText.isEmpty {
@@ -41,8 +42,7 @@ class SearchViewModel: ObservableObject {
         }
     }
         
-    let userService = UserService()
-    let collectionService = CollectionService()
+    
     
     init() {
         fetchUsers()

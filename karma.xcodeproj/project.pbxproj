@@ -50,6 +50,7 @@
 		E34C9B2D2966F03100E8FC5E /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34C9B2C2966F03100E8FC5E /* SearchBar.swift */; };
 		E34C9B2F2967119400E8FC5E /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34C9B2E2967119400E8FC5E /* SearchViewModel.swift */; };
 		E34C9B312967188600E8FC5E /* FilterSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34C9B302967188600E8FC5E /* FilterSearchViewModel.swift */; };
+		E34D957029850FD300546A93 /* MainCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34D956F29850FD300546A93 /* MainCollectionView.swift */; };
 		E351CC1F297BDC4E00E74228 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E351CC1E297BDC4D00E74228 /* EditProfileView.swift */; };
 		E351CC21297BE1DB00E74228 /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E351CC20297BE1DB00E74228 /* EditProfileViewModel.swift */; };
 		E35215FA293F399F0074B787 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35215F9293F399F0074B787 /* RegistrationView.swift */; };
@@ -138,6 +139,7 @@
 		E34C9B2C2966F03100E8FC5E /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		E34C9B2E2967119400E8FC5E /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		E34C9B302967188600E8FC5E /* FilterSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSearchViewModel.swift; sourceTree = "<group>"; };
+		E34D956F29850FD300546A93 /* MainCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionView.swift; sourceTree = "<group>"; };
 		E351CC1E297BDC4D00E74228 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		E351CC20297BE1DB00E74228 /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
 		E35215F9293F399F0074B787 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
@@ -309,6 +311,7 @@
 				E33547662959AB64003444E0 /* CollectionView.swift */,
 				E32FE35B29641C9E0061C907 /* PaymentButton.swift */,
 				E34C9B2A2966EE0000E8FC5E /* CollectionRowView.swift */,
+				E34D956F29850FD300546A93 /* MainCollectionView.swift */,
 				E34C9B282966EB9000E8FC5E /* UserRowView.swift */,
 				E34C9B2C2966F03100E8FC5E /* SearchBar.swift */,
 				1B3CD7E6298282A5002EF9BF /* iPadCustomInputField.swift */,
@@ -557,6 +560,7 @@
 				E334CDBB295D93E80082FC17 /* CollectionService.swift in Sources */,
 				E35215FC293F3D4F0074B787 /* CustomInputField.swift in Sources */,
 				E3EA3509297FFDD900B01978 /* EditCollectionView.swift in Sources */,
+				E34D957029850FD300546A93 /* MainCollectionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
