@@ -22,7 +22,7 @@ struct RecentUserActivityView: View {
     
     var body: some View {
         HStack(){
-            KFImage(URL(string: viewModel.payment.receiver?.profileImageUrl ?? ""))
+            KFImage(isPositive ? URL(string: viewModel.payment.sender?.profileImageUrl ?? "") : URL(string: viewModel.payment.receiver?.profileImageUrl ?? ""))
                 .resizable()
                 .scaledToFill()
                 .clipShape(Circle())

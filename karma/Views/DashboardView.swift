@@ -32,60 +32,20 @@ struct DashboardView: View {
                         VStack(alignment: .leading) {
                             ForEach(viewModel.collections){ collection in
                                 NavigationLink(destination: SummaryCollectionView(collection: collection)) {
+                                    MainCollectionView(collection: collection)
                                     
-                                    HStack(spacing: UIScreen.main.bounds.width * 0.1){
                                         
-                                        KFImage(URL(string: collection.collectionImageUrl))
-                                            .resizable()
-                                            .scaledToFill()
-                                            .clipShape(Circle())
-                                            .frame(width: 80, height: 80)
-                                            .padding(.leading, 20)
-                                            
-                                        VStack(alignment: .leading) {
-                                            Text(collection.title)
-                                                .font(.title2)
-                                                .fontWeight(.semibold)
-                                                .padding(.bottom, 2)
-                                                .lineLimit(1)
-                                                .foregroundColor(.black)
-                                            
-                                            Text(collection.caption)
-                                                .font(.subheadline)
-                                                .fontWeight(.semibold)
-                                                .foregroundColor(Color(.black))
-                                                .lineLimit(2)
-                                                .multilineTextAlignment(.leading)
-                                        }
-                                        .padding(.vertical)
-                                        .frame(maxWidth: .infinity, alignment: .leading)
-                                        
+                                                    
 
-                                        Text("\(collection.currentAmount / collection.amount * 100, specifier: "%.1f") %")
-                                            .font(.title2)
-                                            .fontWeight(.semibold)
-                                            .padding(.trailing, 20)
-                                            .foregroundColor(.black)
-                                        
-//                                        ProgressBar(progress: (collection.currentAmount / collection.amount * 100))
-//                                            .frame(width: 30.0, height: 30.0)
-                                        
-                                        //.offset(y: -14)
-                                    }
-                                    .frame(width: UIScreen.main.bounds.width * 0.95, height: UIScreen.main.bounds.width * 0.35)
-                                    .background(Color(.white)
+                                
+                                    
+                                    
                                         //.shadow(color: .black.opacity(0.2), radius: 1, x: 6, y: 6)
                                         //.blur(radius: 8, opaque: false)
-                                    )
-                                    .clipShape(RoundedRectangle(cornerRadius: 45))
-                                    .padding(.bottom, UIScreen.main.bounds.width * 0.01)
-                                    .shadow(
-                                        color: Color.gray.opacity(0.15),
-                                        radius: screenHeight * 0.02,
-                                        x: 0,
-                                        y: 0
-                                    )
+                            
+                            
                                 }
+                                Divider().padding(.horizontal)
                             }
                             
                         }

@@ -6,9 +6,13 @@
 //
 import Foundation
 
-final class DashboardViewModel: ObservableObject {
+class DashboardViewModel: ObservableObject {
+    
     @Published var collections = [Collection]()
+    @Published var users = [User]()
     private let service = CollectionService()
+    let userService = UserService()
+    
     
     init() {
         self.updateHome()
@@ -19,7 +23,10 @@ final class DashboardViewModel: ObservableObject {
         service.fetchCollections() { collections in
             self.collections = collections
             for i in 0 ..< collections.count {
-                self.collections[i] = collections[i]
+                let uid = collections[i].uid
+                self.userService.fetchUser(withUid: uid) { user in
+                    self.collections[i].user = user
+                }
             }
         }
     }
