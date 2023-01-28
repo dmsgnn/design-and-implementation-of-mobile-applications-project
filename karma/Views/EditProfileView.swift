@@ -58,6 +58,7 @@ struct EditProfileView: View {
                         Text("Name:")
                             .padding(.trailing)
                         TextField(viewModel.user.fullname, text: $fullname)
+                            .accessibility(identifier: "editName")
   
                     }
                     Divider()
@@ -67,6 +68,7 @@ struct EditProfileView: View {
                         Text("Username:")
                             .padding(.trailing)
                         TextField(viewModel.user.username, text: $username).textInputAutocapitalization(.never).textCase(.lowercase)
+                            .accessibility(identifier: "editUsername")
                         
                     }
                     
@@ -110,6 +112,7 @@ struct EditProfileView: View {
                             Text("Done")
                                 .bold()
                         }
+                        .accessibility(identifier: "editDone")
                     }
             
                 

@@ -130,6 +130,8 @@
 		1B78B1B0298417AB00268661 /* karmaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD8C246293E5D6100F1B32A /* karmaApp.swift */; };
 		1B78B1B129841A6D00268661 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E35215FF293F4F900074B787 /* GoogleService-Info.plist */; };
 		1B78B1B229841A7400268661 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E35215FF293F4F900074B787 /* GoogleService-Info.plist */; };
+		1B81758729858D75006EE2BA /* MainCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34D956F29850FD300546A93 /* MainCollectionView.swift */; };
+		1B81758829858D76006EE2BA /* MainCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34D956F29850FD300546A93 /* MainCollectionView.swift */; };
 		1B83CE48297F298D00FCEAC4 /* ImageUploaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B83CE47297F298D00FCEAC4 /* ImageUploaderView.swift */; };
 		1BCB44C42969E27300205BC1 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCB44C32969E27300205BC1 /* MainView.swift */; };
 		1BD8C247293E5D6100F1B32A /* karmaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD8C246293E5D6100F1B32A /* karmaApp.swift */; };
@@ -268,10 +270,6 @@
 		E36EFC51295EE12100301ED4 /* CollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewModel.swift; sourceTree = "<group>"; };
 		E378A41E2940E29A001CE2E2 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		E378A4212941135A001CE2E2 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
-
-		E39A023029731630005CE413 /* ImageUploaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageUploaderView.swift; path = "../../../../iCloud Drive (archivio)/Documents/DIMA-Project/DIMA-Project2/karma/Views/ImageUploaderView.swift"; sourceTree = "<group>"; };
-
-		E3933AEC298049BD0049D39B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E3A8D0C5295F95B200C029C1 /* Float.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Float.swift; sourceTree = "<group>"; };
 		E3BA1B1D2971D1F8009945A5 /* ActivityCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCollectionViewModel.swift; sourceTree = "<group>"; };
 		E3DDB18A2970AE2C008CE84B /* SummaryCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryCollectionViewModel.swift; sourceTree = "<group>"; };
@@ -731,6 +729,7 @@
 				1B78B17E298417AB00268661 /* ImagePicker.swift in Sources */,
 				1B78B17F298417AB00268661 /* PaymentHandler.swift in Sources */,
 				1B78B180298417AB00268661 /* CustomInputField.swift in Sources */,
+				1B81758729858D75006EE2BA /* MainCollectionView.swift in Sources */,
 				1B78B181298417AB00268661 /* RecentUserActivityView.swift in Sources */,
 				1B78B182298417AB00268661 /* ActivityCollectionView.swift in Sources */,
 				1B78B183298417AB00268661 /* CollectionView.swift in Sources */,
@@ -840,6 +839,7 @@
 				1B78B15F2984168B00268661 /* karmaApp.swift in Sources */,
 				1BD8C262293E5D6300F1B32A /* karmaUITests.swift in Sources */,
 				1BD8C264293E5D6300F1B32A /* karmaUITestsLaunchTests.swift in Sources */,
+				1B81758829858D76006EE2BA /* MainCollectionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
