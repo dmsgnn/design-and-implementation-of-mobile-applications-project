@@ -43,6 +43,7 @@ struct ImageUploaderView: View {
             .sheet(isPresented: $showImagePicker, onDismiss: loadImage) {
                 ImagePicker(selectedImage: $selectedImage)
             }
+            .accessibility(identifier: "uploadProfileImage")
             
             if let selectedImage = selectedImage {
                 Button {
@@ -55,6 +56,7 @@ struct ImageUploaderView: View {
                         .background(Color.theme.dark)
                         .clipShape(RoundedRectangle(cornerRadius: 15))
                 }
+                .accessibility(identifier: "continueAfterImageUpload")
             }
         }
     }
