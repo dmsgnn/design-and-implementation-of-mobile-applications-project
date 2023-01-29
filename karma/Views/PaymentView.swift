@@ -14,11 +14,11 @@ struct PaymentView: View {
     private var euros = [Int](0..<10000)
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var viewModel: CollectionViewModel
-    @ObservedObject var paymentViewModel = PaymentViewModel()
+    @ObservedObject var paymentViewModel = PaymentViewModel(service: PaymentService())
 
     
     init(collection: Collection) {
-        self.viewModel = CollectionViewModel(collection: collection)
+        self.viewModel = CollectionViewModel(collection: collection, service: CollectionService())
     }
     
     var body: some View {

@@ -31,7 +31,7 @@ struct MainView: View {
                     GeometryReader{
                         let safeArea = $0.safeAreaInsets
                         let size = $0.size
-                        DashboardView(viewModel: DashboardViewModel(), safeArea: safeArea, size: size)
+                        DashboardView(viewModel: DashboardViewModel(userService: UserService(), service: CollectionService()), safeArea: safeArea, size: size)
                             .ignoresSafeArea(.container, edges: .top)
                             .setTabBarBackground(color: Color("BG"))
                             .tag(Tab.home)

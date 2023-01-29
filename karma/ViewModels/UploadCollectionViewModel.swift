@@ -12,7 +12,11 @@ import Firebase
 class UploadCollectionViewModel: ObservableObject {
     
     @Published var didUploadCollection = false
-    let service = CollectionService()
+    let service : CollectionServiceProtocol
+    
+    init(service : CollectionServiceProtocol){
+        self.service = service
+    }
     
     
     func uploadCollection(withTitle title: String, withCaption caption: String, withAmount amount: Float, withImage image: UIImage) {

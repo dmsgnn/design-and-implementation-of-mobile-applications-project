@@ -15,7 +15,7 @@ struct RecentUserActivityView: View {
 
     
     init(payment: Payment, isPositive: Bool) {
-        self.viewModel = RecentUserActivityViewModel(payment: payment)
+        self.viewModel = RecentUserActivityViewModel(payment: payment, userService: UserService(), service: PaymentService(), collectionService: CollectionService())
         self.isPositive = isPositive
     }
     

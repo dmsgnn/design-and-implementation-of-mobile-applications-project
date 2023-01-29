@@ -12,11 +12,12 @@ import FirebaseFirestore
 
 class EditCollectionViewModel: ObservableObject {
     
-    private let service = CollectionService()
+    private let service : CollectionServiceProtocol
     @Published var didEditCollection = false
     let collection: Collection
     
-    init(collection: Collection) {
+    init(collection: Collection, service: CollectionServiceProtocol) {
+        self.service = service
         self.collection = collection
     }
     

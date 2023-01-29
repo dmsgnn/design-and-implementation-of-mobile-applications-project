@@ -9,15 +9,16 @@ import Foundation
 
 class SummaryCollectionViewModel: ObservableObject {
     
-    private let service = CollectionService()
+    private let service : CollectionServiceProtocol
     @Published var collection: Collection
 
     
     private let paymentService = PaymentService()
     @Published var payments = [Payment]()
     
-    init(collection: Collection) {
+    init(collection: Collection, service: CollectionServiceProtocol) {
         self.collection = collection
+        self.service = service
         
         self.fetchPaymentsForCollection()
         checkIfUserLikedCollection()

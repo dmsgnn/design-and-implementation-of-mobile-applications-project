@@ -12,11 +12,13 @@ import FirebaseFirestore
 
 class EditProfileViewModel: ObservableObject {
     
-    private let service = UserService()
+    private let service : UserServiceProtocol
     @Published var didEditProfile = false
     let user: User
     
-    init(user: User) {
+    init(user: User, service : UserServiceProtocol) {
+        self.service = service
+        
         self.user = user
     }
     

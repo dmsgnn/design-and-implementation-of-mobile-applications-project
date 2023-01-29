@@ -18,10 +18,10 @@ struct SummaryCollectionView: View {
     
     @State private var showPaymentView = false
     @ObservedObject var viewModel: SummaryCollectionViewModel
-    @ObservedObject var authViewModel = AuthViewModel()
+    @ObservedObject var authViewModel = AuthViewModel(service: UserService())
     
     init(collection: Collection){
-        self.viewModel = SummaryCollectionViewModel(collection: collection)
+        self.viewModel = SummaryCollectionViewModel(collection: collection, service: CollectionService())
     }
     
     var body: some View {

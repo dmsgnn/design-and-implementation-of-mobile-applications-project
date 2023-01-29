@@ -156,7 +156,7 @@ struct DashboardView_Previews : PreviewProvider {
         GeometryReader{
             let safeArea = $0.safeAreaInsets
             let size = $0.size
-            DashboardView(viewModel: DashboardViewModel(), safeArea: safeArea, size: size)
+            DashboardView(viewModel: DashboardViewModel(userService: UserService(), service: CollectionService()), safeArea: safeArea, size: size)
                 .ignoresSafeArea(.container, edges: .top)
         }
     }

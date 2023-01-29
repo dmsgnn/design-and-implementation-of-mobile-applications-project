@@ -22,7 +22,7 @@ struct ProfileView: View {
     @State private var showEditPage = false
     
     init(user: User) {
-        self.viewModel = ProfileViewModel(user: user)
+        self.viewModel = ProfileViewModel(user: user, userService: UserService(), service: CollectionService(), paymentService: PaymentService())
         viewModel.fetchUserCollections()
     
     }

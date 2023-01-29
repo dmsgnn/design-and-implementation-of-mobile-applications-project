@@ -24,7 +24,7 @@ protocol PaymentServiceProtocol {
     
 }
 
-struct PaymentService {
+struct PaymentService : PaymentServiceProtocol{
     
     func makePayment(destinationId: String, collection: Collection, total: Float, completion: @escaping(Bool) -> Void) {
         guard let uid = Auth.auth().currentUser?.uid else { return }

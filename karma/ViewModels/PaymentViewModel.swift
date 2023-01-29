@@ -12,7 +12,11 @@ import Firebase
 class PaymentViewModel: ObservableObject {
     
     @Published var didMakePayment = false
-    let service = PaymentService()
+    let service : PaymentServiceProtocol
+    
+    init(service: PaymentServiceProtocol){
+        self.service = service
+    }
     
     func makePayment(forCollection collection: Collection, ofAmount euros: Float) {
         let destination = collection.uid

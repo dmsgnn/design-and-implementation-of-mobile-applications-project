@@ -8,16 +8,20 @@
 import Foundation
 
 class RecentUserActivityViewModel: ObservableObject {
-    
-    private let service = PaymentService()
-    private let collectionService = CollectionService()
+
     @Published var payment: Payment
-    private let userService = UserService()
     
+    private let userService : UserServiceProtocol
+    private let service : PaymentServiceProtocol
+    private let collectionService : CollectionServiceProtocol
 
     
-    init(payment: Payment) {
+    init(payment: Payment, userService : UserServiceProtocol, service : PaymentServiceProtocol, collectionService : CollectionServiceProtocol) {
         self.payment = payment
+        self.userService = userService
+        self.service = service
+        self.collectionService = collectionService
+        
         fetchCollectionPayment()
         fetchReceiver()
         fetchSender()

@@ -29,7 +29,7 @@ struct EditCollectionView: View {
 
     
     init(collection: Collection) {
-        self.viewModel = EditCollectionViewModel(collection: collection)
+        self.viewModel = EditCollectionViewModel(collection: collection, service: CollectionService())
     }
     
     var body: some View {

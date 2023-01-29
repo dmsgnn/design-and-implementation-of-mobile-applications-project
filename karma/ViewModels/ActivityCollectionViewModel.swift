@@ -9,11 +9,15 @@ import Foundation
 
 class ActivityCollectionViewModel: ObservableObject {
     
-    private let service = PaymentService()
-    private let userService = UserService()
+    private let service : PaymentServiceProtocol
+    private let userService : UserServiceProtocol
+    
     @Published var payment: Payment
     
-    init(payment: Payment) {
+    init(payment: Payment, service : PaymentServiceProtocol, userService : UserServiceProtocol) {
+        self.service = service
+        self.userService = userService
+        
         self.payment = payment
         self.fetchSenderForPayment()
     }

@@ -17,7 +17,7 @@ protocol UserServiceProtocol {
     func updateUserData(fullname: String, username: String, completion: @escaping(Bool) -> Void)
 }
 
-struct UserService {
+struct UserService : UserServiceProtocol{
     
     func fetchUser(withUid uid: String, completion: @escaping(User) -> Void) {
         Firestore.firestore().collection("users")

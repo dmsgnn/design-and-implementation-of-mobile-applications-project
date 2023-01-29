@@ -9,10 +9,12 @@ import Foundation
 
 class BookmarkViewModel: ObservableObject {
     
-    private let service = CollectionService()
+    private let service : CollectionServiceProtocol
     @Published var collections = [Collection]()
     
-    init() {
+    init(service : CollectionServiceProtocol) {
+        self.service = service
+        
         fetchCollections()
     }
     

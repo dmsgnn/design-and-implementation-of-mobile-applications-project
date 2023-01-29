@@ -13,7 +13,7 @@ import FirebaseStorage
 @main
 struct karmaApp: App {
     
-    @StateObject var viewModel = AuthViewModel()
+    @StateObject var viewModel = AuthViewModel(service: UserService())
     
     init() {
         FirebaseApp.configure()
