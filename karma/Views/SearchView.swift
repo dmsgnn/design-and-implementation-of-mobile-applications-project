@@ -82,6 +82,7 @@ struct SearchView: View {
                         
                     
                 }
+                Spacer().frame(height: 60)
         
                 
             }

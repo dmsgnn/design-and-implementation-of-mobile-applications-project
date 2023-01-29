@@ -13,6 +13,8 @@ struct MainView: View {
     @Namespace var animation
     @State var showTabBar: Bool = true
     
+    @State private var showNewCollectionView = false
+    
     @EnvironmentObject var authViewModel: AuthViewModel
     //    let user : User
     
@@ -35,19 +37,18 @@ struct MainView: View {
                             .ignoresSafeArea(.container, edges: .top)
                             .setTabBarBackground(color: Color("BG"))
                             .tag(Tab.home)
+                        
                     }
                     
                     SearchView()
                         .setTabBarBackground(color: Color("BG"))
                         .tag(Tab.search)
                     
-                 
+                    //                    UploadCollectionView()
+                    //                        .setTabBarBackground(color: Color("BG"))
+                    //                        .tag(Tab.post)
                     
-            
-                    UploadCollectionView()
-                        .setTabBarBackground(color: Color("BG"))
-                        .tag(Tab.post)
-                    
+
                     
                     BookmarkView()
                         .setTabBarBackground(color: Color("BG"))
@@ -70,50 +71,68 @@ struct MainView: View {
                 showTabBar = false
             }
             
-        }
-    }
-        
-        // Custom Tab Bar
-        @ViewBuilder
-        func TabBar()->some View{
-            HStack(spacing: 0){
-                ForEach(Tab.allCases, id: \.rawValue){ tab in
-                    Image(tab.rawValue)
-                        .resizable()
-                        .renderingMode(.template)
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 24, height: 24)
-                        .foregroundColor(currentTab == tab ? .white : .gray.opacity(0.5))
-                        .background(content : {
-                            if(currentTab == tab){
-                                Circle()
-                                    .fill(.black)
-                                    .scaleEffect(2.5)
-                                //.shadow(color: .black.opacity(0.3), radius: 8, x: 5, y: 10)
-                                    .matchedGeometryEffect(id: "TAB", in: animation)
-                            }
-                        })
-                        .frame(maxWidth: .infinity)
-                        .padding(.top, 25)
-                        .padding(.bottom, 10)
-                        .contentShape(Rectangle())
-                        .onTapGesture {
-                            currentTab = tab
-                        }
-                }
+            Button {
+                showNewCollectionView.toggle()
+            } label: {
+                Image(systemName: "plus.circle")
+                    .renderingMode(.template)
+                    .frame(width: 28, height: 28)
+                    .padding()
             }
-            .padding(.horizontal, 15)
-            .animation(.interactiveSpring(response: 0.5, dampingFraction: 0.65, blendDuration: 0.65), value: currentTab)
-            .background{
-                // Custom corner
-                CustomCorner(corners: [.topLeft, .topRight], radius: 25)
-                    .fill(Color(.white))
-                    .ignoresSafeArea()
+            .background(Color(.systemBlue))
+            .foregroundColor(.white)
+            .clipShape(Circle())
+            .padding()
+            .fullScreenCover(isPresented: $showNewCollectionView) {
+                UploadCollectionView()
             }
+            
+            
+            
         }
-        
     }
     
+    // Custom Tab Bar
+    @ViewBuilder
+    func TabBar()->some View{
+        HStack(spacing: 0){
+            ForEach(Tab.allCases, id: \.rawValue){ tab in
+                Image(tab.rawValue)
+                    .resizable()
+                    .renderingMode(.template)
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 24, height: 24)
+                    .foregroundColor(currentTab == tab ? .white : .gray.opacity(0.5))
+                    .background(content : {
+                        if(currentTab == tab){
+                            Circle()
+                                .fill(.black)
+                                .scaleEffect(2.5)
+                            //.shadow(color: .black.opacity(0.3), radius: 8, x: 5, y: 10)
+                                .matchedGeometryEffect(id: "TAB", in: animation)
+                        }
+                    })
+                    .frame(maxWidth: .infinity)
+                    .padding(.top, 25)
+                    .padding(.bottom, 10)
+                    .contentShape(Rectangle())
+                    .onTapGesture {
+                        currentTab = tab
+                    }
+            }
+        }
+        .padding(.horizontal, 15)
+        .animation(.interactiveSpring(response: 0.5, dampingFraction: 0.65, blendDuration: 0.65), value: currentTab)
+        .background{
+            // Custom corner
+            CustomCorner(corners: [.topLeft, .topRight], radius: 25)
+                .fill(Color(.white))
+                .ignoresSafeArea()
+        }
+    }
+    
+}
+
 
 struct MainView_Previews : PreviewProvider {
     static var previews: some View {
@@ -123,14 +142,14 @@ struct MainView_Previews : PreviewProvider {
 
 extension View{
     func showTabBar(){
-//        NotificationCenter.default.post(name: NSNotification.Name("SHOWTABBAR"), object: nil)
+        //        NotificationCenter.default.post(name: NSNotification.Name("SHOWTABBAR"), object: nil)
         NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "SHOWTABBAR"),object: nil))
-
-
+        
+        
     }
     
     func hideTabBar(){
-//        NotificationCenter.default.post(name: NSNotification.Name("HIDETABBAR"), object: nil)
+        //        NotificationCenter.default.post(name: NSNotification.Name("HIDETABBAR"), object: nil)
         NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "HIDETABBAR"),object: nil))
     }
     
