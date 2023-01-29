@@ -150,8 +150,10 @@ struct ProfileView: View {
 //                }
                 
                 
-            }
-   
+        }
+        .onTapGesture {
+            hideTabBar()
+        }
         
         }
     }

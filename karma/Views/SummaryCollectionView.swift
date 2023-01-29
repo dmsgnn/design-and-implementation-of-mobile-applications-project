@@ -136,7 +136,7 @@ struct SummaryCollectionView: View {
 //                        Spacer()
                         
                     }
-                    Spacer().frame(height: 60)
+                    
                     
                 }
                 .refreshable {
