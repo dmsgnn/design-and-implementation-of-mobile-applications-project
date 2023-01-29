@@ -12,6 +12,18 @@ import SwiftUI
 import FirebaseDatabase
 import FirebaseFirestore
 
+protocol PaymentServiceProtocol {
+    
+    func makePayment(destinationId: String, collection: Collection, total: Float, completion: @escaping(Bool) -> Void)
+    
+    func fetchPaymentsForCollection(forCid cid: String, completion:@escaping([Payment]) -> Void)
+    
+    func fetchPaymentsForSender(forUid uid: String, completion: @escaping([Payment]) -> Void)
+    
+    func fetchPaymentsForReceiver(forUid uid: String, completion: @escaping([Payment]) -> Void)
+    
+}
+
 struct PaymentService {
     
     func makePayment(destinationId: String, collection: Collection, total: Float, completion: @escaping(Bool) -> Void) {

@@ -9,6 +9,14 @@ import UIKit
 import Firebase
 import FirebaseStorage
 
+protocol ImageUploaderProtocol {
+    
+    static func uploadImage(image: UIImage, completion: @escaping(String) -> Void)
+    
+    static func uploadCollectionImage(image: UIImage, completion: @escaping(String) -> Void)
+    
+}
+
 struct ImageUploader {
     
     static func uploadImage(image: UIImage, completion: @escaping(String) -> Void) {
