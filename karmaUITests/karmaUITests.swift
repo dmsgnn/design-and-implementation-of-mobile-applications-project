@@ -55,7 +55,7 @@ final class karmaUITests: XCTestCase {
         let emailTextField = app.textFields["email"]
         XCTAssertTrue(emailTextField.exists)
         emailTextField.tap()
-        emailTextField.typeText("UITest7@gmail.com")
+        emailTextField.typeText("UITest123@gmail.com")
         
         let passwordSecureTextField = app.secureTextFields["password"]
         XCTAssertTrue(passwordSecureTextField.exists)
@@ -107,9 +107,10 @@ final class karmaUITests: XCTestCase {
         sleep(2)
         
         // MARK: New collection
-        let addNewCollectionButton = app.images["plus"]
+        let addNewCollectionButton = app.buttons["addNewCollection"]
+        XCTAssertTrue(addNewCollectionButton.exists)
         addNewCollectionButton.tap()
-        sleep(1)
+        sleep(5)
         
         // collection image upload button not found, to check
         let uploadCollectionPhotoButton = app.buttons["collectionImageUpload"]
