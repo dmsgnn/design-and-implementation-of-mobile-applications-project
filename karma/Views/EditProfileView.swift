@@ -92,6 +92,9 @@ struct EditProfileView: View {
                 ToolbarItem(placement: ToolbarItemPlacement.navigationBarLeading) {
                     Button {
                         presentationMode.wrappedValue.dismiss()
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.05){
+                            showTabBar()
+                        }
                     } label: {
                         Text("Cancel")
                             .foregroundColor(.black)
@@ -107,7 +110,9 @@ struct EditProfileView: View {
                             } else {
                                 viewModel.updateUserData(fullname: fullname, username: username)
                             }
-                        
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.05){
+                                showTabBar()
+                            }
                         } label: {
                             Text("Done")
                                 .bold()

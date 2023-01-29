@@ -119,6 +119,9 @@ struct UploadCollectionView: View {
                 ToolbarItem(placement: ToolbarItemPlacement.navigationBarLeading) {
                     Button {
                         presentationMode.wrappedValue.dismiss()
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.05){
+                            showTabBar()
+                        }
                     } label: {
                         Text("Cancel")
                             .foregroundColor(.black)
@@ -160,6 +163,9 @@ struct UploadCollectionView: View {
                 if success {
                     print("\(eurosSel)")
                     presentationMode.wrappedValue.dismiss()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.05){
+                        showTabBar()
+                    }
                 }
             }
         }

@@ -118,6 +118,7 @@ struct ProfileView: View {
                                         role: .destructive,
                                         action: {
                                             authViewModel.signOut()
+                                            hideTabBar()
                                         }, label: {
                                             Label("Sign out", systemImage: "rectangle.portrait.and.arrow.right")
                                         }
@@ -151,10 +152,6 @@ struct ProfileView: View {
                 
                 
         }
-        .onTapGesture {
-            hideTabBar()
-        }
-        
         }
     }
 //}
