@@ -16,7 +16,7 @@ struct ProfileView: View {
     @EnvironmentObject var authViewModel: AuthViewModel
     
     @ObservedObject var viewModel: ProfileViewModel
-    @State var showHeaderBar = false
+//    @State var showHeaderBar = false
     @State var time = Timer.publish(every: 0.1, on: .current, in: .tracking).autoconnect()
     @State private var showNewCollectionView = false
     @State private var showEditPage = false
@@ -133,27 +133,27 @@ struct ProfileView: View {
                             }
                         }
                         
-                        
                     }
-            
                     .navigationBarBackButtonHidden(true)
                     .foregroundColor(.black)
                 
-                if self.showHeaderBar {
-                    HStack {
-                        Spacer()
-                        Text(viewModel.user.username)
-                            .font(.title3)
-                            .fontWeight(.semibold)
-                        Spacer()
-                    }
-                    .padding(.bottom)
-                    .background(Color.theme.custombackg)
-                }
+//                if self.showHeaderBar {
+//                    HStack {
+//                        Spacer()
+//                        Text(viewModel.user.username)
+//                            .font(.title3)
+//                            .fontWeight(.bold)
+//                        Spacer()
+//                    }
+//                    .padding(.bottom)
+//                    .background(Color.theme.custombackg)
+//                }
                 
                 
-            }
-   
+        }
+        .onTapGesture {
+            hideTabBar()
+        }
         
         }
     }
@@ -280,7 +280,9 @@ extension ProfileView {
 //                    RecentUserActivityView(payment: payment, isPositive: payment.isPositive ?? false)
 //                }
             }
+            Spacer().frame(height: 60)
         }
+        
     }
     
 }
