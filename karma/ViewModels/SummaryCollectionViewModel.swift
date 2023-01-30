@@ -13,10 +13,11 @@ class SummaryCollectionViewModel: ObservableObject {
     @Published var collection: Collection
 
     
-    private let paymentService = PaymentService()
+    private let paymentService : PaymentServiceProtocol
     @Published var payments = [Payment]()
     
-    init(collection: Collection, service: CollectionServiceProtocol) {
+    init(collection: Collection, service: CollectionServiceProtocol, paymentService: PaymentServiceProtocol) {
+        self.paymentService = paymentService
         self.collection = collection
         self.service = service
         

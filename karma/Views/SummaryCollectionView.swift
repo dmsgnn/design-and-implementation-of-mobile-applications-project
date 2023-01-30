@@ -21,7 +21,7 @@ struct SummaryCollectionView: View {
     @ObservedObject var authViewModel = AuthViewModel(service: UserService(), uploader: ImageUploader())
     
     init(collection: Collection){
-        self.viewModel = SummaryCollectionViewModel(collection: collection, service: CollectionService())
+        self.viewModel = SummaryCollectionViewModel(collection: collection, service: CollectionService(), paymentService: PaymentService())
     }
     
     var body: some View {
@@ -45,6 +45,7 @@ struct SummaryCollectionView: View {
                                 Text(viewModel.collection.title)
                                     .font(.title2)
                                     .fontWeight(.semibold)
+                                    .id("title")
                                 
                                 
                                 Text(viewModel.collection.user?.username ?? "")

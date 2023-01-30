@@ -13,6 +13,7 @@ import FirebaseFirestore
 import FirebaseFirestoreSwift
 import FirebaseStorage
 import Combine
+import ViewInspector
 
 final class karmaTests: XCTestCase {
     
@@ -20,15 +21,15 @@ final class karmaTests: XCTestCase {
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
 //        print("Setting up Firebase emulator localhost:8080")
-//        FirebaseApp.configure()
-//        Auth.auth().useEmulator(withHost: "127.0.0.1", port: 9099)
-//        Storage.storage().useEmulator(withHost: "127.0.0.1", port: 9199)
-//        //Firestore.firestore().useEmulator(withHost: "127.0.0.1", port: 8080)
-//        let settings = Firestore.firestore().settings
-//        settings.host = "127.0.0.1:8080"
-//        settings.isPersistenceEnabled = false
-//        settings.isSSLEnabled = false
-//        Firestore.firestore().settings = settings
+        FirebaseApp.configure()
+        Auth.auth().useEmulator(withHost: "127.0.0.1", port: 9099)
+        Storage.storage().useEmulator(withHost: "127.0.0.1", port: 9199)
+        //Firestore.firestore().useEmulator(withHost: "127.0.0.1", port: 8080)
+        let settings = Firestore.firestore().settings
+        settings.host = "127.0.0.1:8080"
+        settings.isPersistenceEnabled = false
+        settings.isSSLEnabled = false
+        Firestore.firestore().settings = settings
         
     }
     
@@ -160,8 +161,52 @@ final class karmaTests: XCTestCase {
 
         XCTAssertEqual(profileVM.sentPayments.count, 1)
         XCTAssertEqual(profileVM.receivedPayments.count, 1)
-
+    }
+    
+    func testBookmark(){
+        let collectionService = CollectionServiceMock()
+        let paymentS = PaymentServiceMock()
+        let bookmarkVM = BookmarkViewModel(service: collectionService)
         
+        bookmarkVM.fetchCollections()
+        XCTAssertEqual(bookmarkVM.collections.count, 0)
+        
+        let collection = Collection(id : "c1", title: "Title", caption: "Caption", amount: 20000, currentAmount: 0, favourites: 0, participants: 1, collectionImageUrl: "", timestamp: Timestamp(), uid: "2")
+        let summaryVM = SummaryCollectionViewModel(collection: collection, service: collectionService, paymentService: paymentS)
+        
+        summaryVM.addToFavourite()
+        bookmarkVM.fetchCollections()
+        XCTAssertEqual(bookmarkVM.collections.count, 1)
+        XCTAssertEqual(bookmarkVM.collections[0].id, "c1")
+    }
+    
+    func testFetchCollection(){
+        let collectionService = CollectionServiceMock()
+        let paymentS = PaymentServiceMock()
+        
+        let collection = Collection(id : "cc1", title: "Title", caption: "Caption", amount: 20000, currentAmount: 0, favourites: 0, participants: 1, collectionImageUrl: "", timestamp: Timestamp(), uid: "2")
+        let uploadVM = UploadCollectionViewModel(service: collectionService, uploader: ImageUploaderMock())
+        let summaryVM = SummaryCollectionViewModel(collection: collection, service: collectionService, paymentService: paymentS)
+        
+        uploadVM.uploadCollection(withTitle: "Title", withCaption: "capr", withAmount: 2000, withImage: UIImage())
+        
+        summaryVM.fetchCollection()
+        XCTAssertEqual(summaryVM.collection.id, "cc1")
+        
+        summaryVM.deleteCollection()
+        XCTAssertEqual(collectionService.collections.count, 0)
         
     }
+    
+    func testCollectionView() throws {
+        let collection = Collection(id : "cc1", title: "coll", caption: "Caption", amount: 20000, currentAmount: 0, favourites: 0, participants: 1, collectionImageUrl: "", timestamp: Timestamp(), uid: "2")
+        
+        let summaryView = SummaryCollectionView(collection: collection)
+        
+        let textView = try summaryView.inspect().find(viewWithId: "title").text()
+        let content = try textView.string()
+        XCTAssertEqual(content, "coll")
+    }
+    
+
 }

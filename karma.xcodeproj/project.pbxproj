@@ -146,6 +146,7 @@
 		1BD8C264293E5D6300F1B32A /* karmaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD8C263293E5D6300F1B32A /* karmaUITestsLaunchTests.swift */; };
 		1BE74F0029675F5A006ACEF0 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE74EFF29675F5A006ACEF0 /* DashboardViewModel.swift */; };
 		1BE74F0229675F83006ACEF0 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE74F0129675F83006ACEF0 /* DashboardView.swift */; };
+		1BEFD5A52988174700E4A93E /* ViewInspector in Frameworks */ = {isa = PBXBuildFile; productRef = 1BEFD5A42988174700E4A93E /* ViewInspector */; };
 		1BF9AAAB2968BFBD007F4B34 /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF9AAAA2968BFBD007F4B34 /* Tab.swift */; };
 		1BF9AAAD2968C2AC007F4B34 /* CustomCornerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF9AAAC2968C2AC007F4B34 /* CustomCornerView.swift */; };
 		E30E1DF62971D09E00B6ABAA /* ActivityCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30E1DF52971D09E00B6ABAA /* ActivityCollectionView.swift */; };
@@ -314,6 +315,7 @@
 				1B78B17D298417A100268661 /* FirebaseStorage in Frameworks */,
 				1B78B173298417A100268661 /* FirebaseAuth in Frameworks */,
 				1B78B17B298417A100268661 /* FirebaseFirestoreSwift in Frameworks */,
+				1BEFD5A52988174700E4A93E /* ViewInspector in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -582,6 +584,7 @@
 				1B78B17A298417A100268661 /* FirebaseFirestoreSwift */,
 				1B78B17C298417A100268661 /* FirebaseStorage */,
 				1B0DD373298557BF002FAB53 /* Kingfisher */,
+				1BEFD5A42988174700E4A93E /* ViewInspector */,
 			);
 			productName = karmaTests;
 			productReference = 1BD8C253293E5D6300F1B32A /* karmaTests.xctest */;
@@ -650,6 +653,7 @@
 			packageReferences = (
 				E3521601293F51B20074B787 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				E36EFC4E295ED26B00301ED4 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				1BEFD5A32988174700E4A93E /* XCRemoteSwiftPackageReference "ViewInspector" */,
 			);
 			productRefGroup = 1BD8C244293E5D6100F1B32A /* Products */;
 			projectDirPath = "";
@@ -1324,6 +1328,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		1BEFD5A32988174700E4A93E /* XCRemoteSwiftPackageReference "ViewInspector" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nalexn/ViewInspector";
+			requirement = {
+				kind = exactVersion;
+				version = 0.9.5;
+			};
+		};
 		E3521601293F51B20074B787 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -1422,6 +1434,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E3521601293F51B20074B787 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		1BEFD5A42988174700E4A93E /* ViewInspector */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1BEFD5A32988174700E4A93E /* XCRemoteSwiftPackageReference "ViewInspector" */;
+			productName = ViewInspector;
 		};
 		E3521602293F51B30074B787 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;

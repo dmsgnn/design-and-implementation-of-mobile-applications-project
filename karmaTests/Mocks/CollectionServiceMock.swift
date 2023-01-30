@@ -29,7 +29,7 @@ class CollectionServiceMock : CollectionServiceProtocol {
     
     func uploadCollection(title: String, caption: String, amount: Float, image: String, completion: @escaping(Bool) -> Void){
         uploadCollectionIsCalled = true
-        var coll = Collection(title: title, caption: caption, amount: amount, currentAmount: 0, favourites: 0, participants: 1, collectionImageUrl: image, timestamp: Timestamp(date: Date()), uid: "1")
+        var coll = Collection(id:"cc1", title: title, caption: caption, amount: amount, currentAmount: 0, favourites: 0, participants: 1, collectionImageUrl: image, timestamp: Timestamp(date: Date()), uid: "1")
         let user = User(id: "1", username: "User", fullname: "Name", profileImageUrl: "", email: "email@gmail.com")
         coll.user = user
         collections.append(coll)
