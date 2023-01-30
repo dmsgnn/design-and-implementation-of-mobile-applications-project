@@ -36,30 +36,54 @@ final class karmaTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
     
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-        
+    func testAddCollectionToFavourites() throws {
         let collection = Collection(title: "Title", caption: "Caption", amount: 20000, currentAmount: 0, favourites: 0, participants: 1, collectionImageUrl: "", timestamp: Timestamp(), uid: "")
         let collectionService = CollectionServiceMock()
         let collectionVM = CollectionViewModel(collection: collection, service: collectionService)
         
+        XCTAssertEqual(collectionService.favourites.count, 0)
         collectionVM.addToFavourite()
         XCTAssertEqual(collectionVM.collection.didLike, true)
         XCTAssertEqual(collectionService.addToFavouriteIsCalled, true)
+        XCTAssertEqual(collectionService.favourites.count, 1)
+    }
+    
+    func testRemoveCollectionFromFavourites(){
+        let collection = Collection(title: "Title", caption: "Caption", amount: 20000, currentAmount: 0, favourites: 0, participants: 1, collectionImageUrl: "", timestamp: Timestamp(), uid: "")
+        let collectionService = CollectionServiceMock()
+        let collectionVM = CollectionViewModel(collection: collection, service: collectionService)
+        
+        // Collection is added to favourites
+        XCTAssertEqual(collectionService.favourites.count, 0)
+        collectionVM.addToFavourite()
+        XCTAssertEqual(collectionVM.collection.didLike, true)
+        XCTAssertEqual(collectionService.addToFavouriteIsCalled, true)
+        XCTAssertEqual(collectionService.favourites.count, 1)
+        
+        // collection is removed from favourites and like is deleted
+        collectionVM.removeFromFavourite()
+        XCTAssertEqual(collectionVM.collection.didLike, false)
+        XCTAssertEqual(collectionService.removeFromFavouriteIsCalled, true)
+        XCTAssertEqual(collectionService.favourites.count, 0)
+    }
+    
+    func testCheckLikedCollection(){
+        let collection = Collection(title: "Title", caption: "Caption", amount: 20000, currentAmount: 0, favourites: 0, participants: 1, collectionImageUrl: "", timestamp: Timestamp(), uid: "")
+        let collectionService = CollectionServiceMock()
+        let collectionVM = CollectionViewModel(collection: collection, service: collectionService)
+        
+        // Collection is added to favourites
+        XCTAssertEqual(collectionService.favourites.count, 0)
+        collectionVM.addToFavourite()
+        XCTAssertEqual(collectionVM.collection.didLike, true)
+        XCTAssertEqual(collectionService.addToFavouriteIsCalled, true)
+        XCTAssertEqual(collectionService.favourites.count, 1)
+        
+        // Collection like is checked
+        collectionVM.checkIfUserLikedCollection()
+        XCTAssertEqual(collectionService.checkIfUserLikedCollectionIsCalled, true)
+        XCTAssertEqual(collectionVM.collection.didLike, true)
+        XCTAssertEqual(collectionService.favourites.count, 1)
 
-        
-        
     }
-    
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-    
 }

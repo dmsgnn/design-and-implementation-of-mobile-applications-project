@@ -29,7 +29,7 @@ class CollectionServiceMock : CollectionServiceProtocol {
     
     func uploadCollection(title: String, caption: String, amount: Float, image: String, completion: @escaping(Bool) -> Void){
         uploadCollectionIsCalled = true
-        var coll = Collection(title: title, caption: caption, amount: amount, currentAmount: 0, favourites: 0, participants: 1, collectionImageUrl: image, timestamp: Timestamp(date: Date()), uid: "")
+        let coll = Collection(title: title, caption: caption, amount: amount, currentAmount: 0, favourites: 0, participants: 1, collectionImageUrl: image, timestamp: Timestamp(date: Date()), uid: "")
         collections.append(coll)
         completion(true)
     }
@@ -116,13 +116,19 @@ class CollectionServiceMock : CollectionServiceProtocol {
         var updated = false
         for i in collections{
             if i.id == collection.id{
-                var c = Collection(id: i.id ,title: title, caption: description, amount: amount, currentAmount: i.currentAmount, favourites: i.favourites, participants: i.participants, collectionImageUrl: i.collectionImageUrl, timestamp: i.timestamp, uid: i.uid)
+                let c = Collection(id: i.id ,title: title, caption: description, amount: amount, currentAmount: i.currentAmount, favourites: i.favourites, participants: i.participants, collectionImageUrl: i.collectionImageUrl, timestamp: i.timestamp, uid: i.uid)
                 collections.remove(at: k)
                 collections.append(c)
                 updated = true
                 break
             }
             k+=1
+        }
+        if updated {
+            completion(true)
+        }
+        else{
+            completion(false)
         }
     }
 }
