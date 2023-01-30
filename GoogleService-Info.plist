@@ -13,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>it.polimi.deepse.demasibucaioni</string>
+	<string>dima.karma</string>
 	<key>PROJECT_ID</key>
 	<string>dima-project-7bd5f</string>
 	<key>STORAGE_BUCKET</key>
