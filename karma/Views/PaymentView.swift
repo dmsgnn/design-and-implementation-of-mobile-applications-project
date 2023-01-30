@@ -27,6 +27,7 @@ struct PaymentView: View {
                 .font(.title2)
                 .fontWeight(.semibold)
                 .padding(.top, 20)
+                .id("amount")
             
             Grid(horizontalSpacing: 20, verticalSpacing: 20) {
                 GridRow {

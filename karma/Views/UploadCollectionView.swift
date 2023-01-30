@@ -49,6 +49,7 @@ struct UploadCollectionView: View {
                                     .font(.title2)
                                     .fontWeight(.semibold)
                                     .foregroundColor(Color(.systemGray))
+                                    .id("photo")
                             }
                             .padding(.bottom, 20)
                             

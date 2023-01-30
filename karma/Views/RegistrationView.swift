@@ -52,6 +52,7 @@ struct RegistrationView: View {
                                 .font(.largeTitle)
                                 .fontWeight(.bold)
                                 .foregroundColor(Color.theme.dark)
+                                .id("titleipad")
                         }
                         
                         if !orientation.isLandscape{
@@ -167,7 +168,7 @@ struct RegistrationView: View {
                             .foregroundColor(Color.theme.dark)
                             .padding(.leading, screenHeight*0.02)
                             .padding(.bottom, screenHeight*0.04)
-                    
+                            .id("title")
                     
                     VStack(spacing: screenHeight*0.035) {
                         

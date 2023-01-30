@@ -24,6 +24,7 @@ class UserServiceMock : UserServiceProtocol {
         }
         else{
             let u = User(id: "1", username: "User", fullname: "Name", profileImageUrl: "", email: "email@gmail.com")
+            users.append(u)
             completion(u)
         }
     }

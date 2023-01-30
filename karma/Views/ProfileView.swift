@@ -62,6 +62,7 @@ struct ProfileView: View {
                                     Text("\(viewModel.user.username)")
                                         .font(.title2)
                                         .fontWeight(.semibold)
+                                        .id("username")
      
                                 }
                                 .padding(.bottom, 24)
@@ -103,7 +104,7 @@ struct ProfileView: View {
                             Text(viewModel.user.fullname)
                                 .font(.title2)
                                 .fontWeight(.semibold)
-                            
+
                         }
                         if viewModel.user.id == authViewModel.currentUser?.id {
                             ToolbarItem(placement: ToolbarItemPlacement.navigationBarTrailing) {

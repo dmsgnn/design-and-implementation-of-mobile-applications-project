@@ -71,6 +71,7 @@ struct LoginView: View {
                                 .padding(.horizontal)
                                 .padding(.top, -getHeight()*0.04)
                                 .padding(.bottom, getHeight()*0.04)
+                                .id("titlelogipad")
                         }
                         
                         
@@ -162,6 +163,7 @@ struct LoginView: View {
                             .padding(.horizontal)
                             .padding(.top, -screenHeight*0.04)
                             .padding(.bottom, screenHeight*0.04)
+                            .id("titlelog")
                     }
                     
                     
