@@ -252,6 +252,7 @@
 		E3354776295C4088003444E0 /* UploadCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadCollectionView.swift; sourceTree = "<group>"; };
 		E339158B295DE72900945EFA /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		E339158D295DEF3D00945EFA /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImageUploader.swift; path = karma/Utils/ImageUploader.swift; sourceTree = SOURCE_ROOT; };
+		E344688F298805D00029FFEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E34C47F42979AABD00F04937 /* BookmarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkView.swift; sourceTree = "<group>"; };
 		E34C47F62979AACD00F04937 /* BookmarkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkViewModel.swift; sourceTree = "<group>"; };
 		E34C9B222964AB4E00E8FC5E /* SummaryCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryCollectionView.swift; sourceTree = "<group>"; };
@@ -353,6 +354,7 @@
 		1BD8C245293E5D6100F1B32A /* karma */ = {
 			isa = PBXGroup;
 			children = (
+				E344688F298805D00029FFEB /* Info.plist */,
 				E3F51F29297835BF00E66C08 /* karma.entitlements */,
 				E32FE35D296424380061C907 /* karmaDebug.entitlements */,
 				E339158A295DE70700945EFA /* Utils */,
@@ -927,6 +929,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = karma/karma.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -934,7 +937,7 @@
 				DEVELOPMENT_TEAM = C53QNF9SZU;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "";
+				INFOPLIST_FILE = karma/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Karma;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -1111,7 +1114,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_ENTITLEMENTS = karma/karma.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1119,7 +1122,7 @@
 				DEVELOPMENT_TEAM = C53QNF9SZU;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "";
+				INFOPLIST_FILE = karma/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Karma;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -1145,6 +1148,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = karma/karma.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1152,7 +1156,7 @@
 				DEVELOPMENT_TEAM = C53QNF9SZU;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "";
+				INFOPLIST_FILE = karma/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Karma;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
