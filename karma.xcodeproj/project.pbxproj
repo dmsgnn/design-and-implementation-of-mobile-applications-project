@@ -12,6 +12,8 @@
 		1B270ED52986C2DE000FE954 /* CollectionServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B270ED42986C2DE000FE954 /* CollectionServiceMock.swift */; };
 		1B270ED72986C2FE000FE954 /* ImageUploaderMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B270ED62986C2FE000FE954 /* ImageUploaderMock.swift */; };
 		1B270ED92986C30B000FE954 /* PaymentServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B270ED82986C30B000FE954 /* PaymentServiceMock.swift */; };
+		1B270EDC2986CDB4000FE954 /* MainCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34D956F29850FD300546A93 /* MainCollectionView.swift */; };
+		1B270EDD2986CDB4000FE954 /* MainCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34D956F29850FD300546A93 /* MainCollectionView.swift */; };
 		1B3CD7E7298282A5002EF9BF /* iPadCustomInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3CD7E6298282A5002EF9BF /* iPadCustomInputField.swift */; };
 		1B658DBC293F428C00DF06DB /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B658DBB293F428C00DF06DB /* LoginView.swift */; };
 		1B6B3146294520A000779BBE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6B3145294520A000779BBE /* ContentView.swift */; };
@@ -761,6 +763,7 @@
 				1B78B183298417AB00268661 /* CollectionView.swift in Sources */,
 				1B78B184298417AB00268661 /* PaymentButton.swift in Sources */,
 				1B78B185298417AB00268661 /* CollectionRowView.swift in Sources */,
+				1B270EDC2986CDB4000FE954 /* MainCollectionView.swift in Sources */,
 				1B78B186298417AB00268661 /* UserRowView.swift in Sources */,
 				1B78B187298417AB00268661 /* SearchBar.swift in Sources */,
 				1B78B188298417AB00268661 /* iPadCustomInputField.swift in Sources */,
@@ -869,6 +872,7 @@
 				1B78B15F2984168B00268661 /* karmaApp.swift in Sources */,
 				1BD8C262293E5D6300F1B32A /* karmaUITests.swift in Sources */,
 				1BD8C264293E5D6300F1B32A /* karmaUITestsLaunchTests.swift in Sources */,
+				1B270EDD2986CDB4000FE954 /* MainCollectionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

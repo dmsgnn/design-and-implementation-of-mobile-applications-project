@@ -6,8 +6,11 @@
 //
 
 import Foundation
+import Combine
 
 class CollectionServiceMock : CollectionServiceProtocol {
+    
+    @Published private(set) var addToFavouriteIsCalled = false
     
     func uploadCollection(title: String, caption: String, amount: Float, image: String, completion: @escaping(Bool) -> Void){
         
@@ -30,6 +33,8 @@ class CollectionServiceMock : CollectionServiceProtocol {
     }
     
     func addToFavourite(_ collection: Collection, completion: @escaping() -> Void){
+        addToFavouriteIsCalled = true
+        completion()
         
     }
     

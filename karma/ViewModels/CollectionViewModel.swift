@@ -11,7 +11,7 @@ import SwiftUI
 
 class CollectionViewModel: ObservableObject {
     
-    private let service : CollectionServiceProtocol
+     let service : CollectionServiceProtocol
     @Published var collection: Collection
     
 //    let paymentHandler = PaymentHandler()
