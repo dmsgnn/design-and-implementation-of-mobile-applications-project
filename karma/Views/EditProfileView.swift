@@ -24,7 +24,7 @@ struct EditProfileView: View {
     
     
     init(user: User) {
-        self.viewModel = EditProfileViewModel(user: user, service: UserService())
+        self.viewModel = EditProfileViewModel(user: user, service: UserService(), uploader: ImageUploader())
     }
     
     var body: some View {

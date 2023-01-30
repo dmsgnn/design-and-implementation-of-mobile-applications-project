@@ -15,10 +15,11 @@ class EditProfileViewModel: ObservableObject {
     private let service : UserServiceProtocol
     @Published var didEditProfile = false
     let user: User
+    let uploader : ImageUploaderProtocol
     
-    init(user: User, service : UserServiceProtocol) {
+    init(user: User, service : UserServiceProtocol, uploader:ImageUploaderProtocol) {
         self.service = service
-        
+        self.uploader = uploader
         self.user = user
     }
     
@@ -59,7 +60,7 @@ class EditProfileViewModel: ObservableObject {
     
     func editImage(_ image: UIImage) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
-        ImageUploader.uploadImage(image: image) { profileImageUrl in
+        uploader.uploadImage(image: image) { profileImageUrl in
             Firestore.firestore().collection("users").document(uid).updateData(["profileImageUrl": profileImageUrl]) { _ in
                 print(profileImageUrl)
             }

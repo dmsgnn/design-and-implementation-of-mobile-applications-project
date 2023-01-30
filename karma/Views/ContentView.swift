@@ -27,7 +27,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        let myEnvObject = AuthViewModel(service: UserService())
+        let myEnvObject = AuthViewModel(service: UserService(), uploader: ImageUploader())
         ContentView().environmentObject(myEnvObject)
     }
 }

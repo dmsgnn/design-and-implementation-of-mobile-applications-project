@@ -29,7 +29,7 @@ struct EditCollectionView: View {
 
     
     init(collection: Collection) {
-        self.viewModel = EditCollectionViewModel(collection: collection, service: CollectionService())
+        self.viewModel = EditCollectionViewModel(collection: collection, service: CollectionService(), uploader: ImageUploader())
     }
     
     var body: some View {

@@ -18,7 +18,7 @@ struct SummaryCollectionView: View {
     
     @State private var showPaymentView = false
     @ObservedObject var viewModel: SummaryCollectionViewModel
-    @ObservedObject var authViewModel = AuthViewModel(service: UserService())
+    @ObservedObject var authViewModel = AuthViewModel(service: UserService(), uploader: ImageUploader())
     
     init(collection: Collection){
         self.viewModel = SummaryCollectionViewModel(collection: collection, service: CollectionService())

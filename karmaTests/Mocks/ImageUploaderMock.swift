@@ -10,11 +10,11 @@ import SwiftUI
 
 class ImageUploaderMock : ImageUploaderProtocol {
     
-    static func uploadImage(image: UIImage, completion: @escaping(String) -> Void){
-        
+    func uploadImage(image: UIImage, completion: @escaping(String) -> Void){
+        completion("/images")
     }
     
-    static func uploadCollectionImage(image: UIImage, completion: @escaping(String) -> Void){
-        
+    func uploadCollectionImage(image: UIImage, completion: @escaping(String) -> Void){
+        completion("/images")
     }
 }
