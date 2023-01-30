@@ -225,6 +225,75 @@ final class karmaTests: XCTestCase {
         XCTAssertEqual(content, "coll")
     }
     
+    // MARK: EditCollectionViewModel
+    func testUploadCollection (){
+        var collection = Collection(id : "cc1", title: "Title", caption: "Caption", amount: 3000, currentAmount: 0, favourites: 0, participants: 1, collectionImageUrl: "url", timestamp: Timestamp(), uid: "1")
+        let collectionService = CollectionServiceMock()
+        let uploader = ImageUploaderMock()
+        let editCollVM = EditCollectionViewModel(collection: collection, service: collectionService, uploader: uploader)
+        
+        var uploadCollVM = UploadCollectionViewModel(service: collectionService, uploader: uploader)
+        uploadCollVM.uploadCollection(withTitle: "Title", withCaption: "Caption", withAmount: 3000, withImage: UIImage())
+        
+        XCTAssertTrue(uploadCollVM.didUploadCollection)
+        XCTAssertEqual(collectionService.collections.count, 1)
+        XCTAssertEqual(collectionService.collections[0].title, "Title")
+
+        editCollVM.updateCollectionData(title: "NewTitle", description: "NewDescription", amount: 3500)
+        editCollVM.editImage(UIImage())
+        XCTAssertTrue(editCollVM.didEditCollection)
+        XCTAssertEqual(collectionService.collections.count, 1)
+        XCTAssertEqual(collectionService.collections[0].title, "NewTitle")
+    }
+    
+    // MARK: EditProfileVM
+    func testEditUserInfo() {
+        let userService = UserServiceMock()
+        let uploader = ImageUploaderMock()
+        let user = User(id:"1", username: "Username", fullname: "Full", profileImageUrl: "", email: "Mail@gmail.com")
+        let editProfileVM = EditProfileViewModel(user: user, service: userService, uploader: uploader)
+        
+        editProfileVM.editImage(UIImage())
+        editProfileVM.updateUserData(fullname: "NewName", username: "")
+        XCTAssertTrue(editProfileVM.didEditProfile)
+        editProfileVM.updateUserData(fullname: "", username: "username")
+        XCTAssertTrue(editProfileVM.didEditProfile)
+        editProfileVM.updateUserData(fullname: "", username: "")
+        XCTAssertTrue(editProfileVM.didEditProfile)
+        editProfileVM.updateUserData(fullname: "NewName", username: "username")
+        XCTAssertTrue(editProfileVM.didEditProfile)
+    }
+    
+    // MARK: ActivityCollVM
+    func testActivityCollVM (){
+        let payment = Payment(id:"p1", senderId: "1", destinationId: "2", collectionId: "cc1", total: 10, timestamp: Timestamp())
+        let paymentService = PaymentServiceMock()
+        let userService = UserServiceMock()
+        
+        let actVM = ActivityCollectionViewModel(payment: payment, service: paymentService, userService: userService)
+
+        actVM.fetchSenderForPayment()
+        XCTAssertEqual(actVM.payment.sender?.id, "1")
+        XCTAssertEqual(actVM.payment.sender?.email, "email@gmail.com")
+
+    }
+    
+    // MARK: RecentUserActVM
+    func testrecentUserActVM() {
+        let payment = Payment(id:"p1", senderId: "1", destinationId: "2", collectionId: "cc1", total: 10, timestamp: Timestamp())
+        let paymentService = PaymentServiceMock()
+        let userService = UserServiceMock()
+        let collectionService = CollectionServiceMock()
+        
+        let recentUserActVM = RecentUserActivityViewModel(payment: payment, userService: userService, service: paymentService, collectionService: collectionService)
+        
+        XCTAssertEqual(recentUserActVM.payment.collection?.id, "cc1")
+        XCTAssertEqual(recentUserActVM.payment.receiver?.id, "2")
+        XCTAssertEqual(recentUserActVM.payment.sender?.id, "1")
+        
+    }
+    
+    
     
     
     

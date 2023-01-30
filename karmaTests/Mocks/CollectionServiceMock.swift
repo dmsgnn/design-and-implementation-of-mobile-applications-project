@@ -43,7 +43,12 @@ class CollectionServiceMock : CollectionServiceProtocol {
     
     func fetchSingleCollection(forCid cid: String, completion: @escaping(Collection) -> Void){
         fetchSingleCollectionsIsCalled = true
-        completion(collections.first(where: {$0.id == cid})!)
+        for i in collections{
+            if i.uid == cid{
+                completion(i)
+            }
+        }
+        completion(Collection(id:"cc1", title: "TItle", caption: "Caption", amount: 2300, currentAmount: 0, favourites: 0, participants: 1, collectionImageUrl: "", timestamp: Timestamp(), uid: ""))
     }
     
     func fetchCollections(forUid uid: String, completion: @escaping([Collection]) -> Void){

@@ -15,12 +15,17 @@ class UserServiceMock : UserServiceProtocol {
 
     @Published private(set) var users = [User] ()
 
-
     // Return the user for the ProfileViewModel
     func fetchUser(withUid uid: String, completion: @escaping(User) -> Void){
         fetchUserIsCalled = true
-        let u = User(id: "1", username: "User", fullname: "Name", profileImageUrl: "", email: "email@gmail.com")
-        completion(u)
+        if uid == "2"{
+            let u = User(id: "2", username: "Sec", fullname: "Nam", profileImageUrl: "", email: "lem@gmail.com")
+            completion(u)
+        }
+        else{
+            let u = User(id: "1", username: "User", fullname: "Name", profileImageUrl: "", email: "email@gmail.com")
+            completion(u)
+        }
     }
     
     // Return all the registered users for the Search View Model
