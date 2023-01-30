@@ -88,11 +88,15 @@ struct PaymentView: View {
             .pickerStyle(.wheel)
             
             
-            Button {
+            PaymentButton {
                 paymentViewModel.makePayment(forCollection: viewModel.collection, ofAmount: Float(eurosSel))
-            } label: {
-                Text("PAY")
             }
+            .padding()
+//            Button {
+//                paymentViewModel.makePayment(forCollection: viewModel.collection, ofAmount: Float(eurosSel))
+//            } label: {
+//                Text("PAY")
+//            }
         }
         .onReceive(paymentViewModel.$didMakePayment) { success in
             if success {
