@@ -21,6 +21,7 @@ final class karmaTests: XCTestCase {
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
 //        print("Setting up Firebase emulator localhost:8080")
+        if(FirebaseApp.app() == nil){
         FirebaseApp.configure()
         Auth.auth().useEmulator(withHost: "127.0.0.1", port: 9099)
         Storage.storage().useEmulator(withHost: "127.0.0.1", port: 9199)
@@ -30,6 +31,7 @@ final class karmaTests: XCTestCase {
         settings.isPersistenceEnabled = false
         settings.isSSLEnabled = false
         Firestore.firestore().settings = settings
+        }
         
     }
     
@@ -198,7 +200,7 @@ final class karmaTests: XCTestCase {
         
     }
     
-    func testCollectionView() throws {
+    func testSumaryCollectionView() throws {
         let collection = Collection(id : "cc1", title: "coll", caption: "Caption", amount: 20000, currentAmount: 0, favourites: 0, participants: 1, collectionImageUrl: "", timestamp: Timestamp(), uid: "2")
         
         let summaryView = SummaryCollectionView(collection: collection)
@@ -207,6 +209,24 @@ final class karmaTests: XCTestCase {
         let content = try textView.string()
         XCTAssertEqual(content, "coll")
     }
+    
+    func testOwnerSumaryCollectionView() throws {
+        var collection = Collection(id : "cc1", title: "coll", caption: "Caption", amount: 20000, currentAmount: 0, favourites: 0, participants: 1, collectionImageUrl: "", timestamp: Timestamp(), uid: "1")
+        let user = User(id: "1", username: "User", fullname: "Name", profileImageUrl: "", email: "email@gmail.com")
+        collection.user = user
+        
+        let summaryView = SummaryCollectionView(collection: collection)
+        summaryView.authViewModel.currentUser = user
+        
+        XCTAssertEqual(summaryView.viewModel.collection.user?.id, summaryView.authViewModel.currentUser?.id)
+        
+        let textView = try summaryView.inspect().find(viewWithId: "title").text()
+        let content = try textView.string()
+        XCTAssertEqual(content, "coll")
+    }
+    
+    
+    
     
 
 }
