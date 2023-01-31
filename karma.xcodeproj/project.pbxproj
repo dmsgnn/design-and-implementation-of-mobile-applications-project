@@ -130,6 +130,8 @@
 		1B78B1B0298417AB00268661 /* karmaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD8C246293E5D6100F1B32A /* karmaApp.swift */; };
 		1B78B1B129841A6D00268661 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E35215FF293F4F900074B787 /* GoogleService-Info.plist */; };
 		1B78B1B229841A7400268661 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E35215FF293F4F900074B787 /* GoogleService-Info.plist */; };
+		1B81758729858D75006EE2BA /* MainCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34D956F29850FD300546A93 /* MainCollectionView.swift */; };
+		1B81758829858D76006EE2BA /* MainCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34D956F29850FD300546A93 /* MainCollectionView.swift */; };
 		1B83CE48297F298D00FCEAC4 /* ImageUploaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B83CE47297F298D00FCEAC4 /* ImageUploaderView.swift */; };
 		1BCB44C42969E27300205BC1 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCB44C32969E27300205BC1 /* MainView.swift */; };
 		1BD8C247293E5D6100F1B32A /* karmaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD8C246293E5D6100F1B32A /* karmaApp.swift */; };
@@ -740,6 +742,7 @@
 				1B78B17E298417AB00268661 /* ImagePicker.swift in Sources */,
 				1B78B17F298417AB00268661 /* PaymentManager.swift in Sources */,
 				1B78B180298417AB00268661 /* CustomInputField.swift in Sources */,
+				1B81758729858D75006EE2BA /* MainCollectionView.swift in Sources */,
 				1B78B181298417AB00268661 /* RecentUserActivityView.swift in Sources */,
 				1B78B182298417AB00268661 /* ActivityCollectionView.swift in Sources */,
 				1B78B183298417AB00268661 /* CollectionView.swift in Sources */,
@@ -849,6 +852,7 @@
 				1B78B15F2984168B00268661 /* karmaApp.swift in Sources */,
 				1BD8C262293E5D6300F1B32A /* karmaUITests.swift in Sources */,
 				1BD8C264293E5D6300F1B32A /* karmaUITestsLaunchTests.swift in Sources */,
+				1B81758829858D76006EE2BA /* MainCollectionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
