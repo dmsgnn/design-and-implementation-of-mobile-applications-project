@@ -44,6 +44,7 @@ struct CollectionRowView: View {
                 
                 Text("€\(String(collection.currentAmount.formatted(.number.precision(.fractionLength(2))))) of €\(String(collection.amount.formatted(.number.precision(.fractionLength(0)))))")
                     .font(.subheadline).bold()
+                    .id("status")
             }
             
 

@@ -31,7 +31,8 @@ struct DashboardView: View {
                                 .font(.system(size: UIScreen.main.bounds.width * 0.1, weight: .bold))
                                 .padding(.top, 10)
                                 .padding(.leading, -UIScreen.main.bounds.width * 0.4)
-                            
+                                .id("home")
+                                
                             VStack(alignment: .leading) {
                                 ForEach(viewModel.collections){ collection in
                                     NavigationLink(destination: SummaryCollectionView(collection: collection)) {
@@ -56,10 +57,9 @@ struct DashboardView: View {
                     .refreshable {
                         viewModel.updateHome()
                     }
+                    .id("scrollv")
                     
                 }
-                
-
             }
         }
         .onTapGesture {
@@ -99,6 +99,7 @@ struct DashboardView: View {
                 .offset(y: -minY)
             }
             .frame(height: 35)
+            .id("header")
         }
 
 }
@@ -123,41 +124,12 @@ struct DashboardView: View {
 //    }
 //}
 
-struct ProgressBar: View {
-    var progress: Float
-    
-    var body: some View {
-        ZStack {
-            Circle()
-                .stroke(lineWidth: UIScreen.main.bounds.width*0.03)
-                .opacity(0.3)
-                .foregroundColor(Color.gray)
-                .frame(width: UIScreen.main.bounds.width*0.1)
-            
-            Circle()
-                .trim(from: 0.0, to: CGFloat(min(self.progress, 1.0)))
-                .stroke(style: StrokeStyle(lineWidth: UIScreen.main.bounds.width*0.03, lineCap: .round, lineJoin: .round))
-                .foregroundColor(Color.black)
-                .rotationEffect(Angle(degrees: 270.0))
-                .animation(.linear)
-                .frame(width: UIScreen.main.bounds.width*0.1)
-
-
-            Text(String(format: "%.0f %%", min(self.progress, 1.0)*100.0))
-                .font(.headline)
-                .bold()
-                .padding(.top, 80)
-                .foregroundColor(.black)
-        }
-    }
-}
-
 struct DashboardView_Previews : PreviewProvider {
     static var previews: some View {        
         GeometryReader{
             let safeArea = $0.safeAreaInsets
             let size = $0.size
-            DashboardView(viewModel: DashboardViewModel(), safeArea: safeArea, size: size)
+            DashboardView(viewModel: DashboardViewModel(userService: UserService(), service: CollectionService()), safeArea: safeArea, size: size)
                 .ignoresSafeArea(.container, edges: .top)
         }
     }

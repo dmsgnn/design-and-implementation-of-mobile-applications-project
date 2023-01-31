@@ -22,7 +22,7 @@ struct ProfileView: View {
     @State private var showEditPage = false
     
     init(user: User) {
-        self.viewModel = ProfileViewModel(user: user)
+        self.viewModel = ProfileViewModel(user: user, userService: UserService(), service: CollectionService(), paymentService: PaymentService())
         viewModel.fetchUserCollections()
     
     }
@@ -62,6 +62,7 @@ struct ProfileView: View {
                                     Text("\(viewModel.user.username)")
                                         .font(.title2)
                                         .fontWeight(.semibold)
+                                        .id("username")
      
                                 }
                                 .padding(.bottom, 24)
@@ -103,7 +104,7 @@ struct ProfileView: View {
                             Text(viewModel.user.fullname)
                                 .font(.title2)
                                 .fontWeight(.semibold)
-                            
+
                         }
                         if viewModel.user.id == authViewModel.currentUser?.id {
                             ToolbarItem(placement: ToolbarItemPlacement.navigationBarTrailing) {

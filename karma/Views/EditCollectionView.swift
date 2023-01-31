@@ -29,7 +29,7 @@ struct EditCollectionView: View {
 
     
     init(collection: Collection) {
-        self.viewModel = EditCollectionViewModel(collection: collection)
+        self.viewModel = EditCollectionViewModel(collection: collection, service: CollectionService(), uploader: ImageUploader())
     }
     
     var body: some View {
@@ -63,6 +63,7 @@ struct EditCollectionView: View {
                     Text("Title")
                         .font(.headline)
                         .fontWeight(.semibold)
+                        .id("Title")
                     
                     TextField(viewModel.collection.title, text: $title)
                     

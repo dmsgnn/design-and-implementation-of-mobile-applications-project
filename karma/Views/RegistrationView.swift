@@ -19,10 +19,19 @@ struct RegistrationView: View {
     @State private var screenWidth = UIScreen.main.bounds.width
     
     @State private var orientation = UIDevice.current.orientation
-
+    private var ipad : Bool
+    
+    init(test : Bool){
+        if test{
+            ipad = true
+        }
+        else{
+            ipad = UIDevice.isIPad
+        }
+    }
     
     var body: some View {
-        if UIDevice.isIPad{
+        if ipad{
             Group{
                 ZStack {
                     VStack(alignment: .center, spacing: getHeight() * 0.03) {
@@ -52,6 +61,7 @@ struct RegistrationView: View {
                                 .font(.largeTitle)
                                 .fontWeight(.bold)
                                 .foregroundColor(Color.theme.dark)
+                                .id("titleipad")
                         }
                         
                         if !orientation.isLandscape{
@@ -167,7 +177,7 @@ struct RegistrationView: View {
                             .foregroundColor(Color.theme.dark)
                             .padding(.leading, screenHeight*0.02)
                             .padding(.bottom, screenHeight*0.04)
-                    
+                            .id("title")
                     
                     VStack(spacing: screenHeight*0.035) {
                         
@@ -270,6 +280,6 @@ struct RegistrationView: View {
 
 struct RegistrationView_Previews: PreviewProvider {
     static var previews: some View {
-        RegistrationView()
+        RegistrationView(test: false)
     }
 }

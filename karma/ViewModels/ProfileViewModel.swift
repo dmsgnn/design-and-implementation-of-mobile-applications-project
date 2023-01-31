@@ -9,18 +9,21 @@ import Foundation
 
 class ProfileViewModel: ObservableObject {
     @Published var collections = [Collection]()
-    private let service = CollectionService()
+    private let service : CollectionServiceProtocol
     @Published var user: User
-    private let paymentService = PaymentService()
+    private let paymentService : PaymentServiceProtocol
     @Published var sentPayments = [Payment]()
     @Published var receivedPayments = [Payment]()
     @Published var totalPayments = [Payment]()
     @Published var balance: Float = 0.0
-    private let userService = UserService()
+    private let userService : UserServiceProtocol
     
 
     
-    init(user: User) {
+    init(user: User, userService: UserServiceProtocol, service : CollectionServiceProtocol, paymentService : PaymentServiceProtocol) {
+        self.paymentService = paymentService
+        self.userService = userService
+        self.service = service
         self.user = user
         self.fetchUserCollections()
         self.fetchPayments()

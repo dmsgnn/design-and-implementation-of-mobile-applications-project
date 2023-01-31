@@ -8,7 +8,16 @@ import Firebase
 import FirebaseFirestoreSwift
 import FirebaseFirestore
 
-struct UserService {
+protocol UserServiceProtocol {
+    
+    func fetchUser(withUid uid: String, completion: @escaping(User) -> Void)
+    
+    func fetchUsers(completion: @escaping([User]) -> Void)
+    
+    func updateUserData(fullname: String, username: String, completion: @escaping(Bool) -> Void)
+}
+
+struct UserService : UserServiceProtocol{
     
     func fetchUser(withUid uid: String, completion: @escaping(User) -> Void) {
         Firestore.firestore().collection("users")

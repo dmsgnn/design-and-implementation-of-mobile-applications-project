@@ -117,9 +117,11 @@ extension AppDelegate: MessagingDelegate {
 @main
 struct karmaApp: App {
     
+
+    @StateObject var viewModel = AuthViewModel(service: UserService(), uploader: ImageUploader())
+
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
-    @StateObject var viewModel = AuthViewModel()
     
     init() {
 //        FirebaseApp.configure()

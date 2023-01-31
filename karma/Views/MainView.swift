@@ -33,7 +33,7 @@ struct MainView: View {
                     GeometryReader{
                         let safeArea = $0.safeAreaInsets
                         let size = $0.size
-                        DashboardView(viewModel: DashboardViewModel(), safeArea: safeArea, size: size)
+                        DashboardView(viewModel: DashboardViewModel(userService: UserService(), service: CollectionService()), safeArea: safeArea, size: size)
                             .ignoresSafeArea(.container, edges: .top)
                             .setTabBarBackground(color: Color("BG"))
                             .tag(Tab.home)
@@ -61,6 +61,7 @@ struct MainView: View {
                 TabBar()
                     .offset(y: showTabBar ? 0 : 130)
                     .animation(.interactiveSpring(response: 0.6, dampingFraction: 0.7, blendDuration: 0.7), value: showTabBar)
+                    .id("tabbar")
             }
             .ignoresSafeArea(.keyboard, edges: .bottom)
             .onReceive(NotificationCenter.default.publisher(for: .init("SHOWTABBAR"))

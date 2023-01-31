@@ -15,11 +15,14 @@ class AuthViewModel: ObservableObject {
     //to store the user session
     @Published var userSession: FirebaseAuth.User?
     @Published var didAuthenticateUser = false
-    private let service = UserService()
+    private let service : UserServiceProtocol
     @Published var currentUser: User?
     private var tempUserSession: FirebaseAuth.User?
+    let uploader : ImageUploaderProtocol
     
-    init() {
+    init(service: UserServiceProtocol, uploader: ImageUploaderProtocol) {
+        self.uploader = uploader
+        self.service = service
         self.userSession = Auth.auth().currentUser
         self.fetchUser() 
         
@@ -87,7 +90,7 @@ class AuthViewModel: ObservableObject {
     func uploadImage(_ image: UIImage) {
         guard let uid = tempUserSession?.uid else { return }
         
-        ImageUploader.uploadImage(image: image) { profileImageUrl in
+        uploader.uploadImage(image: image) { profileImageUrl in
             Firestore.firestore().collection("users")
                 .document(uid)
                 .updateData(["profileImageUrl": profileImageUrl]) { _ in

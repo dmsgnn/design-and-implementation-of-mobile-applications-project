@@ -11,8 +11,16 @@ class SearchViewModel: ObservableObject {
     @Published var users = [User]()
     @Published var searchText = ""
     @Published var collections = [Collection]()
-    let userService = UserService()
-    let collectionService = CollectionService()
+    
+    let userService  : UserServiceProtocol
+    let collectionService : CollectionServiceProtocol
+    
+    init(userService : UserServiceProtocol, collectionService : CollectionServiceProtocol){
+        self.userService = userService
+        self.collectionService = collectionService
+        fetchUsers()
+        fetchCollections()
+    }
     
     var searchableCollections: [Collection] {
         if searchText.isEmpty {
@@ -40,13 +48,6 @@ class SearchViewModel: ObservableObject {
                 $0.fullname.lowercased().contains(lowercasedQUery)
             })
         }
-    }
-        
-    
-    
-    init() {
-        fetchUsers()
-        fetchCollections()
     }
     
     func fetchUsers() {

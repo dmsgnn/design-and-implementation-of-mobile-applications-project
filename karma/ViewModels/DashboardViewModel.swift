@@ -10,11 +10,13 @@ class DashboardViewModel: ObservableObject {
     
     @Published var collections = [Collection]()
     @Published var users = [User]()
-    private let service = CollectionService()
-    let userService = UserService()
     
+    private let service : CollectionServiceProtocol
+    let userService : UserServiceProtocol
     
-    init() {
+    init(userService : UserServiceProtocol, service : CollectionServiceProtocol){
+        self.service = service
+        self.userService = userService
         self.updateHome()
     }
     

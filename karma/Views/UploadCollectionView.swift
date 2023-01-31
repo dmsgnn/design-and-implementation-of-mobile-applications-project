@@ -21,7 +21,7 @@ struct UploadCollectionView: View {
     
     @Environment(\.presentationMode) var presentationMode
     
-    @ObservedObject var viewModel = UploadCollectionViewModel()
+    @ObservedObject var viewModel = UploadCollectionViewModel(service: CollectionService(), uploader: ImageUploader())
     @EnvironmentObject var collectionVM: CollectionViewModel
     
     var body: some View {
@@ -49,6 +49,7 @@ struct UploadCollectionView: View {
                                     .font(.title2)
                                     .fontWeight(.semibold)
                                     .foregroundColor(Color(.systemGray))
+                                    .id("photo")
                             }
                             .padding(.bottom, 20)
                             
