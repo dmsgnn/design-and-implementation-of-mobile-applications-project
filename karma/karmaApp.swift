@@ -31,9 +31,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         
         
         Messaging.messaging().delegate = self
-        Messaging.messaging().subscribe(toTopic: "collections") { error in
-            print("Subscribed to weather topic")
-        }
+        
         return true
     }
     
