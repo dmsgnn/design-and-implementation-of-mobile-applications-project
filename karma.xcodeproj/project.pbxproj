@@ -161,7 +161,12 @@
 		E3354777295C4088003444E0 /* UploadCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3354776295C4088003444E0 /* UploadCollectionView.swift */; };
 		E339158C295DE72900945EFA /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E339158B295DE72900945EFA /* ImagePicker.swift */; };
 		E339158E295DEF3D00945EFA /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E339158D295DEF3D00945EFA /* ImageUploader.swift */; };
+
+		E34B6D4C2987D4930016EF88 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = E34B6D4B2987D4930016EF88 /* FirebaseMessaging */; };
+		E34B6D4E2987D4AD0016EF88 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = E34B6D4D2987D4AD0016EF88 /* FirebaseAnalytics */; };
+
 		E34B6D502987D9F70016EF88 /* PaymentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34B6D4F2987D9F70016EF88 /* PaymentHandler.swift */; };
+
 		E34C47F52979AABD00F04937 /* BookmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34C47F42979AABD00F04937 /* BookmarkView.swift */; };
 		E34C47F72979AACD00F04937 /* BookmarkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34C47F62979AACD00F04937 /* BookmarkViewModel.swift */; };
 		E34C9B232964AB4E00E8FC5E /* SummaryCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34C9B222964AB4E00E8FC5E /* SummaryCollectionView.swift */; };
@@ -284,6 +289,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E34B6D4C2987D4930016EF88 /* FirebaseMessaging in Frameworks */,
 				E37273A62969803A007D512E /* FirebaseDatabaseSwift in Frameworks */,
 				E37273A42969802C007D512E /* FirebaseDatabase in Frameworks */,
 				E3521603293F51B30074B787 /* FirebaseAuth in Frameworks */,
@@ -291,6 +297,7 @@
 				E3521605293F51B30074B787 /* FirebaseFirestore in Frameworks */,
 				E3521607293F51B30074B787 /* FirebaseFirestoreSwift in Frameworks */,
 				E36EFC50295ED26B00301ED4 /* Kingfisher in Frameworks */,
+				E34B6D4E2987D4AD0016EF88 /* FirebaseAnalytics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -526,6 +533,8 @@
 				E36EFC4F295ED26B00301ED4 /* Kingfisher */,
 				E37273A32969802C007D512E /* FirebaseDatabase */,
 				E37273A52969803A007D512E /* FirebaseDatabaseSwift */,
+				E34B6D4B2987D4930016EF88 /* FirebaseMessaging */,
+				E34B6D4D2987D4AD0016EF88 /* FirebaseAnalytics */,
 			);
 			productName = karma;
 			productReference = 1BD8C243293E5D6100F1B32A /* karma.app */;
@@ -925,7 +934,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = karma/karmaDebug.entitlements;
+				CODE_SIGN_ENTITLEMENTS = karma/karma.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1110,7 +1119,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = karma/karmaDebug.entitlements;
+				CODE_SIGN_ENTITLEMENTS = karma/karma.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1145,6 +1154,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = karma/karma.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"karma/Preview Content\"";
@@ -1165,6 +1175,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = dima.karma;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1389,6 +1400,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E3521601293F51B20074B787 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		E34B6D4B2987D4930016EF88 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E3521601293F51B20074B787 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
+		E34B6D4D2987D4AD0016EF88 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E3521601293F51B20074B787 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
 		};
 		E3521602293F51B30074B787 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
