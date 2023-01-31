@@ -1,12 +1,12 @@
 {
   "images" : [
     {
-      "filename" : "kLogo-40.png",
+      "filename" : "k-logo-40.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "kLogo-40@2x.png",
+      "filename" : "k-logo-80.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

@@ -39,8 +39,10 @@ class PaymentHandler: NSObject {
         paymentController?.present(completion: { (presented: Bool) in
             if presented {
                 debugPrint("Presented payment controller")
+                completion(true)
             } else {
                 debugPrint("Failed to present payment controller")
+                completion(false)
             }
         })
     }

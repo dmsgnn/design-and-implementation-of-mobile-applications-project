@@ -20,6 +20,7 @@ class PaymentServiceMock : PaymentServiceProtocol {
     @Published private(set) var payments = [Payment] ()
     
     func makePayment(destinationId: String, collection: Collection, total: Float, completion: @escaping(Bool) -> Void){
+        makePaymentIsCalled = true
         if collection.uid != "1"{
             var p = Payment(senderId: "1", destinationId: destinationId, collectionId: collection.id!, total: total, timestamp: Timestamp())
             p.receiver = User(id: "2", username: "User", fullname: "Name", profileImageUrl: "", email: "email@gmail.com")

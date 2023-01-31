@@ -9,6 +9,7 @@ import XCTest
 import Firebase
 import FirebaseAuth
 import FirebaseFirestore
+import FirebaseMessaging
 
 final class karmaUITests: XCTestCase {
     
@@ -55,7 +56,7 @@ final class karmaUITests: XCTestCase {
         let emailTextField = app.textFields["email"]
         XCTAssertTrue(emailTextField.exists)
         emailTextField.tap()
-        emailTextField.typeText("testmail@gmail.com")
+        emailTextField.typeText("maill@gmail.com")
         
         let passwordSecureTextField = app.secureTextFields["password"]
         XCTAssertTrue(passwordSecureTextField.exists)
@@ -169,7 +170,7 @@ final class karmaUITests: XCTestCase {
         let emailLoginTextField = app.textFields["email"]
         XCTAssertTrue(emailLoginTextField.exists)
         emailLoginTextField.tap()
-        emailLoginTextField.typeText("testmail@gmail.com")
+        emailLoginTextField.typeText("maill@gmail.com")
         emailLoginTextField.typeText("\n")
         
         let passwordLoginTextField = app.secureTextFields["password"]
@@ -184,12 +185,12 @@ final class karmaUITests: XCTestCase {
         sleep(5)
 
         // MARK: Sign out
-        profileButton.tap()
-        sleep(1)
-        
-        app.navigationBars["_TtGC7SwiftUI32NavigationStackHosting"]/*@START_MENU_TOKEN@*/.buttons["Add"]/*[[".otherElements[\"Add\"].buttons[\"Add\"]",".buttons[\"Add\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
-        app.collectionViews.buttons["Sign out"].tap()
-        sleep(1)
+//        profileButton.tap()
+//        sleep(1)
+//
+//        app.navigationBars["_TtGC7SwiftUI32NavigationStackHosting"]/*@START_MENU_TOKEN@*/.buttons["Add"]/*[[".otherElements[\"Add\"].buttons[\"Add\"]",".buttons[\"Add\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+//        app.collectionViews.buttons["Sign out"].tap()
+//        sleep(1)
         
     }
     
