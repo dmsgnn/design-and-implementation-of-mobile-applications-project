@@ -134,9 +134,10 @@ struct SummaryCollectionView: View {
                         
                         
                         
-                        Spacer()
+//                        Spacer()
                         
                     }
+                    
                     
                 }
                 .refreshable {

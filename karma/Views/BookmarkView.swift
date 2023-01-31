@@ -12,23 +12,36 @@ struct BookmarkView: View {
     @ObservedObject var viewModel = BookmarkViewModel(service: CollectionService())
     
     var body: some View {
-        ZStack {
-            Color.theme.custombackg.ignoresSafeArea()
-            VStack {
-                Text("Favourites")
-                    .font(.title)
-                    .fontWeight(.bold)
-
-                ScrollView(.vertical, showsIndicators: false) {
-                    ForEach(viewModel.collections) { collections in
-                        CollectionView(collection: collections)
+        NavigationStack {
+            ZStack {
+                Color.theme.custombackg.ignoresSafeArea()
+                VStack {
+                    HStack {
+                        Text("Favourites")
+                            .font(.title)
+                            .fontWeight(.bold)
+                        Spacer()
                     }
+                    .padding(.leading)
+                    
+                    ScrollView(.vertical, showsIndicators: false) {
+                        ForEach(viewModel.collections) { collections in
+                            NavigationLink {
+                                SummaryCollectionView(collection: collections)
+                            } label: {
+                                CollectionView(collection: collections)
+                            }
+
+                            
+                        }
+                    }
+                    Spacer().frame(height: 60)
+                    
                 }
-                
             }
+            .refreshable {
+                viewModel.fetchCollections()
         }
-        .refreshable {
-            viewModel.fetchCollections()
         }
     }
 }
