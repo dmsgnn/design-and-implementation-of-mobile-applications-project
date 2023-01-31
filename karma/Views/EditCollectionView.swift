@@ -63,6 +63,7 @@ struct EditCollectionView: View {
                     Text("Title")
                         .font(.headline)
                         .fontWeight(.semibold)
+                        .id("Title")
                     
                     TextField(viewModel.collection.title, text: $title)
                     

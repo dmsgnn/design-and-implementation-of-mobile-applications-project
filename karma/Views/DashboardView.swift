@@ -34,17 +34,8 @@ struct DashboardView: View {
                             ForEach(viewModel.collections){ collection in
                                 NavigationLink(destination: SummaryCollectionView(collection: collection)) {
                                     MainCollectionView(collection: collection)
-                                    
-                                        
-                                                    
-
-                                
-                                    
-                                    
                                         //.shadow(color: .black.opacity(0.2), radius: 1, x: 6, y: 6)
                                         //.blur(radius: 8, opaque: false)
-                            
-                            
                                 }
                                 Divider().padding(.horizontal)
                             }
@@ -59,6 +50,8 @@ struct DashboardView: View {
                 .refreshable {
                     viewModel.updateHome()
                 }
+                .id("scrollv")
+
 
             }
         }
@@ -99,6 +92,7 @@ struct DashboardView: View {
                 .offset(y: -minY)
             }
             .frame(height: 35)
+            .id("header")
         }
 
 }

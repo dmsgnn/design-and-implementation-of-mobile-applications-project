@@ -15,7 +15,7 @@ struct ContentView: View {
     var body: some View {
         Group{
             if viewModel.userSession == nil {
-                LoginView()
+                LoginView(test: false)
             } else {
                 MainView()
             }

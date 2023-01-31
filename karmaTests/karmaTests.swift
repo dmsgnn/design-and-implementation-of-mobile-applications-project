@@ -374,13 +374,13 @@ final class karmaTests: XCTestCase {
         let user = User(id:"1", username: "Kikko", fullname: "Full", profileImageUrl: "", email: "Mail@gmail.com")
         let authVM = AuthViewModel(service: UserServiceMock(), uploader: ImageUploaderMock())
         authVM.currentUser = user
-        let log = LoginView().environmentObject(authVM)
+        let log = LoginView(test: false).environmentObject(authVM)
         
         let textView = try log.inspect().find(viewWithId: "titlelog").text()
         let content = try textView.string()
         XCTAssertEqual(content, "Login")
         
-        let sign = RegistrationView().environmentObject(authVM)
+        let sign = RegistrationView(test: false).environmentObject(authVM)
         
         let textView2 = try sign.inspect().find(viewWithId: "title").text()
         let content2 = try textView2.string()
@@ -416,7 +416,7 @@ final class karmaTests: XCTestCase {
     }
     
     func testFavPaymView() throws {
-        let m = MainView()
+        _ = MainView()
         let f = BookmarkView()
         f.viewModel.collections.append(Collection(id : "cc1", title: "coll", caption: "Caption", amount: 20000, currentAmount: 0, favourites: 0, participants: 1, collectionImageUrl: "", timestamp: Timestamp(), uid: "2"))
         
@@ -430,5 +430,101 @@ final class karmaTests: XCTestCase {
         XCTAssertEqual(content, "Donation amount")
     }
     
+    func testMainCollectionView() throws {
+        let c = Collection(id : "cc1", title: "coll", caption: "Caption", amount: 20000, currentAmount: 0, favourites: 0, participants: 1, collectionImageUrl: "", timestamp: Timestamp(), uid: "2")
+        let mainCV = MainCollectionView(collection: c)
+        
+        let textView = try mainCV.inspect().find(viewWithId: "CollTitle").text()
+        let content = try textView.string()
+        XCTAssertEqual(content, "coll")
+    }
+    
+    func testResentUserActivityView() throws {
+        let payment = Payment(id:"p1", senderId: "1", destinationId: "2", collectionId: "cc1", total: 10, timestamp: Timestamp())
+        let recentUAV = RecentUserActivityView(payment: payment, isPositive: true)
+        
+        let textView = try recentUAV.inspect().find(viewWithId: "amount").text()
+        let content = try textView.string()
+        XCTAssertEqual(content, "+ 10 €")
+    }
+    
+    func testMainPageClickableTabBar() throws {
+        let authVM = AuthViewModel(service: UserServiceMock(), uploader: ImageUploaderMock())
+        let mainV = MainView().environmentObject(authVM)
+        
+        let click = try mainV.inspect().find(viewWithId: "tabbar")
+        XCTAssertNotNil(click)
+    }
+    
+    func testHomeHeaderWithCollection() throws {
+        let userService = UserServiceMock()
+        let collectionService = CollectionServiceMock()
+        let uploadColl = UploadCollectionViewModel(service: collectionService, uploader: ImageUploaderMock())
+        uploadColl.uploadCollection(withTitle: "Coll1", withCaption: "Capt1", withAmount: 2100, withImage: UIImage())
+        uploadColl.uploadCollection(withTitle: "Coll2", withCaption: "Capt2", withAmount: 2100, withImage: UIImage())
+        uploadColl.uploadCollection(withTitle: "Coll3", withCaption: "Capt3", withAmount: 2100, withImage: UIImage())
+        uploadColl.uploadCollection(withTitle: "Coll4", withCaption: "Capt4", withAmount: 2100, withImage: UIImage())
+        uploadColl.uploadCollection(withTitle: "Coll5", withCaption: "Capt5", withAmount: 2100, withImage: UIImage())
+        uploadColl.uploadCollection(withTitle: "Coll6", withCaption: "Capt6", withAmount: 2100, withImage: UIImage())
+        
+        let dashboardVM = DashboardViewModel(userService: userService, service: collectionService)
+        dashboardVM.updateHome()
+        dashboardVM.collections = collectionService.collections
+        let dashV = DashboardView(viewModel: dashboardVM, safeArea: EdgeInsets(), size: CGSize())
+        let textView = try dashV.inspect().find(viewWithId: "home").text()
+        let content = try textView.string()
+        XCTAssertEqual(content, "Home")
+        
+        let scroll = try dashV.inspect().find(viewWithId: "scrollv")
+        XCTAssertNotNil(scroll)
+        let head = try dashV.inspect().find(viewWithId: "header")
+        XCTAssertNotNil(head)
+    }
+    
+    func testActivityCollView() throws {
+        let payment = Payment(id:"p1", senderId: "1", destinationId: "2", collectionId: "cc1", total: 10, timestamp: Timestamp())
+        let activityCV = ActivityCollectionView(payment: payment)
+        
+        let textView = try activityCV.inspect().find(viewWithId: "money").text()
+        let content = try textView.string()
+        XCTAssertEqual(content, "10 €")
+        
+    }
+    
+    func testEditCollView() throws {
+        let c = Collection(id : "cc1", title: "CollecTitle", caption: "Caption", amount: 20000, currentAmount: 0, favourites: 0, participants: 1, collectionImageUrl: "", timestamp: Timestamp(), uid: "2")
+        let editCV = EditCollectionView(collection: c)
+        
+        let textView = try editCV.inspect().find(viewWithId: "Title").text()
+        let content = try textView.string()
+        XCTAssertEqual(content, "Title")
+    }
+    
+    func testCollectionRowView() throws {
+        let c = Collection(id : "cc1", title: "CollecTitle", caption: "Caption", amount: 2000, currentAmount: 70, favourites: 0, participants: 1, collectionImageUrl: "", timestamp: Timestamp(), uid: "2")
+        let collectionRowV = CollectionRowView(collection: c)
+        
+        let textView = try collectionRowV.inspect().find(viewWithId: "status").text()
+        let content = try textView.string()
+        XCTAssertEqual(content, "€70.00 of €2,000")
+    }
+    
+    func testiPadLogin() throws {
+        let authVM = AuthViewModel(service: UserServiceMock(), uploader: ImageUploaderMock())
+        var ipadlog = LoginView(test: true).environmentObject(authVM)
+        
+        let textView = try ipadlog.inspect().find(viewWithId: "titlelogipad").text()
+        let content = try textView.string()
+        XCTAssertEqual(content, "Login")
+    }
+    
+    func testiPadRegister() throws {
+        let authVM = AuthViewModel(service: UserServiceMock(), uploader: ImageUploaderMock())
+        let ipadregister = RegistrationView(test: true).environmentObject(authVM)
+        
+        let textView = try ipadregister.inspect().find(viewWithId: "titleipad").text()
+        let content = try textView.string()
+        XCTAssertEqual(content, "Sign Up")
+    }
     
 }
