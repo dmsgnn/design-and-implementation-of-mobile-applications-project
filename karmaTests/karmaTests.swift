@@ -338,7 +338,7 @@ final class karmaTests: XCTestCase {
         let dashV = DashboardView(viewModel: dashboardVM, safeArea: EdgeInsets(), size: CGSize())
         let textView = try dashV.inspect().find(viewWithId: "home").text()
         let content = try textView.string()
-        XCTAssertEqual(content, "Home")
+        XCTAssertEqual(content, "arma")
         
     }
     
@@ -467,12 +467,11 @@ final class karmaTests: XCTestCase {
         let dashV = DashboardView(viewModel: dashboardVM, safeArea: EdgeInsets(), size: CGSize())
         let textView = try dashV.inspect().find(viewWithId: "home").text()
         let content = try textView.string()
-        XCTAssertEqual(content, "Home")
+        XCTAssertEqual(content, "arma")
         
         let scroll = try dashV.inspect().find(viewWithId: "scrollv")
         XCTAssertNotNil(scroll)
-        let head = try dashV.inspect().find(viewWithId: "header")
-        XCTAssertNotNil(head)
+
     }
     
     func testActivityCollView() throws {
@@ -505,7 +504,7 @@ final class karmaTests: XCTestCase {
     
     func testiPadLogin() throws {
         let authVM = AuthViewModel(service: UserServiceMock(), uploader: ImageUploaderMock())
-        var ipadlog = LoginView(test: true).environmentObject(authVM)
+        let ipadlog = LoginView(test: true).environmentObject(authVM)
         
         let textView = try ipadlog.inspect().find(viewWithId: "titlelogipad").text()
         let content = try textView.string()

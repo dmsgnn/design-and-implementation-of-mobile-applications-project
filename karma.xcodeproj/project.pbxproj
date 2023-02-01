@@ -143,6 +143,9 @@
 		1B81758729858D75006EE2BA /* MainCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34D956F29850FD300546A93 /* MainCollectionView.swift */; };
 		1B81758829858D76006EE2BA /* MainCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34D956F29850FD300546A93 /* MainCollectionView.swift */; };
 		1B83CE48297F298D00FCEAC4 /* ImageUploaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B83CE47297F298D00FCEAC4 /* ImageUploaderView.swift */; };
+		1B934551298A7E7B00AEE8F6 /* iPadMainCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B934550298A7E7B00AEE8F6 /* iPadMainCollectionView.swift */; };
+		1B934552298A81FD00AEE8F6 /* iPadMainCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B934550298A7E7B00AEE8F6 /* iPadMainCollectionView.swift */; };
+		1B934553298A81FE00AEE8F6 /* iPadMainCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B934550298A7E7B00AEE8F6 /* iPadMainCollectionView.swift */; };
 		1BCB44C42969E27300205BC1 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCB44C32969E27300205BC1 /* MainView.swift */; };
 		1BD8C247293E5D6100F1B32A /* karmaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD8C246293E5D6100F1B32A /* karmaApp.swift */; };
 		1BD8C24B293E5D6200F1B32A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BD8C24A293E5D6200F1B32A /* Assets.xcassets */; };
@@ -236,6 +239,7 @@
 		1B658DBB293F428C00DF06DB /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		1B6B3145294520A000779BBE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1B83CE47297F298D00FCEAC4 /* ImageUploaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploaderView.swift; sourceTree = "<group>"; };
+		1B934550298A7E7B00AEE8F6 /* iPadMainCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iPadMainCollectionView.swift; sourceTree = "<group>"; };
 		1BCB44C32969E27300205BC1 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		1BD8C243293E5D6100F1B32A /* karma.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = karma.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BD8C246293E5D6100F1B32A /* karmaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = karmaApp.swift; sourceTree = "<group>"; };
@@ -496,6 +500,7 @@
 				E34C9B282966EB9000E8FC5E /* UserRowView.swift */,
 				E34C9B2C2966F03100E8FC5E /* SearchBar.swift */,
 				1B3CD7E6298282A5002EF9BF /* iPadCustomInputField.swift */,
+				1B934550298A7E7B00AEE8F6 /* iPadMainCollectionView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -758,6 +763,7 @@
 				E339158C295DE72900945EFA /* ImagePicker.swift in Sources */,
 				E3354773295B07FB003444E0 /* User.swift in Sources */,
 				1B6B3146294520A000779BBE /* ContentView.swift in Sources */,
+				1B934551298A7E7B00AEE8F6 /* iPadMainCollectionView.swift in Sources */,
 				1B658DBC293F428C00DF06DB /* LoginView.swift in Sources */,
 				E3EA350B297FFEB400B01978 /* EditCollectionViewModel.swift in Sources */,
 				1BD8C247293E5D6100F1B32A /* karmaApp.swift in Sources */,
@@ -788,6 +794,7 @@
 				1B78B183298417AB00268661 /* CollectionView.swift in Sources */,
 				1B78B184298417AB00268661 /* PaymentButton.swift in Sources */,
 				1B78B185298417AB00268661 /* CollectionRowView.swift in Sources */,
+				1B934552298A81FD00AEE8F6 /* iPadMainCollectionView.swift in Sources */,
 				1B270EDC2986CDB4000FE954 /* MainCollectionView.swift in Sources */,
 				1B78B186298417AB00268661 /* UserRowView.swift in Sources */,
 				1B78B187298417AB00268661 /* SearchBar.swift in Sources */,
@@ -887,6 +894,7 @@
 				1B78B1532984168A00268661 /* BookmarkView.swift in Sources */,
 				1B78B1542984168A00268661 /* ImageUploaderView.swift in Sources */,
 				1B78B1552984168B00268661 /* EditProfileView.swift in Sources */,
+				1B934553298A81FE00AEE8F6 /* iPadMainCollectionView.swift in Sources */,
 				1B78B1562984168B00268661 /* EditCollectionView.swift in Sources */,
 				1B78B1572984168B00268661 /* UserService.swift in Sources */,
 				1B78B1582984168B00268661 /* CollectionService.swift in Sources */,

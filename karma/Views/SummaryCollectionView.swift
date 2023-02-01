@@ -20,6 +20,8 @@ struct SummaryCollectionView: View {
     @ObservedObject var viewModel: SummaryCollectionViewModel
     @ObservedObject var authViewModel = AuthViewModel(service: UserService(), uploader: ImageUploader())
     
+    let layout = [GridItem(.adaptive(minimum: 300))]
+    
     init(collection: Collection){
         self.viewModel = SummaryCollectionViewModel(collection: collection, service: CollectionService(), paymentService: PaymentService())
     }
@@ -27,17 +29,15 @@ struct SummaryCollectionView: View {
     var body: some View {
         NavigationStack {
             ZStack(alignment: .top) {
-                Color.theme.custombackg.ignoresSafeArea()
                 ScrollView {
                     VStack {
-                        //                    GeometryReader { g in
                         HStack {
                             Spacer()
                             VStack {
                                 KFImage(URL(string: viewModel.collection.collectionImageUrl))
                                     .resizable()
                                     .scaledToFit()
-                                    .frame(width: UIScreen.main.bounds.width * 0.9, height: 200)
+                                    .frame(width: UIDevice.isIPad ? 500 : UIScreen.main.bounds.width * 0.9, height: UIDevice.isIPad ? 400 : 200)
                                     .padding(.top, 50)
                                 
                                 
@@ -50,36 +50,59 @@ struct SummaryCollectionView: View {
                                 
                                 Text(viewModel.collection.user?.username ?? "")
                                     .padding(.bottom)
-                            
+                                
                                 
                             }
                             Spacer()
                         }
-                    
                         
-                        VStack {
-                            HStack {
-                                Text("€ \(String(viewModel.collection.currentAmount.formatted(.number.precision(.fractionLength(2))))) raised of € \(String(viewModel.collection.amount.formatted(.number.precision(.fractionLength(0)))))")
+                        if UIDevice.isIPad {
+                            VStack(spacing: 20) {
+                                Text("€ \(String(viewModel.collection.currentAmount.formatted(.number.precision(.fractionLength(0))))) raised of € \(String(viewModel.collection.amount.formatted(.number.precision(.fractionLength(0)))))")
                                     .font(.subheadline)
                                     .fontWeight(.semibold)
-                                Spacer()
+                                
+                                
+                                
+                                
+                                
+                                ProgressView(value: viewModel.collection.currentAmount/viewModel.collection.amount)
+                                    .scaleEffect(x: 1, y: 2)
+                                    .frame(width: 500)
+                                
+                                HStack{
+                                    Image(systemName: "person.2.fill")
+                                    Text("\(viewModel.collection.participants) donations")
+                                        .fontWeight(.regular)
+                                }
+                                
                             }
                             
-                            ProgressView(value: viewModel.collection.currentAmount/viewModel.collection.amount)
-                                .scaleEffect(x: 1, y: 2)
-                            
-                            
-                            HStack{
-                                Image(systemName: "person.2.fill")
-                                Text("\(viewModel.collection.participants) donations")
-                                    .fontWeight(.regular)
-                                Spacer()
+                        } else {
+                            VStack {
+                                HStack {
+                                    Text("€ \(String(viewModel.collection.currentAmount.formatted(.number.precision(.fractionLength(0))))) raised of € \(String(viewModel.collection.amount.formatted(.number.precision(.fractionLength(0)))))")
+                                        .font(.subheadline)
+                                        .fontWeight(.semibold)
+                                    Spacer()
+                                }
+                                
+                                ProgressView(value: viewModel.collection.currentAmount/viewModel.collection.amount)
+                                    .scaleEffect(x: 1, y: 2)
+                                
+                                
+                                HStack{
+                                    Image(systemName: "person.2.fill")
+                                    Text("\(viewModel.collection.participants) donations")
+                                        .fontWeight(.regular)
+                                    Spacer()
+                                }
+                                .font(.subheadline)
+                                .padding(.top, 10)
+                                
                             }
-                            .font(.subheadline)
-                            .padding(.top, 10)
-                            
+                            .padding(.horizontal)
                         }
-                        .padding(.horizontal)
                         
                         Button() {
                             showPaymentView.toggle()
@@ -89,7 +112,7 @@ struct SummaryCollectionView: View {
                                 .fontWeight(.semibold)
                                 .frame(minWidth: 100, maxWidth: 250)
                                 .frame(height: 45)
-                                .background(Color(.systemBlue))
+                                .background(.black)
                                 .clipShape(RoundedRectangle(cornerRadius: 10))
                             
                         }
@@ -124,17 +147,23 @@ struct SummaryCollectionView: View {
                                     .fontWeight(.semibold)
                                 Spacer()
                             }
-                            
-                            ForEach(viewModel.payments) { payment in
-                                ActivityCollectionView(payment: payment)
+                            if UIDevice.isIPad {
+                                LazyVGrid(columns: layout) {
+                                    ForEach(viewModel.payments) { payment in
+                                        ActivityCollectionView(payment: payment)
+                                    }
+                                }
+                            } else {
+                                ForEach(viewModel.payments) { payment in
+                                    ActivityCollectionView(payment: payment)
+                                }
                             }
                             
                         }
                         .padding()
                         
                         
-                        
-//                        Spacer()
+                        Spacer().frame(height: 60)
                         
                     }
                     
@@ -143,7 +172,7 @@ struct SummaryCollectionView: View {
                 .refreshable {
                     viewModel.fetchPaymentsForCollection()
                     viewModel.fetchCollection()
-
+                    
                 }
                 
                 
@@ -179,13 +208,11 @@ struct SummaryCollectionView: View {
                             Label("Edit collection", systemImage: "pencil")
                         }
                         
-                        
                         Button {
                             viewModel.collection.didLike ?? false ? viewModel.removeFromFavourite() : viewModel.addToFavourite()
                         } label: {
-                            Label(viewModel.collection.didLike ?? false ? "Remove to favourites" : "Add to favourites", systemImage: viewModel.collection.didLike ?? false ? "bookmark.fill" : "bookmark")
+                            Label(viewModel.collection.didLike ?? false ? "Remove from favourites" : "Add to favourites", systemImage: viewModel.collection.didLike ?? false ? "bookmark.fill" : "bookmark")
                         }
-                        
                         
                         Button (
                             role: .destructive,
@@ -216,6 +243,7 @@ struct SummaryCollectionView: View {
                 }
                 
             }
+            
         }
         .navigationBarBackButtonHidden(true)
         .foregroundColor(.black)

@@ -47,10 +47,10 @@ struct ActivityCollectionView: View {
                 .fontWeight(.semibold)
                 .padding(.trailing)
                 .id("money")
-                
+            
         }
-        .frame(width: UIScreen.main.bounds.size.width*0.9, height: 100)
-        .background(Color(.white))
+        .frame(width: UIDevice.isIPad ? 300 : UIScreen.main.bounds.size.width*0.9, height: 100)
+        .background(Color.theme.custombackg)
         .containerShape(RoundedRectangle(cornerRadius: 15))
     }
 }

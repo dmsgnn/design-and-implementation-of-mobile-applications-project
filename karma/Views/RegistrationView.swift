@@ -34,6 +34,7 @@ struct RegistrationView: View {
         if ipad{
             Group{
                 ZStack {
+                    Color.theme.custombackg
                     VStack(alignment: .center, spacing: getHeight() * 0.03) {
                         NavigationLink(destination: ImageUploaderView(),
                                        isActive: $viewModel.didAuthenticateUser,
@@ -47,10 +48,10 @@ struct RegistrationView: View {
                             Text("arma")
                                 .font(.largeTitle)
                                 .fontWeight(.bold)
-                                .foregroundColor(Color.theme.dark)
+                                .foregroundColor(.black)
                         }
                         .offset(x: -getHeight()*0.01)
-                    
+                        
                         if !orientation.isLandscape{
                             Spacer()
                                 .frame(height: getHeight()*0.01)
@@ -60,9 +61,10 @@ struct RegistrationView: View {
                             Text("Sign Up")
                                 .font(.largeTitle)
                                 .fontWeight(.bold)
-                                .foregroundColor(Color.theme.dark)
+                                .foregroundColor(.black)
                                 .id("titleipad")
                         }
+                        
                         
                         if !orientation.isLandscape{
                             Spacer()
@@ -73,42 +75,22 @@ struct RegistrationView: View {
                         VStack(spacing: getHeight()*0.05) {
                             
                             iPadCustomInputField(placeholderText: "Fullname", text: $fullname)
-                                .shadow(
-                                    color: Color.gray.opacity(0.15),
-                                    radius: getHeight() * 0.02,
-                                    x: 0,
-                                    y: 0
-                                )
+                            
                                 .textCase(.lowercase)
                             
                             iPadCustomInputField(placeholderText: "Username", text: $username)
-                                .shadow(
-                                    color: Color.gray.opacity(0.15),
-                                    radius: getHeight() * 0.02,
-                                    x: 0,
-                                    y: 0
-                                )
+                            
                                 .textCase(.lowercase)
                             
                             iPadCustomInputField(placeholderText: "Email", text: $email)
-                                .shadow(
-                                    color: Color.gray.opacity(0.15),
-                                    radius: getHeight() * 0.02,
-                                    x: 0,
-                                    y: 0
-                                )
+                            
                                 .textCase(.lowercase)
                             
                             iPadCustomInputField(placeholderText: "Password", isSecureField: true, text: $password)
-                                .shadow(
-                                    color: Color.gray.opacity(0.15),
-                                    radius: getHeight() * 0.02,
-                                    x: 0,
-                                    y: 0
-                                )
                                 .textCase(.lowercase)
                             
                         }
+                        Spacer().frame(height: 30)
                         
                         Button {
                             viewModel.register(withEmail: email,
@@ -120,7 +102,7 @@ struct RegistrationView: View {
                                 .font(.headline)
                                 .frame(width: getWidth()*0.4, height: getHeight() * 0.05)
                                 .foregroundColor(.white)
-                                .background(.blue)
+                                .background(.black)
                                 .clipShape(RoundedRectangle(cornerRadius: getHeight()*0.02))
                             
                         }
@@ -144,40 +126,44 @@ struct RegistrationView: View {
                         .foregroundColor(.black)
                         
                     }
+                    .navigationBarBackButtonHidden(true)
                 }
+                .ignoresSafeArea()
             }.detectOrientation($orientation)
         }
         // MARK: iPhone
         else{
             ZStack {
+                Color.theme.custombackg
                 VStack {
                     NavigationLink(destination: ImageUploaderView(),
                                    isActive: $viewModel.didAuthenticateUser,
                                    label: { })
                     Spacer()
-                        .frame(height: screenHeight * 0.02)
+                        .frame(height: 40)
                     
                     HStack {
                         Image("kLogo-40")
                             .offset(x: screenHeight * 0.01, y: -screenHeight * 0.009)
+                            .foregroundColor(.white)
                         
                         Text("arma")
                             .font(.largeTitle)
                             .fontWeight(.bold)
-                            .foregroundColor(Color.theme.dark)
+                            .foregroundColor(.black)
                     }
                     .offset(x: -screenHeight * 0.008)
                     
                     Spacer()
-                        .frame(height: screenHeight * 0.04)
+                        .frame(height: 40)
                     
-                        Text("Sign Up")
-                            .font(.largeTitle)
-                            .fontWeight(.bold)
-                            .foregroundColor(Color.theme.dark)
-                            .padding(.leading, screenHeight*0.02)
-                            .padding(.bottom, screenHeight*0.04)
-                            .id("title")
+                    Text("Sign Up")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                        .foregroundColor(.black)
+                        .id("title")
+                    
+                    
                     
                     VStack(spacing: screenHeight*0.035) {
                         
@@ -232,13 +218,13 @@ struct RegistrationView: View {
                             .font(.headline)
                             .foregroundColor(.white)
                             .frame(width: screenWidth*0.8, height: screenHeight * 0.06)
-                            .background(.blue)
+                            .background(.black)
                             .clipShape(RoundedRectangle(cornerRadius: screenHeight*0.02))
                         
                     }
                     
                     Spacer()
-                        .frame(height: screenHeight * 0.05)
+                        .frame(height: 40)
                     
                     Button {
                         dismiss()
@@ -255,8 +241,11 @@ struct RegistrationView: View {
                     .foregroundColor(.black)
                     
                 }
-            }.ignoresSafeArea()
+                .navigationBarBackButtonHidden(true)
+            }
+            .ignoresSafeArea()
         }
+        
     }
     
     func getHeight() -> CGFloat {

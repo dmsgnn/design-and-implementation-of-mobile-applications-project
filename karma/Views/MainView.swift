@@ -35,33 +35,26 @@ struct MainView: View {
                         let size = $0.size
                         DashboardView(viewModel: DashboardViewModel(userService: UserService(), service: CollectionService()), safeArea: safeArea, size: size)
                             .ignoresSafeArea(.container, edges: .top)
-                            .setTabBarBackground(color: Color("BG"))
+                            .setTabBarBackground(color: .white)
                             .tag(Tab.home)
                         
                     }
                     
                     SearchView()
-                        .setTabBarBackground(color: Color("BG"))
+                        .setTabBarBackground(color: .black)
                         .tag(Tab.search)
                     
-                    //                    UploadCollectionView()
-                    //                        .setTabBarBackground(color: Color("BG"))
-                    //                        .tag(Tab.post)
-                    
-
-                    
                     BookmarkView()
-                        .setTabBarBackground(color: Color("BG"))
+                        .setTabBarBackground(color: .black)
                         .tag(Tab.bookmarks)
                     
                     ProfileView(user: user)
-                        .setTabBarBackground(color: Color("BG"))
+                        .setTabBarBackground(color: .black)
                         .tag(Tab.profile)
                 }
                 TabBar()
                     .offset(y: showTabBar ? 0 : 130)
                     .animation(.interactiveSpring(response: 0.6, dampingFraction: 0.7, blendDuration: 0.7), value: showTabBar)
-                    .id("tabbar")
             }
             .ignoresSafeArea(.keyboard, edges: .bottom)
             .onReceive(NotificationCenter.default.publisher(for: .init("SHOWTABBAR"))
@@ -72,21 +65,21 @@ struct MainView: View {
                 showTabBar = false
             }
             
-            Button {
-                showNewCollectionView.toggle()
-            } label: {
-                Image(systemName: "plus.circle")
-                    .renderingMode(.template)
-                    .frame(width: 28, height: 28)
-                    .padding()
-            }
-            .background(Color(.systemBlue))
-            .foregroundColor(.white)
-            .clipShape(Circle())
-            .padding()
-            .fullScreenCover(isPresented: $showNewCollectionView) {
-                UploadCollectionView()
-            }
+            //            Button {
+            //                showNewCollectionView.toggle()
+            //            } label: {
+            //                Image(systemName: "plus.circle")
+            //                    .renderingMode(.template)
+            //                    .frame(width: 28, height: 28)
+            //                    .padding()
+            //            }
+            //            .background(Color(.systemBlue))
+            //            .foregroundColor(.white)
+            //            .clipShape(Circle())
+            //            .padding()
+            //            .fullScreenCover(isPresented: $showNewCollectionView) {
+            //                UploadCollectionView()
+            //            }
             
             
             
@@ -103,11 +96,11 @@ struct MainView: View {
                     .renderingMode(.template)
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 24, height: 24)
-                    .foregroundColor(currentTab == tab ? .white : .gray.opacity(0.5))
+                    .foregroundColor(currentTab == tab ? .black : .white)
                     .background(content : {
                         if(currentTab == tab){
                             Circle()
-                                .fill(.black)
+                                .fill(.white)
                                 .scaleEffect(2.5)
                             //.shadow(color: .black.opacity(0.3), radius: 8, x: 5, y: 10)
                                 .matchedGeometryEffect(id: "TAB", in: animation)
@@ -127,9 +120,11 @@ struct MainView: View {
         .background{
             // Custom corner
             CustomCorner(corners: [.topLeft, .topRight], radius: 25)
-                .fill(Color(.white))
+                .fill(.black)
+            //                .border(Color(.systemGray5))
                 .ignoresSafeArea()
         }
+        
     }
     
 }
