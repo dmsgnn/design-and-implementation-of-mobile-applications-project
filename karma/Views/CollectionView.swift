@@ -35,9 +35,10 @@ struct CollectionView: View {
             HStack(alignment: .center, spacing: 20) {
                 KFImage(URL(string: viewModel.collection.collectionImageUrl))
                     .resizable()
-                    .scaledToFit()
+                    .scaledToFill()
+                    
+                    .frame(width: 80, height: 65)
                     .clipShape(RoundedRectangle(cornerRadius: 10))
-                    .frame(width: 80, height: 50)
                 
                 Text(viewModel.collection.title)
                     .foregroundColor(.black)

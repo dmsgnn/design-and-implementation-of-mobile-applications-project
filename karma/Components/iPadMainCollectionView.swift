@@ -23,9 +23,9 @@ struct iPadMainCollectionView: View {
 //                RoundedRectangle(cornerRadius: 10)
             KFImage(URL(string: collection.collectionImageUrl))
                 .resizable()
-                .scaledToFit()
-                .clipShape(RoundedRectangle(cornerRadius: 10))
+                .scaledToFill()
                 .frame(width: 500, height: 400)
+                .clipShape(RoundedRectangle(cornerRadius: 10))
                 .padding(.horizontal)
             
             Text(collection.title)
@@ -37,6 +37,7 @@ struct iPadMainCollectionView: View {
                 .font(.headline)
                 .fontWeight(.semibold)
                 .foregroundColor(Color(.systemGray))
+                .multilineTextAlignment(.leading)
                 .padding(.vertical, 20)
             
             HStack {

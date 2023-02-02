@@ -36,8 +36,9 @@ struct SummaryCollectionView: View {
                             VStack {
                                 KFImage(URL(string: viewModel.collection.collectionImageUrl))
                                     .resizable()
-                                    .scaledToFit()
-                                    .frame(width: UIDevice.isIPad ? 500 : UIScreen.main.bounds.width * 0.9, height: UIDevice.isIPad ? 400 : 200)
+                                    .scaledToFill()
+                                    .frame(width: UIDevice.isIPad ? 500 : 200, height: UIDevice.isIPad ? 400 : 200)
+                                    .clipShape(RoundedRectangle(cornerRadius: 10))
                                     .padding(.top, 50)
                                 
                                 

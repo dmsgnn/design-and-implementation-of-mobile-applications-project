@@ -58,9 +58,9 @@ struct LoginView: View {
                         
                         // App name and login text
                         HStack {
-                            Image("kLogo-40")
-                                .offset(x: getHeight() * 0.01, y: -getHeight() * 0.009)
-                                .padding(.trailing, getWidth()*0.01)
+                            Image("logo_bl-40")
+                                .offset(x: 10, y: -3)
+//                                .padding(.trailing, getWidth()*0.01)
                             
                             Text("arma")
                                 .font(.largeTitle)
@@ -144,14 +144,15 @@ struct LoginView: View {
                     
                     // App name and login text
                     HStack {
-                        Image("kLogo-40")
-                            .offset(x: screenHeight * 0.01, y: -screenHeight * 0.009)
-                            .padding(.trailing, screenWidth*0.01)
+                        Image("logo_bl-40")
+                            .offset(x: screenHeight * 0.01, y: -1)
+                            
                         
                         Text("arma")
                             .font(.largeTitle)
                             .fontWeight(.bold)
                             .foregroundColor(.black)
+                            
                     }
                     .offset(x: -screenHeight * 0.008)
                     

@@ -22,14 +22,15 @@ struct CollectionRowView: View {
         HStack {
             KFImage(URL(string: collection.collectionImageUrl))
                 .resizable()
-                .scaledToFit()
-                .frame(width: 80, height: 60)
+                .scaledToFill()
+                .frame(width: 70, height: 60)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
         
             if let user = collection.user {
                 
                 VStack(alignment: .leading, spacing: 6){
                     Text(collection.title)
+                        .multilineTextAlignment(.leading)
                         .font(.headline).bold()
                     Text(user.username)
                         .font(.footnote)

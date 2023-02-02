@@ -42,26 +42,27 @@ struct EditCollectionView: View {
                         collectionImage
                             .resizable()
                             .scaledToFill()
-                            .frame(width: 100, height: 100)
-                            .clipShape(Circle())
+                            .frame(width: UIDevice.isIPad ? 500 : 80, height: UIDevice.isIPad ? 400 : 80)
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
                     } else {
                         KFImage(URL(string: viewModel.collection.collectionImageUrl))
                             .resizable()
                             .scaledToFill()
-                            .clipShape(Circle())
-                            .frame(width: 100, height: 100)
+                            .frame(width: UIDevice.isIPad ? 500 : 80, height: UIDevice.isIPad ? 400 : 80)
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
                     }
                 }
                 .sheet(isPresented: $showImagePicker, onDismiss: loadImage) {
                     ImagePicker(selectedImage: $selectedImage)
                 }
                 
-                Divider()
+    
                 
                 VStack(alignment: .leading) {
                     
                     Text("Title")
                         .font(.headline)
+                        .padding(.top, 5)
                         .fontWeight(.semibold)
                         .id("Title")
                     
@@ -85,7 +86,7 @@ struct EditCollectionView: View {
                 .frame(width: UIScreen.main.bounds.width*0.9)
                 .padding(.horizontal)
                 
-                Spacer()
+                Spacer().frame(width: 2, height: UIDevice.isIPad ? 100 : 20)
                 
                 Text("Set your new amount...")
                     .font(.title2)
@@ -101,7 +102,7 @@ struct EditCollectionView: View {
             }
             .toolbar {
                 ToolbarItem(placement: ToolbarItemPlacement.principal) {
-                    Text("Edit Profile")
+                    Text("Edit Collection")
                         .font(.title3)
                         .fontWeight(.semibold)
                 }

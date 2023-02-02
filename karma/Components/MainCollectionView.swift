@@ -23,9 +23,9 @@ struct MainCollectionView: View {
 //                        RoundedRectangle(cornerRadius: 10)
             KFImage(URL(string: collection.collectionImageUrl))
                 .resizable()
-                .scaledToFit()
+                .scaledToFill()
+                .frame(width: 80, height: 80)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
-                .frame(width: 100, height: 100)
                 .padding(.leading, 20)
             
             

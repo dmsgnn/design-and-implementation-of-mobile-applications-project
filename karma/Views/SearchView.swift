@@ -87,7 +87,7 @@ struct SearchView: View {
                 
             }
             .navigationBarBackButtonHidden(true)
-            .background(Color.theme.custombackg)
+            .background(Color.white)
         }
     }
 }

@@ -41,9 +41,8 @@ struct RegistrationView: View {
                                        label: { })
                         
                         HStack {
-                            Image("kLogo-40")
-                                .offset(x: getHeight() * 0.01, y: -getHeight() * 0.009)
-                                .padding(.trailing, getWidth()*0.01)
+                            Image("logo_bl-40")
+                                .offset(x: 10, y: -3)
                             
                             Text("arma")
                                 .font(.largeTitle)
@@ -143,8 +142,8 @@ struct RegistrationView: View {
                         .frame(height: 40)
                     
                     HStack {
-                        Image("kLogo-40")
-                            .offset(x: screenHeight * 0.01, y: -screenHeight * 0.009)
+                        Image("logo_bl-40")
+                            .offset(x: screenHeight * 0.01, y: -1)
                             .foregroundColor(.white)
                         
                         Text("arma")

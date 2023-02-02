@@ -27,11 +27,12 @@ struct DashboardView: View {
                 ZStack {
                     VStack {
                         HStack {
-                            Image("kLogo-40")
+                            Image("logo_bl-29")
+                                .offset(x: screenHeight * 0.01, y: 4)
                             Text("arma")
                                 .font(.largeTitle)
                                 .fontWeight(.bold)
-                                .offset(x: -4, y: 5)
+                                .offset(x: 4, y: 4)
                             Spacer()
                             Button {
                                 showNewCollectionView.toggle()
@@ -82,12 +83,14 @@ struct DashboardView: View {
                 ZStack {
                     VStack {
                         HStack {
-                            Image("kLogo-29")
+                            Image("logo_bl-29")
+                                .offset(x: screenHeight * 0.01, y: 4)
+                            
                             Text("arma")
                                 .font(.title)
                                 .fontWeight(.bold)
                                 .foregroundColor(.black)
-                                .offset(x: -4, y: 5)
+                                .offset(y: 5)
                                 .id("home")
                             
                             Spacer()

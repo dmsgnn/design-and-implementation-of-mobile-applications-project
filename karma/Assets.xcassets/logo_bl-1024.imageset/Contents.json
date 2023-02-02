@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "kLogo-20.png",
+      "filename" : "logo_bl-1024.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "kLogo-20@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "kLogo-20@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
