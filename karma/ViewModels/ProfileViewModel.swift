@@ -59,14 +59,14 @@ class ProfileViewModel: ObservableObject {
                 for i in 0 ..< payments.count {
                     self.receivedPayments[i].receiver = self.user
                     self.receivedPayments[i].isPositive = true
-                    self.balance += self.receivedPayments[i].total
+                    self.balance -= self.receivedPayments[i].total
                 }
                 self.paymentService.fetchPaymentsForSender(forUid: uid) { payments in
                     self.sentPayments = payments
                     for i in 0 ..< payments.count {
                         self.sentPayments[i].sender = self.user
                         self.sentPayments[i].isPositive = false
-                        self.balance -= self.sentPayments[i].total
+                        self.balance += self.sentPayments[i].total
                     }
                     self.totalPayments = self.receivedPayments + self.sentPayments
                     self.totalPayments = self.totalPayments.sorted(by: { $0.timestamp.dateValue() > $1.timestamp.dateValue() })

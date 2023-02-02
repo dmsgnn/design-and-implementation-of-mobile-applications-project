@@ -42,13 +42,13 @@ struct EditCollectionView: View {
                         collectionImage
                             .resizable()
                             .scaledToFill()
-                            .frame(width: UIDevice.isIPad ? 500 : 80, height: UIDevice.isIPad ? 400 : 80)
+                            .frame(width: UIDevice.isIPad ? 500 : 140, height: UIDevice.isIPad ? 400 : 140)
                             .clipShape(RoundedRectangle(cornerRadius: 10))
                     } else {
                         KFImage(URL(string: viewModel.collection.collectionImageUrl))
                             .resizable()
                             .scaledToFill()
-                            .frame(width: UIDevice.isIPad ? 500 : 80, height: UIDevice.isIPad ? 400 : 80)
+                            .frame(width: UIDevice.isIPad ? 500 : 140, height: UIDevice.isIPad ? 400 : 140)
                             .clipShape(RoundedRectangle(cornerRadius: 10))
                     }
                 }
@@ -86,7 +86,7 @@ struct EditCollectionView: View {
                 .frame(width: UIScreen.main.bounds.width*0.9)
                 .padding(.horizontal)
                 
-                Spacer().frame(width: 2, height: UIDevice.isIPad ? 100 : 20)
+                Spacer().frame(width: 2, height: UIDevice.isIPad ? 100 : 0)
                 
                 Text("Set your new amount...")
                     .font(.title2)
@@ -97,6 +97,7 @@ struct EditCollectionView: View {
                         Text("\(self.euros[index]) €").tag(index)
                     }
                 }
+                .offset(y: -20)
                 .pickerStyle(.wheel)
                 
             }
