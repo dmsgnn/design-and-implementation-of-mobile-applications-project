@@ -42,4 +42,4 @@ Apple Pay service has been integrated into karma application to allow users to m
 Four types of tests have been performed to verify the correctness of the karma application: unit testing, integration testing, UItesting, acceptance testing. Unit and integration testing have lead to a coverage higher than 80%.
 
 ## Documentation
-A more exhaustive list about karma functionalities and implementation can be found in the [design document](/deliverables/design_document).
+A more exhaustive list about karma functionalities and implementation can be found in the [design document](/deliverables/design_document.pdf).
