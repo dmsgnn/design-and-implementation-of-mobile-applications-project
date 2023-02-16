@@ -4,7 +4,7 @@ This project has been developed for the "Design and Implementation of Mobile App
 
 ## Description
 
-Aim of this project was to design, implement and test a mobile application in Swift called "karma", using the MVVM pattern. The application consists in a platform where it is possible to create an account to start a fundraising campaign to receive help through donations or to help someone else by donating to other campaigns. A non exhaustive list of the karma application features is the following:
+Aim of this project was to design, implement and test a mobile application in Swift called "karma", using the MVVM pattern. Karma is an application where it is possible to create an account to start a fundraising campaign to receive help through donations or to help someone else by donating to other campaigns. A non exhaustive list of the karma application features is the following:
 - Registration and login on karma service, using email and password
 - Creation of a new fundraising campaign, to receive donations from other users
 - Bookmark campaigns to consult them in a second moment in the bookmark section
